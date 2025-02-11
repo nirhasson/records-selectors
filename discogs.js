@@ -1,7 +1,12 @@
-const axios = require('axios');
-const SpotifyWebApi = require('spotify-web-api-node');
-const fs = require('fs');
-const path = require('path');
+import axios from 'axios';
+import SpotifyWebApi from 'spotify-web-api-node'
+import fs from 'fs';
+import path from 'path'
+
+// const axios = require('axios');
+// const SpotifyWebApi = require('spotify-web-api-node');
+// const fs = require('fs');
+// const path = require('path');
 
 const TOKEN = 'vXJXtxmtPTPMbptayjsnIaNWIsnaaBcqsbJdZext';
 
@@ -62,25 +67,25 @@ async function fetchRandomAlbumFromStore(storeName) {
   }
 }
 
-async function fetchRandomAlbum() {
+export async function fetchRandomAlbum() {
   try {
     await spotifyApi.clientCredentialsGrant().then(data => {
       spotifyApi.setAccessToken(data.body['access_token']);
     });
 
-    const customAlbums = getCustomAlbums();
-    const useCustomList = Math.random() < 0.02;
+    // const customAlbums = getCustomAlbums();
+    // const useCustomList = Math.random() < 0.02;
 
     let album;
-    if (useCustomList && customAlbums.length > 0) {
-      const randomIndex = Math.floor(Math.random() * customAlbums.length);
-      album = customAlbums[randomIndex];
-      console.log("Using custom album:", album);
-    } else {
-      const storeNames = Object.keys(storeInventories);
-      const randomStoreName = storeNames[Math.floor(Math.random() * storeNames.length)];
-      album = await fetchRandomAlbumFromStore(randomStoreName);
-    }
+    // if (useCustomList && customAlbums.length > 0) {
+    //   const randomIndex = Math.floor(Math.random() * customAlbums.length);
+    //   album = customAlbums[randomIndex];
+    //   console.log("Using custom album:", album);
+    // } else {
+    const storeNames = Object.keys(storeInventories);
+    const randomStoreName = storeNames[Math.floor(Math.random() * storeNames.length)];
+    album = await fetchRandomAlbumFromStore(randomStoreName);
+    // }
 
     if (album) {
       const searchQuery = `${album.artist} ${album.title}`.trim();
@@ -89,23 +94,25 @@ async function fetchRandomAlbum() {
       const spotifyAlbum = searchResult.body.albums.items[0];
 
       if (spotifyAlbum) {
-        console.log({
+        let output = {
           title: album.title,
           artist: album.artist,
           year: album.year,
           genre: album.genre,
           image: album.image,
           spotifyLink: spotifyAlbum.external_urls.spotify
-        });
+        };
+        console.log('This is Discogs output:', output)
+        return output;
       } else {
         console.log('Album not found on Spotify.');
+        return null;
       }
     } else {
       console.log('No album found in the selected store.');
+      return null;
     }
   } catch (error) {
     console.error('Error:', error.message);
   }
 }
-
-fetchRandomAlbum();

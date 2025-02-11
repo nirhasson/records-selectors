@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-const { fetchCustomAlbum, fetchRandomAlbum } = require('./discogs.js');
+const { fetchRandomAlbum } = require('./discogs.js');
 
 app.use(cors());
 
@@ -12,7 +12,7 @@ async function getAlbum() {
 
   try {
     const randomAlbum = await fetchRandomAlbum();
-    const customAlbum = await fetchCustomAlbum();
+    const customAlbum = null; // await fetchCustomAlbum();
 
     let percent = Math.ceil(Math.random() * 100);
     console.log(`🔢 Percent chosen: ${percent}`);
