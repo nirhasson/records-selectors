@@ -3,11 +3,6 @@ import SpotifyWebApi from 'spotify-web-api-node'
 import fs from 'fs';
 import path from 'path'
 
-// const axios = require('axios');
-// const SpotifyWebApi = require('spotify-web-api-node');
-// const fs = require('fs');
-// const path = require('path');
-
 const TOKEN = 'vXJXtxmtPTPMbptayjsnIaNWIsnaaBcqsbJdZext';
 
 // Initialize Spotify API connection
@@ -29,7 +24,7 @@ const storeInventories = {
 let previousAlbumId = null; // למניעת כפילויות
 
 function getCustomAlbums() {
-  const filePath = path.join(__dirname, 'custom_albums.json');
+  const filePath = path.resolve('custom_albums.json');
   if (fs.existsSync(filePath)) {
     const data = fs.readFileSync(filePath);
     return JSON.parse(data);
@@ -67,14 +62,42 @@ async function fetchRandomAlbumFromStore(storeName) {
   }
 }
 
+export async function fetchCustomAlbum() {
+  try {
+    await spotifyApi.clientCredentialsGrant().then(data => {
+      spotifyApi.setAccessToken(data.body['access_token']);
+    });
+
+    const customAlbums = getCustomAlbums();
+
+    let album;
+    const randomIndex = Math.floor(Math.random() * customAlbums.length);
+    album = customAlbums[randomIndex];
+
+    let output = {
+      title: album.title,
+      artist: album.artist,
+      year: album.year,
+      genre: album.genre,
+      image: album.image,
+      spotifyLink: album.spotifyLink
+    };
+
+    console.log('This is Discogs output:', output)
+    return output;
+
+  } catch (error) {
+    console.log('fetchCustomAlbum finished with an error: ', error);
+    return null;
+  }
+}
+
 export async function fetchRandomAlbum() {
   try {
     await spotifyApi.clientCredentialsGrant().then(data => {
       spotifyApi.setAccessToken(data.body['access_token']);
     });
 
-    // const customAlbums = getCustomAlbums();
-    // const useCustomList = Math.random() < 0.02;
 
     let album;
     // if (useCustomList && customAlbums.length > 0) {

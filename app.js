@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-const { fetchRandomAlbum } = require('./discogs.js');
+const { fetchRandomAlbum, fetchCustomAlbum } = require('./discogs.js');
 
 app.use(cors());
 
@@ -11,13 +11,12 @@ async function getAlbum() {
   console.log("🔄 Fetching album...");
 
   try {
-    const randomAlbum = await fetchRandomAlbum();
-    const customAlbum = null; // await fetchCustomAlbum();
+    const customAlbum = await fetchCustomAlbum();
 
     let percent = Math.ceil(Math.random() * 100);
     console.log(`🔢 Percent chosen: ${percent}`);
 
-    let album = (percent < 50 && customAlbum) ? customAlbum : randomAlbum;
+    let album = (percent < 1 && customAlbum) ? customAlbum : await fetchRandomAlbum();
 
     if (!album || !album.title) {
       console.error("🚨 Error in getAlbum: ❌ No album found in both sources.");
