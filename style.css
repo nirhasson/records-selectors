@@ -1,0 +1,116 @@
+body {
+    font-family: "Jockey One", serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #373737;
+}
+header {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+
+#logo {
+    width: 150px; /* ניתן לשנות בהתאם לעיצוב */
+    height: auto;
+}
+
+h1 {
+  font-family: "Jockey One", serif;
+    font-size: 2em;
+    color: #8281FE;
+}
+
+h2 {
+    color: #FFFFFF;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+#explore-button {
+    background: url("images/riffle-btn.svg") no-repeat center center;
+    background-size: contain;
+    border: none;
+    width: 200px; /* גודל אחיד */
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute; /* ממקם במרכז הדף */
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-in-out; /* אנימציה חלקה */
+}
+
+/* עיצוב הטקסט */
+#explore-button span {
+    font-size: 20px;
+    font-weight: bold;
+    color: white; /* צבע הטקסט */
+    font-family: 'Jockey One', sans-serif;
+    position: absolute; /* מוודא שהטקסט יושב מעל התמונה */
+}
+
+/* אפקט hover */
+#explore-button:hover {
+    transform: translate(-50%, -50%) scale(1.08); /* הגדלה קלה */
+}
+
+/* אפקט לחיצה */
+#explore-button:active {
+    transform: translate(-50%, -50%) scale(0.95); /* קטן טיפה בלחיצה */
+}
+
+
+
+button {
+    padding: 10px 20px;
+    font-family: "Jockey One", serif;
+    font-size: 1em;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #8281FE;
+}
+
+#result-screen {
+    color: white; /* משנה את צבע הטקסט ללבן */
+}
+
+#explore-again-button {
+    background-color: transparent; /* רקע שקוף */
+    border: 2px solid #8281FE; /* מסגרת בצבע 8281FE */
+    color: #8281FE; /* צבע טקסט */
+    font-size: 18px; /* גודל טקסט */
+    padding: 10px 20px; /* ריווח פנימי */
+    border-radius: 8px; /* קצוות מעוגלים */
+    cursor: pointer; /* שינוי סמן העכבר */
+    transition: all 0.3s ease-in-out; /* אנימציה חלקה */
+}
+
+/* אפקט hover */
+#explore-again-button:hover {
+    background-color: #8281FE; /* רקע מתמלא */
+    color: white; /* טקסט לבן */
+}
+
+
+#albumDetails {
+    margin-top: 20px;
+
+}
+
+#albumImage {
+    max-width: 150px;
+    margin-top: 10px;
+}

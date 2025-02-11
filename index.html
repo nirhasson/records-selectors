@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Jockey+One&display=swap" rel="stylesheet">
+    <title>Album Explorer</title>
+</head>
+<header>
+    <a href="index.html">
+        <img src="images/WaxRiffle-logo-white.svg" alt="WaxRiffle Logo" id="logo">
+    </a>
+</header>
+
+<body>
+    <!-- מסך ראשי -->
+    <div id="main-screen" style="display: block; text-align: center; padding: 50px;">
+        <h1>Welcome to WaxRiffle</h1>
+        <h2>Dig Into the Unknown</h2>
+        <h3>Discover Thousands of Unique Albums—Handpicked by Music Lovers!</h3>
+
+
+
+        <button id="explore-button">
+        <span>Start Riffle</span>
+    </button>
+    </div>
+
+    <!-- מסך תוצאה -->
+    <div id="result-screen" style="display: none; text-align: center; padding: 50px;">
+        <h1>Album Details</h1>
+        <p><strong>Title:</strong> <span id="album-title">Loading...</span></p>
+        <p><strong>Artist:</strong> <span id="album-artist">Loading...</span></p>
+        <p><strong>Year:</strong> <span id="album-year">Loading...</span></p>
+        <p><strong>Genre:</strong> <span id="album-genre">Loading...</span></p>
+        <img id="album-image" src="" alt="Album cover" style="max-width: 250px; margin-top: 20px;" />
+        <br><br>
+        <a id="spotify-link" href="#" target="_blank" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #1DB954; color: white; text-decoration: none; font-size: 18px;">Listen on Spotify</a>
+        <br><br>
+        <button id="explore-again-button" style="padding: 10px 20px; font-size: 18px;">Next Album</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
