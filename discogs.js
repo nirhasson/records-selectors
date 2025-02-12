@@ -19,6 +19,8 @@ const storeInventories = {
   'eskotrackl': 'https://api.discogs.com/users/eskotrackl/inventory',
   'Taboca_Discos': 'https://api.discogs.com/users/Taboca_Discos/inventory',
   'RushHour': 'https://api.discogs.com/users/RushHour/inventory',
+  'LoFi-Concept': 'https://api.discogs.com/users/LoFi-Concept/inventory',
+
 };
 
 let previousAlbumId = null; // למניעת כפילויות

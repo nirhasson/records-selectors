@@ -22,7 +22,7 @@ async function getAlbum() {
       console.error("🚨 Error in getAlbum: ❌ No album found in both sources.");
       return null;
     }
-
+    console.log(`🏪 Album selected from store: ${album.store || 'Custom List'}`);
     console.log("✅ Album found:", album);
     return album;
   } catch (error) {
