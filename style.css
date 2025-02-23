@@ -12,7 +12,13 @@ header {
 
 #logo {
     width: 150px; /* ניתן לשנות בהתאם לעיצוב */
+    max-width: 80%; /* התאמת הלוגו למסכים קטנים */
     height: auto;
+}
+#main-screen h1,
+#main-screen h2,
+#main-screen h3 {
+    margin-bottom: 20px; /* מוסיף רווח מתחת לכותרות */
 }
 
 h1 {
@@ -28,7 +34,6 @@ h2 {
 h3 {
     color: #FFFFFF;
     font-weight: normal;
-font-weight: 400;
 }
 
 #explore-button {
@@ -37,6 +42,8 @@ font-weight: 400;
     border: none;
     width: 200px; /* גודל אחיד */
     height: 200px;
+    margin: 30px auto; /* מבטיח שהכפתור יהיה במרכז ויהיה רווח */
+    padding: 15px 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,6 +128,24 @@ button:hover {
     margin-top: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    #logo {
+        max-width: 60%; /* לוגו קטן יותר במובייל */
+    }
+
+    #explore-button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    h1, h2, h3 {
+        font-size: 16px; /* הקטנת כותרות כך שלא יצאו מהמסך */
+    }
+
+    #main-screen {
+        padding: 10px;
+    }
+}
 
 /*.lds-ripple,
 .lds-ripple span {
