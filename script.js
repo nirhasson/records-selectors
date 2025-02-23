@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // פונקציה למשיכת נתוני אלבום מה-Backend
   async function fetchAlbumData() {
     try {
-      const response = await fetch('https://wax-riffle.vercel.app/'); // עדכון הנתיב
+      const response = await fetch('https://wax-riffle.vercel.app/album'); // עדכון הנתיב
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // בדיקת הנתונים שמתקבלים
