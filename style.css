@@ -10,11 +10,27 @@ header {
     left: 60px;
 }
 
+/* עיצוב הלוגו בדסקטופ */
 #logo {
-    width: 150px; /* ניתן לשנות בהתאם לעיצוב */
-    max-width: 80%; /* התאמת הלוגו למסכים קטנים */
-    height: auto;
+    position: absolute;
+    top: 20px; /* שמירת מרווח מהחלק העליון */
+    left: 20px; /* הצמדת הלוגו לשמאל */
+    width: 150px; /* גודל סטנדרטי */
+    z-index: 100; /* ווידוא שהלוגו מעל כל האלמנטים */
 }
+
+/* התאמות למובייל */
+@media (max-width: 768px) {
+    #logo {
+        width: 100px; /* הקטנת הלוגו */
+        top: 10px; /* התאמת גובה */
+        left: 10px; /* התאמת השוליים */
+        display: block; /* לוודא שהוא לא מוסתר */
+        position: fixed; /* שומר על המיקום גם בגלילה */
+
+    }
+}
+
 #main-screen h1,
 #main-screen h2,
 #main-screen h3 {
@@ -145,6 +161,30 @@ button:hover {
     #main-screen {
         padding: 10px;
     }
+}
+
+footer {
+  position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    color: #FFFFFF;
+    padding: 20px;
+    font-size: 10px;
+    text-align: center;
+
+}
+
+footer a {
+    color: #FFFFFF; /* ירוק של ספוטיפיי */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /*.lds-ripple,
