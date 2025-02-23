@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const albumData = await fetchAlbumData();
       if (albumData) {
         updateUI(albumData);
+        exploreAgainButton.classList.remove("loading");
       } else {
         alert('⚠️ Failed to load album data. Please try again.');
       }
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // מאזין ללחיצה על כפתור "Explore Again"
   if (exploreAgainButton) {
     exploreAgainButton.addEventListener('click', () => {
+      exploreAgainButton.classList.add("loading");
       if (exploreButton) exploreButton.click();
     });
   }
