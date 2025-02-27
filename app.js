@@ -1,12 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const { fetchRandomAlbum, fetchCustomAlbum } = require('./discogs.js');
 
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
 
 async function getAlbum() {
   console.log("🔄 Fetching album...");
@@ -46,6 +47,10 @@ app.get('/album', async (req, res) => {
     console.error('🚨 Error fetching album:', error);
     res.status(500).json({ error: 'Failed to fetch album' });
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html')); // Serve the index.html file for all other routes
 });
 
 app.listen(PORT, () => {
