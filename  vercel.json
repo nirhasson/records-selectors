@@ -5,6 +5,7 @@
   ],
   "routes": [
     { "src": "/album", "dest": "/app.js" },
-    { "src": "/", "dest": "/index.html" }
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/app.js" }
   ]
 }
