@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to fetch album data from the backend
   async function fetchAlbumData() {
     try {
-      const response = await fetch('/album'); // Update the path to the correct endpoint
+      const response = await fetch('api/album'); // Update the path to the correct endpoint
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // Check the received data

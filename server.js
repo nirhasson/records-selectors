@@ -4,7 +4,7 @@ const axios = require('axios');
 const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // קביעת פורט גמיש בהתאם לסביבה
 
 // Enable CORS for frontend-backend communication
 app.use(cors());
