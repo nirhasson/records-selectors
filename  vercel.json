@@ -1,16 +1,8 @@
-
-
 {
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node"
+  "version": 2,
+  "functions": {
+    "api/*.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/album",
-      "dest": "/server.js"
-    }
-  ]
+  }
 }
