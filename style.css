@@ -1,9 +1,13 @@
 body {
     font-family: "Jockey One", serif;
     text-align: center;
-    margin: 20px;
+    margin: 0;
     background-color: #373737;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 header {
     position: absolute;
     top: 30px;
@@ -27,7 +31,6 @@ header {
         left: 10px; /* התאמת השוליים */
         display: block; /* לוודא שהוא לא מוסתר */
         position: fixed; /* שומר על המיקום גם בגלילה */
-
     }
 }
 
@@ -38,7 +41,7 @@ header {
 }
 
 h1 {
-  font-family: "Jockey One", serif;
+    font-family: "Jockey One", serif;
     font-size: 2em;
     color: #8281FE;
 }
@@ -90,8 +93,6 @@ h3 {
     transform: translate(-50%, -50%) scale(0.95); /* קטן טיפה בלחיצה */
 }
 
-
-
 button {
     padding: 10px 20px;
     font-family: "Jockey One", serif;
@@ -113,7 +114,7 @@ button:hover {
 }
 
 #spotify-link {
-  border-radius: 8px;
+    border-radius: 8px;
 }
 
 #explore-again-button {
@@ -133,10 +134,8 @@ button:hover {
     color: white; /* טקסט לבן */
 }
 
-
 #albumDetails {
     margin-top: 20px;
-
 }
 
 #albumImage {
@@ -163,18 +162,19 @@ button:hover {
     }
 }
 
-footer {
-  position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+.content-wrap {
+    flex: 1;
+}
 
-    width: 100%;
+footer {
+    background-color: #4CAF50;
     color: #FFFFFF;
     padding: 20px;
     font-size: 12px;
     text-align: center;
-
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 footer a {
@@ -186,6 +186,8 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+
 
 /*.lds-ripple,
 .lds-ripple span {
