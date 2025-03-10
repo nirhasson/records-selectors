@@ -97,8 +97,8 @@ function similarityScore(str1, str2) {
   return matchPercentage
 }
 
-// Find best match from Spotify results
-function findBestMatch(discogsAlbum, spotifyResults) {
+// Find best match from Spotify results with adjustable weights
+function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWeight = 0.6) {
   if (
     !spotifyResults ||
     !spotifyResults.body ||
@@ -113,14 +113,14 @@ function findBestMatch(discogsAlbum, spotifyResults) {
 
   // Calculate scores for each result
   const scoredResults = items.map((album) => {
-    // Title similarity (most important)
-    const titleScore = similarityScore(discogsAlbum.title, album.name) * 0.6
+    // Title similarity
+    const titleScore = similarityScore(discogsAlbum.title, album.name) * titleWeight
 
     // Artist similarity
     let artistScore = 0
     if (album.artists && album.artists.length > 0) {
       const artistName = album.artists[0].name
-      artistScore = similarityScore(discogsAlbum.artist, artistName) * 0.4
+      artistScore = similarityScore(discogsAlbum.artist, artistName) * artistWeight
     }
 
     // Year similarity (bonus if available)
@@ -161,6 +161,107 @@ function findBestMatch(discogsAlbum, spotifyResults) {
 
   // Return the best match if it has a reasonable score
   return scoredResults[0].score > 40 ? scoredResults[0].album : null
+}
+
+// Find best match from Spotify track results with adjustable weights
+function findBestTrackMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWeight = 0.6) {
+  if (
+    !spotifyResults ||
+    !spotifyResults.body ||
+    !spotifyResults.body.tracks ||
+    !spotifyResults.body.tracks.items ||
+    spotifyResults.body.tracks.items.length === 0
+  ) {
+    return null
+  }
+
+  const items = spotifyResults.body.tracks.items
+
+  // Calculate scores for each result
+  const scoredResults = items.map((track) => {
+    // Title similarity
+    const titleScore = similarityScore(discogsAlbum.title, track.name) * titleWeight
+
+    // Artist similarity
+    let artistScore = 0
+    if (track.artists && track.artists.length > 0) {
+      const artistName = track.artists[0].name
+      artistScore = similarityScore(discogsAlbum.artist, artistName) * artistWeight
+    }
+
+    const totalScore = titleScore + artistScore
+
+    return {
+      track,
+      score: totalScore,
+      details: {
+        titleScore,
+        artistScore,
+      },
+    }
+  })
+
+  // Sort by score (highest first)
+  scoredResults.sort((a, b) => b.score - a.score)
+
+  // Log the top 3 results for debugging
+  console.log("Top track matches:")
+  scoredResults.slice(0, 3).forEach((result, i) => {
+    console.log(
+      `${i + 1}. "${result.track.name}" by ${result.track.artists[0].name} (Score: ${result.score.toFixed(2)})`,
+    )
+    console.log(`   Title: ${result.details.titleScore.toFixed(2)}, Artist: ${result.details.artistScore.toFixed(2)}`)
+  })
+
+  // Return the best match if it has a reasonable score
+  return scoredResults[0].score > 40 ? scoredResults[0].track : null
+}
+
+// Find albums by a specific artist
+async function findAlbumsByArtist(artistName) {
+  try {
+    // First search for the artist
+    const artistResults = await spotifyApi.searchArtists(artistName, { limit: 5 })
+
+    if (
+      !artistResults.body.artists ||
+      !artistResults.body.artists.items ||
+      artistResults.body.artists.items.length === 0
+    ) {
+      return null
+    }
+
+    // Find the best artist match
+    const artists = artistResults.body.artists.items
+    const scoredArtists = artists.map((artist) => ({
+      artist,
+      score: similarityScore(artistName, artist.name),
+    }))
+
+    scoredArtists.sort((a, b) => b.score - a.score)
+
+    // If we have a good artist match
+    if (scoredArtists[0].score > 60) {
+      const artist = scoredArtists[0].artist
+      console.log(`Found artist: ${artist.name} (Score: ${scoredArtists[0].score.toFixed(2)})`)
+
+      // Get albums by this artist
+      const albumsResult = await spotifyApi.getArtistAlbums(artist.id, { limit: 50, include_groups: "album,single" })
+
+      if (albumsResult.body.items && albumsResult.body.items.length > 0) {
+        console.log(`Found ${albumsResult.body.items.length} albums by ${artist.name}`)
+        return {
+          artist,
+          albums: albumsResult.body.items,
+        }
+      }
+    }
+
+    return null
+  } catch (error) {
+    console.error("Error finding albums by artist:", error.message)
+    return null
+  }
 }
 
 async function fetchRandomAlbumFromStore(storeName) {
@@ -256,6 +357,8 @@ async function fetchRandomAlbum() {
     if (album) {
       // Try multiple search strategies
       let spotifyAlbum = null
+      let spotifyTrack = null
+      let artistAlbums = null
       let searchResults = null
 
       // Strategy 1: Search with exact artist and title
@@ -294,6 +397,48 @@ async function fetchRandomAlbum() {
         spotifyAlbum = findBestMatch(album, searchResults)
       }
 
+      // Strategy 5: If no album found, try searching for tracks instead
+      if (!spotifyAlbum) {
+        console.log("No album match found, trying track search...")
+        const trackSearchQuery = `${album.artist} ${album.title}`.trim()
+        const trackResults = await spotifyApi.searchTracks(trackSearchQuery, { limit: 10 })
+        spotifyTrack = findBestTrackMatch(album, trackResults)
+      }
+
+      // Strategy 6: If no track found, try finding the artist and their albums
+      if (!spotifyAlbum && !spotifyTrack) {
+        console.log("No track match found, trying artist search...")
+        artistAlbums = await findAlbumsByArtist(album.artist)
+
+        // If we found albums by this artist, try to find the best match
+        if (artistAlbums && artistAlbums.albums.length > 0) {
+          const artistAlbumMatches = artistAlbums.albums.map((artistAlbum) => ({
+            album: artistAlbum,
+            score: similarityScore(album.title, artistAlbum.name),
+          }))
+
+          artistAlbumMatches.sort((a, b) => b.score - a.score)
+
+          // Log the top matches
+          console.log("Top artist album matches:")
+          artistAlbumMatches.slice(0, 3).forEach((match, i) => {
+            console.log(`${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)})`)
+          })
+
+          // If we have a reasonable match, use it
+          if (artistAlbumMatches[0].score > 30) {
+            spotifyAlbum = artistAlbumMatches[0].album
+            console.log(
+              `Using best artist album match: "${spotifyAlbum.name}" (Score: ${artistAlbumMatches[0].score.toFixed(2)})`,
+            )
+          } else {
+            // Otherwise, just use the first album by this artist
+            spotifyAlbum = artistAlbums.albums[0]
+            console.log(`Using first album by artist: "${spotifyAlbum.name}"`)
+          }
+        }
+      }
+
       // Create output with or without Spotify link
       const output = {
         title: album.title,
@@ -306,13 +451,33 @@ async function fetchRandomAlbum() {
       }
 
       if (spotifyAlbum) {
+        // אם נמצא אלבום
         output.spotifyLink = spotifyAlbum.external_urls.spotify
         output.spotifyName = spotifyAlbum.name
-        output.spotifyArtist = spotifyAlbum.artists[0].name
+        output.spotifyArtist = spotifyAlbum.artists
+          ? spotifyAlbum.artists[0].name
+          : artistAlbums?.artist.name || album.artist
+        output.spotifyType = "album"
+        output.matchSource = artistAlbums ? "artist-albums" : "album-search"
 
-        console.log(`✅ Found match on Spotify: "${spotifyAlbum.name}" by ${spotifyAlbum.artists[0].name}`)
+        console.log(`✅ Found album match on Spotify: "${spotifyAlbum.name}" by ${output.spotifyArtist}`)
+      } else if (spotifyTrack) {
+        // אם נמצא שיר
+        output.spotifyLink = spotifyTrack.external_urls.spotify
+        output.spotifyName = spotifyTrack.name
+        output.spotifyArtist = spotifyTrack.artists[0].name
+        output.spotifyType = "track"
+        output.matchSource = "track-search"
+
+        // אם יש אלבום לשיר, שמור גם את הקישור אליו
+        if (spotifyTrack.album && spotifyTrack.album.external_urls) {
+          output.spotifyAlbumLink = spotifyTrack.album.external_urls.spotify
+          output.spotifyAlbumName = spotifyTrack.album.name
+        }
+
+        console.log(`✅ Found track match on Spotify: "${spotifyTrack.name}" by ${spotifyTrack.artists[0].name}`)
       } else {
-        // אם לא נמצא אלבום, נחפש את האמן
+        // אם לא נמצא אלבום או שיר, נחפש את האמן
         try {
           const artistSearchResult = await spotifyApi.searchArtists(album.artist)
           if (
@@ -322,21 +487,28 @@ async function fetchRandomAlbum() {
           ) {
             // אם נמצא האמן, נשתמש בקישור אליו
             output.spotifyLink = artistSearchResult.body.artists.items[0].external_urls.spotify
+            output.spotifyType = "artist"
+            output.spotifyArtist = artistSearchResult.body.artists.items[0].name
+            output.matchSource = "artist-only"
             console.log(`🎵 Found artist on Spotify: ${artistSearchResult.body.artists.items[0].name}`)
           } else {
             // אם לא נמצא גם האמן, נשתמש בקישור לחיפוש
             const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
             output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+            output.spotifyType = "search"
+            output.matchSource = "search-fallback"
             console.log(`🔍 Created search link: ${output.spotifyLink}`)
           }
         } catch (err) {
           // במקרה של שגיאה, נשתמש בקישור לחיפוש
           const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
           output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+          output.spotifyType = "search"
+          output.matchSource = "search-fallback"
           console.log(`🔍 Created search link: ${output.spotifyLink}`)
         }
 
-        console.log("❌ No good album match found on Spotify")
+        console.log("❌ No good match found on Spotify")
       }
 
       console.log("Final output:", output)
