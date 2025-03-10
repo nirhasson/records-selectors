@@ -312,7 +312,31 @@ async function fetchRandomAlbum() {
 
         console.log(`✅ Found match on Spotify: "${spotifyAlbum.name}" by ${spotifyAlbum.artists[0].name}`)
       } else {
-        console.log("❌ No good match found on Spotify")
+        // אם לא נמצא אלבום, נחפש את האמן
+        try {
+          const artistSearchResult = await spotifyApi.searchArtists(album.artist)
+          if (
+            artistSearchResult.body.artists &&
+            artistSearchResult.body.artists.items &&
+            artistSearchResult.body.artists.items.length > 0
+          ) {
+            // אם נמצא האמן, נשתמש בקישור אליו
+            output.spotifyLink = artistSearchResult.body.artists.items[0].external_urls.spotify
+            console.log(`🎵 Found artist on Spotify: ${artistSearchResult.body.artists.items[0].name}`)
+          } else {
+            // אם לא נמצא גם האמן, נשתמש בקישור לחיפוש
+            const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+            output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+            console.log(`🔍 Created search link: ${output.spotifyLink}`)
+          }
+        } catch (err) {
+          // במקרה של שגיאה, נשתמש בקישור לחיפוש
+          const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+          output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+          console.log(`🔍 Created search link: ${output.spotifyLink}`)
+        }
+
+        console.log("❌ No good album match found on Spotify")
       }
 
       console.log("Final output:", output)

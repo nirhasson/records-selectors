@@ -25,6 +25,13 @@ module.exports = async (req, res) => {
         return res.status(500).json({ error: "No album found" })
       }
 
+      // וודא שיש תמיד קישור לספוטיפיי, אפילו אם זה רק קישור לחיפוש
+      if (!album.spotifyLink) {
+        const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+        album.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+        console.log(`🔍 Added fallback search link: ${album.spotifyLink}`)
+      }
+
       console.log(`🏪 Album selected from store: ${album.store || "Custom List"}`)
       console.log("✅ Sending album to frontend:", album)
       return res.status(200).json(album)
