@@ -97,8 +97,87 @@ function similarityScore(str1, str2) {
   return matchPercentage
 }
 
-// Find best match from Spotify results with adjustable weights
-function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWeight = 0.6) {
+// Check if an artist name is a partial match (e.g., "Marisa" matches "Marisa Monte")
+function isPartialArtistMatch(shortName, fullName) {
+  if (!shortName || !fullName) return false
+
+  const short = shortName.toLowerCase().trim()
+  const full = fullName.toLowerCase().trim()
+
+  // Exact match
+  if (short === full) return true
+
+  // Check if short name is a prefix of full name
+  if (full.startsWith(short + " ")) return true
+
+  // Check if short name is a complete word in full name
+  const fullWords = full.split(" ")
+  return fullWords.includes(short)
+}
+
+// Calculate year similarity (0-100)
+function yearSimilarity(year1, year2) {
+  if (!year1 || !year2) return 0
+
+  // Try to parse years as numbers
+  const y1 = Number.parseInt(year1)
+  const y2 = Number.parseInt(year2)
+
+  if (isNaN(y1) || isNaN(y2)) return 0
+
+  // Exact match
+  if (y1 === y2) return 100
+
+  // Calculate difference
+  const diff = Math.abs(y1 - y2)
+
+  // Within 1 year
+  if (diff <= 1) return 90
+
+  // Within 2 years
+  if (diff <= 2) return 80
+
+  // Within 5 years
+  if (diff <= 5) return 60
+
+  // Within 10 years
+  if (diff <= 10) return 40
+
+  // More than 10 years
+  return 0
+}
+
+// Calculate genre similarity (0-100)
+function genreSimilarity(genre1, genre2) {
+  if (!genre1 || !genre2) return 0
+
+  const g1 = genre1.toLowerCase()
+  const g2 = genre2.toLowerCase()
+
+  // Split genres into arrays
+  const genres1 = g1.split(/[,&/]/).map((g) => g.trim())
+  const genres2 = g2.split(/[,&/]/).map((g) => g.trim())
+
+  // Count matching genres
+  let matchCount = 0
+  for (const genre of genres1) {
+    if (genre.length < 3) continue // Skip short genres
+    for (const otherGenre of genres2) {
+      if (otherGenre.length < 3) continue
+      if (genre === otherGenre || genre.includes(otherGenre) || otherGenre.includes(genre)) {
+        matchCount++
+        break
+      }
+    }
+  }
+
+  // Calculate percentage
+  const matchPercentage = (matchCount / Math.max(genres1.length, genres2.length)) * 100
+  return matchPercentage
+}
+
+// Find best match from Spotify results with comprehensive scoring
+function findBestMatch(discogsAlbum, spotifyResults, options = {}) {
   if (
     !spotifyResults ||
     !spotifyResults.body ||
@@ -109,30 +188,68 @@ function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWe
     return null
   }
 
+  // Default weights
+  const weights = {
+    title: options.titleWeight || 0.4,
+    artist: options.artistWeight || 0.3,
+    year: options.yearWeight || 0.2,
+    genre: options.genreWeight || 0.1,
+    exactMatch: options.exactMatchBonus || 20,
+    partialArtistPenalty: options.partialArtistPenalty || 10,
+  }
+
   const items = spotifyResults.body.albums.items
 
   // Calculate scores for each result
   const scoredResults = items.map((album) => {
     // Title similarity
-    const titleScore = similarityScore(discogsAlbum.title, album.name) * titleWeight
+    const titleScore = similarityScore(discogsAlbum.title, album.name) * weights.title
 
     // Artist similarity
     let artistScore = 0
+    let isPartialMatch = false
     if (album.artists && album.artists.length > 0) {
       const artistName = album.artists[0].name
-      artistScore = similarityScore(discogsAlbum.artist, artistName) * artistWeight
-    }
 
-    // Year similarity (bonus if available)
-    let yearScore = 0
-    if (discogsAlbum.year && album.release_date) {
-      const albumYear = album.release_date.substring(0, 4)
-      if (discogsAlbum.year === albumYear) {
-        yearScore = 10
+      // Check for exact match first
+      const exactMatchScore = similarityScore(discogsAlbum.artist, artistName)
+
+      // Check for partial match (e.g., "Marisa" vs "Marisa Monte")
+      isPartialMatch = isPartialArtistMatch(discogsAlbum.artist, artistName)
+
+      // Use the higher score, but penalize partial matches slightly
+      artistScore = exactMatchScore * weights.artist
+
+      // Apply penalty for partial matches to prefer exact matches
+      if (isPartialMatch && exactMatchScore < 90) {
+        artistScore -= weights.partialArtistPenalty
       }
     }
 
-    const totalScore = titleScore + artistScore + yearScore
+    // Year similarity
+    let yearScore = 0
+    if (discogsAlbum.year && album.release_date) {
+      const albumYear = album.release_date.substring(0, 4)
+      yearScore = yearSimilarity(discogsAlbum.year, albumYear) * weights.year
+    }
+
+    // Genre similarity (if available)
+    let genreScore = 0
+    if (discogsAlbum.genre && album.genres && album.genres.length > 0) {
+      const albumGenres = album.genres.join(", ")
+      genreScore = genreSimilarity(discogsAlbum.genre, albumGenres) * weights.genre
+    }
+
+    // Exact match bonus (if both title and artist are exact matches)
+    let exactMatchBonus = 0
+    if (
+      similarityScore(discogsAlbum.title, album.name) > 90 &&
+      similarityScore(discogsAlbum.artist, album.artists[0].name) > 90
+    ) {
+      exactMatchBonus = weights.exactMatch
+    }
+
+    const totalScore = titleScore + artistScore + yearScore + genreScore + exactMatchBonus
 
     return {
       album,
@@ -141,6 +258,9 @@ function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWe
         titleScore,
         artistScore,
         yearScore,
+        genreScore,
+        exactMatchBonus,
+        isPartialMatch,
       },
     }
   })
@@ -155,7 +275,7 @@ function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWe
       `${i + 1}. "${result.album.name}" by ${result.album.artists[0].name} (Score: ${result.score.toFixed(2)})`,
     )
     console.log(
-      `   Title: ${result.details.titleScore.toFixed(2)}, Artist: ${result.details.artistScore.toFixed(2)}, Year: ${result.details.yearScore}`,
+      `   Title: ${result.details.titleScore.toFixed(2)}, Artist: ${result.details.artistScore.toFixed(2)}, Year: ${result.details.yearScore.toFixed(2)}, Genre: ${result.details.genreScore.toFixed(2)}, ExactBonus: ${result.details.exactMatchBonus}, PartialMatch: ${result.details.isPartialMatch}`,
     )
   })
 
@@ -163,8 +283,8 @@ function findBestMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWe
   return scoredResults[0].score > 40 ? scoredResults[0].album : null
 }
 
-// Find best match from Spotify track results with adjustable weights
-function findBestTrackMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, titleWeight = 0.6) {
+// Find best match from Spotify track results
+function findBestTrackMatch(discogsAlbum, spotifyResults, options = {}) {
   if (
     !spotifyResults ||
     !spotifyResults.body ||
@@ -175,21 +295,52 @@ function findBestTrackMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, ti
     return null
   }
 
+  // Default weights
+  const weights = {
+    title: options.titleWeight || 0.5,
+    artist: options.artistWeight || 0.4,
+    exactMatch: options.exactMatchBonus || 20,
+    partialArtistPenalty: options.partialArtistPenalty || 10,
+  }
+
   const items = spotifyResults.body.tracks.items
 
   // Calculate scores for each result
   const scoredResults = items.map((track) => {
     // Title similarity
-    const titleScore = similarityScore(discogsAlbum.title, track.name) * titleWeight
+    const titleScore = similarityScore(discogsAlbum.title, track.name) * weights.title
 
     // Artist similarity
     let artistScore = 0
+    let isPartialMatch = false
     if (track.artists && track.artists.length > 0) {
       const artistName = track.artists[0].name
-      artistScore = similarityScore(discogsAlbum.artist, artistName) * artistWeight
+
+      // Check for exact match first
+      const exactMatchScore = similarityScore(discogsAlbum.artist, artistName)
+
+      // Check for partial match (e.g., "Marisa" vs "Marisa Monte")
+      isPartialMatch = isPartialArtistMatch(discogsAlbum.artist, artistName)
+
+      // Use the higher score, but penalize partial matches slightly
+      artistScore = exactMatchScore * weights.artist
+
+      // Apply penalty for partial matches to prefer exact matches
+      if (isPartialMatch && exactMatchScore < 90) {
+        artistScore -= weights.partialArtistPenalty
+      }
     }
 
-    const totalScore = titleScore + artistScore
+    // Exact match bonus (if both title and artist are exact matches)
+    let exactMatchBonus = 0
+    if (
+      similarityScore(discogsAlbum.title, track.name) > 90 &&
+      similarityScore(discogsAlbum.artist, track.artists[0].name) > 90
+    ) {
+      exactMatchBonus = weights.exactMatch
+    }
+
+    const totalScore = titleScore + artistScore + exactMatchBonus
 
     return {
       track,
@@ -197,6 +348,8 @@ function findBestTrackMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, ti
       details: {
         titleScore,
         artistScore,
+        exactMatchBonus,
+        isPartialMatch,
       },
     }
   })
@@ -210,18 +363,20 @@ function findBestTrackMatch(discogsAlbum, spotifyResults, artistWeight = 0.4, ti
     console.log(
       `${i + 1}. "${result.track.name}" by ${result.track.artists[0].name} (Score: ${result.score.toFixed(2)})`,
     )
-    console.log(`   Title: ${result.details.titleScore.toFixed(2)}, Artist: ${result.details.artistScore.toFixed(2)}`)
+    console.log(
+      `   Title: ${result.details.titleScore.toFixed(2)}, Artist: ${result.details.artistScore.toFixed(2)}, ExactBonus: ${result.details.exactMatchBonus}, PartialMatch: ${result.details.isPartialMatch}`,
+    )
   })
 
   // Return the best match if it has a reasonable score
   return scoredResults[0].score > 40 ? scoredResults[0].track : null
 }
 
-// Find albums by a specific artist
-async function findAlbumsByArtist(artistName) {
+// Find albums by a specific artist with exact name matching
+async function findAlbumsByArtist(artistName, exactMatchOnly = false) {
   try {
     // First search for the artist
-    const artistResults = await spotifyApi.searchArtists(artistName, { limit: 5 })
+    const artistResults = await spotifyApi.searchArtists(artistName, { limit: 10 })
 
     if (
       !artistResults.body.artists ||
@@ -233,12 +388,30 @@ async function findAlbumsByArtist(artistName) {
 
     // Find the best artist match
     const artists = artistResults.body.artists.items
-    const scoredArtists = artists.map((artist) => ({
-      artist,
-      score: similarityScore(artistName, artist.name),
-    }))
+    const scoredArtists = artists.map((artist) => {
+      const exactScore = similarityScore(artistName, artist.name)
+      const isPartial = isPartialArtistMatch(artistName, artist.name)
+
+      // If we want exact matches only, penalize partial matches heavily
+      const score = exactMatchOnly && isPartial && exactScore < 90 ? exactScore * 0.5 : exactScore
+
+      return {
+        artist,
+        score,
+        isExactMatch: exactScore > 90,
+        isPartialMatch: isPartial,
+      }
+    })
 
     scoredArtists.sort((a, b) => b.score - a.score)
+
+    // Log artist matches
+    console.log("Artist matches:")
+    scoredArtists.slice(0, 3).forEach((result, i) => {
+      console.log(
+        `${i + 1}. ${result.artist.name} (Score: ${result.score.toFixed(2)}, Exact: ${result.isExactMatch}, Partial: ${result.isPartialMatch})`,
+      )
+    })
 
     // If we have a good artist match
     if (scoredArtists[0].score > 60) {
@@ -253,6 +426,8 @@ async function findAlbumsByArtist(artistName) {
         return {
           artist,
           albums: albumsResult.body.items,
+          isExactMatch: scoredArtists[0].isExactMatch,
+          isPartialMatch: scoredArtists[0].isPartialMatch,
         }
       }
     }
@@ -260,6 +435,129 @@ async function findAlbumsByArtist(artistName) {
     return null
   } catch (error) {
     console.error("Error finding albums by artist:", error.message)
+    return null
+  }
+}
+
+// Try to find an exact artist match first, then fallback to partial matches
+async function findExactArtistFirst(artistName, albumTitle, year) {
+  try {
+    console.log(`Searching for exact artist match: "${artistName}"`)
+
+    // First try with exact artist name matching
+    const exactArtistResult = await findAlbumsByArtist(artistName, true)
+
+    if (exactArtistResult && exactArtistResult.isExactMatch) {
+      console.log(`Found exact artist match: ${exactArtistResult.artist.name}`)
+
+      // Try to find album with matching title
+      if (albumTitle) {
+        const artistAlbumMatches = exactArtistResult.albums.map((artistAlbum) => {
+          const titleScore = similarityScore(albumTitle, artistAlbum.name)
+          let yearScore = 0
+
+          if (year && artistAlbum.release_date) {
+            const albumYear = artistAlbum.release_date.substring(0, 4)
+            yearScore = yearSimilarity(year, albumYear) * 0.2
+          }
+
+          return {
+            album: artistAlbum,
+            score: titleScore + yearScore,
+            titleScore,
+            yearScore,
+          }
+        })
+
+        artistAlbumMatches.sort((a, b) => b.score - a.score)
+
+        // Log the top matches
+        console.log("Top exact artist album matches:")
+        artistAlbumMatches.slice(0, 3).forEach((match, i) => {
+          console.log(
+            `${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)}, Title: ${match.titleScore.toFixed(2)}, Year: ${match.yearScore.toFixed(2)})`,
+          )
+        })
+
+        // If we have a reasonable match, use it
+        if (artistAlbumMatches.length > 0 && artistAlbumMatches[0].score > 40) {
+          return {
+            album: artistAlbumMatches[0].album,
+            artist: exactArtistResult.artist,
+            score: artistAlbumMatches[0].score,
+            matchType: "exact-artist-album",
+          }
+        }
+
+        // If no good album match but we have the exact artist, return the first album
+        return {
+          album: exactArtistResult.albums[0],
+          artist: exactArtistResult.artist,
+          score: 50, // Moderate score for having the right artist
+          matchType: "exact-artist-first-album",
+        }
+      }
+    }
+
+    // If no exact artist match, try with partial matching
+    console.log("No exact artist match, trying partial matching")
+    const partialArtistResult = await findAlbumsByArtist(artistName, false)
+
+    if (partialArtistResult) {
+      console.log(`Found partial artist match: ${partialArtistResult.artist.name}`)
+
+      // Try to find album with matching title
+      if (albumTitle) {
+        const artistAlbumMatches = partialArtistResult.albums.map((artistAlbum) => {
+          const titleScore = similarityScore(albumTitle, artistAlbum.name)
+          let yearScore = 0
+
+          if (year && artistAlbum.release_date) {
+            const albumYear = artistAlbum.release_date.substring(0, 4)
+            yearScore = yearSimilarity(year, albumYear) * 0.2
+          }
+
+          return {
+            album: artistAlbum,
+            score: titleScore + yearScore,
+            titleScore,
+            yearScore,
+          }
+        })
+
+        artistAlbumMatches.sort((a, b) => b.score - a.score)
+
+        // Log the top matches
+        console.log("Top partial artist album matches:")
+        artistAlbumMatches.slice(0, 3).forEach((match, i) => {
+          console.log(
+            `${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)}, Title: ${match.titleScore.toFixed(2)}, Year: ${match.yearScore.toFixed(2)})`,
+          )
+        })
+
+        // If we have a reasonable match, use it
+        if (artistAlbumMatches.length > 0 && artistAlbumMatches[0].score > 40) {
+          return {
+            album: artistAlbumMatches[0].album,
+            artist: partialArtistResult.artist,
+            score: artistAlbumMatches[0].score * 0.8, // Slight penalty for partial artist match
+            matchType: "partial-artist-album",
+          }
+        }
+
+        // If no good album match but we have a partial artist match, return the first album
+        return {
+          album: partialArtistResult.albums[0],
+          artist: partialArtistResult.artist,
+          score: 40, // Lower score for partial artist match
+          matchType: "partial-artist-first-album",
+        }
+      }
+    }
+
+    return null
+  } catch (error) {
+    console.error("Error in findExactArtistFirst:", error.message)
     return null
   }
 }
@@ -355,6 +653,37 @@ async function fetchRandomAlbum() {
     const album = await fetchRandomAlbumFromStore(randomStoreName)
 
     if (album) {
+      console.log(`Processing album: "${album.title}" by ${album.artist} (${album.year})`)
+
+      // Strategy 0: Try to find exact artist match first (new strategy)
+      console.log("Strategy 0: Trying exact artist match first")
+      const exactArtistResult = await findExactArtistFirst(album.artist, album.title, album.year)
+
+      if (exactArtistResult && exactArtistResult.matchType.startsWith("exact-artist")) {
+        console.log(`✅ Found exact artist match: ${exactArtistResult.artist.name}`)
+        console.log(`Album: "${exactArtistResult.album.name}" (Match type: ${exactArtistResult.matchType})`)
+
+        // Create output
+        const output = {
+          title: album.title,
+          artist: album.artist,
+          year: album.year,
+          genre: album.genre,
+          image: album.image,
+          store: album.store,
+          discogsUrl: album.discogsUrl,
+          spotifyLink: exactArtistResult.album.external_urls.spotify,
+          spotifyName: exactArtistResult.album.name,
+          spotifyArtist: exactArtistResult.artist.name,
+          spotifyType: "album",
+          matchSource: exactArtistResult.matchType,
+          matchScore: exactArtistResult.score,
+        }
+
+        console.log("Final output:", output)
+        return output
+      }
+
       // Try multiple search strategies
       let spotifyAlbum = null
       let spotifyTrack = null
@@ -365,7 +694,12 @@ async function fetchRandomAlbum() {
       const searchQuery1 = `${album.artist} ${album.title}`.trim()
       console.log(`Search strategy 1: "${searchQuery1}"`)
       searchResults = await spotifyApi.searchAlbums(searchQuery1, { limit: 10 })
-      spotifyAlbum = findBestMatch(album, searchResults)
+      spotifyAlbum = findBestMatch(album, searchResults, {
+        titleWeight: 0.4,
+        artistWeight: 0.3,
+        yearWeight: 0.2,
+        genreWeight: 0.1,
+      })
 
       // Strategy 2: If no good match, try with cleaned search terms
       if (!spotifyAlbum) {
@@ -376,7 +710,12 @@ async function fetchRandomAlbum() {
         if (searchQuery2 !== searchQuery1) {
           console.log(`Search strategy 2: "${searchQuery2}"`)
           searchResults = await spotifyApi.searchAlbums(searchQuery2, { limit: 10 })
-          spotifyAlbum = findBestMatch(album, searchResults)
+          spotifyAlbum = findBestMatch(album, searchResults, {
+            titleWeight: 0.4,
+            artistWeight: 0.3,
+            yearWeight: 0.2,
+            genreWeight: 0.1,
+          })
         }
       }
 
@@ -385,7 +724,11 @@ async function fetchRandomAlbum() {
         const searchQuery3 = `${album.title}`.trim()
         console.log(`Search strategy 3: "${searchQuery3}"`)
         searchResults = await spotifyApi.searchAlbums(searchQuery3, { limit: 10 })
-        spotifyAlbum = findBestMatch(album, searchResults)
+        spotifyAlbum = findBestMatch(album, searchResults, {
+          titleWeight: 0.6,
+          artistWeight: 0.3,
+          yearWeight: 0.1,
+        })
       }
 
       // Strategy 4: If we have a label, try searching with label and title
@@ -394,7 +737,12 @@ async function fetchRandomAlbum() {
         const searchQuery4 = `${mainLabel} ${album.title}`.trim()
         console.log(`Search strategy 4: "${searchQuery4}"`)
         searchResults = await spotifyApi.searchAlbums(searchQuery4, { limit: 10 })
-        spotifyAlbum = findBestMatch(album, searchResults)
+        spotifyAlbum = findBestMatch(album, searchResults, {
+          titleWeight: 0.5,
+          artistWeight: 0.2,
+          yearWeight: 0.2,
+          genreWeight: 0.1,
+        })
       }
 
       // Strategy 5: If no album found, try searching for tracks instead
@@ -402,27 +750,44 @@ async function fetchRandomAlbum() {
         console.log("No album match found, trying track search...")
         const trackSearchQuery = `${album.artist} ${album.title}`.trim()
         const trackResults = await spotifyApi.searchTracks(trackSearchQuery, { limit: 10 })
-        spotifyTrack = findBestTrackMatch(album, trackResults)
+        spotifyTrack = findBestTrackMatch(album, trackResults, {
+          titleWeight: 0.5,
+          artistWeight: 0.5,
+        })
       }
 
       // Strategy 6: If no track found, try finding the artist and their albums
-      if (!spotifyAlbum && !spotifyTrack) {
+      if (!spotifyAlbum && !spotifyTrack && !exactArtistResult) {
         console.log("No track match found, trying artist search...")
         artistAlbums = await findAlbumsByArtist(album.artist)
 
         // If we found albums by this artist, try to find the best match
         if (artistAlbums && artistAlbums.albums.length > 0) {
-          const artistAlbumMatches = artistAlbums.albums.map((artistAlbum) => ({
-            album: artistAlbum,
-            score: similarityScore(album.title, artistAlbum.name),
-          }))
+          const artistAlbumMatches = artistAlbums.albums.map((artistAlbum) => {
+            const titleScore = similarityScore(album.title, artistAlbum.name)
+            let yearScore = 0
+
+            if (album.year && artistAlbum.release_date) {
+              const albumYear = artistAlbum.release_date.substring(0, 4)
+              yearScore = yearSimilarity(album.year, albumYear) * 0.2
+            }
+
+            return {
+              album: artistAlbum,
+              score: titleScore + yearScore,
+              titleScore,
+              yearScore,
+            }
+          })
 
           artistAlbumMatches.sort((a, b) => b.score - a.score)
 
           // Log the top matches
           console.log("Top artist album matches:")
           artistAlbumMatches.slice(0, 3).forEach((match, i) => {
-            console.log(`${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)})`)
+            console.log(
+              `${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)}, Title: ${match.titleScore.toFixed(2)}, Year: ${match.yearScore.toFixed(2)})`,
+            )
           })
 
           // If we have a reasonable match, use it
@@ -431,6 +796,10 @@ async function fetchRandomAlbum() {
             console.log(
               `Using best artist album match: "${spotifyAlbum.name}" (Score: ${artistAlbumMatches[0].score.toFixed(2)})`,
             )
+          } else if (exactArtistResult) {
+            // Use the exact artist result if available
+            spotifyAlbum = exactArtistResult.album
+            console.log(`Using exact artist album: "${spotifyAlbum.name}"`)
           } else {
             // Otherwise, just use the first album by this artist
             spotifyAlbum = artistAlbums.albums[0]
@@ -458,7 +827,11 @@ async function fetchRandomAlbum() {
           ? spotifyAlbum.artists[0].name
           : artistAlbums?.artist.name || album.artist
         output.spotifyType = "album"
-        output.matchSource = artistAlbums ? "artist-albums" : "album-search"
+        output.matchSource = exactArtistResult
+          ? exactArtistResult.matchType
+          : artistAlbums
+            ? "artist-albums"
+            : "album-search"
 
         console.log(`✅ Found album match on Spotify: "${spotifyAlbum.name}" by ${output.spotifyArtist}`)
       } else if (spotifyTrack) {
