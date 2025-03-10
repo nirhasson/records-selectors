@@ -167,7 +167,6 @@ button:hover {
 }
 
 footer {
-    background-color: #4CAF50;
     color: #FFFFFF;
     padding: 20px;
     font-size: 12px;
@@ -175,6 +174,9 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 footer a {
