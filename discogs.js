@@ -11,6 +11,7 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: process.env.SPOTIFY_CLIENT_SECRET || "5ffaf812e47e4498a06888f67c46197b",
 })
 
+// Store inventories with pagination support
 const storeInventories = {
   RookRecords: "https://api.discogs.com/users/RookRecords/inventory",
   CrocoDiscos: "https://api.discogs.com/users/CrocoDiscos/inventory",
@@ -22,7 +23,21 @@ const storeInventories = {
   "LoFi-Concept": "https://api.discogs.com/users/LoFi-Concept/inventory",
 }
 
-let previousAlbumId = null // Prevent duplicates
+// Cache to store recently shown albums (prevent repeats)
+const recentAlbumsCache = new Set()
+const MAX_CACHE_SIZE = 70 // Maximum number of album IDs to remember
+
+// Store metadata to track pagination
+const storeMetadata = {}
+Object.keys(storeInventories).forEach((store) => {
+  storeMetadata[store] = {
+    totalPages: null,
+    currentPage: 1,
+    totalItems: 0,
+    lastFetched: null,
+    itemsCache: [], // Cache items to avoid refetching
+  }
+})
 
 // Instead of reading from a file, use a hardcoded array for custom albums
 const customAlbums = [
@@ -562,53 +577,144 @@ async function findExactArtistFirst(artistName, albumTitle, year) {
   }
 }
 
-async function fetchRandomAlbumFromStore(storeName) {
-  const inventoryURL = `${storeInventories[storeName]}?token=${TOKEN}&per_page=250`
+// Add album ID to recent cache to prevent repeats
+function addToRecentCache(albumId) {
+  // If cache is full, remove oldest entry
+  if (recentAlbumsCache.size >= MAX_CACHE_SIZE) {
+    const firstItem = recentAlbumsCache.values().next().value
+    recentAlbumsCache.delete(firstItem)
+  }
+
+  // Add new album ID
+  recentAlbumsCache.add(albumId)
+}
+
+// Check if album was recently shown
+function wasRecentlyShown(albumId) {
+  return recentAlbumsCache.has(albumId)
+}
+
+// Fetch a page of inventory from a store with pagination support
+async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
+  const timestamp = Date.now() // Add timestamp to prevent caching
+  const inventoryURL = `${storeInventories[storeName]}?token=${TOKEN}&per_page=${perPage}&page=${page}&_=${timestamp}`
+
   try {
+    console.log(`Fetching page ${page} from ${storeName} store...`)
     const response = await axios.get(inventoryURL)
-    const items = response.data.listings.filter((item) => item.release.id !== previousAlbumId)
 
-    if (items.length === 0) return null
-
-    const randomIndex = Math.floor(Math.random() * items.length)
-    const item = items[randomIndex].release
-    previousAlbumId = item.id // Save ID to prevent duplicates
-
-    console.log(`Found album in ${storeName} store: ${item.title}`)
-    const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-    const releaseData = releaseDetails.data
-
-    // Extract more detailed information from Discogs
-    const artistName =
-      releaseData.artists_sort ||
-      (releaseData.artists && releaseData.artists.length > 0 ? releaseData.artists[0].name : "Unknown Artist")
-
-    // Get the main artist name without numbers in parentheses
-    const cleanArtistName = artistName.replace(/\s*$$\d+$$\s*$/, "")
-
-    return {
-      title: releaseData.title || "N/A",
-      artist: cleanArtistName,
-      artistRaw: artistName, // Keep the original for reference
-      year: releaseData.year || "N/A",
-      genre: releaseData.genres
-        ? releaseData.genres.join(", ")
-        : releaseData.styles
-          ? releaseData.styles.join(", ")
-          : "Unknown Genre",
-      image:
-        releaseData.images && releaseData.images.length > 0
-          ? releaseData.images[0].resource_url
-          : "https://via.placeholder.com/300",
-      store: storeName,
-      discogsId: releaseData.id,
-      discogsUrl: releaseData.uri,
-      labels: releaseData.labels ? releaseData.labels.map((l) => l.name).join(", ") : "",
-      formats: releaseData.formats ? releaseData.formats.map((f) => f.name).join(", ") : "",
+    // Update store metadata
+    if (!storeMetadata[storeName].totalPages) {
+      const pagination = response.data.pagination
+      storeMetadata[storeName].totalPages = pagination.pages
+      storeMetadata[storeName].totalItems = pagination.items
+      console.log(`Store ${storeName} has ${pagination.items} items across ${pagination.pages} pages`)
     }
+
+    storeMetadata[storeName].currentPage = page
+    storeMetadata[storeName].lastFetched = Date.now()
+
+    return response.data.listings
+  } catch (error) {
+    console.error(`Error fetching page ${page} from ${storeName}:`, error.message)
+    return []
+  }
+}
+
+// Get a random album from a store with pagination and duplicate prevention
+async function fetchRandomAlbumFromStore(storeName) {
+  try {
+    // Choose a random page if the store has multiple pages
+    let page = 1
+    const perPage = 100
+
+    // If we know the total pages for this store, pick a random page
+    if (storeMetadata[storeName].totalPages > 1) {
+      page = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
+    }
+
+    // Fetch the chosen page
+    const listings = await fetchStoreInventoryPage(storeName, page, perPage)
+
+    if (!listings || listings.length === 0) {
+      console.log(`No listings found in ${storeName} store on page ${page}`)
+      return null
+    }
+
+    // Filter out recently shown albums
+    const availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id))
+
+    if (availableListings.length === 0) {
+      console.log(`All albums on page ${page} of ${storeName} were recently shown. Trying another page...`)
+
+      // Try another random page
+      if (storeMetadata[storeName].totalPages > 1) {
+        let newPage
+        do {
+          newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
+        } while (newPage === page)
+
+        return fetchRandomAlbumFromStore(storeName)
+      }
+
+      // If there's only one page, we have to reuse something
+      console.log(`Only one page available in ${storeName}, reusing an album`)
+      const randomIndex = Math.floor(Math.random() * listings.length)
+      const item = listings[randomIndex].release
+
+      // Add to cache even though it's a repeat
+      addToRecentCache(item.id)
+
+      console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
+      const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
+      return processReleaseData(releaseDetails.data, storeName)
+    }
+
+    // Choose a random album from available listings
+    const randomIndex = Math.floor(Math.random() * availableListings.length)
+    const item = availableListings[randomIndex].release
+
+    // Add to recent cache
+    addToRecentCache(item.id)
+
+    console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
+    const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
+    return processReleaseData(releaseDetails.data, storeName)
   } catch (error) {
     console.error(`Error fetching data from ${storeName}:`, error.message)
     return null
+  }
+}
+
+// Process release data from Discogs API
+function processReleaseData(releaseData, storeName) {
+  // Extract more detailed information from Discogs
+  const artistName =
+    releaseData.artists_sort ||
+    (releaseData.artists && releaseData.artists.length > 0 ? releaseData.artists[0].name : "Unknown Artist")
+
+  // Get the main artist name without numbers in parentheses
+  const cleanArtistName = artistName.replace(/\s*$$\d+$$\s*$/, "")
+
+  return {
+    title: releaseData.title || "N/A",
+    artist: cleanArtistName,
+    artistRaw: artistName, // Keep the original for reference
+    year: releaseData.year || "N/A",
+    genre: releaseData.genres
+      ? releaseData.genres.join(", ")
+      : releaseData.styles
+        ? releaseData.styles.join(", ")
+        : "Unknown Genre",
+    image:
+      releaseData.images && releaseData.images.length > 0
+        ? releaseData.images[0].resource_url
+        : "https://via.placeholder.com/300",
+    store: storeName,
+    discogsId: releaseData.id,
+    discogsUrl: releaseData.uri,
+    labels: releaseData.labels ? releaseData.labels.map((l) => l.name).join(", ") : "",
+    formats: releaseData.formats ? releaseData.formats.map((f) => f.name).join(", ") : "",
   }
 }
 
@@ -642,258 +748,316 @@ async function fetchCustomAlbum() {
   }
 }
 
+// Choose a random store with weighted selection based on inventory size
+function chooseRandomStore() {
+  const storeNames = Object.keys(storeInventories)
+
+  // If we have metadata about store sizes, use weighted selection
+  const storesWithMetadata = storeNames.filter((store) => storeMetadata[store].totalItems > 0)
+
+  if (storesWithMetadata.length > 0) {
+    // Calculate total items across all stores
+    const totalItems = storesWithMetadata.reduce((sum, store) => sum + storeMetadata[store].totalItems, 0)
+
+    // Generate a random number between 0 and totalItems
+    const randomPoint = Math.floor(Math.random() * totalItems)
+
+    // Find which store this point falls into
+    let cumulativeItems = 0
+    for (const store of storesWithMetadata) {
+      cumulativeItems += storeMetadata[store].totalItems
+      if (randomPoint < cumulativeItems) {
+        console.log(`Selected store ${store} using weighted selection (${storeMetadata[store].totalItems} items)`)
+        return store
+      }
+    }
+
+    // Fallback to first store if something went wrong
+    return storesWithMetadata[0]
+  }
+
+  // If we don't have metadata yet, choose randomly
+  const randomIndex = Math.floor(Math.random() * storeNames.length)
+  return storeNames[randomIndex]
+}
+
 async function fetchRandomAlbum() {
   try {
     await spotifyApi.clientCredentialsGrant().then((data) => {
       spotifyApi.setAccessToken(data.body["access_token"])
     })
 
-    const storeNames = Object.keys(storeInventories)
-    const randomStoreName = storeNames[Math.floor(Math.random() * storeNames.length)]
+    // Choose a random store with weighted selection
+    const randomStoreName = chooseRandomStore()
+    console.log(`Attempting to fetch album from ${randomStoreName} store...`)
+
+    // Try to get an album from the selected store
     const album = await fetchRandomAlbumFromStore(randomStoreName)
 
-    if (album) {
-      console.log(`Processing album: "${album.title}" by ${album.artist} (${album.year})`)
+    // If no album found, try another store
+    if (!album) {
+      console.log(`No album found in ${randomStoreName}, trying another store...`)
+      const otherStores = Object.keys(storeInventories).filter((store) => store !== randomStoreName)
 
-      // Strategy 0: Try to find exact artist match first (new strategy)
-      console.log("Strategy 0: Trying exact artist match first")
-      const exactArtistResult = await findExactArtistFirst(album.artist, album.title, album.year)
-
-      if (exactArtistResult && exactArtistResult.matchType.startsWith("exact-artist")) {
-        console.log(`✅ Found exact artist match: ${exactArtistResult.artist.name}`)
-        console.log(`Album: "${exactArtistResult.album.name}" (Match type: ${exactArtistResult.matchType})`)
-
-        // Create output
-        const output = {
-          title: album.title,
-          artist: album.artist,
-          year: album.year,
-          genre: album.genre,
-          image: album.image,
-          store: album.store,
-          discogsUrl: album.discogsUrl,
-          spotifyLink: exactArtistResult.album.external_urls.spotify,
-          spotifyName: exactArtistResult.album.name,
-          spotifyArtist: exactArtistResult.artist.name,
-          spotifyType: "album",
-          matchSource: exactArtistResult.matchType,
-          matchScore: exactArtistResult.score,
+      // Try up to 3 other stores
+      for (let i = 0; i < Math.min(3, otherStores.length); i++) {
+        const backupStore = otherStores[Math.floor(Math.random() * otherStores.length)]
+        console.log(`Trying backup store: ${backupStore}`)
+        const backupAlbum = await fetchRandomAlbumFromStore(backupStore)
+        if (backupAlbum) {
+          console.log(`Found album in backup store ${backupStore}`)
+          return processSpotifyMatch(backupAlbum)
         }
-
-        console.log("Final output:", output)
-        return output
       }
 
-      // Try multiple search strategies
-      let spotifyAlbum = null
-      let spotifyTrack = null
-      let artistAlbums = null
-      let searchResults = null
+      console.log("Could not find album in any store")
+      return null
+    }
 
-      // Strategy 1: Search with exact artist and title
-      const searchQuery1 = `${album.artist} ${album.title}`.trim()
-      console.log(`Search strategy 1: "${searchQuery1}"`)
-      searchResults = await spotifyApi.searchAlbums(searchQuery1, { limit: 10 })
+    return processSpotifyMatch(album)
+  } catch (error) {
+    console.error("Error:", error.message)
+    return null
+  }
+}
+
+// Process album and find Spotify match
+async function processSpotifyMatch(album) {
+  if (!album) return null
+
+  console.log(`Processing album: "${album.title}" by ${album.artist} (${album.year})`)
+
+  // Strategy 0: Try to find exact artist match first (new strategy)
+  console.log("Strategy 0: Trying exact artist match first")
+  const exactArtistResult = await findExactArtistFirst(album.artist, album.title, album.year)
+
+  if (exactArtistResult && exactArtistResult.matchType.startsWith("exact-artist")) {
+    console.log(`✅ Found exact artist match: ${exactArtistResult.artist.name}`)
+    console.log(`Album: "${exactArtistResult.album.name}" (Match type: ${exactArtistResult.matchType})`)
+
+    // Create output
+    const output = {
+      title: album.title,
+      artist: album.artist,
+      year: album.year,
+      genre: album.genre,
+      image: album.image,
+      store: album.store,
+      discogsUrl: album.discogsUrl,
+      spotifyLink: exactArtistResult.album.external_urls.spotify,
+      spotifyName: exactArtistResult.album.name,
+      spotifyArtist: exactArtistResult.artist.name,
+      spotifyType: "album",
+      matchSource: exactArtistResult.matchType,
+      matchScore: exactArtistResult.score,
+    }
+
+    console.log("Final output:", output)
+    return output
+  }
+
+  // Try multiple search strategies
+  let spotifyAlbum = null
+  let spotifyTrack = null
+  let artistAlbums = null
+  let searchResults = null
+
+  // Strategy 1: Search with exact artist and title
+  const searchQuery1 = `${album.artist} ${album.title}`.trim()
+  console.log(`Search strategy 1: "${searchQuery1}"`)
+  searchResults = await spotifyApi.searchAlbums(searchQuery1, { limit: 10 })
+  spotifyAlbum = findBestMatch(album, searchResults, {
+    titleWeight: 0.4,
+    artistWeight: 0.3,
+    yearWeight: 0.2,
+    genreWeight: 0.1,
+  })
+
+  // Strategy 2: If no good match, try with cleaned search terms
+  if (!spotifyAlbum) {
+    const cleanedArtist = cleanSearchTerm(album.artist)
+    const cleanedTitle = cleanSearchTerm(album.title)
+    const searchQuery2 = `${cleanedArtist} ${cleanedTitle}`.trim()
+
+    if (searchQuery2 !== searchQuery1) {
+      console.log(`Search strategy 2: "${searchQuery2}"`)
+      searchResults = await spotifyApi.searchAlbums(searchQuery2, { limit: 10 })
       spotifyAlbum = findBestMatch(album, searchResults, {
         titleWeight: 0.4,
         artistWeight: 0.3,
         yearWeight: 0.2,
         genreWeight: 0.1,
       })
-
-      // Strategy 2: If no good match, try with cleaned search terms
-      if (!spotifyAlbum) {
-        const cleanedArtist = cleanSearchTerm(album.artist)
-        const cleanedTitle = cleanSearchTerm(album.title)
-        const searchQuery2 = `${cleanedArtist} ${cleanedTitle}`.trim()
-
-        if (searchQuery2 !== searchQuery1) {
-          console.log(`Search strategy 2: "${searchQuery2}"`)
-          searchResults = await spotifyApi.searchAlbums(searchQuery2, { limit: 10 })
-          spotifyAlbum = findBestMatch(album, searchResults, {
-            titleWeight: 0.4,
-            artistWeight: 0.3,
-            yearWeight: 0.2,
-            genreWeight: 0.1,
-          })
-        }
-      }
-
-      // Strategy 3: If still no good match, try with just the album title
-      if (!spotifyAlbum) {
-        const searchQuery3 = `${album.title}`.trim()
-        console.log(`Search strategy 3: "${searchQuery3}"`)
-        searchResults = await spotifyApi.searchAlbums(searchQuery3, { limit: 10 })
-        spotifyAlbum = findBestMatch(album, searchResults, {
-          titleWeight: 0.6,
-          artistWeight: 0.3,
-          yearWeight: 0.1,
-        })
-      }
-
-      // Strategy 4: If we have a label, try searching with label and title
-      if (!spotifyAlbum && album.labels) {
-        const mainLabel = album.labels.split(",")[0].trim()
-        const searchQuery4 = `${mainLabel} ${album.title}`.trim()
-        console.log(`Search strategy 4: "${searchQuery4}"`)
-        searchResults = await spotifyApi.searchAlbums(searchQuery4, { limit: 10 })
-        spotifyAlbum = findBestMatch(album, searchResults, {
-          titleWeight: 0.5,
-          artistWeight: 0.2,
-          yearWeight: 0.2,
-          genreWeight: 0.1,
-        })
-      }
-
-      // Strategy 5: If no album found, try searching for tracks instead
-      if (!spotifyAlbum) {
-        console.log("No album match found, trying track search...")
-        const trackSearchQuery = `${album.artist} ${album.title}`.trim()
-        const trackResults = await spotifyApi.searchTracks(trackSearchQuery, { limit: 10 })
-        spotifyTrack = findBestTrackMatch(album, trackResults, {
-          titleWeight: 0.5,
-          artistWeight: 0.5,
-        })
-      }
-
-      // Strategy 6: If no track found, try finding the artist and their albums
-      if (!spotifyAlbum && !spotifyTrack && !exactArtistResult) {
-        console.log("No track match found, trying artist search...")
-        artistAlbums = await findAlbumsByArtist(album.artist)
-
-        // If we found albums by this artist, try to find the best match
-        if (artistAlbums && artistAlbums.albums.length > 0) {
-          const artistAlbumMatches = artistAlbums.albums.map((artistAlbum) => {
-            const titleScore = similarityScore(album.title, artistAlbum.name)
-            let yearScore = 0
-
-            if (album.year && artistAlbum.release_date) {
-              const albumYear = artistAlbum.release_date.substring(0, 4)
-              yearScore = yearSimilarity(album.year, albumYear) * 0.2
-            }
-
-            return {
-              album: artistAlbum,
-              score: titleScore + yearScore,
-              titleScore,
-              yearScore,
-            }
-          })
-
-          artistAlbumMatches.sort((a, b) => b.score - a.score)
-
-          // Log the top matches
-          console.log("Top artist album matches:")
-          artistAlbumMatches.slice(0, 3).forEach((match, i) => {
-            console.log(
-              `${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)}, Title: ${match.titleScore.toFixed(2)}, Year: ${match.yearScore.toFixed(2)})`,
-            )
-          })
-
-          // If we have a reasonable match, use it
-          if (artistAlbumMatches[0].score > 30) {
-            spotifyAlbum = artistAlbumMatches[0].album
-            console.log(
-              `Using best artist album match: "${spotifyAlbum.name}" (Score: ${artistAlbumMatches[0].score.toFixed(2)})`,
-            )
-          } else if (exactArtistResult) {
-            // Use the exact artist result if available
-            spotifyAlbum = exactArtistResult.album
-            console.log(`Using exact artist album: "${spotifyAlbum.name}"`)
-          } else {
-            // Otherwise, just use the first album by this artist
-            spotifyAlbum = artistAlbums.albums[0]
-            console.log(`Using first album by artist: "${spotifyAlbum.name}"`)
-          }
-        }
-      }
-
-      // Create output with or without Spotify link
-      const output = {
-        title: album.title,
-        artist: album.artist,
-        year: album.year,
-        genre: album.genre,
-        image: album.image,
-        store: album.store,
-        discogsUrl: album.discogsUrl,
-      }
-
-      if (spotifyAlbum) {
-        // אם נמצא אלבום
-        output.spotifyLink = spotifyAlbum.external_urls.spotify
-        output.spotifyName = spotifyAlbum.name
-        output.spotifyArtist = spotifyAlbum.artists
-          ? spotifyAlbum.artists[0].name
-          : artistAlbums?.artist.name || album.artist
-        output.spotifyType = "album"
-        output.matchSource = exactArtistResult
-          ? exactArtistResult.matchType
-          : artistAlbums
-            ? "artist-albums"
-            : "album-search"
-
-        console.log(`✅ Found album match on Spotify: "${spotifyAlbum.name}" by ${output.spotifyArtist}`)
-      } else if (spotifyTrack) {
-        // אם נמצא שיר
-        output.spotifyLink = spotifyTrack.external_urls.spotify
-        output.spotifyName = spotifyTrack.name
-        output.spotifyArtist = spotifyTrack.artists[0].name
-        output.spotifyType = "track"
-        output.matchSource = "track-search"
-
-        // אם יש אלבום לשיר, שמור גם את הקישור אליו
-        if (spotifyTrack.album && spotifyTrack.album.external_urls) {
-          output.spotifyAlbumLink = spotifyTrack.album.external_urls.spotify
-          output.spotifyAlbumName = spotifyTrack.album.name
-        }
-
-        console.log(`✅ Found track match on Spotify: "${spotifyTrack.name}" by ${spotifyTrack.artists[0].name}`)
-      } else {
-        // אם לא נמצא אלבום או שיר, נחפש את האמן
-        try {
-          const artistSearchResult = await spotifyApi.searchArtists(album.artist)
-          if (
-            artistSearchResult.body.artists &&
-            artistSearchResult.body.artists.items &&
-            artistSearchResult.body.artists.items.length > 0
-          ) {
-            // אם נמצא האמן, נשתמש בקישור אליו
-            output.spotifyLink = artistSearchResult.body.artists.items[0].external_urls.spotify
-            output.spotifyType = "artist"
-            output.spotifyArtist = artistSearchResult.body.artists.items[0].name
-            output.matchSource = "artist-only"
-            console.log(`🎵 Found artist on Spotify: ${artistSearchResult.body.artists.items[0].name}`)
-          } else {
-            // אם לא נמצא גם האמן, נשתמש בקישור לחיפוש
-            const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
-            output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
-            output.spotifyType = "search"
-            output.matchSource = "search-fallback"
-            console.log(`🔍 Created search link: ${output.spotifyLink}`)
-          }
-        } catch (err) {
-          // במקרה של שגיאה, נשתמש בקישור לחיפוש
-          const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
-          output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
-          output.spotifyType = "search"
-          output.matchSource = "search-fallback"
-          console.log(`🔍 Created search link: ${output.spotifyLink}`)
-        }
-
-        console.log("❌ No good match found on Spotify")
-      }
-
-      console.log("Final output:", output)
-      return output
-    } else {
-      console.log("No album found in the selected store.")
-      return null
     }
-  } catch (error) {
-    console.error("Error:", error.message)
-    return null
   }
+
+  // Strategy 3: If still no good match, try with just the album title
+  if (!spotifyAlbum) {
+    const searchQuery3 = `${album.title}`.trim()
+    console.log(`Search strategy 3: "${searchQuery3}"`)
+    searchResults = await spotifyApi.searchAlbums(searchQuery3, { limit: 10 })
+    spotifyAlbum = findBestMatch(album, searchResults, {
+      titleWeight: 0.6,
+      artistWeight: 0.3,
+      yearWeight: 0.1,
+    })
+  }
+
+  // Strategy 4: If we have a label, try searching with label and title
+  if (!spotifyAlbum && album.labels) {
+    const mainLabel = album.labels.split(",")[0].trim()
+    const searchQuery4 = `${mainLabel} ${album.title}`.trim()
+    console.log(`Search strategy 4: "${searchQuery4}"`)
+    searchResults = await spotifyApi.searchAlbums(searchQuery4, { limit: 10 })
+    spotifyAlbum = findBestMatch(album, searchResults, {
+      titleWeight: 0.5,
+      artistWeight: 0.2,
+      yearWeight: 0.2,
+      genreWeight: 0.1,
+    })
+  }
+
+  // Strategy 5: If no album found, try searching for tracks instead
+  if (!spotifyAlbum) {
+    console.log("No album match found, trying track search...")
+    const trackSearchQuery = `${album.artist} ${album.title}`.trim()
+    const trackResults = await spotifyApi.searchTracks(trackSearchQuery, { limit: 10 })
+    spotifyTrack = findBestTrackMatch(album, trackResults, {
+      titleWeight: 0.5,
+      artistWeight: 0.5,
+    })
+  }
+
+  // Strategy 6: If no track found, try finding the artist and their albums
+  if (!spotifyAlbum && !spotifyTrack && !exactArtistResult) {
+    console.log("No track match found, trying artist search...")
+    artistAlbums = await findAlbumsByArtist(album.artist)
+
+    // If we found albums by this artist, try to find the best match
+    if (artistAlbums && artistAlbums.albums.length > 0) {
+      const artistAlbumMatches = artistAlbums.albums.map((artistAlbum) => {
+        const titleScore = similarityScore(album.title, artistAlbum.name)
+        let yearScore = 0
+
+        if (album.year && artistAlbum.release_date) {
+          const albumYear = artistAlbum.release_date.substring(0, 4)
+          yearScore = yearSimilarity(album.year, albumYear) * 0.2
+        }
+
+        return {
+          album: artistAlbum,
+          score: titleScore + yearScore,
+          titleScore,
+          yearScore,
+        }
+      })
+
+      artistAlbumMatches.sort((a, b) => b.score - a.score)
+
+      // Log the top matches
+      console.log("Top artist album matches:")
+      artistAlbumMatches.slice(0, 3).forEach((match, i) => {
+        console.log(
+          `${i + 1}. "${match.album.name}" (Score: ${match.score.toFixed(2)}, Title: ${match.titleScore.toFixed(2)}, Year: ${match.yearScore.toFixed(2)})`,
+        )
+      })
+
+      // If we have a reasonable match, use it
+      if (artistAlbumMatches[0].score > 30) {
+        spotifyAlbum = artistAlbumMatches[0].album
+        console.log(
+          `Using best artist album match: "${spotifyAlbum.name}" (Score: ${artistAlbumMatches[0].score.toFixed(2)})`,
+        )
+      } else if (exactArtistResult) {
+        // Use the exact artist result if available
+        spotifyAlbum = exactArtistResult.album
+        console.log(`Using exact artist album: "${spotifyAlbum.name}"`)
+      } else {
+        // Otherwise, just use the first album by this artist
+        spotifyAlbum = artistAlbums.albums[0]
+        console.log(`Using first album by artist: "${spotifyAlbum.name}"`)
+      }
+    }
+  }
+
+  // Create output with or without Spotify link
+  const output = {
+    title: album.title,
+    artist: album.artist,
+    year: album.year,
+    genre: album.genre,
+    image: album.image,
+    store: album.store,
+    discogsUrl: album.discogsUrl,
+  }
+
+  if (spotifyAlbum) {
+    // אם נמצא אלבום
+    output.spotifyLink = spotifyAlbum.external_urls.spotify
+    output.spotifyName = spotifyAlbum.name
+    output.spotifyArtist = spotifyAlbum.artists
+      ? spotifyAlbum.artists[0].name
+      : artistAlbums?.artist.name || album.artist
+    output.spotifyType = "album"
+    output.matchSource = exactArtistResult
+      ? exactArtistResult.matchType
+      : artistAlbums
+        ? "artist-albums"
+        : "album-search"
+
+    console.log(`✅ Found album match on Spotify: "${spotifyAlbum.name}" by ${output.spotifyArtist}`)
+  } else if (spotifyTrack) {
+    // אם נמצא שיר
+    output.spotifyLink = spotifyTrack.external_urls.spotify
+    output.spotifyName = spotifyTrack.name
+    output.spotifyArtist = spotifyTrack.artists[0].name
+    output.spotifyType = "track"
+    output.matchSource = "track-search"
+
+    // אם יש אלבום לשיר, שמור גם את הקישור אליו
+    if (spotifyTrack.album && spotifyTrack.album.external_urls) {
+      output.spotifyAlbumLink = spotifyTrack.album.external_urls.spotify
+      output.spotifyAlbumName = spotifyTrack.album.name
+    }
+
+    console.log(`✅ Found track match on Spotify: "${spotifyTrack.name}" by ${spotifyTrack.artists[0].name}`)
+  } else {
+    // אם לא נמצא אלבום או שיר, נחפש את האמן
+    try {
+      const artistSearchResult = await spotifyApi.searchArtists(album.artist)
+      if (
+        artistSearchResult.body.artists &&
+        artistSearchResult.body.artists.items &&
+        artistSearchResult.body.artists.items.length > 0
+      ) {
+        // אם נמצא האמן, נשתמש בקישור אליו
+        output.spotifyLink = artistSearchResult.body.artists.items[0].external_urls.spotify
+        output.spotifyType = "artist"
+        output.spotifyArtist = artistSearchResult.body.artists.items[0].name
+        output.matchSource = "artist-only"
+        console.log(`🎵 Found artist on Spotify: ${artistSearchResult.body.artists.items[0].name}`)
+      } else {
+        // אם לא נמצא גם האמן, נשתמש בקישור לחיפוש
+        const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+        output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+        output.spotifyType = "search"
+        output.matchSource = "search-fallback"
+        console.log(`🔍 Created search link: ${output.spotifyLink}`)
+      }
+    } catch (err) {
+      // במקרה של שגיאה, נשתמש בקישור לחיפוש
+      const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+      output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
+      output.spotifyType = "search"
+      output.matchSource = "search-fallback"
+      console.log(`🔍 Created search link: ${output.spotifyLink}`)
+    }
+
+    console.log("❌ No good match found on Spotify")
+  }
+
+  console.log("Final output:", output)
+  return output
 }
 
 // Export using CommonJS
