@@ -1,16 +1,44 @@
+// יצירת משתנה גלובלי לאנימציה
+let loadingAnimation;
+
 document.addEventListener("DOMContentLoaded", function () {
   console.log("📌 Document is fully loaded");
+
+  // אתחול אנימציית הטעינה
+  loadingAnimation = lottie.loadAnimation({
+    container: document.getElementById('loading-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: false,
+    path: 'animation/loading-animation.json' // עדכן את הנתיב לפי המיקום האמיתי של הקובץ
+  });
 
   // Function to fetch album data from the backend
   async function fetchAlbumData() {
     try {
+      // הצג את האנימציה והסתר את הכפתור
+      document.getElementById('explore-button').style.display = 'none';
+      document.getElementById('loading-animation').style.display = 'block';
+      loadingAnimation.play(); // הפעל את האנימציה
+
       const response = await fetch('/api/album'); // Update the path to the correct endpoint
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // Check the received data
+
+      // הסתר את האנימציה כשהנתונים מגיעים
+      document.getElementById('loading-animation').style.display = 'none';
+      loadingAnimation.stop(); // עצור את האנימציה
+
       return albumData;
     } catch (error) {
       console.error('❌ Error fetching album data:', error);
+
+      // במקרה של שגיאה, הסתר את האנימציה והחזר את הכפתור
+      document.getElementById('loading-animation').style.display = 'none';
+      document.getElementById('explore-button').style.display = 'flex';
+      loadingAnimation.stop(); // עצור את האנימציה
+
       return null;
     }
   }
@@ -45,9 +73,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Listener for clicking the "Explore Again" button
   if (exploreAgainButton) {
-    exploreAgainButton.addEventListener('click', () => {
+    exploreAgainButton.addEventListener('click', async () => {
       exploreAgainButton.classList.add("loading");
-      if (exploreButton) exploreButton.click();
+
+      // הצג את מסך הטעינה ואת האנימציה
+      document.getElementById('result-screen').style.display = 'none';
+      document.getElementById('main-screen').style.display = 'block';
+      document.getElementById('explore-button').style.display = 'none';
+      document.getElementById('loading-animation').style.display = 'block';
+      loadingAnimation.play(); // הפעל את האנימציה
+
+      const albumData = await fetchAlbumData();
+      if (albumData) {
+        updateUI(albumData);
+        exploreAgainButton.classList.remove("loading");
+      } else {
+        alert('⚠️ Failed to load album data. Please try again.');
+        // במקרה של שגיאה, החזר את הכפתור
+        document.getElementById('loading-animation').style.display = 'none';
+        document.getElementById('explore-button').style.display = 'flex';
+      }
     });
   }
 
@@ -56,6 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
     backButton.addEventListener('click', () => {
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('main-screen').style.display = 'block';
+      // וודא שהכפתור מוצג ולא האנימציה
+      document.getElementById('loading-animation').style.display = 'none';
+      document.getElementById('explore-button').style.display = 'flex';
     });
   }
 

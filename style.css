@@ -189,7 +189,24 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* עיצוב מיכל האנימציה */
+#loading-animation {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
 
+/* התאמות למובייל */
+@media (max-width: 768px) {
+    #loading-animation {
+        width: 150px;
+        height: 150px;
+    }
+}
 
 /*.lds-ripple,
 .lds-ripple span {
