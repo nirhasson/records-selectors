@@ -25,7 +25,7 @@ const storeInventories = {
 
 // Cache to store recently shown albums (prevent repeats)
 const recentAlbumsCache = new Set()
-const MAX_CACHE_SIZE = 70 // Maximum number of album IDs to remember
+const MAX_CACHE_SIZE = 100 // Maximum number of album IDs to remember
 
 // Store metadata to track pagination
 const storeMetadata = {}
@@ -748,37 +748,13 @@ async function fetchCustomAlbum() {
   }
 }
 
-// Choose a random store with weighted selection based on inventory size
+// Choose a random store with completely random selection (equal probability)
 function chooseRandomStore() {
   const storeNames = Object.keys(storeInventories)
-
-  // If we have metadata about store sizes, use weighted selection
-  const storesWithMetadata = storeNames.filter((store) => storeMetadata[store].totalItems > 0)
-
-  if (storesWithMetadata.length > 0) {
-    // Calculate total items across all stores
-    const totalItems = storesWithMetadata.reduce((sum, store) => sum + storeMetadata[store].totalItems, 0)
-
-    // Generate a random number between 0 and totalItems
-    const randomPoint = Math.floor(Math.random() * totalItems)
-
-    // Find which store this point falls into
-    let cumulativeItems = 0
-    for (const store of storesWithMetadata) {
-      cumulativeItems += storeMetadata[store].totalItems
-      if (randomPoint < cumulativeItems) {
-        console.log(`Selected store ${store} using weighted selection (${storeMetadata[store].totalItems} items)`)
-        return store
-      }
-    }
-
-    // Fallback to first store if something went wrong
-    return storesWithMetadata[0]
-  }
-
-  // If we don't have metadata yet, choose randomly
   const randomIndex = Math.floor(Math.random() * storeNames.length)
-  return storeNames[randomIndex]
+  const selectedStore = storeNames[randomIndex]
+  console.log(`Selected store ${selectedStore} randomly (equal probability)`)
+  return selectedStore
 }
 
 async function fetchRandomAlbum() {
@@ -787,7 +763,7 @@ async function fetchRandomAlbum() {
       spotifyApi.setAccessToken(data.body["access_token"])
     })
 
-    // Choose a random store with weighted selection
+    // Choose a random store with equal probability
     const randomStoreName = chooseRandomStore()
     console.log(`Attempting to fetch album from ${randomStoreName} store...`)
 
