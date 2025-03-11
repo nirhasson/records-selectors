@@ -74,24 +74,31 @@ document.addEventListener("DOMContentLoaded", function () {
   // Listener for clicking the "Explore Again" button
   if (exploreAgainButton) {
     exploreAgainButton.addEventListener('click', async () => {
+      // שמור את הטקסט המקורי של הכפתור
+      const originalText = exploreAgainButton.textContent;
+
+      // שנה את הטקסט ל"טוען..." והוסף קלאס טעינה
+      exploreAgainButton.textContent = "Loading...";
       exploreAgainButton.classList.add("loading");
+      exploreAgainButton.disabled = true; // מנע לחיצות נוספות בזמן הטעינה
 
-      // הצג את מסך הטעינה ואת האנימציה
-      document.getElementById('result-screen').style.display = 'none';
-      document.getElementById('main-screen').style.display = 'block';
-      document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-animation').style.display = 'block';
-      loadingAnimation.play(); // הפעל את האנימציה
+      try {
+        // קריאה ישירה ל-API
+        const response = await fetch('/api/album');
+        if (!response.ok) throw new Error('Failed to fetch album data');
+        const albumData = await response.json();
+        console.log("✅ Received new album data:", albumData);
 
-      const albumData = await fetchAlbumData();
-      if (albumData) {
+        // עדכון ממשק המשתמש עם הנתונים החדשים
         updateUI(albumData);
-        exploreAgainButton.classList.remove("loading");
-      } else {
+      } catch (error) {
+        console.error('❌ Error fetching album data:', error);
         alert('⚠️ Failed to load album data. Please try again.');
-        // במקרה של שגיאה, החזר את הכפתור
-        document.getElementById('loading-animation').style.display = 'none';
-        document.getElementById('explore-button').style.display = 'flex';
+      } finally {
+        // החזר את הכפתור למצב הרגיל
+        exploreAgainButton.textContent = originalText;
+        exploreAgainButton.classList.remove("loading");
+        exploreAgainButton.disabled = false;
       }
     });
   }
