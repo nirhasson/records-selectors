@@ -208,6 +208,122 @@ footer a:hover {
     }
 }
 
+/* עיצוב מיכל השירים */
+.album-tracks {
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: left;
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 15px;
+    color: white;
+}
+
+.album-tracks h3 {
+    text-align: center;
+    margin-top: 0;
+    color: white;
+    font-size: 18px;
+}
+
+.tracks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #333;
+    transition: background-color 0.2s;
+}
+
+.track-item:hover {
+    background-color: #444;
+}
+
+.track-number {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.track-info {
+    flex-grow: 1;
+}
+
+.track-name {
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.track-duration {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.track-preview {
+    margin-left: 10px;
+}
+
+.track-preview button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.track-preview button:hover {
+    background-color: #1ed760;
+}
+
+.track-preview button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+
+/* אייקונים לכפתורי נגינה/עצירה */
+.play-icon, .pause-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.play-icon {
+    border-style: solid;
+    border-width: 7px 0 7px 14px;
+    border-color: transparent transparent transparent white;
+    box-sizing: border-box;
+}
+
+.pause-icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pause-icon span {
+    width: 4px;
+    height: 14px;
+    background-color: white;
+}
+
 /*.lds-ripple,
 .lds-ripple span {
   box-sizing: border-box;
