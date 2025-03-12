@@ -123,6 +123,51 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('album-image').src = albumData.image || 'https://via.placeholder.com/300';
     document.getElementById('spotify-link').href = albumData.spotifyLink || '#';
 
+    // יצירת הנגן המוטמע של ספוטיפיי
+    const embedContainer = document.getElementById('spotify-embed-container');
+
+    // ניקוי המיכל מתוכן קודם
+    embedContainer.innerHTML = '';
+
+    if (albumData.spotifyLink) {
+      try {
+        // הפקת סוג התוכן ומזהה מהקישור
+        const spotifyUrl = new URL(albumData.spotifyLink);
+        const pathParts = spotifyUrl.pathname.split('/');
+
+        // בדיקה אם זה קישור חיפוש
+        if (pathParts[1] === 'search') {
+          embedContainer.innerHTML = '<p style="color: #777;">No preview available. Click "Listen on Spotify" to search.</p>';
+        } else {
+          let contentType = pathParts[1]; // 'album', 'track', או 'artist'
+          const contentId = pathParts[pathParts.length - 1];
+
+          if (contentId) {
+            // יצירת iframe עם הנגן המוטמע - עם פרמטרים לתצוגה מצומצמת
+            const iframe = document.createElement('iframe');
+            iframe.style.borderRadius = '12px';
+
+            // פרמטרים לתצוגה מצומצמת:
+            // theme=0 - תצוגה בהירה
+            // compact=1 - תצוגה מצומצמת
+            // tracks=3 - הצג רק 3 שירים ראשונים
+            iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&theme=0&compact=1&tracks=3`;
+
+            iframe.width = '100%';
+            iframe.height = '152'; // גובה מותאם לתצוגה מצומצמת
+            iframe.frameBorder = '0';
+            iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+            iframe.loading = 'lazy';
+
+            embedContainer.appendChild(iframe);
+          }
+        }
+      } catch (error) {
+        console.error('Error creating Spotify embed:', error);
+        embedContainer.innerHTML = '<p style="color: #777;">Preview not available</p>';
+      }
+    }
+
     // Show the result screen
     document.getElementById('main-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'block';
