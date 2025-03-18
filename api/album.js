@@ -5,9 +5,29 @@ const { fetchRandomAlbum, fetchCustomAlbum } = require("../discogs.js")
 module.exports = async (req, res) => {
   console.log("📡 Request to /api/album received")
 
+  // Set CORS headers to prevent caching
+  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
+  res.setHeader("Pragma", "no-cache")
+  res.setHeader("Expires", "0")
+  res.setHeader("Surrogate-Control", "no-store")
+
+  // Set CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS")
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type")
+
   if (req.method === "GET") {
     try {
       console.log("🔄 Fetching album...")
+
+      // קבל את הז'אנרים שנבחרו מהפרמטרים של ה-URL
+      const selectedGenres = req.query.genres ?
+        Array.isArray(req.query.genres) ? req.query.genres : [req.query.genres] :
+        [];
+
+      if (selectedGenres.length > 0) {
+        console.log(`🎵 Filtering by genres: ${selectedGenres.join(', ')}`)
+      }
 
       // Try to get a custom album
       const customAlbum = await fetchCustomAlbum()
@@ -17,7 +37,9 @@ module.exports = async (req, res) => {
       console.log(`🔢 Percent chosen: ${percent}`)
 
       // Determine which album to send
-      const album = percent < 1 && customAlbum ? customAlbum : await fetchRandomAlbum()
+      const album = percent < 1 && customAlbum ?
+        customAlbum :
+        await fetchRandomAlbum({ selectedGenres })
 
       // Check if valid album exists
       if (!album || !album.title) {
@@ -31,6 +53,9 @@ module.exports = async (req, res) => {
         album.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
         console.log(`🔍 Added fallback search link: ${album.spotifyLink}`)
       }
+
+      // Add timestamp to prevent client-side caching
+      album.timestamp = Date.now()
 
       console.log(`🏪 Album selected from store: ${album.store || "Custom List"}`)
       console.log("✅ Sending album to frontend:", album)
