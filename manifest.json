@@ -1,0 +1,22 @@
+{
+  "name": "WaxRiffle",
+  "short_name": "WaxRiffle",
+  "description": "Discover a world of unique albums and fresh sounds while breaking free from the Spotify algorithm.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8281FE",
+  "icons": [
+    {
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
