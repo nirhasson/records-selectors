@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // הצג את האנימציה והסתר את הכפתור
       document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-container').style.display = 'block'; // הצג את המיכל
+      document.getElementById('loading-animation').style.display = 'block';
       loadingAnimation.play(); // הפעל את האנימציה
 
       const response = await fetch('/api/album'); // Update the path to the correct endpoint
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("✅ Received album data:", albumData); // Check the received data
 
       // הסתר את האנימציה כשהנתונים מגיעים
-      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
+      document.getElementById('loading-animation').style.display = 'none';
       loadingAnimation.stop(); // עצור את האנימציה
 
       return albumData;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error('❌ Error fetching album data:', error);
 
       // במקרה של שגיאה, הסתר את האנימציה והחזר את הכפתור
-      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
+      document.getElementById('loading-animation').style.display = 'none';
       document.getElementById('explore-button').style.display = 'flex';
       loadingAnimation.stop(); // עצור את האנימציה
 
@@ -83,33 +83,16 @@ document.addEventListener("DOMContentLoaded", function () {
       exploreAgainButton.disabled = true; // מנע לחיצות נוספות בזמן הטעינה
 
       try {
-        // הצג את האנימציה והטקסט
-        document.getElementById('result-screen').style.display = 'none';
-        document.getElementById('main-screen').style.display = 'block';
-        document.getElementById('explore-button').style.display = 'none';
-        document.getElementById('loading-container').style.display = 'block'; // הצג את המיכל
-        loadingAnimation.play();
-
         // קריאה ישירה ל-API
         const response = await fetch('/api/album');
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);
 
-        // הסתר את האנימציה והטקסט
-        document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
-        loadingAnimation.stop();
-
         // עדכון ממשק המשתמש עם הנתונים החדשים
         updateUI(albumData);
       } catch (error) {
         console.error('❌ Error fetching album data:', error);
-
-        // הסתר את האנימציה והטקסט
-        document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
-        document.getElementById('explore-button').style.display = 'flex';
-        loadingAnimation.stop();
-
         alert('⚠️ Failed to load album data. Please try again.');
       } finally {
         // החזר את הכפתור למצב הרגיל
@@ -126,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('main-screen').style.display = 'block';
       // וודא שהכפתור מוצג ולא האנימציה
-      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
+      document.getElementById('loading-animation').style.display = 'none';
       document.getElementById('explore-button').style.display = 'flex';
     });
   }
