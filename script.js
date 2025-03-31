@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // הצג את האנימציה והסתר את הכפתור
       document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-animation').style.display = 'block';
-      document.getElementById('loading-text').style.display = 'block'; // הצג את הטקסט
+      document.getElementById('loading-container').style.display = 'block'; // הצג את המיכל
       loadingAnimation.play(); // הפעל את האנימציה
 
       const response = await fetch('/api/album'); // Update the path to the correct endpoint
@@ -28,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("✅ Received album data:", albumData); // Check the received data
 
       // הסתר את האנימציה כשהנתונים מגיעים
-      document.getElementById('loading-animation').style.display = 'none';
-      document.getElementById('loading-text').style.display = 'none'; // הסתר את הטקסט
+      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
       loadingAnimation.stop(); // עצור את האנימציה
 
       return albumData;
@@ -37,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error('❌ Error fetching album data:', error);
 
       // במקרה של שגיאה, הסתר את האנימציה והחזר את הכפתור
-      document.getElementById('loading-animation').style.display = 'none';
-      document.getElementById('loading-text').style.display = 'none'; // הסתר את הטקסט
+      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
       document.getElementById('explore-button').style.display = 'flex';
       loadingAnimation.stop(); // עצור את האנימציה
 
@@ -90,8 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('result-screen').style.display = 'none';
         document.getElementById('main-screen').style.display = 'block';
         document.getElementById('explore-button').style.display = 'none';
-        document.getElementById('loading-animation').style.display = 'block';
-        document.getElementById('loading-text').style.display = 'block'; // הצג את הטקסט
+        document.getElementById('loading-container').style.display = 'block'; // הצג את המיכל
         loadingAnimation.play();
 
         // קריאה ישירה ל-API
@@ -101,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("✅ Received new album data:", albumData);
 
         // הסתר את האנימציה והטקסט
-        document.getElementById('loading-animation').style.display = 'none';
-        document.getElementById('loading-text').style.display = 'none'; // הסתר את הטקסט
+        document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
         loadingAnimation.stop();
 
         // עדכון ממשק המשתמש עם הנתונים החדשים
@@ -111,8 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error('❌ Error fetching album data:', error);
 
         // הסתר את האנימציה והטקסט
-        document.getElementById('loading-animation').style.display = 'none';
-        document.getElementById('loading-text').style.display = 'none'; // הסתר את הטקסט
+        document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
         document.getElementById('explore-button').style.display = 'flex';
         loadingAnimation.stop();
 
@@ -132,8 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('main-screen').style.display = 'block';
       // וודא שהכפתור מוצג ולא האנימציה
-      document.getElementById('loading-animation').style.display = 'none';
-      document.getElementById('loading-text').style.display = 'none'; // הסתר את הטקסט
+      document.getElementById('loading-container').style.display = 'none'; // הסתר את המיכל
       document.getElementById('explore-button').style.display = 'flex';
     });
   }
