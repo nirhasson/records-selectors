@@ -13,31 +13,77 @@ document.addEventListener("DOMContentLoaded", function () {
     path: 'animation/loading-animation.json' // עדכן את הנתיב לפי המיקום האמיתי של הקובץ
   });
 
+  // וודא שהטקסט מוסתר בתחילה
+  const loadingText = document.getElementById('loading-text');
+  if (loadingText) {
+    loadingText.style.display = 'none';
+  }
+
+  // וודא שהטקסט מופיע מתחת לאנימציה
+  const loadingAnimation = document.getElementById('loading-animation');
+  const loadingContainer = loadingAnimation.parentElement;
+
+  // אם הטקסט לא נמצא במקום הנכון, העבר אותו
+  if (loadingText && loadingText.previousElementSibling !== loadingAnimation) {
+    // הסר את הטקסט מהמיקום הנוכחי שלו
+    loadingText.parentElement.removeChild(loadingText);
+
+    // הוסף את הטקסט מיד אחרי אנימציית הטעינה
+    if (loadingAnimation.nextElementSibling) {
+      loadingContainer.insertBefore(loadingText, loadingAnimation.nextElementSibling);
+    } else {
+      loadingContainer.appendChild(loadingText);
+    }
+  }
+
+  // פונקציה להצגת אנימציית הטעינה והטקסט
+  function showLoading() {
+    document.getElementById('explore-button').style.display = 'none';
+    document.getElementById('loading-animation').style.display = 'block';
+
+    // הצג את טקסט הטעינה
+    const loadingText = document.getElementById('loading-text');
+    if (loadingText) {
+      loadingText.style.display = 'block';
+    }
+
+    loadingAnimation.play();
+  }
+
+  // פונקציה להסתרת אנימציית הטעינה והטקסט
+  function hideLoading() {
+    document.getElementById('loading-animation').style.display = 'none';
+
+    // הסתר את טקסט הטעינה
+    const loadingText = document.getElementById('loading-text');
+    if (loadingText) {
+      loadingText.style.display = 'none';
+    }
+
+    loadingAnimation.stop();
+  }
+
   // Function to fetch album data from the backend
   async function fetchAlbumData() {
     try {
-      // הצג את האנימציה והסתר את הכפתור
-      document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-animation').style.display = 'block';
-      loadingAnimation.play(); // הפעל את האנימציה
+      // הצג את האנימציה והטקסט
+      showLoading();
 
       const response = await fetch('/api/album'); // Update the path to the correct endpoint
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // Check the received data
 
-      // הסתר את האנימציה כשהנתונים מגיעים
-      document.getElementById('loading-animation').style.display = 'none';
-      loadingAnimation.stop(); // עצור את האנימציה
+      // הסתר את האנימציה והטקסט כשהנתונים מגיעים
+      hideLoading();
 
       return albumData;
     } catch (error) {
       console.error('❌ Error fetching album data:', error);
 
-      // במקרה של שגיאה, הסתר את האנימציה והחזר את הכפתור
-      document.getElementById('loading-animation').style.display = 'none';
+      // במקרה של שגיאה, הסתר את האנימציה והטקסט והחזר את הכפתור
+      hideLoading();
       document.getElementById('explore-button').style.display = 'flex';
-      loadingAnimation.stop(); // עצור את האנימציה
 
       return null;
     }
@@ -83,16 +129,29 @@ document.addEventListener("DOMContentLoaded", function () {
       exploreAgainButton.disabled = true; // מנע לחיצות נוספות בזמן הטעינה
 
       try {
+        // הצג את האנימציה והטקסט
+        document.getElementById('result-screen').style.display = 'none';
+        document.getElementById('main-screen').style.display = 'block';
+        showLoading();
+
         // קריאה ישירה ל-API
         const response = await fetch('/api/album');
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);
 
+        // הסתר את האנימציה והטקסט
+        hideLoading();
+
         // עדכון ממשק המשתמש עם הנתונים החדשים
         updateUI(albumData);
       } catch (error) {
         console.error('❌ Error fetching album data:', error);
+
+        // הסתר את האנימציה והטקסט והחזר את הכפתור
+        hideLoading();
+        document.getElementById('explore-button').style.display = 'flex';
+
         alert('⚠️ Failed to load album data. Please try again.');
       } finally {
         // החזר את הכפתור למצב הרגיל
@@ -108,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
     backButton.addEventListener('click', () => {
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('main-screen').style.display = 'block';
-      // וודא שהכפתור מוצג ולא האנימציה
-      document.getElementById('loading-animation').style.display = 'none';
+      // וודא שהכפתור מוצג ולא האנימציה והטקסט
+      hideLoading();
       document.getElementById('explore-button').style.display = 'flex';
     });
   }
