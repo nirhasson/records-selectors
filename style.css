@@ -200,6 +200,21 @@ footer a:hover {
     z-index: 100;
 }
 
+#loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-text {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #8281FE;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* התאמות למובייל */
 @media (max-width: 768px) {
     #loading-animation {
