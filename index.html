@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +20,10 @@
     <title>Wax-Riffle - Discover Thousands of Unique Albums </title>
     <meta name="description" content="Discover a world of unique albums and fresh sounds while breaking free from the Spotify algorithm. Let the tool guide you to new musical horizons!">
     <link rel="icon" type="image/png" href="/my-favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/my-favicon/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/my-favicon/site.webmanifest" />
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -46,31 +47,12 @@
             <h2>Dig Into the Unknown</h2>
             <h3>Discover Thousands of Unique Albums—Handpicked by Music Lovers!</h3>
 
-            <!-- בורר ז'אנרים -->
-            <div id="genre-selector" class="genre-selector">
-                <p class="genre-prompt">Want to discover music from specific genres?</p>
-                <button id="toggle-genres-button" class="toggle-button">Choose Genres</button>
-
-                <!-- מיכל לז'אנרים שנבחרו -->
-                <div id="selected-genres-container" class="selected-genres" style="display: none;">
-                    <p>Selected Genres:</p>
-                    <div id="selected-genres-tags" class="genre-tags"></div>
-                    <button id="clear-genres-button" class="clear-button">Clear All</button>
-                </div>
-
-                <!-- רשימת הז'אנרים -->
-                <div id="genre-list" class="genre-list" style="display: none;"></div>
-            </div>
-
             <button id="explore-button">
                 <span>Find Album</span>
             </button>
-
             <!-- מיכל לאנימציית הטעינה -->
-            <div id="loading-container" style="display: none;">
-                <div id="loading-animation"></div>
-                <div id="loading-text">Searching...</div>
-            </div>
+            <div id="loading-animation" style="display: none;"></div>
+
         </div>
 
         <!-- מסך תוצאה -->
@@ -80,10 +62,10 @@
             <p><strong>Artist:</strong> <span id="album-artist">Loading...</span></p>
             <p><strong>Year:</strong> <span id="album-year">Loading...</span></p>
             <p><strong>Genre:</strong> <span id="album-genre">Loading...</span></p>
-            <img id="album-image" src="/placeholder.svg" alt="Album cover" style="max-width: 250px; margin-top: 20px;" />
+            <img id="album-image" src="" alt="Album cover" style="max-width: 250px; margin-top: 20px;" />
             <br><br>
             <!-- מיכל לנגן המוטמע של ספוטיפיי -->
-            <div id="spotify-embed-container" style="margin: 20px auto; max-width: 300px;"></div>
+<div id="spotify-embed-container" style="margin: 20px auto; max-width: 300px;"></div>
             <a id="spotify-link" href="#" target="_blank" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #1DB954; color: white; text-decoration: none; font-size: 18px;">Listen on Spotify</a>
             <br><br>
             <button id="explore-again-button" style="padding: 10px 20px; font-size: 18px;">Next Album<span class="lds-ripple"><span></span><span></span></span></button>
@@ -94,7 +76,7 @@
         <a href="mailto:waxriffle@gmail.com">waxriffle@gmail.com</a>
     </footer>
     <!-- ספריית Lottie -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
