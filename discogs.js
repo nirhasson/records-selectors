@@ -689,8 +689,8 @@ async function fetchRandomAlbumFromStore(storeName, options = {}) {
     // אם יש ז'אנרים נבחרים, נצטרך לבדוק כל אלבום
     console.log(`Checking albums for genre matches in ${storeName}: ${selectedGenres.join(', ')}`)
 
-    // נבדוק רק מספר מוגבל של אלבומים כדי למנוע יותר מדי בקשות API
-    const MAX_ALBUMS_TO_CHECK = 10
+    // נבדוק עד 30 אלבומים (הגדלנו מ-10 ל-30)
+    const MAX_ALBUMS_TO_CHECK = 30
     const albumsToCheck = availableListings.slice(0, MAX_ALBUMS_TO_CHECK)
 
     // מערך לשמירת אלבומים שמתאימים לז'אנרים
@@ -737,8 +737,17 @@ async function fetchRandomAlbumFromStore(storeName, options = {}) {
         return fetchRandomAlbumFromStore(storeName, options)
       }
 
-      // אם אין עוד דפים, נחזיר null
-      return null
+      // אם אין התאמה בכל הדפים שבדקנו, ננסה חנות אחרת
+      console.log(`Could not find albums matching selected genres in ${storeName}, trying another store...`)
+      const otherStores = Object.keys(storeInventories).filter(store => store !== storeName)
+      if (otherStores.length > 0) {
+        const randomStore = otherStores[Math.floor(Math.random() * otherStores.length)]
+        return fetchRandomAlbumFromStore(randomStore, options)
+      }
+
+      // אם לא נמצאו אלבומים מתאימים בכל החנויות, נחזיר אלבום אקראי ללא סינון ז'אנרים
+      console.log("Could not find albums matching selected genres in any store, returning random album")
+      return fetchRandomAlbumFromStore(storeName, { selectedGenres: [] })
     }
 
     // בחר אלבום אקראי מהרשימה המסוננת
