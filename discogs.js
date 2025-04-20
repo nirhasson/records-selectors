@@ -622,7 +622,7 @@ async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
 }
 
 // Get a random album from a store with pagination and duplicate prevention
-async function fetchRandomAlbumFromStore(storeName) {
+async function fetchRandomAlbumFromStore(storeName, options = {}) {
   try {
     // Choose a random page if the store has multiple pages
     let page = 1
@@ -642,10 +642,43 @@ async function fetchRandomAlbumFromStore(storeName) {
     }
 
     // Filter out recently shown albums
-    const availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id))
+    let availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id))
+
+    // אם יש ז'אנרים נבחרים, נסנן את הרשימה
+    const selectedGenres = options.selectedGenres || []
+    if (selectedGenres.length > 0) {
+      console.log(`Filtering by genres: ${selectedGenres.join(', ')} in ${storeName}`)
+
+      // נצטרך לבדוק את הז'אנר של כל אלבום
+      const filteredListings = []
+
+      for (const listing of availableListings) {
+        try {
+          // קבל מידע מפורט על האלבום
+          const releaseDetails = await axios.get(`${listing.release.resource_url}?token=${TOKEN}`)
+          const albumGenres = releaseDetails.data.genres || []
+          const albumStyles = releaseDetails.data.styles || []
+
+          // בדוק אם יש התאמה לאחד הז'אנרים שנבחרו
+          const hasMatchingGenre = selectedGenres.some(selectedGenre =>
+            albumGenres.some(genre => genre.toLowerCase().includes(selectedGenre.toLowerCase())) ||
+            albumStyles.some(style => style.toLowerCase().includes(selectedGenre.toLowerCase()))
+          )
+
+          if (hasMatchingGenre) {
+            filteredListings.push(listing)
+          }
+        } catch (error) {
+          console.error(`Error fetching details for release ${listing.release.id}:`, error.message)
+        }
+      }
+
+      availableListings = filteredListings
+      console.log(`Found ${availableListings.length} albums matching selected genres in ${storeName}`)
+    }
 
     if (availableListings.length === 0) {
-      console.log(`All albums on page ${page} of ${storeName} were recently shown. Trying another page...`)
+      console.log(`No albums matching criteria found on page ${page} of ${storeName}. Trying another page...`)
 
       // Try another random page
       if (storeMetadata[storeName].totalPages > 1) {
@@ -654,20 +687,12 @@ async function fetchRandomAlbumFromStore(storeName) {
           newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
         } while (newPage === page)
 
-        return fetchRandomAlbumFromStore(storeName)
+        return fetchRandomAlbumFromStore(storeName, options)
       }
 
-      // If there's only one page, we have to reuse something
-      console.log(`Only one page available in ${storeName}, reusing an album`)
-      const randomIndex = Math.floor(Math.random() * listings.length)
-      const item = listings[randomIndex].release
-
-      // Add to cache even though it's a repeat
-      addToRecentCache(item.id)
-
-      console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
-      const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-      return processReleaseData(releaseDetails.data, storeName)
+      // If there's only one page and no matching albums, return null
+      console.log(`No matching albums found in ${storeName}`)
+      return null
     }
 
     // Choose a random album from available listings
@@ -757,18 +782,24 @@ function chooseRandomStore() {
   return selectedStore
 }
 
-async function fetchRandomAlbum() {
+async function fetchRandomAlbum(options = {}) {
   try {
     await spotifyApi.clientCredentialsGrant().then((data) => {
       spotifyApi.setAccessToken(data.body["access_token"])
     })
+
+    // בדוק אם יש ז'אנרים נבחרים
+    const selectedGenres = options.selectedGenres || []
+    if (selectedGenres.length > 0) {
+      console.log(`Filtering by genres: ${selectedGenres.join(', ')}`)
+    }
 
     // Choose a random store with equal probability
     const randomStoreName = chooseRandomStore()
     console.log(`Attempting to fetch album from ${randomStoreName} store...`)
 
     // Try to get an album from the selected store
-    const album = await fetchRandomAlbumFromStore(randomStoreName)
+    const album = await fetchRandomAlbumFromStore(randomStoreName, { selectedGenres })
 
     // If no album found, try another store
     if (!album) {
@@ -779,7 +810,7 @@ async function fetchRandomAlbum() {
       for (let i = 0; i < Math.min(3, otherStores.length); i++) {
         const backupStore = otherStores[Math.floor(Math.random() * otherStores.length)]
         console.log(`Trying backup store: ${backupStore}`)
-        const backupAlbum = await fetchRandomAlbumFromStore(backupStore)
+        const backupAlbum = await fetchRandomAlbumFromStore(backupStore, { selectedGenres })
         if (backupAlbum) {
           console.log(`Found album in backup store ${backupStore}`)
           return processSpotifyMatch(backupAlbum)

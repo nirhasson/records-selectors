@@ -1,3 +1,23 @@
+// רשימת ז'אנרים פופולריים
+const GENRES = [
+  "Rock",
+  "Jazz",
+  "Electronic",
+  "Hip Hop",
+  "Classical",
+  "Blues",
+  "Funk / Soul",
+  "Reggae",
+  "Latin",
+  "Folk, World, & Country",
+  "Pop",
+  "Soundtrack",
+  "Metal"
+];
+
+// מערך לשמירת הז'אנרים שנבחרו
+let selectedGenres = [];
+
 // יצירת משתנה גלובלי לאנימציה
 let loadingAnimation;
 
@@ -13,21 +33,31 @@ document.addEventListener("DOMContentLoaded", function () {
     path: 'animation/loading-animation.json' // עדכן את הנתיב לפי המיקום האמיתי של הקובץ
   });
 
+  // אתחול בורר הז'אנרים
+  initGenreSelector();
+
   // Function to fetch album data from the backend
   async function fetchAlbumData() {
     try {
       // הצג את האנימציה והסתר את הכפתור
       document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-animation').style.display = 'block';
+      document.getElementById('loading-container').style.display = 'flex';
       loadingAnimation.play(); // הפעל את האנימציה
 
-      const response = await fetch('/api/album'); // Update the path to the correct endpoint
+      // בניית URL עם פרמטרים של ז'אנרים שנבחרו
+      let url = '/api/album';
+      if (selectedGenres.length > 0) {
+        const genreParams = selectedGenres.map(g => `genres=${encodeURIComponent(g)}`).join('&');
+        url = `${url}?${genreParams}`;
+      }
+
+      const response = await fetch(url);
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // Check the received data
 
       // הסתר את האנימציה כשהנתונים מגיעים
-      document.getElementById('loading-animation').style.display = 'none';
+      document.getElementById('loading-container').style.display = 'none';
       loadingAnimation.stop(); // עצור את האנימציה
 
       return albumData;
@@ -35,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error('❌ Error fetching album data:', error);
 
       // במקרה של שגיאה, הסתר את האנימציה והחזר את הכפתור
-      document.getElementById('loading-animation').style.display = 'none';
+      document.getElementById('loading-container').style.display = 'none';
       document.getElementById('explore-button').style.display = 'flex';
       loadingAnimation.stop(); // עצור את האנימציה
 
@@ -50,6 +80,112 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error(`❌ Error: Element with ID '${id}' not found.`);
     }
     return element;
+  }
+
+  // פונקציה לאתחול בורר הז'אנרים
+  function initGenreSelector() {
+    const genreList = document.getElementById('genre-list');
+    const toggleButton = document.getElementById('toggle-genres-button');
+    const clearButton = document.getElementById('clear-genres-button');
+
+    // יצירת תיבות סימון לכל ז'אנר
+    GENRES.forEach(genre => {
+      const label = document.createElement('label');
+      label.className = 'genre-checkbox';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = genre;
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          addGenre(genre);
+        } else {
+          removeGenre(genre);
+        }
+      });
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(genre));
+      genreList.appendChild(label);
+    });
+
+    // כפתור להצגת/הסתרת רשימת הז'אנרים
+    toggleButton.addEventListener('click', function() {
+      if (genreList.style.display === 'none' || !genreList.style.display) {
+        genreList.style.display = 'grid';
+        toggleButton.textContent = 'Hide Genres';
+      } else {
+        genreList.style.display = 'none';
+        toggleButton.textContent = 'Choose Genres';
+      }
+    });
+
+    // כפתור לניקוי כל הז'אנרים שנבחרו
+    clearButton.addEventListener('click', function() {
+      clearGenres();
+    });
+  }
+
+  // פונקציה להוספת ז'אנר לרשימת הנבחרים
+  function addGenre(genre) {
+    if (!selectedGenres.includes(genre)) {
+      selectedGenres.push(genre);
+      updateSelectedGenresTags();
+    }
+  }
+
+  // פונקציה להסרת ז'אנר מרשימת הנבחרים
+  function removeGenre(genre) {
+    selectedGenres = selectedGenres.filter(g => g !== genre);
+    updateSelectedGenresTags();
+
+    // עדכון מצב תיבת הסימון
+    const checkbox = document.querySelector(`input[value="${genre}"]`);
+    if (checkbox) checkbox.checked = false;
+  }
+
+  // פונקציה לניקוי כל הז'אנרים שנבחרו
+  function clearGenres() {
+    selectedGenres = [];
+    updateSelectedGenresTags();
+
+    // איפוס כל תיבות הסימון
+    document.querySelectorAll('.genre-checkbox input').forEach(checkbox => {
+      checkbox.checked = false;
+    });
+  }
+
+  // פונקציה לעדכון תצוגת התגיות של הז'אנרים שנבחרו
+  function updateSelectedGenresTags() {
+    const tagsContainer = document.getElementById('selected-genres-tags');
+    const selectedGenresContainer = document.getElementById('selected-genres-container');
+
+    // ניקוי התגיות הקיימות
+    tagsContainer.innerHTML = '';
+
+    // הוספת תגיות חדשות
+    selectedGenres.forEach(genre => {
+      const tag = document.createElement('span');
+      tag.className = 'genre-tag';
+      tag.textContent = genre;
+
+      const removeButton = document.createElement('button');
+      removeButton.className = 'remove-genre';
+      removeButton.textContent = '×';
+      removeButton.addEventListener('click', function() {
+        removeGenre(genre);
+      });
+
+      tag.appendChild(removeButton);
+      tagsContainer.appendChild(tag);
+    });
+
+    // הצגה או הסתרה של מיכל התגיות בהתאם למספר הז'אנרים שנבחרו
+    if (selectedGenres.length > 0) {
+      selectedGenresContainer.style.display = 'block';
+    } else {
+      selectedGenresContainer.style.display = 'none';
+    }
   }
 
   // Retrieve buttons
@@ -83,8 +219,15 @@ document.addEventListener("DOMContentLoaded", function () {
       exploreAgainButton.disabled = true; // מנע לחיצות נוספות בזמן הטעינה
 
       try {
+        // בניית URL עם פרמטרים של ז'אנרים שנבחרו
+        let url = '/api/album';
+        if (selectedGenres.length > 0) {
+          const genreParams = selectedGenres.map(g => `genres=${encodeURIComponent(g)}`).join('&');
+          url = `${url}?${genreParams}`;
+        }
+
         // קריאה ישירה ל-API
-        const response = await fetch('/api/album');
+        const response = await fetch(url);
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);
@@ -109,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('result-screen').style.display = 'none';
       document.getElementById('main-screen').style.display = 'block';
       // וודא שהכפתור מוצג ולא האנימציה
-      document.getElementById('loading-animation').style.display = 'none';
+      document.getElementById('loading-container').style.display = 'none';
       document.getElementById('explore-button').style.display = 'flex';
     });
   }
