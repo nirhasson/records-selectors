@@ -1,5 +1,5 @@
 // Use CommonJS imports
-const { fetchRandomAlbum, fetchCustomAlbum } = require("../discogs.js")
+const { fetchRandomAlbum, fetchCustomAlbum } = require("../discog.js")
 
 // Export as a serverless function
 module.exports = async (req, res) => {

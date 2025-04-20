@@ -621,93 +621,188 @@ async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
   }
 }
 
+// בדיקה אם אלבום מתאים לז'אנרים שנבחרו
+function albumMatchesGenres(albumGenres, selectedGenres) {
+  if (!selectedGenres || selectedGenres.length === 0) return true;
+  if (!albumGenres) return false;
+
+  // המר את הז'אנרים לאותיות קטנות לצורך השוואה
+  const lowerCaseAlbumGenres = albumGenres.map(g => g.toLowerCase());
+
+  // בדוק אם לפחות אחד מהז'אנרים שנבחרו מופיע באלבום
+  return selectedGenres.some(selectedGenre => {
+    const lowerSelectedGenre = selectedGenre.toLowerCase();
+    return lowerCaseAlbumGenres.some(genre =>
+      genre.includes(lowerSelectedGenre) || lowerSelectedGenre.includes(genre)
+    );
+  });
+}
+
 // Get a random album from a store with pagination and duplicate prevention
 async function fetchRandomAlbumFromStore(storeName, options = {}) {
   try {
+    // בדוק אם יש ז'אנרים נבחרים
+    const selectedGenres = options.selectedGenres || [];
+    if (selectedGenres.length > 0) {
+      console.log(`Filtering by genres: ${selectedGenres.join(', ')} in ${storeName}`);
+    }
+
     // Choose a random page if the store has multiple pages
-    let page = 1
-    const perPage = 100
+    let page = 1;
+    const perPage = 100;
 
     // If we know the total pages for this store, pick a random page
     if (storeMetadata[storeName].totalPages > 1) {
-      page = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
+      page = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1;
     }
 
     // Fetch the chosen page
-    const listings = await fetchStoreInventoryPage(storeName, page, perPage)
+    const listings = await fetchStoreInventoryPage(storeName, page, perPage);
 
     if (!listings || listings.length === 0) {
-      console.log(`No listings found in ${storeName} store on page ${page}`)
-      return null
+      console.log(`No listings found in ${storeName} store on page ${page}`);
+      return null;
     }
 
     // Filter out recently shown albums
-    let availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id))
+    let availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id));
 
-    // אם יש ז'אנרים נבחרים, נסנן את הרשימה
-    const selectedGenres = options.selectedGenres || []
-    if (selectedGenres.length > 0) {
-      console.log(`Filtering by genres: ${selectedGenres.join(', ')} in ${storeName}`)
+    // אם אין ז'אנרים נבחרים, אין צורך בסינון נוסף
+    if (selectedGenres.length === 0) {
+      // Choose a random album from available listings
+      if (availableListings.length === 0) {
+        console.log(`All albums on page ${page} of ${storeName} were recently shown. Trying another page...`);
 
-      // נצטרך לבדוק את הז'אנר של כל אלבום
-      const filteredListings = []
+        // Try another random page
+        if (storeMetadata[storeName].totalPages > 1) {
+          let newPage;
+          do {
+            newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1;
+          } while (newPage === page);
 
-      for (const listing of availableListings) {
-        try {
-          // קבל מידע מפורט על האלבום
-          const releaseDetails = await axios.get(`${listing.release.resource_url}?token=${TOKEN}`)
-          const albumGenres = releaseDetails.data.genres || []
-          const albumStyles = releaseDetails.data.styles || []
+          return fetchRandomAlbumFromStore(storeName, options);
+        }
 
-          // בדוק אם יש התאמה לאחד הז'אנרים שנבחרו
-          const hasMatchingGenre = selectedGenres.some(selectedGenre =>
-            albumGenres.some(genre => genre.toLowerCase().includes(selectedGenre.toLowerCase())) ||
-            albumStyles.some(style => style.toLowerCase().includes(selectedGenre.toLowerCase()))
-          )
+        // If there's only one page, we have to reuse something
+        console.log(`Only one page available in ${storeName}, reusing an album`);
+        const randomIndex = Math.floor(Math.random() * listings.length);
+        const item = listings[randomIndex].release;
 
-          if (hasMatchingGenre) {
-            filteredListings.push(listing)
+        // Add to cache even though it's a repeat
+        addToRecentCache(item.id);
+
+        console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`);
+        const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`);
+        return processReleaseData(releaseDetails.data, storeName);
+      }
+
+      const randomIndex = Math.floor(Math.random() * availableListings.length);
+      const item = availableListings[randomIndex].release;
+
+      // Add to recent cache
+      addToRecentCache(item.id);
+
+      console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`);
+      const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`);
+      return processReleaseData(releaseDetails.data, storeName);
+    }
+
+    // אם יש ז'אנרים נבחרים, נצטרך לבדוק כל אלבום
+    console.log(`Checking ${availableListings.length} albums for genre matches in ${storeName}`);
+
+    // מערך לשמירת אלבומים שמתאימים לז'אנרים
+    const matchingAlbums = [];
+
+    // מספר מקסימלי של אלבומים לבדיקה (למניעת בקשות API רבות מדי)
+    const MAX_ALBUMS_TO_CHECK = 20;
+    const albumsToCheck = availableListings.slice(0, MAX_ALBUMS_TO_CHECK);
+
+    for (const listing of albumsToCheck) {
+      try {
+        // קבל מידע מפורט על האלבום
+        const releaseDetails = await axios.get(`${listing.release.resource_url}?token=${TOKEN}`);
+        const albumGenres = releaseDetails.data.genres || [];
+        const albumStyles = releaseDetails.data.styles || [];
+        const allGenres = [...albumGenres, ...albumStyles];
+
+        // בדוק אם יש התאמה לאחד הז'אנרים שנבחרו
+        if (albumMatchesGenres(allGenres, selectedGenres)) {
+          matchingAlbums.push({
+            release: listing.release,
+            details: releaseDetails.data
+          });
+        }
+      } catch (error) {
+        console.error(`Error fetching details for release ${listing.release.id}:`, error.message);
+      }
+    }
+
+    console.log(`Found ${matchingAlbums.length} albums matching selected genres in ${storeName}`);
+
+    // אם לא נמצאו אלבומים מתאימים, ננסה דף אחר
+    if (matchingAlbums.length === 0) {
+      console.log(`No albums matching selected genres found on page ${page} of ${storeName}. Trying another page...`);
+
+      // נסה עד 3 דפים נוספים
+      for (let attempt = 0; attempt < 3; attempt++) {
+        if (storeMetadata[storeName].totalPages > 1) {
+          let newPage;
+          do {
+            newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1;
+          } while (newPage === page);
+
+          page = newPage;
+          console.log(`Trying page ${page} of ${storeName}...`);
+
+          const newListings = await fetchStoreInventoryPage(storeName, page, perPage);
+          if (!newListings || newListings.length === 0) continue;
+
+          availableListings = newListings.filter((item) => !wasRecentlyShown(item.release.id));
+
+          // בדוק מספר מוגבל של אלבומים בדף החדש
+          for (const listing of availableListings.slice(0, MAX_ALBUMS_TO_CHECK)) {
+            try {
+              const releaseDetails = await axios.get(`${listing.release.resource_url}?token=${TOKEN}`);
+              const albumGenres = releaseDetails.data.genres || [];
+              const albumStyles = releaseDetails.data.styles || [];
+              const allGenres = [...albumGenres, ...albumStyles];
+
+              if (albumMatchesGenres(allGenres, selectedGenres)) {
+                matchingAlbums.push({
+                  release: listing.release,
+                  details: releaseDetails.data
+                });
+              }
+            } catch (error) {
+              console.error(`Error fetching details for release ${listing.release.id}:`, error.message);
+            }
           }
-        } catch (error) {
-          console.error(`Error fetching details for release ${listing.release.id}:`, error.message)
+
+          if (matchingAlbums.length > 0) {
+            break; // מצאנו אלבומים מתאימים, אפשר לצאת מהלולאה
+          }
         }
       }
-
-      availableListings = filteredListings
-      console.log(`Found ${availableListings.length} albums matching selected genres in ${storeName}`)
     }
 
-    if (availableListings.length === 0) {
-      console.log(`No albums matching criteria found on page ${page} of ${storeName}. Trying another page...`)
-
-      // Try another random page
-      if (storeMetadata[storeName].totalPages > 1) {
-        let newPage
-        do {
-          newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
-        } while (newPage === page)
-
-        return fetchRandomAlbumFromStore(storeName, options)
-      }
-
-      // If there's only one page and no matching albums, return null
-      console.log(`No matching albums found in ${storeName}`)
-      return null
+    // אם עדיין לא נמצאו אלבומים מתאימים, החזר null
+    if (matchingAlbums.length === 0) {
+      console.log(`No albums matching selected genres found in ${storeName} after multiple attempts`);
+      return null;
     }
 
-    // Choose a random album from available listings
-    const randomIndex = Math.floor(Math.random() * availableListings.length)
-    const item = availableListings[randomIndex].release
+    // בחר אלבום אקראי מהרשימה המסוננת
+    const randomIndex = Math.floor(Math.random() * matchingAlbums.length);
+    const selectedMatch = matchingAlbums[randomIndex];
 
-    // Add to recent cache
-    addToRecentCache(item.id)
+    // הוסף לקאש של אלבומים שהוצגו לאחרונה
+    addToRecentCache(selectedMatch.release.id);
 
-    console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
-    const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-    return processReleaseData(releaseDetails.data, storeName)
+    console.log(`Selected album in ${storeName} store: ${selectedMatch.release.title} (ID: ${selectedMatch.release.id})`);
+    return processReleaseData(selectedMatch.details, storeName);
   } catch (error) {
-    console.error(`Error fetching data from ${storeName}:`, error.message)
-    return null
+    console.error(`Error fetching data from ${storeName}:`, error.message);
+    return null;
   }
 }
 
