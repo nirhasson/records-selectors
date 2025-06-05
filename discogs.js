@@ -20,7 +20,8 @@ const storeInventories = {
   eskotrackl: "https://api.discogs.com/users/eskotrackl/inventory",
   Taboca_Discos: "https://api.discogs.com/users/Taboca_Discos/inventory",
   RushHour: "https://api.discogs.com/users/RushHour/inventory",
-  "LoFi-Concept": "https://api.discogs.com/users/LoFi-Concept/inventory",
+  LoFiConcept: "https://api.discogs.com/users/LoFi-Concept/inventory",
+  srt: "https://api.discogs.com/users/S-R-T/inventory",
 }
 
 // Cache to store recently shown albums (prevent repeats)
