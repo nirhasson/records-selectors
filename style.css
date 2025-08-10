@@ -1,364 +1,203 @@
 body {
-  font-family: "Jockey One", serif;
-  text-align: center;
-  margin: 0;
-  background-color: #373737;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font-family: "Jockey One", serif;
+    text-align: center;
+    margin: 0;
+    background-color: #373737;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-  position: absolute;
-  top: 30px;
-  left: 60px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
 }
 
 /* עיצוב הלוגו בדסקטופ */
 #logo {
-  position: absolute;
-  top: 20px; /* שמירת מרווח מהחלק העליון */
-  left: 20px; /* הצמדת הלוגו לשמאל */
-  width: 150px; /* גודל סטנדרטי */
-  z-index: 100; /* ווידוא שהלוגו מעל כל האלמנטים */
+    position: absolute;
+    top: 20px; /* שמירת מרווח מהחלק העליון */
+    left: 20px; /* הצמדת הלוגו לשמאל */
+    width: 150px; /* גודל סטנדרטי */
+    z-index: 100; /* ווידוא שהלוגו מעל כל האלמנטים */
 }
 
 /* התאמות למובייל */
 @media (max-width: 768px) {
-  #logo {
-    width: 100px; /* הקטנת הלוגו */
-    top: 10px; /* התאמת גובה */
-    left: 10px; /* התאמת השוליים */
-    display: block; /* לוודא שהוא לא מוסתר */
-    position: fixed; /* שומר על המיקום גם בגלילה */
-  }
+    #logo {
+        width: 100px; /* הקטנת הלוגו */
+        top: 10px; /* התאמת גובה */
+        left: 10px; /* התאמת השוליים */
+        display: block; /* לוודא שהוא לא מוסתר */
+        position: fixed; /* שומר על המיקום גם בגלילה */
+    }
 }
 
 #main-screen h1,
 #main-screen h2,
 #main-screen h3 {
-  margin-bottom: 20px; /* מוסיף רווח מתחת לכותרות */
+    margin-bottom: 20px; /* מוסיף רווח מתחת לכותרות */
 }
 
 h1 {
-  font-family: "Jockey One", serif;
-  font-size: 2em;
-  color: #8281fe;
+    font-family: "Jockey One", serif;
+    font-size: 2em;
+    color: #8281FE;
 }
 
 h2 {
-  color: #ffffff;
+    color: #FFFFFF;
 }
 
 h3 {
-  color: #ffffff;
-  font-weight: normal;
+    color: #FFFFFF;
+    font-weight: normal;
 }
 
 #explore-button {
-  background: url("images/riffle-btn.svg") no-repeat center center;
-  background-size: contain;
-  border: none;
-  width: 200px; /* גודל אחיד */
-  height: 200px;
-  margin: 30px auto; /* מבטיח שהכפתור יהיה במרכז ויהיה רווח */
-  padding: 15px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: absolute; /* ממקם במרכז הדף */
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.2s ease-in-out; /* אנימציה חלקה */
+    background: url("images/riffle-btn.svg") no-repeat center center;
+    background-size: contain;
+    border: none;
+    width: 200px; /* גודל אחיד */
+    height: 200px;
+    margin: 30px auto; /* מבטיח שהכפתור יהיה במרכז ויהיה רווח */
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute; /* ממקם במרכז הדף */
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-in-out; /* אנימציה חלקה */
 }
 
 /* עיצוב הטקסט */
 #explore-button span {
-  font-size: 20px;
-  font-weight: bold;
-  color: white; /* צבע הטקסט */
-  font-family: "Jockey One", sans-serif;
-  position: absolute; /* מוודא שהטקסט יושב מעל התמונה */
+    font-size: 20px;
+    font-weight: bold;
+    color: white; /* צבע הטקסט */
+    font-family: 'Jockey One', sans-serif;
+    position: absolute; /* מוודא שהטקסט יושב מעל התמונה */
 }
 
 /* אפקט hover */
 #explore-button:hover {
-  transform: translate(-50%, -50%) scale(1.08); /* הגדלה קלה */
+    transform: translate(-50%, -50%) scale(1.08); /* הגדלה קלה */
 }
 
 /* אפקט לחיצה */
 #explore-button:active {
-  transform: translate(-50%, -50%) scale(0.95); /* קטן טיפה בלחיצה */
+    transform: translate(-50%, -50%) scale(0.95); /* קטן טיפה בלחיצה */
 }
 
 button {
-  padding: 10px 20px;
-  font-family: "Jockey One", serif;
-  font-size: 1em;
-  margin: 10px;
-  cursor: pointer;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 5px;
+    padding: 10px 20px;
+    font-family: "Jockey One", serif;
+    font-size: 1em;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
 }
 
 button:hover {
-  background-color: #8281fe;
+    background-color: #8281FE;
 }
 
 #result-screen {
-  color: white; /* משנה את צבע הטקסט ללבן */
+    color: white; /* משנה את צבע הטקסט ללבן */
 }
 
-/* Button Container Styles - עיצוב קונטיינר הכפתורים */
-.button-container {
-  display: flex;
-  gap: 15px; /* רווח של 15px בין הכפתורים */
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-/* Spotify Button Styles - עיצוב כפתור ספוטיפיי */
 #spotify-link {
-  background: linear-gradient(135deg, #1db954, #1ed760);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: "Jockey One", serif;
-  font-size: 16px;
+    border-radius: 8px;
 }
 
-#spotify-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
-  background: linear-gradient(135deg, #1ed760, #1db954);
-}
-
-/* Explore Again Button Styles - עיצוב כפתור "אלבום הבא" */
 #explore-again-button {
-  background: linear-gradient(135deg, #8281fe, #a29bfe);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 25px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: "Jockey One", serif;
-  font-size: 16px;
+    background-color: transparent; /* רקע שקוף */
+    border: 2px solid #8281FE; /* מסגרת בצבע 8281FE */
+    color: #8281FE; /* צבע טקסט */
+    font-size: 18px; /* גודל טקסט */
+    padding: 10px 20px; /* ריווח פנימי */
+    border-radius: 8px; /* קצוות מעוגלים */
+    cursor: pointer; /* שינוי סמן העכבר */
+    transition: all 0.3s ease-in-out; /* אנימציה חלקה */
 }
 
+/* אפקט hover */
 #explore-again-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(130, 129, 254, 0.4);
-  background: linear-gradient(135deg, #a29bfe, #8281fe);
-}
-
-#explore-again-button.loading {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-/* Remove unnecessary margin/padding - הסרת רווחים מיותרים */
-#result-screen .button-container * {
-  margin: 0;
+    background-color: #8281FE; /* רקע מתמלא */
+    color: white; /* טקסט לבן */
 }
 
 #albumDetails {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 #albumImage {
-  max-width: 150px;
-  margin-top: 10px;
-}
-
-/* Spotify Embed Fallback Styles - עיצוב fallback לספוטיפיי */
-.spotify-fallback {
-  border: 2px solid #1db954;
-  border-radius: 12px;
-  padding: 20px;
-  background: linear-gradient(135deg, #1db954, #1ed760);
-  color: white;
-  text-align: center;
-  max-width: 300px;
-  margin: 20px auto;
-  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
-  transition: transform 0.2s ease-in-out;
-}
-
-.spotify-fallback:hover {
-  transform: scale(1.02);
-}
-
-.spotify-fallback img {
-  width: 200px;
-  height: 200px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.spotify-fallback h3 {
-  margin: 10px 0 5px 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.spotify-fallback p {
-  margin: 5px 0;
-  opacity: 0.9;
-  font-size: 16px;
-}
-
-.spotify-fallback-link {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 25px;
-  text-decoration: none;
-  margin-top: 15px;
-  font-weight: bold;
-  transition: all 0.2s ease-in-out;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-.spotify-fallback-link:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.spotify-fallback-note {
-  font-size: 12px;
-  margin-top: 10px;
-  opacity: 0.7;
-  font-style: italic;
-}
-
-.embed-container {
-  position: relative;
-  width: 300px;
-  height: 380px;
-  margin: 20px auto;
-}
-
-.embed-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #8281fe;
-  font-size: 16px;
-}
-
-/* Animation for loading - אנימציית טעינה */
-.loading-spinner {
-  border: 3px solid rgba(130, 129, 254, 0.3);
-  border-top: 3px solid #8281fe;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-  margin: 0 auto 10px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    max-width: 150px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  #logo {
-    max-width: 60%; /* לוגו קטן יותר במובייל */
-  }
+    #logo {
+        max-width: 60%; /* לוגו קטן יותר במובייל */
+    }
 
-  #explore-button {
-    font-size: 18px;
-    padding: 12px 20px;
-  }
+    #explore-button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
 
-  h1,
-  h2,
-  h3 {
-    font-size: 16px; /* הקטנת כותרות כך שלא יצאו מהמסך */
-  }
+    h1, h2, h3 {
+        font-size: 16px; /* הקטנת כותרות כך שלא יצאו מהמסך */
+    }
 
-  #main-screen {
-    padding: 10px;
-  }
-
-  /* התאמות כפתורים למובייל */
-  .button-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #spotify-link,
-  #explore-again-button {
-    width: 100%;
-    max-width: 250px;
-    justify-content: center;
-  }
+    #main-screen {
+        padding: 10px;
+    }
 }
 
 .content-wrap {
-  flex: 1;
+    flex: 1;
 }
 
 footer {
-  color: #ffffff;
-  padding: 20px;
-  font-size: 12px;
-  text-align: center;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+    color: #FFFFFF;
+    padding: 20px;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 footer a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
+    color: #FFFFFF; /* ירוק של ספוטיפיי */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* עיצוב מיכל האנימציה */
 #loading-animation {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
 }
 
 #loading-container {
@@ -371,19 +210,70 @@ footer a:hover {
 #loading-text {
   margin-top: 15px;
   font-size: 18px;
-  color: #8281fe;
+  color: #8281FE;
   font-weight: bold;
   text-align: center;
 }
 
 /* התאמות למובייל */
 @media (max-width: 768px) {
-  #loading-animation {
-    width: 150px;
-    height: 150px;
-  }
+    #loading-animation {
+        width: 150px;
+        height: 150px;
+    }
+}
 
-  #loading-text {
-    font-size: 16px;
+
+
+/*.lds-ripple,
+.lds-ripple span {
+  box-sizing: border-box;
+}
+.lds-ripple {
+  display: none;
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+.loading .lds-ripple {display: inline-block}
+.lds-ripple span {
+  position: absolute;
+  border: 4px solid currentColor;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple span:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 9px;
+    left: 9px;
+    width: 2px;
+    height: 2px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 9px;
+    left: 9px;
+    width: 2px;
+    height: 2px;
+    opacity: 0;
+  }
+  5% {
+    top: 9px;
+    left: 9px;
+    width: 2px;
+    height: 2px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    opacity: 0;
   }
 }
+*/
