@@ -151,10 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
             // theme=0 - תצוגה בהירה
             // compact=1 - תצוגה מצומצמת
             // tracks=3 - הצג רק 3 שירים ראשונים
-            iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&theme=0&compact=1&tracks=5`;
+            iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&theme=0&compact=1&tracks=3`;
 
             iframe.width = '100%';
-            iframe.height = '300'; // גובה מותאם לתצוגה מצומצמת
+            iframe.height = '152'; // גובה מותאם לתצוגה מצומצמת
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
             iframe.loading = 'lazy';
