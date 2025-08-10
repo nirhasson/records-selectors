@@ -225,6 +225,36 @@ footer a:hover {
     }
 }
 
+/* תיקון רווח בין נגן ספוטיפיי לכפתורים */
+#spotify-embed-container {
+  margin: 15px 0 10px 0; /* הקטנת הרווח מתחת לנגן */
+}
+
+/* תיקון רווח של הכפתורים */
+#spotify-link,
+#explore-again-button {
+  margin: 5px 10px; /* הקטנת הרווח בין הכפתורים */
+}
+
+/* אם יש div שמכיל את הכפתורים */
+#result-screen > div {
+  margin-top: 10px; /* הקטנת הרווח מעל הכפתורים */
+}
+
+/* תיקון ספציפי לאזור הכפתורים */
+#albumDetails {
+  margin-top: 20px;
+}
+
+#albumDetails > * {
+  margin-bottom: 10px; /* רווח קטן בין כל האלמנטים */
+}
+
+/* הקטנת רווח ספציפי אחרי הנגן */
+#spotify-embed-container + * {
+  margin-top: 10px !important; /* רווח קטן אחרי הנגן */
+}
+
 
 
 /*.lds-ripple,
