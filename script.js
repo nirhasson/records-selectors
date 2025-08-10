@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
             iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&theme=0&compact=1&tracks=5`;
 
             iframe.width = '100%';
-            iframe.height = '152'; // גובה מותאם לתצוגה מצומצמת
+            iframe.height = '380'; // גובה מותאם לתצוגה מצומצמת
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
             iframe.loading = 'lazy';
