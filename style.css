@@ -55,6 +55,12 @@ h3 {
     font-weight: normal;
 }
 
+.hero-sub {
+  margin-top: 10px;
+  font-size: 0.95em;
+  opacity: 0.75;
+}
+
 #explore-button {
     background: url("images/riffle-btn.svg") no-repeat center center;
     background-size: contain;
