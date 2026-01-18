@@ -170,7 +170,7 @@ button:hover {
 
 footer {
     color: #FFFFFF;
-    padding: 40px 20px;
+    padding: 20px;
     font-size: 12px;
     text-align: center;
     position: relative;
@@ -189,29 +189,6 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-#about-waxriffle {
-  margin-top: 40px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.85;
-}
-
-#about-waxriffle h3 {
-  margin-bottom: 12px;
-  letter-spacing: 1px;
-}
-
-#about-waxriffle p {
-  font-size: 0.95em;
-  line-height: 1.6;
-}
-
-#about-waxriffle .note {
-  font-size: 0.8em;
-  opacity: 0.6;
 }
 
 /* עיצוב מיכל האנימציה */
