@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Retrieve buttons
   const exploreButton = getElement('explore-button');
   const exploreAgainButton = getElement('explore-again-button');
-  const backButton = getElement('back-button');
 
   // Listener for clicking the "Explore Albums" button
   if (exploreButton) {
@@ -100,17 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
         exploreAgainButton.classList.remove("loading");
         exploreAgainButton.disabled = false;
       }
-    });
-  }
-
-  // Listener for clicking the "Back" button
-  if (backButton) {
-    backButton.addEventListener('click', () => {
-      document.getElementById('result-screen').style.display = 'none';
-      document.getElementById('main-screen').style.display = 'block';
-      // וודא שהכפתור מוצג ולא האנימציה
-      document.getElementById('loading-animation').style.display = 'none';
-      document.getElementById('explore-button').style.display = 'flex';
     });
   }
 

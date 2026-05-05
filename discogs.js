@@ -1,5 +1,7 @@
 // Use CommonJS imports
 const axios = require("axios")
+const fs = require("fs")
+const path = require("path")
 const SpotifyWebApi = require("spotify-web-api-node")
 
 // Use environment variables for sensitive data
@@ -40,20 +42,15 @@ Object.keys(storeInventories).forEach((store) => {
   }
 })
 
-// Instead of reading from a file, use a hardcoded array for custom albums
-const customAlbums = [
-  {
-    title: "Kind of Blue",
-    artist: "Miles Davis",
-    year: "1959",
-    genre: "Jazz",
-    image: "https://i.scdn.co/image/ab67616d0000b273e8e28219724c2423afa4d320",
-    spotifyLink: "https://open.spotify.com/album/1weenld61qoidwYuZ1GESA",
-  },
-]
-
 function getCustomAlbums() {
-  return customAlbums
+  try {
+    const filePath = path.join(__dirname, "custom_albums.json")
+    const data = fs.readFileSync(filePath, "utf-8")
+    return JSON.parse(data)
+  } catch (error) {
+    console.error("Error reading custom_albums.json:", error.message)
+    return []
+  }
 }
 
 // Clean search terms for better matching
@@ -295,8 +292,22 @@ function findBestMatch(discogsAlbum, spotifyResults, options = {}) {
     )
   })
 
-  // Return the best match if it has a reasonable score
-  return scoredResults[0].score > 40 ? scoredResults[0].album : null
+  // Hard filter: reject any candidate whose artist is clearly wrong.
+  // A perfect title match alone is not enough — the artist must have at least
+  // 20% similarity to prevent e.g. "Enjoy Yourself / Billy Currington" being
+  // returned when searching for "Enjoy Yourself / Allure".
+  const MIN_ARTIST_SIMILARITY = 20
+  const validResults = scoredResults.filter((result) => {
+    if (!result.album.artists || result.album.artists.length === 0) return false
+    return similarityScore(discogsAlbum.artist, result.album.artists[0].name) >= MIN_ARTIST_SIMILARITY
+  })
+
+  if (validResults.length === 0) {
+    console.log("All candidates rejected — artist similarity too low")
+    return null
+  }
+
+  return validResults[0].score > 40 ? validResults[0].album : null
 }
 
 // Find best match from Spotify track results
@@ -384,8 +395,19 @@ function findBestTrackMatch(discogsAlbum, spotifyResults, options = {}) {
     )
   })
 
-  // Return the best match if it has a reasonable score
-  return scoredResults[0].score > 40 ? scoredResults[0].track : null
+  // Hard filter: same minimum artist similarity as findBestMatch
+  const MIN_ARTIST_SIMILARITY = 20
+  const validResults = scoredResults.filter((result) => {
+    if (!result.track.artists || result.track.artists.length === 0) return false
+    return similarityScore(discogsAlbum.artist, result.track.artists[0].name) >= MIN_ARTIST_SIMILARITY
+  })
+
+  if (validResults.length === 0) {
+    console.log("All track candidates rejected — artist similarity too low")
+    return null
+  }
+
+  return validResults[0].score > 40 ? validResults[0].track : null
 }
 
 // Find albums by a specific artist with exact name matching
@@ -590,11 +612,6 @@ function addToRecentCache(albumId) {
   recentAlbumsCache.add(albumId)
 }
 
-// Check if album was recently shown
-function wasRecentlyShown(albumId) {
-  return recentAlbumsCache.has(albumId)
-}
-
 // Fetch a page of inventory from a store with pagination support
 async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
   const timestamp = Date.now() // Add timestamp to prevent caching
@@ -622,63 +639,44 @@ async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
   }
 }
 
-// Get a random album from a store with pagination and duplicate prevention
+// Get a random album from a store with true pagination support
+// Note: this runs serverless (Vercel), so storeMetadata is reset on every invocation.
+// We always fetch page 1 first to discover totalPages, then jump to a random page.
 async function fetchRandomAlbumFromStore(storeName) {
   try {
-    // Choose a random page if the store has multiple pages
-    let page = 1
     const perPage = 100
 
-    // If we know the total pages for this store, pick a random page
-    if (storeMetadata[storeName].totalPages > 1) {
-      page = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
-    }
+    // Step 1: fetch page 1 to learn totalPages (required every invocation in serverless)
+    const page1Listings = await fetchStoreInventoryPage(storeName, 1, perPage)
+    const totalPages = storeMetadata[storeName].totalPages || 1
 
-    // Fetch the chosen page
-    const listings = await fetchStoreInventoryPage(storeName, page, perPage)
-
-    if (!listings || listings.length === 0) {
-      console.log(`No listings found in ${storeName} store on page ${page}`)
+    if (!page1Listings || page1Listings.length === 0) {
+      console.log(`No listings found in ${storeName} store`)
       return null
     }
 
-    // Filter out recently shown albums
-    const availableListings = listings.filter((item) => !wasRecentlyShown(item.release.id))
+    // Step 2: pick a random page across ALL pages
+    const randomPage = Math.floor(Math.random() * totalPages) + 1
+    console.log(`Store ${storeName}: ${totalPages} total pages, selected page ${randomPage}`)
 
-    if (availableListings.length === 0) {
-      console.log(`All albums on page ${page} of ${storeName} were recently shown. Trying another page...`)
-
-      // Try another random page
-      if (storeMetadata[storeName].totalPages > 1) {
-        let newPage
-        do {
-          newPage = Math.floor(Math.random() * storeMetadata[storeName].totalPages) + 1
-        } while (newPage === page)
-
-        return fetchRandomAlbumFromStore(storeName)
+    // Step 3: use page 1 data if we already have it, otherwise fetch the random page
+    let listings = page1Listings
+    if (randomPage > 1) {
+      const fetchedListings = await fetchStoreInventoryPage(storeName, randomPage, perPage)
+      if (fetchedListings && fetchedListings.length > 0) {
+        listings = fetchedListings
+      } else {
+        console.log(`Page ${randomPage} empty, falling back to page 1`)
       }
-
-      // If there's only one page, we have to reuse something
-      console.log(`Only one page available in ${storeName}, reusing an album`)
-      const randomIndex = Math.floor(Math.random() * listings.length)
-      const item = listings[randomIndex].release
-
-      // Add to cache even though it's a repeat
-      addToRecentCache(item.id)
-
-      console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
-      const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-      return processReleaseData(releaseDetails.data, storeName)
     }
 
-    // Choose a random album from available listings
-    const randomIndex = Math.floor(Math.random() * availableListings.length)
-    const item = availableListings[randomIndex].release
+    // Step 4: pick a random item from the selected page
+    const randomIndex = Math.floor(Math.random() * listings.length)
+    const item = listings[randomIndex].release
 
-    // Add to recent cache
     addToRecentCache(item.id)
+    console.log(`Selected album from ${storeName} page ${randomPage}/${totalPages}: ${item.title} (ID: ${item.id})`)
 
-    console.log(`Selected album in ${storeName} store: ${item.title} (ID: ${item.id})`)
     const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
     return processReleaseData(releaseDetails.data, storeName)
   } catch (error) {
@@ -999,7 +997,12 @@ async function processSpotifyMatch(album) {
 
     console.log(`✅ Found track match on Spotify: "${spotifyTrack.name}" by ${spotifyTrack.artists[0].name}`)
   } else {
-    // אם לא נמצא אלבום או שיר, נחפש את האמן
+    // No album or track found — try artist page only if the name is a strong match.
+    // A threshold of 85% prevents completely unrelated artists (Shahaf Shvarzman,
+    // Anna Zak, etc.) from appearing just because Spotify returns items[0].
+    const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+    let usedArtistPage = false
+
     try {
       const artistSearchResult = await spotifyApi.searchArtists(album.artist)
       if (
@@ -1007,27 +1010,30 @@ async function processSpotifyMatch(album) {
         artistSearchResult.body.artists.items &&
         artistSearchResult.body.artists.items.length > 0
       ) {
-        // אם נמצא האמן, נשתמש בקישור אליו
-        output.spotifyLink = artistSearchResult.body.artists.items[0].external_urls.spotify
-        output.spotifyType = "artist"
-        output.spotifyArtist = artistSearchResult.body.artists.items[0].name
-        output.matchSource = "artist-only"
-        console.log(`🎵 Found artist on Spotify: ${artistSearchResult.body.artists.items[0].name}`)
-      } else {
-        // אם לא נמצא גם האמן, נשתמש בקישור לחיפוש
-        const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
-        output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
-        output.spotifyType = "search"
-        output.matchSource = "search-fallback"
-        console.log(`🔍 Created search link: ${output.spotifyLink}`)
+        const foundArtist = artistSearchResult.body.artists.items[0]
+        const artistSim = similarityScore(album.artist, foundArtist.name)
+        console.log(`Artist search: "${foundArtist.name}" similarity=${artistSim.toFixed(1)}%`)
+
+        if (artistSim >= 85) {
+          output.spotifyLink = foundArtist.external_urls.spotify
+          output.spotifyType = "artist"
+          output.spotifyArtist = foundArtist.name
+          output.matchSource = "artist-only"
+          usedArtistPage = true
+          console.log(`🎵 Found matching artist on Spotify: ${foundArtist.name}`)
+        } else {
+          console.log(`❌ Artist similarity too low (${artistSim.toFixed(1)}%), skipping artist page`)
+        }
       }
     } catch (err) {
-      // במקרה של שגיאה, נשתמש בקישור לחיפוש
-      const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
+      console.error("Artist search failed:", err.message)
+    }
+
+    if (!usedArtistPage) {
       output.spotifyLink = `https://open.spotify.com/search/${searchQuery}`
       output.spotifyType = "search"
       output.matchSource = "search-fallback"
-      console.log(`🔍 Created search link: ${output.spotifyLink}`)
+      console.log(`🔍 No match found, created search link: ${output.spotifyLink}`)
     }
 
     console.log("❌ No good match found on Spotify")
