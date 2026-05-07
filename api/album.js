@@ -9,6 +9,13 @@ module.exports = async (req, res) => {
     try {
       console.log("🔄 Fetching album...")
 
+      // Parse optional genre filter: ?genres=jazz,funk,soul
+      const genresParam = req.query.genres
+      const selectedGenres = genresParam
+        ? genresParam.split(",").map((g) => g.trim().toLowerCase()).filter(Boolean)
+        : []
+      console.log(`🎵 Genre filter: [${selectedGenres.join(", ") || "all"}]`)
+
       // Try to get a custom album
       const customAlbum = await fetchCustomAlbum()
 
@@ -17,7 +24,7 @@ module.exports = async (req, res) => {
       console.log(`🔢 Percent chosen: ${percent}`)
 
       // Determine which album to send
-      const album = percent < 1 && customAlbum ? customAlbum : await fetchRandomAlbum()
+      const album = percent < 1 && customAlbum ? customAlbum : await fetchRandomAlbum(selectedGenres)
 
       // Check if valid album exists
       if (!album || !album.title) {

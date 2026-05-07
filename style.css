@@ -34,10 +34,80 @@ header {
     }
 }
 
+#main-screen {
+    display: block;
+    text-align: center;
+    padding: 50px;
+}
+
 #main-screen h1,
 #main-screen h2,
 #main-screen h3 {
-    margin-bottom: 20px; /* מוסיף רווח מתחת לכותרות */
+    margin-bottom: 20px;
+}
+
+.button-wrap {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+}
+
+#genre-filter {
+    position: absolute;
+    top: calc(55% + 125px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 620px);
+}
+
+.filter-label {
+    color: #888;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px;
+    text-align: center;
+}
+
+#genre-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+}
+
+.genre-pill {
+    background: transparent;
+    border: 1px solid #555;
+    color: #999;
+    font-family: "Jockey One", serif;
+    font-size: 0.72em;
+    padding: 5px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.genre-pill:hover {
+    border-color: #8281FE;
+    color: #8281FE;
+    background-color: transparent;
+}
+
+.genre-pill.active {
+    background-color: #8281FE;
+    border-color: #8281FE;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    #genre-filter { top: calc(55% + 115px); width: 95%; }
+    .genre-pill { font-size: 0.68em; padding: 4px 10px; }
 }
 
 h1 {
@@ -67,39 +137,35 @@ h3 {
     background: url("images/riffle-btn.svg") no-repeat center center;
     background-size: contain;
     border: none;
-    width: 200px; /* גודל אחיד */
+    width: 200px;
     height: 200px;
-    margin: 30px auto; /* מבטיח שהכפתור יהיה במרכז ויהיה רווח */
+    margin: 0;
     padding: 15px 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    position: absolute; /* ממקם במרכז הדף */
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease-in-out; /* אנימציה חלקה */
+    transition: transform 0.2s ease-in-out;
 }
 
 /* עיצוב הטקסט */
 #explore-button span {
     font-size: 20px;
     font-weight: bold;
-    color: white; /* צבע הטקסט */
+    color: white;
     font-family: 'Jockey One', sans-serif;
-    position: absolute; /* מוודא שהטקסט יושב מעל התמונה */
+    position: absolute;
 }
 
-/* אפקט hover */
 #explore-button:hover {
-    transform: translate(-50%, -50%) scale(1.08); /* הגדלה קלה */
+    transform: scale(1.08);
+    transition: transform 0.2s ease-in-out;
 }
 
-/* אפקט לחיצה */
 #explore-button:active {
-    transform: translate(-50%, -50%) scale(0.95); /* קטן טיפה בלחיצה */
+    transform: scale(0.95);
 }
+
 
 button {
     padding: 10px 20px;
@@ -168,7 +234,7 @@ button:hover {
     }
 
     #main-screen {
-        padding: 10px;
+        padding: 50px 10px;
     }
 }
 
@@ -204,9 +270,8 @@ footer a:hover {
     width: 200px;
     height: 200px;
     position: absolute;
-    left: 50%;
-    top: 55%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     z-index: 100;
 }
 

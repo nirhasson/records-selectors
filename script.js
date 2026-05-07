@@ -1,10 +1,46 @@
-// יצירת משתנה גלובלי לאנימציה
 let loadingAnimation;
+
+// --- Genre filter ---
+let selectedGenres = new Set();
+
+function initGenreFilter() {
+  const saved = localStorage.getItem('waxriffle_genres');
+  if (saved) {
+    try { JSON.parse(saved).forEach(g => selectedGenres.add(g)); } catch (e) {}
+  }
+  renderGenrePills();
+
+  document.querySelectorAll('.genre-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const genre = pill.dataset.genre;
+      if (genre === 'all') {
+        selectedGenres.clear();
+      } else {
+        selectedGenres.has(genre) ? selectedGenres.delete(genre) : selectedGenres.add(genre);
+      }
+      renderGenrePills();
+      localStorage.setItem('waxriffle_genres', JSON.stringify([...selectedGenres]));
+    });
+  });
+}
+
+function renderGenrePills() {
+  document.querySelectorAll('.genre-pill').forEach(pill => {
+    const genre = pill.dataset.genre;
+    pill.classList.toggle('active', genre === 'all' ? selectedGenres.size === 0 : selectedGenres.has(genre));
+  });
+}
+
+function genreQueryParam() {
+  return selectedGenres.size > 0 ? `?genres=${[...selectedGenres].join(',')}` : '';
+}
+// --- end Genre filter ---
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("📌 Document is fully loaded");
 
-  // אתחול אנימציית הטעינה
+  initGenreFilter();
+
   loadingAnimation = lottie.loadAnimation({
     container: document.getElementById('loading-animation'),
     renderer: 'svg',
@@ -21,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('loading-animation').style.display = 'block';
       loadingAnimation.play(); // הפעל את האנימציה
 
-      const response = await fetch('/api/album'); // Update the path to the correct endpoint
+      const response = await fetch(`/api/album${genreQueryParam()}`);
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData); // Check the received data
@@ -82,8 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
       exploreAgainButton.disabled = true; // מנע לחיצות נוספות בזמן הטעינה
 
       try {
-        // קריאה ישירה ל-API
-        const response = await fetch('/api/album');
+        const response = await fetch(`/api/album${genreQueryParam()}`);
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);

@@ -26,9 +26,42 @@ const storeInventories = {
   srt: "https://api.discogs.com/users/S-R-T/inventory",
 }
 
+// Mapping from UI genre filters → Discogs genres/styles
+// genres: Discogs top-level genre (broad); styles: Discogs style tags (specific)
+// An album matches if its genres OR its styles contain any of the listed values.
+const GENRE_MAP = {
+  "hip-hop":    { genres: ["Hip Hop"],            styles: ["Hip Hop", "Rap", "Trap", "Gangsta", "Conscious"] },
+  "funk-soul":  { genres: ["Funk / Soul", "Pop"], styles: ["Funk", "Soul", "Gospel", "Neo Soul", "Rhythm & Blues", "Contemporary R&B", "Disco", "Nu-Disco", "Italo-Disco"] },
+  "jazz":       { genres: ["Jazz"],               styles: [] },
+  "electronic": { genres: ["Electronic"],         styles: [] },
+  "rock":       { genres: ["Rock"],               styles: ["Heavy Metal", "Death Metal", "Black Metal", "Thrash", "Doom Metal", "Speed Metal"] },
+  "blues":      { genres: ["Blues"],              styles: [] },
+  "reggae-dub": { genres: ["Reggae"],             styles: ["Reggae", "Dub", "Ska", "Dancehall", "Roots Reggae", "Rocksteady", "Dub Techno"] },
+  "world":      { genres: ["Folk, World, & Country", "Latin"], styles: ["World", "African", "Afrobeat", "Brazilian", "Celtic", "Flamenco"] },
+  "folk":       { genres: ["Folk, World, & Country"], styles: ["Folk", "Country", "Bluegrass", "Acoustic"] },
+  "latin":      { genres: ["Latin"],              styles: ["Salsa", "Cumbia", "Bossa Nova", "Latin Jazz", "Tango"] },
+  "classical":  { genres: ["Classical"],          styles: [] },
+}
+
+function albumMatchesGenres(album, selectedGenres) {
+  if (!selectedGenres || selectedGenres.length === 0) return true
+
+  const albumGenres = (album.genresRaw || []).map((g) => g.toLowerCase())
+  const albumStyles = (album.stylesRaw || []).map((s) => s.toLowerCase())
+
+  return selectedGenres.some((filter) => {
+    const mapping = GENRE_MAP[filter]
+    if (!mapping) return false
+
+    const genreMatch = mapping.genres.some((g) => albumGenres.includes(g.toLowerCase()))
+    const styleMatch = mapping.styles.some((s) => albumStyles.includes(s.toLowerCase()))
+    return genreMatch || styleMatch
+  })
+}
+
 // Cache to store recently shown albums (prevent repeats)
 const recentAlbumsCache = new Set()
-const MAX_CACHE_SIZE = 100 // Maximum number of album IDs to remember
+const MAX_CACHE_SIZE = 100
 
 // Store metadata to track pagination
 const storeMetadata = {}
@@ -642,7 +675,7 @@ async function fetchStoreInventoryPage(storeName, page = 1, perPage = 100) {
 // Get a random album from a store with true pagination support
 // Note: this runs serverless (Vercel), so storeMetadata is reset on every invocation.
 // We always fetch page 1 first to discover totalPages, then jump to a random page.
-async function fetchRandomAlbumFromStore(storeName) {
+async function fetchRandomAlbumFromStore(storeName, selectedGenres = []) {
   try {
     const perPage = 100
 
@@ -670,15 +703,39 @@ async function fetchRandomAlbumFromStore(storeName) {
       }
     }
 
-    // Step 4: pick a random item from the selected page
-    const randomIndex = Math.floor(Math.random() * listings.length)
-    const item = listings[randomIndex].release
+    // Step 4: shuffle candidates and try up to maxCandidates items.
+    // With genre filter active, try more candidates and up to 3 pages.
+    const maxCandidates = selectedGenres.length > 0 ? 15 : 1
+    const pagesToTry = selectedGenres.length > 0 ? [listings] : [listings]
 
-    addToRecentCache(item.id)
-    console.log(`Selected album from ${storeName} page ${randomPage}/${totalPages}: ${item.title} (ID: ${item.id})`)
+    // For genre filtering, also try 2 additional random pages to improve hit rate
+    if (selectedGenres.length > 0 && totalPages > 1) {
+      for (let extra = 0; extra < 2; extra++) {
+        const extraPage = Math.floor(Math.random() * totalPages) + 1
+        const extraListings = await fetchStoreInventoryPage(storeName, extraPage, perPage)
+        if (extraListings && extraListings.length > 0) pagesToTry.push(extraListings)
+      }
+    }
 
-    const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-    return processReleaseData(releaseDetails.data, storeName)
+    for (const pageListings of pagesToTry) {
+      const shuffled = [...pageListings].sort(() => Math.random() - 0.5)
+      for (let i = 0; i < Math.min(maxCandidates, shuffled.length); i++) {
+        const item = shuffled[i].release
+        const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
+        const album = processReleaseData(releaseDetails.data, storeName)
+
+        if (albumMatchesGenres(album, selectedGenres)) {
+          addToRecentCache(item.id)
+          console.log(`Selected album from ${storeName}: ${album.title}`)
+          return album
+        }
+
+        console.log(`"${album.title}" (${album.genre}) — no match for [${selectedGenres.join(", ")}], trying next`)
+      }
+    }
+
+    console.log(`No genre match found in ${storeName} for [${selectedGenres.join(", ")}]`)
+    return null
   } catch (error) {
     console.error(`Error fetching data from ${storeName}:`, error.message)
     return null
@@ -714,6 +771,8 @@ function processReleaseData(releaseData, storeName) {
     discogsUrl: releaseData.uri,
     labels: releaseData.labels ? releaseData.labels.map((l) => l.name).join(", ") : "",
     formats: releaseData.formats ? releaseData.formats.map((f) => f.name).join(", ") : "",
+    genresRaw: releaseData.genres || [],
+    stylesRaw: releaseData.styles || [],
   }
 }
 
@@ -756,31 +815,27 @@ function chooseRandomStore() {
   return selectedStore
 }
 
-async function fetchRandomAlbum() {
+async function fetchRandomAlbum(selectedGenres = []) {
   try {
     await spotifyApi.clientCredentialsGrant().then((data) => {
       spotifyApi.setAccessToken(data.body["access_token"])
     })
 
-    // Choose a random store with equal probability
     const randomStoreName = chooseRandomStore()
-    console.log(`Attempting to fetch album from ${randomStoreName} store...`)
+    console.log(`Attempting to fetch album from ${randomStoreName} store... genres=[${selectedGenres.join(", ")}]`)
 
-    // Try to get an album from the selected store
-    const album = await fetchRandomAlbumFromStore(randomStoreName)
+    const album = await fetchRandomAlbumFromStore(randomStoreName, selectedGenres)
 
-    // If no album found, try another store
     if (!album) {
-      console.log(`No album found in ${randomStoreName}, trying another store...`)
-      const otherStores = Object.keys(storeInventories).filter((store) => store !== randomStoreName)
+      console.log(`No album found in ${randomStoreName}, trying all other stores...`)
+      const otherStores = Object.keys(storeInventories)
+        .filter((store) => store !== randomStoreName)
+        .sort(() => Math.random() - 0.5) // shuffle so we don't always try the same order
 
-      // Try up to 3 other stores
-      for (let i = 0; i < Math.min(3, otherStores.length); i++) {
-        const backupStore = otherStores[Math.floor(Math.random() * otherStores.length)]
+      for (const backupStore of otherStores) {
         console.log(`Trying backup store: ${backupStore}`)
-        const backupAlbum = await fetchRandomAlbumFromStore(backupStore)
+        const backupAlbum = await fetchRandomAlbumFromStore(backupStore, selectedGenres)
         if (backupAlbum) {
-          console.log(`Found album in backup store ${backupStore}`)
           return processSpotifyMatch(backupAlbum)
         }
       }

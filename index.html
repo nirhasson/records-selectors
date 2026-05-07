@@ -42,20 +42,36 @@
     </header>
     <div class="content-wrap">
         <!-- מסך ראשי -->
-        <div id="main-screen" style="display: block; text-align: center; padding: 50px;">
-            <h1>Welcome to WaxRiffle</h1>
-            <h2>Explore Beyond What You Know</h2>
-            <h3>Discover Thousands of Unique Albums—Handpicked by Music Lovers!</h3>
-            <p class="hero-sub">
-Each click takes you to a different album, curated by DJs and record collectors from around the world.
-</p>
-
-            <button id="explore-button">
-                <span>Find Album</span>
-            </button>
-            <!-- מיכל לאנימציית הטעינה -->
-            <div id="loading-animation" style="display: none;"></div>
-
+        <div id="main-screen">
+            <div id="main-text">
+                <h1>Welcome to WaxRiffle</h1>
+                <h2>Explore Beyond What You Know</h2>
+                <h3>Discover Thousands of Unique Albums—Handpicked by Music Lovers!</h3>
+                <p class="hero-sub">Each click takes you to a different album, curated by DJs and record collectors from around the world.</p>
+            </div>
+            <div class="button-wrap">
+                <button id="explore-button">
+                    <span>Find Album</span>
+                </button>
+                <div id="loading-animation" style="display: none;"></div>
+            </div>
+            <div id="genre-filter">
+                <p class="filter-label">Filter by style</p>
+                <div id="genre-pills">
+                    <button class="genre-pill active" data-genre="all">All</button>
+                    <button class="genre-pill" data-genre="hip-hop">Hip-Hop / Rap</button>
+                    <button class="genre-pill" data-genre="funk-soul">Funk / Soul</button>
+                    <button class="genre-pill" data-genre="jazz">Jazz</button>
+                    <button class="genre-pill" data-genre="electronic">Electronic</button>
+                    <button class="genre-pill" data-genre="rock">Rock</button>
+                    <button class="genre-pill" data-genre="blues">Blues</button>
+                    <button class="genre-pill" data-genre="reggae-dub">Reggae / Dub</button>
+                    <button class="genre-pill" data-genre="world">World</button>
+                    <button class="genre-pill" data-genre="folk">Folk</button>
+                    <button class="genre-pill" data-genre="latin">Latin</button>
+                    <button class="genre-pill" data-genre="classical">Classical</button>
+                </div>
+            </div>
         </div>
 
 
