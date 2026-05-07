@@ -30,17 +30,17 @@ const storeInventories = {
 // genres: Discogs top-level genre (broad); styles: Discogs style tags (specific)
 // An album matches if its genres OR its styles contain any of the listed values.
 const GENRE_MAP = {
-  "hip-hop":    { genres: ["Hip Hop"],            styles: ["Hip Hop", "Rap", "Trap", "Gangsta", "Conscious"] },
-  "funk-soul":  { genres: ["Funk / Soul", "Pop"], styles: ["Funk", "Soul", "Gospel", "Neo Soul", "Rhythm & Blues", "Contemporary R&B", "Disco", "Nu-Disco", "Italo-Disco"] },
-  "jazz":       { genres: ["Jazz"],               styles: [] },
-  "electronic": { genres: ["Electronic"],         styles: [] },
-  "rock":       { genres: ["Rock"],               styles: ["Heavy Metal", "Death Metal", "Black Metal", "Thrash", "Doom Metal", "Speed Metal"] },
-  "blues":      { genres: ["Blues"],              styles: [] },
-  "reggae-dub": { genres: ["Reggae"],             styles: ["Reggae", "Dub", "Ska", "Dancehall", "Roots Reggae", "Rocksteady", "Dub Techno"] },
-  "world":      { genres: ["Folk, World, & Country", "Latin"], styles: ["World", "African", "Afrobeat", "Brazilian", "Celtic", "Flamenco"] },
-  "folk":       { genres: ["Folk, World, & Country"], styles: ["Folk", "Country", "Bluegrass", "Acoustic"] },
-  "latin":      { genres: ["Latin"],              styles: ["Salsa", "Cumbia", "Bossa Nova", "Latin Jazz", "Tango"] },
-  "classical":  { genres: ["Classical"],          styles: [] },
+  "hip-hop":    { genres: ["Hip Hop"],            styles: ["Hip Hop", "Rap", "Trap", "Gangsta", "Conscious", "Boom Bap", "G-Funk", "East Coast", "West Coast", "Hardcore Hip-Hop"] },
+  "funk-soul":  { genres: ["Funk / Soul", "Pop"], styles: ["Funk", "Soul", "Gospel", "Neo Soul", "Rhythm & Blues", "Contemporary R&B", "Disco", "Nu-Disco", "Italo-Disco", "Boogie", "P.Funk"] },
+  "jazz":       { genres: ["Jazz"],               styles: ["Fusion", "Swing", "Bebop", "Free Jazz", "Hard Bop", "Cool Jazz", "Modal", "Post Bop", "Latin Jazz", "Jazz-Funk", "Soul-Jazz"] },
+  "electronic": { genres: ["Electronic"],         styles: ["Ambient", "Techno", "House", "Synth-pop", "Downtempo", "Trip Hop", "IDM", "Drum n Bass", "Jungle", "Breakbeat", "Electro"] },
+  "rock":       { genres: ["Rock"],               styles: ["Heavy Metal", "Death Metal", "Black Metal", "Thrash", "Doom Metal", "Speed Metal", "Punk", "Alternative Rock", "Indie Rock", "Psychedelic Rock", "Classic Rock", "Hard Rock", "Prog Rock"] },
+  "blues":      { genres: ["Blues"],              styles: ["Blues Rock", "Country Blues", "Soul Blues", "Chicago Blues", "Delta Blues", "Electric Blues", "Acoustic Blues", "Jump Blues"] },
+  "reggae-dub": { genres: ["Reggae"],             styles: ["Reggae", "Dub", "Ska", "Dancehall", "Roots Reggae", "Rocksteady", "Dub Techno", "Lovers Rock", "Ragga"] },
+  "world":      { genres: ["Folk, World, & Country", "Latin"], styles: ["World", "African", "Afrobeat", "Brazilian", "Celtic", "Flamenco", "Middle Eastern", "Asian", "Cumbia", "Caribbean"] },
+  "folk":       { genres: ["Folk, World, & Country"], styles: ["Folk", "Country", "Bluegrass", "Acoustic", "Singer/Songwriter", "Indie Folk", "Folk Rock", "Contemporary Folk"] },
+  "latin":      { genres: ["Latin"],              styles: ["Salsa", "Cumbia", "Bossa Nova", "Latin Jazz", "Tango", "Samba", "Mambo", "Cha-Cha", "Merengue", "Reggaeton", "Latin Pop"] },
+  "classical":  { genres: ["Classical", "Stage & Screen"], styles: ["Baroque", "Romantic", "Contemporary", "Chamber Music", "Orchestral", "Opera", "Symphony", "Soundtrack"] },
 }
 
 function albumMatchesGenres(album, selectedGenres) {
