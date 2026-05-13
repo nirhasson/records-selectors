@@ -40,6 +40,11 @@
             <img src="images/WaxRiffle-logo-white.svg" alt="WaxRiffle Logo" id="logo">
         </a>
     </header>
+    <button id="saved-counter" aria-label="Saved albums">
+        <span id="saved-heart">♡</span>
+        <span id="saved-count-label">Saved</span>
+        <span id="saved-count" style="display:none">(<span id="saved-num">0</span>)</span>
+    </button>
     <div class="content-wrap">
         <!-- מסך ראשי -->
         <div id="main-screen">
@@ -88,7 +93,19 @@
 <div id="spotify-embed-container" style="margin: 20px auto; max-width: 300px;"></div>
             <a id="spotify-link" href="#" target="_blank" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #1DB954; color: white; text-decoration: none; font-size: 18px;">Listen on Spotify</a>
             <br><br>
-            <button id="explore-again-button" style="padding: 10px 20px; font-size: 18px;">Next Album<span class="lds-ripple"><span></span><span></span></span></button>
+            <div class="result-actions">
+                <button id="save-button">♡ Save</button>
+                <button id="explore-again-button" style="padding: 10px 20px; font-size: 18px;">Next Album<span class="lds-ripple"><span></span><span></span></span></button>
+            </div>
+        </div>
+
+        <!-- מסך אלבומים שמורים -->
+        <div id="saved-screen" style="display: none; text-align: center; padding: 50px 20px;">
+            <h1>Saved Albums</h1>
+            <div id="saved-list"></div>
+            <p id="saved-empty" style="color: #888; margin-top: 40px;">No saved albums yet.<br>Find an album and hit ♡ Save!</p>
+            <br>
+            <button id="back-from-saved">← Back</button>
         </div>
     </div>
     <footer>
