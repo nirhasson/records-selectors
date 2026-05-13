@@ -679,7 +679,7 @@ async function fetchRandomAlbumFromStore(storeName, selectedGenres = []) {
   try {
     const perPage = 100
 
-    // Step 1: fetch page 1 to learn totalPages (required every invocation in serverless)
+    // Fetch page 1 to learn totalPages
     const page1Listings = await fetchStoreInventoryPage(storeName, 1, perPage)
     const totalPages = storeMetadata[storeName].totalPages || 1
 
@@ -688,53 +688,46 @@ async function fetchRandomAlbumFromStore(storeName, selectedGenres = []) {
       return null
     }
 
-    // Step 2: pick a random page across ALL pages
+    // Pick a random page
     const randomPage = Math.floor(Math.random() * totalPages) + 1
-    console.log(`Store ${storeName}: ${totalPages} total pages, selected page ${randomPage}`)
+    console.log(`Store ${storeName}: ${totalPages} pages, selected page ${randomPage}`)
 
-    // Step 3: use page 1 data if we already have it, otherwise fetch the random page
     let listings = page1Listings
     if (randomPage > 1) {
-      const fetchedListings = await fetchStoreInventoryPage(storeName, randomPage, perPage)
-      if (fetchedListings && fetchedListings.length > 0) {
-        listings = fetchedListings
-      } else {
-        console.log(`Page ${randomPage} empty, falling back to page 1`)
+      const fetched = await fetchStoreInventoryPage(storeName, randomPage, perPage)
+      if (fetched && fetched.length > 0) listings = fetched
+    }
+
+    if (selectedGenres.length === 0) {
+      // No filter: pick 1 random album
+      const item = listings[Math.floor(Math.random() * listings.length)].release
+      const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
+      const album = processReleaseData(releaseDetails.data, storeName)
+      addToRecentCache(item.id)
+      console.log(`Selected from ${storeName}: ${album.title}`)
+      return album
+    }
+
+    // Genre filter: fetch up to 12 candidates IN PARALLEL — same wall-clock time as 1 request
+    const shuffled = [...listings].sort(() => Math.random() - 0.5)
+    const candidates = shuffled.slice(0, Math.min(12, shuffled.length)).map((l) => l.release)
+
+    console.log(`Fetching ${candidates.length} candidates in parallel from ${storeName}...`)
+    const results = await Promise.allSettled(
+      candidates.map((item) => axios.get(`${item.resource_url}?token=${TOKEN}`))
+    )
+
+    for (let i = 0; i < results.length; i++) {
+      if (results[i].status === "rejected") continue
+      const album = processReleaseData(results[i].value.data, storeName)
+      if (albumMatchesGenres(album, selectedGenres)) {
+        addToRecentCache(candidates[i].id)
+        console.log(`✅ Genre match in ${storeName}: "${album.title}" (${album.genre})`)
+        return album
       }
     }
 
-    // Step 4: shuffle candidates and try up to maxCandidates items.
-    // With genre filter active, try more candidates and up to 3 pages.
-    const maxCandidates = selectedGenres.length > 0 ? 15 : 1
-    const pagesToTry = selectedGenres.length > 0 ? [listings] : [listings]
-
-    // For genre filtering, also try 2 additional random pages to improve hit rate
-    if (selectedGenres.length > 0 && totalPages > 1) {
-      for (let extra = 0; extra < 2; extra++) {
-        const extraPage = Math.floor(Math.random() * totalPages) + 1
-        const extraListings = await fetchStoreInventoryPage(storeName, extraPage, perPage)
-        if (extraListings && extraListings.length > 0) pagesToTry.push(extraListings)
-      }
-    }
-
-    for (const pageListings of pagesToTry) {
-      const shuffled = [...pageListings].sort(() => Math.random() - 0.5)
-      for (let i = 0; i < Math.min(maxCandidates, shuffled.length); i++) {
-        const item = shuffled[i].release
-        const releaseDetails = await axios.get(`${item.resource_url}?token=${TOKEN}`)
-        const album = processReleaseData(releaseDetails.data, storeName)
-
-        if (albumMatchesGenres(album, selectedGenres)) {
-          addToRecentCache(item.id)
-          console.log(`Selected album from ${storeName}: ${album.title}`)
-          return album
-        }
-
-        console.log(`"${album.title}" (${album.genre}) — no match for [${selectedGenres.join(", ")}], trying next`)
-      }
-    }
-
-    console.log(`No genre match found in ${storeName} for [${selectedGenres.join(", ")}]`)
+    console.log(`No genre match in ${storeName} for [${selectedGenres.join(", ")}]`)
     return null
   } catch (error) {
     console.error(`Error fetching data from ${storeName}:`, error.message)
@@ -806,6 +799,49 @@ async function fetchCustomAlbum() {
   }
 }
 
+// Fetch a random album from Discogs database search by genre — always returns a result
+async function fetchRandomAlbumFromSearch(selectedGenres) {
+  // Build a list of Discogs genre names to search
+  const genreNames = []
+  for (const g of selectedGenres) {
+    const mapping = GENRE_MAP[g]
+    if (mapping) mapping.genres.forEach(name => genreNames.push(name))
+  }
+  if (genreNames.length === 0) return null
+
+  const genre = genreNames[Math.floor(Math.random() * genreNames.length)]
+  console.log(`Searching Discogs database for genre: "${genre}"`)
+
+  try {
+    // Page 1 to discover total pages
+    const firstRes = await axios.get("https://api.discogs.com/database/search", {
+      params: { genre, type: "release", per_page: 50, page: 1, token: TOKEN },
+    })
+    const totalPages = Math.min(firstRes.data.pagination?.pages || 1, 300)
+    const randomPage = Math.floor(Math.random() * totalPages) + 1
+
+    let results = firstRes.data.results
+    if (randomPage > 1) {
+      const pageRes = await axios.get("https://api.discogs.com/database/search", {
+        params: { genre, type: "release", per_page: 50, page: randomPage, token: TOKEN },
+      })
+      results = pageRes.data.results || []
+    }
+
+    if (!results.length) return null
+
+    const pick = results[Math.floor(Math.random() * results.length)]
+    const releaseRes = await axios.get(`https://api.discogs.com/releases/${pick.id}`, {
+      params: { token: TOKEN },
+    })
+    console.log(`Found via search: "${releaseRes.data.title}" (page ${randomPage}/${totalPages})`)
+    return processReleaseData(releaseRes.data, "discogs-search")
+  } catch (error) {
+    console.error("Error in fetchRandomAlbumFromSearch:", error.message)
+    return null
+  }
+}
+
 // Choose a random store with completely random selection (equal probability)
 function chooseRandomStore() {
   const storeNames = Object.keys(storeInventories)
@@ -821,30 +857,32 @@ async function fetchRandomAlbum(selectedGenres = []) {
       spotifyApi.setAccessToken(data.body["access_token"])
     })
 
-    const randomStoreName = chooseRandomStore()
-    console.log(`Attempting to fetch album from ${randomStoreName} store... genres=[${selectedGenres.join(", ")}]`)
+    const allStores = Object.keys(storeInventories).sort(() => Math.random() - 0.5)
 
-    const album = await fetchRandomAlbumFromStore(randomStoreName, selectedGenres)
-
-    if (!album) {
-      console.log(`No album found in ${randomStoreName}, trying all other stores...`)
-      const otherStores = Object.keys(storeInventories)
-        .filter((store) => store !== randomStoreName)
-        .sort(() => Math.random() - 0.5) // shuffle so we don't always try the same order
-
-      for (const backupStore of otherStores) {
-        console.log(`Trying backup store: ${backupStore}`)
-        const backupAlbum = await fetchRandomAlbumFromStore(backupStore, selectedGenres)
-        if (backupAlbum) {
-          return processSpotifyMatch(backupAlbum)
-        }
+    if (selectedGenres.length > 0) {
+      // Genre filter: try up to 4 stores in parallel-fetch mode, then fall back to search
+      const storesToTry = allStores.slice(0, 4)
+      for (const store of storesToTry) {
+        console.log(`Trying store ${store} with genre filter [${selectedGenres.join(", ")}]`)
+        const album = await fetchRandomAlbumFromStore(store, selectedGenres)
+        if (album) return processSpotifyMatch(album)
       }
-
-      console.log("Could not find album in any store")
+      // Fallback: Discogs database search (always returns a result)
+      console.log("No genre match in stores — falling back to Discogs search")
+      const searchAlbum = await fetchRandomAlbumFromSearch(selectedGenres)
+      if (searchAlbum) return processSpotifyMatch(searchAlbum)
       return null
     }
 
-    return processSpotifyMatch(album)
+    // No filter: browse curated stores
+    for (const store of allStores) {
+      console.log(`Trying store: ${store}`)
+      const album = await fetchRandomAlbumFromStore(store, [])
+      if (album) return processSpotifyMatch(album)
+    }
+
+    console.log("Could not find album in any store")
+    return null
   } catch (error) {
     console.error("Error:", error.message)
     return null
