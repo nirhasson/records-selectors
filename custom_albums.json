@@ -22,5 +22,148 @@
         "genre": "Punk",
         "image": "https://i.discogs.com/LzBo1Tle_W6m7oW5ubi5zonzF_UjgUi_H2x4UnK717s/rs:fit/g:sm/q:90/h:547/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNzQx/NjctMTQ1ODQxOTk0/MS00ODUzLmpwZWc.jpeg",
         "spotifyLink": "https://open.spotify.com/album/5wXLHRoFez0Ip58lHAKlvM?si=EDSOSQgSRMifxqbU71_GEg"
+    },
+    {
+        "title": "The Sky Is Crying: The History of Elmore James",
+        "artist": "Elmore James",
+        "year": 1993,
+        "genre": "Blues",
+        "image": "https://i.scdn.co/image/ab67616d0000b273b51d2992748bcb0c9f25d08e",
+        "spotifyLink": "https://open.spotify.com/album/27CHMleND1r3MAWKvQfSi4",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "Greatest Hits",
+        "artist": "Wanda Jackson",
+        "year": 1990,
+        "genre": "Rockabilly",
+        "image": "https://i.scdn.co/image/ab67616d0000b2730673c31482b44035f5671fcb",
+        "spotifyLink": "https://open.spotify.com/album/1p8dcdcZf6FqCd7wLg9rs2",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "The New Face Of Smiling",
+        "artist": "Signer",
+        "year": 2004,
+        "genre": "Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b2733a1e825cfb485a3dec5ec8e4",
+        "spotifyLink": "https://open.spotify.com/album/3IAAZfqWbsvyaW1IikK7zV",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "Seclusion",
+        "artist": "Aereogramme",
+        "year": 2006,
+        "genre": "Post-Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736317af6078a16dbbcdbc38dd",
+        "spotifyLink": "https://open.spotify.com/album/407j3ES4AQxIEQgpUxx5Sl",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "Good Game",
+        "artist": "Total Science",
+        "year": 2004,
+        "genre": "Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b2732e60797e05dba9b23c875ea5",
+        "spotifyLink": "https://open.spotify.com/album/61HN6BU17KbcdDB8Ph5sB0",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "Fashionista Super Dance Troupe",
+        "artist": "Help She Can't Swim",
+        "year": 2010,
+        "genre": "New Rave",
+        "image": "https://i.scdn.co/image/ab67616d0000b27312e597dbcb6ee373b81d8dde",
+        "spotifyLink": "https://open.spotify.com/album/7HolwxTkT6fzCI7P8ey75q",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-10-07"
+    },
+    {
+        "title": "Terrorbird",
+        "artist": "The Mae Shi",
+        "year": 2004,
+        "genre": "Noise Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b27318a5a07336d259e875d14313",
+        "spotifyLink": "https://open.spotify.com/album/6jtnOUhn8xGRnO68FE2ZVx",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-08-17"
+    },
+    {
+        "title": "The Fall of Math",
+        "artist": "65daysofstatic",
+        "year": 2004,
+        "genre": "Post-Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b27327d514d7cac712d56b9a348a",
+        "spotifyLink": "https://open.spotify.com/album/39TrTBzr6CRFRnh8AqxSub",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-08-17"
+    },
+    {
+        "title": "Mwana Molokai - The First Twenty Years",
+        "artist": "Papa Wemba",
+        "year": 2004,
+        "genre": "Afropop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2737c28120894254eb9d0a38e96",
+        "spotifyLink": "https://open.spotify.com/album/1TBsjqIhXaIF05Pe2903n4",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-08-17"
+    },
+    {
+        "title": "Miss Machine",
+        "artist": "The Dillinger Escape Plan",
+        "year": 2004,
+        "genre": "Mathcore",
+        "image": "https://i.scdn.co/image/ab67616d0000b2734688955962b5e267448efb95",
+        "spotifyLink": "https://open.spotify.com/album/6WcZTpAxpMYHAunYfI24X7",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-08-17"
+    },
+    {
+        "title": "High Life High Volume",
+        "artist": "The Forty-Fives",
+        "year": 2004,
+        "genre": "Garage Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b2737f68406fcebf915813c02b95",
+        "spotifyLink": "https://open.spotify.com/album/4kuF9Hi2MuCroFC8vqOSGC",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-09-02"
+    },
+    {
+        "title": "Blue Jean Bop",
+        "artist": "Gene Vincent & His Blue Caps",
+        "year": 1956,
+        "genre": "Rockabilly",
+        "image": "https://i.scdn.co/image/ab67616d0000b273fa26ff635848babc9fe3320c",
+        "spotifyLink": "https://open.spotify.com/album/28VDX5GZcFakGBuh2Uf5En",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-09-02"
+    },
+    {
+        "title": "Don't Cry To Me - Songs From The Film \"King Of Bluegrass\"",
+        "artist": "Jimmy Martin",
+        "year": 2004,
+        "genre": "Bluegrass",
+        "image": "https://i.scdn.co/image/ab67616d0000b2733b2a5b4f9f568dedc1a6a802",
+        "spotifyLink": "https://open.spotify.com/album/4r6hs3aNgaYIoUvGaiIQ30",
+        "show": "John Peel Show",
+        "host": "John Peel",
+        "broadcastDate": "2004-09-02"
     }
 ]

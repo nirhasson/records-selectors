@@ -266,8 +266,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('album-artist').textContent = albumData.artist || 'N/A';
     document.getElementById('result-meta').textContent =
       [albumData.year, albumData.genre].filter(Boolean).join(' · ') || 'N/A';
-    const store = formatStoreName(albumData.store);
-    document.getElementById('album-source').textContent = store ? `Found at ${store}` : '';
+    const sourceEl = document.getElementById('album-source');
+    if (albumData.show) {
+      const hostIsInShowName = albumData.host && albumData.show.toLowerCase().includes(albumData.host.toLowerCase());
+      sourceEl.textContent = albumData.host && !hostIsInShowName
+        ? `Heard on ${albumData.show} with ${albumData.host}`
+        : `Heard on the ${albumData.show}`;
+    } else {
+      const store = formatStoreName(albumData.store);
+      sourceEl.textContent = store ? `Found at ${store}` : '';
+    }
     const albumImage = document.getElementById('album-image');
     albumImage.onerror = () => { albumImage.onerror = null; albumImage.src = NO_COVER_IMAGE; };
     albumImage.src = albumData.image || NO_COVER_IMAGE;

@@ -790,6 +790,8 @@ async function fetchCustomAlbum() {
       genre: album.genre,
       image: album.image,
       spotifyLink: album.spotifyLink,
+      show: album.show,
+      host: album.host,
     }
 
     console.log("This is Custom album output:", output)
