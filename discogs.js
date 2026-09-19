@@ -739,11 +739,12 @@ async function fetchRandomAlbumFromStore(storeName, selectedGenres = []) {
 function processReleaseData(releaseData, storeName) {
   // Extract more detailed information from Discogs
   const artistName =
+    (releaseData.artists && releaseData.artists.length > 0 ? releaseData.artists[0].name : null) ||
     releaseData.artists_sort ||
-    (releaseData.artists && releaseData.artists.length > 0 ? releaseData.artists[0].name : "Unknown Artist")
+    "Unknown Artist"
 
-  // Get the main artist name without numbers in parentheses
-  const cleanArtistName = artistName.replace(/\s*$$\d+$$\s*$/, "")
+  // Get the main artist name without Discogs disambiguation numbers, e.g. "Prince (3)" -> "Prince"
+  const cleanArtistName = artistName.replace(/\s*\(\d+\)\s*$/, "").trim()
 
   return {
     title: releaseData.title || "N/A",
@@ -758,7 +759,7 @@ function processReleaseData(releaseData, storeName) {
     image:
       releaseData.images && releaseData.images.length > 0
         ? releaseData.images[0].resource_url
-        : "https://via.placeholder.com/300",
+        : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23444'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23666' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23666'/%3E%3C/svg%3E",
     store: storeName,
     discogsId: releaseData.id,
     discogsUrl: releaseData.uri,

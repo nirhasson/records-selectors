@@ -1,6 +1,9 @@
 let loadingAnimation;
 let currentAlbum = null;
 
+// Self-contained fallback cover art (no network dependency) for albums with a missing/broken image.
+const NO_COVER_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23444'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23666' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23666'/%3E%3C/svg%3E";
+
 // --- Genre filter ---
 let selectedGenres = new Set();
 
@@ -97,7 +100,7 @@ function renderSavedList() {
     const card = document.createElement('div');
     card.className = 'saved-card';
     card.innerHTML = `
-      <img class="saved-card-img" src="${album.image || ''}" alt="${album.title}" onerror="this.src='https://via.placeholder.com/64'">
+      <img class="saved-card-img" src="${album.image || NO_COVER_IMAGE}" alt="${album.title}" onerror="this.onerror=null;this.src='${NO_COVER_IMAGE}'">
       <div class="saved-card-info">
         <div class="saved-card-title">${album.title || 'Unknown'}</div>
         <div class="saved-card-artist">${album.artist || ''}</div>
@@ -166,8 +169,16 @@ document.addEventListener("DOMContentLoaded", function () {
     path: 'animation/loading-animation.json'
   });
 
+  function showExploreError(message) {
+    const el = document.getElementById('explore-error');
+    if (!el) return;
+    el.textContent = message;
+    el.style.display = message ? 'block' : 'none';
+  }
+
   async function fetchAlbumData() {
     try {
+      showExploreError('');
       document.getElementById('explore-button').style.display = 'none';
       document.getElementById('loading-animation').style.display = 'block';
       loadingAnimation.play();
@@ -207,14 +218,22 @@ document.addEventListener("DOMContentLoaded", function () {
         updateUI(albumData);
         exploreAgainButton.classList.remove("loading");
       } else {
-        alert('⚠️ Failed to load album data. Please try again.');
+        showExploreError('Could not load an album right now. Please try again.');
       }
     });
+  }
+
+  function showResultError(message) {
+    const el = document.getElementById('result-error');
+    if (!el) return;
+    el.textContent = message;
+    el.style.display = message ? 'block' : 'none';
   }
 
   if (exploreAgainButton) {
     exploreAgainButton.addEventListener('click', async () => {
       const originalText = exploreAgainButton.textContent;
+      showResultError('');
       exploreAgainButton.textContent = "Loading...";
       exploreAgainButton.classList.add("loading");
       exploreAgainButton.disabled = true;
@@ -227,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateUI(albumData);
       } catch (error) {
         console.error('❌ Error fetching album data:', error);
-        alert('⚠️ Failed to load album data. Please try again.');
+        showResultError('Could not load another album right now. Please try again.');
       } finally {
         exploreAgainButton.textContent = originalText;
         exploreAgainButton.classList.remove("loading");
@@ -236,14 +255,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  function formatStoreName(store) {
+    return store ? store.replace(/_/g, ' ') : '';
+  }
+
   function updateUI(albumData) {
     currentAlbum = albumData;
 
     document.getElementById('album-title').textContent = albumData.title || 'N/A';
     document.getElementById('album-artist').textContent = albumData.artist || 'N/A';
-    document.getElementById('album-year').textContent = albumData.year || 'N/A';
-    document.getElementById('album-genre').textContent = albumData.genre || 'N/A';
-    document.getElementById('album-image').src = albumData.image || 'https://via.placeholder.com/300';
+    document.getElementById('result-meta').textContent =
+      [albumData.year, albumData.genre].filter(Boolean).join(' · ') || 'N/A';
+    const store = formatStoreName(albumData.store);
+    document.getElementById('album-source').textContent = store ? `Found at ${store}` : '';
+    const albumImage = document.getElementById('album-image');
+    albumImage.onerror = () => { albumImage.onerror = null; albumImage.src = NO_COVER_IMAGE; };
+    albumImage.src = albumData.image || NO_COVER_IMAGE;
     document.getElementById('spotify-link').href = albumData.spotifyLink || '#';
 
     updateSaveButton(albumData);

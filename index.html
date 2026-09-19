@@ -60,6 +60,7 @@
                 </button>
                 <div id="loading-animation" style="display: none;"></div>
             </div>
+            <p id="explore-error" class="error-message" style="display: none;"></p>
             <div id="genre-filter">
                 <p class="filter-label">Filter by style</p>
                 <div id="genre-pills">
@@ -81,29 +82,31 @@
 
 
         <!-- מסך תוצאה -->
-        <div id="result-screen" style="display: none; text-align: center; padding: 50px;">
-            <h1>Album Details</h1>
-            <p><strong>Title:</strong> <span id="album-title">Loading...</span></p>
-            <p><strong>Artist:</strong> <span id="album-artist">Loading...</span></p>
-            <p><strong>Year:</strong> <span id="album-year">Loading...</span></p>
-            <p><strong>Genre:</strong> <span id="album-genre">Loading...</span></p>
-            <img id="album-image" src="" alt="Album cover" style="max-width: 250px; margin-top: 20px;" />
-            <br><br>
-            <!-- מיכל לנגן המוטמע של ספוטיפיי -->
-<div id="spotify-embed-container" style="margin: 20px auto; max-width: 300px;"></div>
-            <a id="spotify-link" href="#" target="_blank" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #1DB954; color: white; text-decoration: none; font-size: 18px;">Listen on Spotify</a>
-            <br><br>
+        <div id="result-screen" style="display: none;">
+            <div class="result-card">
+                <img id="album-image" class="result-cover" src="" alt="Album cover" />
+                <div class="result-info">
+                    <h1 id="album-title" class="result-title">Loading...</h1>
+                    <p id="album-artist" class="result-artist">Loading...</p>
+                    <p id="result-meta" class="result-meta"></p>
+                    <p id="album-source" class="result-source"></p>
+                </div>
+                <!-- מיכל לנגן המוטמע של ספוטיפיי -->
+                <div id="spotify-embed-container" class="spotify-embed"></div>
+                <a id="spotify-link" href="#" target="_blank" class="spotify-link">Listen on Spotify</a>
+            </div>
             <div class="result-actions">
                 <button id="save-button">♡ Save</button>
-                <button id="explore-again-button" style="padding: 10px 20px; font-size: 18px;">Next Album<span class="lds-ripple"><span></span><span></span></span></button>
+                <button id="explore-again-button">Next Album</button>
             </div>
+            <p id="result-error" class="error-message" style="display: none;"></p>
         </div>
 
         <!-- מסך אלבומים שמורים -->
-        <div id="saved-screen" style="display: none; text-align: center; padding: 50px 20px;">
+        <div id="saved-screen" style="display: none;">
             <h1>Saved Albums</h1>
             <div id="saved-list"></div>
-            <p id="saved-empty" style="color: #888; margin-top: 40px;">No saved albums yet.<br>Find an album and hit ♡ Save!</p>
+            <p id="saved-empty" class="empty-message">No saved albums yet.<br>Find an album and hit ♡ Save!</p>
             <br>
             <button id="back-from-saved">← Back</button>
         </div>
