@@ -165,5 +165,181 @@
         "show": "John Peel Show",
         "host": "John Peel",
         "broadcastDate": "2004-09-02"
+    },
+    {
+        "title": "Symbiosis",
+        "artist": "Bill Evans",
+        "year": 1974,
+        "genre": "Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b273a46f14594b947bd7be145222",
+        "spotifyLink": "https://open.spotify.com/album/0WKeD3HWbimSq1MjE23htS",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Instant Holograms On Metal Film",
+        "artist": "Stereolab",
+        "year": 2025,
+        "genre": "Art Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b27390a8571786d2c2be4262503c",
+        "spotifyLink": "https://open.spotify.com/album/5nS7jRCPubnZF0OsXEM0D7",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Synthetic海岸",
+        "artist": "Cho Co Pa Co Cho Co Quin Quin",
+        "year": 2026,
+        "genre": "Japanese Indie",
+        "image": "https://i.scdn.co/image/ab67616d0000b273184660fd1f6c9599ce5b8541",
+        "spotifyLink": "https://open.spotify.com/album/1korXzyIsbsutjtb1k7xeF",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Thank You",
+        "artist": "Mike D",
+        "year": 2026,
+        "genre": "Arena Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b273dfa6701656d2c9669f6e5f14",
+        "spotifyLink": "https://open.spotify.com/album/4f2eRJXelRGjIu5i7Ow7Hz",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "You No Fit Touch Am",
+        "artist": "Dele Sosimi",
+        "year": 2015,
+        "genre": "Afrobeat",
+        "image": "https://i.scdn.co/image/ab67616d0000b2738728ad35b986908c4aa4d7c6",
+        "spotifyLink": "https://open.spotify.com/album/6Vtz6LOM6FKcxNW7vMkKeK",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Instant Vintage",
+        "artist": "Raphael Saadiq",
+        "year": 2002,
+        "genre": "Neo Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b273b50f344c7c5bf2e47981c4ce",
+        "spotifyLink": "https://open.spotify.com/album/2Dfk3iSj303wZD28aXq5ov",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Buenos Tiempos",
+        "artist": "Rubén Rada",
+        "year": 2001,
+        "genre": "Candombe",
+        "image": "https://i.scdn.co/image/ab67616d0000b2732831dc2b00b1b436720837ed",
+        "spotifyLink": "https://open.spotify.com/album/1osdRbTMAEE8xODeXkexrM",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "A Work Of Heart",
+        "artist": "Ty",
+        "year": 2018,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273780cb437d4c6d4805de9e7e2",
+        "spotifyLink": "https://open.spotify.com/album/3d23nSDSXqD2DW5BFbfA6B",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Didi (Original Analog Master, Bonus Tracks)",
+        "artist": "Fernando Gelbard",
+        "year": 1974,
+        "genre": "Jazz-Funk",
+        "image": "https://i.scdn.co/image/ab67616d0000b273ecd021fbce4d0b00413e44e2",
+        "spotifyLink": "https://open.spotify.com/album/3QTy2vASHH3GWpotsFlVKP",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "La Banda",
+        "artist": "La Banda",
+        "year": 1980,
+        "genre": "Candombe",
+        "image": "https://i.scdn.co/image/ab67616d0000b2730910870d6cbfa593a029c553",
+        "spotifyLink": "https://open.spotify.com/album/4yLKBam6i3VhT0BB5KJut6",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Goldenwings",
+        "artist": "Opa",
+        "year": 2014,
+        "genre": "Jazz Fusion",
+        "image": "https://i.scdn.co/image/ab67616d0000b273f5c7bc648be877cc6a0491a6",
+        "spotifyLink": "https://open.spotify.com/album/2xCPpaygS77Kui44LYBwsl",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Papa's Boat",
+        "artist": "Dana and Alden",
+        "year": 2026,
+        "genre": "Indie Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b2734dbdfa5155df5e631044b945",
+        "spotifyLink": "https://open.spotify.com/album/5l41oiUXGnECXTC2vHvlPt",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Latin Soul",
+        "artist": "The Latin Jazz Quintet",
+        "year": 2011,
+        "genre": "Latin Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b273d9c5643825600a9a6d553cfb",
+        "spotifyLink": "https://open.spotify.com/album/2xh9mbti4UsWF8ZijO3NGp",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "Old Love Dies Hard",
+        "artist": "Boogaloo Assassins",
+        "year": 2013,
+        "genre": "Salsa",
+        "image": "https://i.scdn.co/image/ab67616d0000b27344284ac4f85d8fff83226c16",
+        "spotifyLink": "https://open.spotify.com/album/2hRnb2TiheSItWBvTQ8xku",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "20 Exitos para Siempre",
+        "artist": "Felix Del Rosario",
+        "year": 2013,
+        "genre": "Merengue",
+        "image": "https://i.scdn.co/image/ab67616d0000b273f5363de102c19fcabd8fdcd7",
+        "spotifyLink": "https://open.spotify.com/album/1tHhNpXrpWBaqaXAQmWOx1",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "The Eight Gates",
+        "artist": "LOX",
+        "year": 2026,
+        "genre": "Jazz Fusion",
+        "image": "https://i.scdn.co/image/ab67616d0000b273e9bcf2063fb0861e7fe7b458",
+        "spotifyLink": "https://open.spotify.com/album/0NeLLvYG8xNUtnXxGMu8bu",
+        "show": "Gilles Peterson Show",
+        "host": "Gilles Peterson",
+        "broadcastDate": "2026-08-29"
     }
 ]

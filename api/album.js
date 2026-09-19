@@ -19,12 +19,13 @@ module.exports = async (req, res) => {
       // Try to get a custom album
       const customAlbum = await fetchCustomAlbum()
 
-      // Generate random number between 1-100
-      const percent = Math.ceil(Math.random() * 100)
-      console.log(`🔢 Percent chosen: ${percent}`)
+      // Roll a 0-100 float; CUSTOM_ALBUM_CHANCE_PERCENT is the real odds of picking a custom album
+      const CUSTOM_ALBUM_CHANCE_PERCENT = 5
+      const roll = Math.random() * 100
+      console.log(`🔢 Roll: ${roll.toFixed(2)} (custom album chance: ${CUSTOM_ALBUM_CHANCE_PERCENT}%)`)
 
       // Determine which album to send
-      const album = percent < 1 && customAlbum ? customAlbum : await fetchRandomAlbum(selectedGenres)
+      const album = roll < CUSTOM_ALBUM_CHANCE_PERCENT && customAlbum ? customAlbum : await fetchRandomAlbum(selectedGenres)
 
       // Check if valid album exists
       if (!album || !album.title) {
