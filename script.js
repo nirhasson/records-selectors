@@ -35,10 +35,36 @@ function renderGenrePills() {
   });
 }
 
-function genreQueryParam() {
-  return selectedGenres.size > 0 ? `?genres=${[...selectedGenres].join(',')}` : '';
+// Albums already shown in this tab, so the server doesn't send them again
+const SEEN_KEY = 'waxriffle_seen';
+const MAX_SEEN = 150;
+
+function getSeenIds() {
+  try { return JSON.parse(sessionStorage.getItem(SEEN_KEY) || '[]'); } catch (e) { return []; }
+}
+
+function markSeen(album) {
+  if (!album || !album.discogsId) return;
+  const seen = getSeenIds().filter(id => id !== String(album.discogsId));
+  seen.push(String(album.discogsId));
+  try { sessionStorage.setItem(SEEN_KEY, JSON.stringify(seen.slice(-MAX_SEEN))); } catch (e) {}
+}
+
+function albumQueryParams() {
+  const params = new URLSearchParams();
+  if (selectedGenres.size > 0) params.set('genres', [...selectedGenres].join(','));
+  const seen = getSeenIds();
+  if (seen.length > 0) params.set('exclude', seen.join(','));
+  const query = params.toString();
+  return query ? `?${query}` : '';
 }
 // --- end Genre filter ---
+
+// Direct Apple Music link when the pool found one, otherwise an Apple Music search
+function appleMusicLink(album) {
+  if (album.links && album.links.appleMusic) return album.links.appleMusic;
+  return `https://music.apple.com/us/search?term=${encodeURIComponent(`${album.artist || ''} ${album.title || ''}`.trim())}`;
+}
 
 // --- Saved albums ---
 function getAlbumId(album) {
@@ -107,7 +133,8 @@ function renderSavedList() {
         <div class="saved-card-meta">${album.year || ''} ${album.genre ? '· ' + album.genre : ''}</div>
       </div>
       <div class="saved-card-actions">
-        ${album.spotifyLink ? `<a class="saved-spotify-btn" href="${album.spotifyLink}" target="_blank">▶ Spotify</a>` : ''}
+        ${album.spotifyLink ? `<a class="saved-spotify-btn" href="${album.spotifyLink}" target="_blank" rel="noopener">▶ Spotify</a>` : ''}
+        <a class="saved-apple-btn" href="${appleMusicLink(album)}" target="_blank" rel="noopener">▶ Apple Music</a>
         <button class="saved-remove-btn" data-id="${id}">Remove</button>
       </div>
     `;
@@ -183,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById('loading-animation').style.display = 'block';
       loadingAnimation.play();
 
-      const response = await fetch(`/api/album${genreQueryParam()}`);
+      const response = await fetch(`/api/album${albumQueryParams()}`);
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData);
@@ -239,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
       exploreAgainButton.disabled = true;
 
       try {
-        const response = await fetch(`/api/album${genreQueryParam()}`);
+        const response = await fetch(`/api/album${albumQueryParams()}`);
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);
@@ -261,6 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateUI(albumData) {
     currentAlbum = albumData;
+    markSeen(albumData);
 
     document.getElementById('album-title').textContent = albumData.title || 'N/A';
     document.getElementById('album-artist').textContent = albumData.artist || 'N/A';
@@ -280,6 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
     albumImage.onerror = () => { albumImage.onerror = null; albumImage.src = NO_COVER_IMAGE; };
     albumImage.src = albumData.image || NO_COVER_IMAGE;
     document.getElementById('spotify-link').href = albumData.spotifyLink || '#';
+    document.getElementById('apple-music-link').href = appleMusicLink(albumData);
 
     updateSaveButton(albumData);
 

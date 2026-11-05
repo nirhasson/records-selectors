@@ -6,9 +6,8 @@
     "nodemon": "^3.1.9",
     "spotify-web-api-node": "^5.0.2"
   },
-
   "scripts": {
-  "start": "node app.js"
-}
-
+    "start": "node local-server.js",
+    "collect": "node scripts/collect-pool.js"
+  }
 }

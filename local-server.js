@@ -1,3 +1,7 @@
+try {
+  process.loadEnvFile() // reads keys from .env for local runs
+} catch {}
+
 const express = require("express")
 const path = require("path")
 const albumHandler = require("./api/album")

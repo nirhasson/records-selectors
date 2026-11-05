@@ -4,13 +4,13 @@ const fs = require("fs")
 const path = require("path")
 const SpotifyWebApi = require("spotify-web-api-node")
 
-// Use environment variables for sensitive data
-const TOKEN = process.env.DISCOGS_TOKEN || "vXJXtxmtPTPMbptayjsnIaNWIsnaaBcqsbJdZext"
+// Keys come from environment variables only (Vercel env vars, GitHub secrets, or a local .env file)
+const TOKEN = process.env.DISCOGS_TOKEN
 
 // Initialize Spotify API connection
 const spotifyApi = new SpotifyWebApi({
-  clientId: process.env.SPOTIFY_CLIENT_ID || "aed4b36b93454410ab42ba33c4f3ae6c",
-  clientSecret: process.env.SPOTIFY_CLIENT_SECRET || "5ffaf812e47e4498a06888f67c46197b",
+  clientId: process.env.SPOTIFY_CLIENT_ID,
+  clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
 })
 
 // Store inventories with pagination support
@@ -772,10 +772,6 @@ function processReleaseData(releaseData, storeName) {
 
 async function fetchCustomAlbum() {
   try {
-    await spotifyApi.clientCredentialsGrant().then((data) => {
-      spotifyApi.setAccessToken(data.body["access_token"])
-    })
-
     const customAlbums = getCustomAlbums()
 
     if (customAlbums.length === 0) return null
@@ -915,6 +911,7 @@ async function processSpotifyMatch(album) {
       image: album.image,
       store: album.store,
       discogsUrl: album.discogsUrl,
+      discogsId: album.discogsId,
       spotifyLink: exactArtistResult.album.external_urls.spotify,
       spotifyName: exactArtistResult.album.name,
       spotifyArtist: exactArtistResult.artist.name,
@@ -1060,6 +1057,7 @@ async function processSpotifyMatch(album) {
     image: album.image,
     store: album.store,
     discogsUrl: album.discogsUrl,
+    discogsId: album.discogsId,
   }
 
   if (spotifyAlbum) {
@@ -1143,4 +1141,11 @@ async function processSpotifyMatch(album) {
 module.exports = {
   fetchRandomAlbum,
   fetchCustomAlbum,
+  // Used by scripts/collect-pool.js and the pool-based API
+  storeInventories,
+  processReleaseData,
+  processSpotifyMatch,
+  albumMatchesGenres,
+  similarityScore,
+  spotifyApi,
 }

@@ -167,6 +167,17 @@ header {
     white-space: nowrap;
 }
 .saved-spotify-btn:hover { background: #1ed760; }
+.saved-apple-btn {
+    background: #FA2D48;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.75em;
+    text-align: center;
+    white-space: nowrap;
+}
+.saved-apple-btn:hover { background: #fb5368; }
 .saved-remove-btn {
     background: transparent;
     border: 1px solid #555;
@@ -400,6 +411,32 @@ h3 {
 
 .spotify-link:hover {
     background: #1DB954;
+    color: #1c1c1c;
+}
+
+.listen-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.apple-music-link {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 8px 22px;
+    border: 2px solid #FA2D48;
+    border-radius: 20px;
+    color: #FA2D48;
+    background: transparent;
+    text-decoration: none;
+    font-family: "Jockey One", serif;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+}
+
+.apple-music-link:hover {
+    background: #FA2D48;
     color: #1c1c1c;
 }
 
