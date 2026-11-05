@@ -93,7 +93,12 @@ header {
     text-align: center;
     padding: 50px 20px;
 }
-#saved-screen h1 { margin-bottom: 30px; }
+#saved-screen .saved-heading {
+    font-family: "Jockey One", serif;
+    font-size: 2em;
+    color: #8281FE;
+    margin-bottom: 30px;
+}
 
 #saved-list {
     display: flex;
@@ -367,6 +372,7 @@ h3 {
 }
 
 .result-title {
+    font-family: "Jockey One", serif;
     color: #fff;
     font-size: 1.5em;
     line-height: 1.25;

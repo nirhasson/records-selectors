@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node local-server.js",
-    "collect": "node scripts/collect-pool.js"
+    "collect": "node scripts/collect-pool.js",
+    "build-pages": "node scripts/build-pages.js"
   }
 }

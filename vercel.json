@@ -1,0 +1,11 @@
+{
+  "trailingSlash": false,
+  "functions": {
+    "api/page.js": { "includeFiles": "data/site/**" }
+  },
+  "rewrites": [
+    { "source": "/album/:slug", "destination": "/api/page?type=album&slug=:slug" },
+    { "source": "/genre/:genre", "destination": "/api/page?type=genre&genre=:genre" },
+    { "source": "/genre/:genre/page/:page", "destination": "/api/page?type=genre&genre=:genre&page=:page" }
+  ]
+}

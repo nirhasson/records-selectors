@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Jockey+One&display=swap" rel="stylesheet">
@@ -17,8 +17,24 @@
     <meta name="apple-mobile-web-app-title" content="WaxRiffle">
     <link rel="apple-touch-icon" href="/icons/favicon-96x96.png">
 
-    <title>Wax-Riffle - Discover Thousands of Unique Albums </title>
-    <meta name="description" content="Discover a world of unique albums and fresh sounds while breaking free from the Spotify algorithm. Let the tool guide you to new musical horizons!">
+    <title>WaxRiffle: Random Album Discovery from Real Record Stores</title>
+    <meta name="description" content="Find your next favorite album at random. WaxRiffle digs through real record-store crates and radio shows, not an algorithm. Listen on Spotify or Apple Music.">
+    <link rel="canonical" href="https://wax-riffle.vercel.app/">
+    <meta property="og:site_name" content="WaxRiffle">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wax-riffle.vercel.app/">
+    <meta property="og:title" content="WaxRiffle: Random Album Discovery from Real Record Stores">
+    <meta property="og:description" content="One click, one album. Pulled from real record-store crates and radio shows, not an algorithm.">
+    <meta property="og:image" content="https://wax-riffle.vercel.app/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WaxRiffle: Random Album Discovery from Real Record Stores">
+    <meta name="twitter:description" content="One click, one album. Pulled from real record-store crates and radio shows, not an algorithm.">
+    <meta name="twitter:image" content="https://wax-riffle.vercel.app/images/og-image.png">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"WaxRiffle","url":"https://wax-riffle.vercel.app/","description":"Random album discovery from real record-store inventories and radio shows. No algorithm."}
+    </script>
     <link rel="icon" type="image/png" href="/my-favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
   <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
@@ -86,7 +102,7 @@
             <div class="result-card">
                 <img id="album-image" class="result-cover" src="" alt="Album cover" />
                 <div class="result-info">
-                    <h1 id="album-title" class="result-title">Loading...</h1>
+                    <h2 id="album-title" class="result-title">Loading...</h2>
                     <p id="album-artist" class="result-artist">Loading...</p>
                     <p id="result-meta" class="result-meta"></p>
                     <p id="album-source" class="result-source"></p>
@@ -136,7 +152,7 @@
 
         <!-- מסך אלבומים שמורים -->
         <div id="saved-screen" style="display: none;">
-            <h1>Saved Albums</h1>
+            <h2 class="saved-heading">Saved Albums</h2>
             <div id="saved-list"></div>
             <p id="saved-empty" class="empty-message">No saved albums yet.<br>Find an album and hit ♡ Save!</p>
             <br>
