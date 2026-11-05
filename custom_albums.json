@@ -341,5 +341,156 @@
         "show": "Gilles Peterson Show",
         "host": "Gilles Peterson",
         "broadcastDate": "2026-08-29"
+    },
+    {
+        "title": "A La Altura: Visionary Mexican Music 1977-1999 - Volume 1",
+        "artist": "Various Artists",
+        "year": 2026,
+        "genre": "Electronic, Experimental",
+        "image": "https://i.scdn.co/image/ab67616d0000b27369add4456807121c9cefd39f",
+        "spotifyLink": "https://open.spotify.com/album/4DddXSivLz9nLJAc9dg7TJ",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/a-la-altura-visionary-mexican-music-1977-1999-volume-1/6815008377"
+        },
+        "show": "Worldwide FM",
+        "host": "Coco Maria",
+        "broadcastDate": "2026-08-23"
+    },
+    {
+        "title": "Kadapat",
+        "artist": "Kadapat",
+        "year": 2022,
+        "genre": "Electronic, World",
+        "image": "https://i.scdn.co/image/ab67616d0000b273d373c6256c0aa4d303802d82",
+        "spotifyLink": "https://open.spotify.com/album/7K9qhQKVHD0tEybQis7L8X",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/kadapat/1751086926"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Vol. 1",
+        "artist": "Argatu'",
+        "year": 2018,
+        "genre": "Electronic, Folk",
+        "image": "https://i.scdn.co/image/ab67616d0000b27306e6a72760670e2710cd6d18",
+        "spotifyLink": "https://open.spotify.com/album/6hTsgN2505LAm8XcD5yM2m",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/vol-1/1464973655"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Sounds from the Village, Vol. 1",
+        "artist": "Al Dobson Jr.",
+        "year": 2014,
+        "genre": "Electronic, Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b2730e9c95dce4ba1085f3296e6c",
+        "spotifyLink": "https://open.spotify.com/album/7En6jQEytyIP4OIjrmSu8T",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/sounds-from-the-village-vol-1/1687403892"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Sounds from the Village, Vol. 2",
+        "artist": "Al Dobson Jr.",
+        "year": 2019,
+        "genre": "Electronic, Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b2730cff24c2844fa40b074b1bab",
+        "spotifyLink": "https://open.spotify.com/album/1N0qXO2PIQVlzuxajChVHK",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/sounds-from-the-village-vol-1/1687403892"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Esgar",
+        "artist": "Esgar",
+        "year": 2013,
+        "genre": "Electronic, Footwork",
+        "image": "https://i.scdn.co/image/ab67616d0000b273530395d39ba9fe4338972530",
+        "spotifyLink": "https://open.spotify.com/album/6pjEnlYpCqF9mKM7xOTenV",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/esgar/1687244785"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "All Hail the Queen",
+        "artist": "Queen Latifah",
+        "year": 1989,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273683be10830a0928ba6c58aee",
+        "spotifyLink": "https://open.spotify.com/album/6Agl4DVuihiDPuxuN1L8Jv",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/all-hail-the-queen/1604634098"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Don't Believe",
+        "artist": "DJ Soul Slinger",
+        "year": 1997,
+        "genre": "Electronic, Jungle",
+        "image": "https://i.scdn.co/image/ab67616d0000b273af9e0e89d5bf64dff2022c3d",
+        "spotifyLink": "https://open.spotify.com/album/6Y8A2GgJgtxi8e2uA9qQG9",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/dont-believe/270249311"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Kabir Un Jailed",
+        "artist": "Swaraj Jail University",
+        "year": 2025,
+        "genre": "Folk, World",
+        "image": "https://i.scdn.co/image/ab67616d0000b273f30d066787c8058d20513155",
+        "spotifyLink": "https://open.spotify.com/album/70ns181G8Wxta9XxRXK6xk",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/kabir-un-jailed/1818993918"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Here Because of Hope",
+        "artist": "Ezra Collective",
+        "year": 2026,
+        "genre": "Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736d02e8be17bfe4eb4afb2141",
+        "spotifyLink": "https://open.spotify.com/album/4BKNpqrUgWxpA1d8u5e95j",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/here-because-of-hope/6767014278"
+        },
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "DRAGONFRUIT",
+        "artist": "Rita Kamale",
+        "year": 2024,
+        "genre": "Hip Hop, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273be4b1ebf10dc7bce9887c1c2",
+        "spotifyLink": "https://open.spotify.com/album/4MtHGLSin4qMpwNkC4a15C",
+        "show": "Worldwide FM",
+        "host": "Pia Collada",
+        "broadcastDate": "2026-10-28"
     }
 ]

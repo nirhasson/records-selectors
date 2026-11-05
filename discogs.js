@@ -788,6 +788,7 @@ async function fetchCustomAlbum() {
       spotifyLink: album.spotifyLink,
       show: album.show,
       host: album.host,
+      links: album.links,
     }
 
     console.log("This is Custom album output:", output)

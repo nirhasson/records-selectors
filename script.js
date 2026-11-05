@@ -152,27 +152,22 @@ function renderSavedList() {
   });
 }
 
-let previousScreen = 'main';
-
-function showSavedScreen() {
-  if (document.getElementById('main-screen').style.display !== 'none') {
-    previousScreen = 'main';
-  } else {
-    previousScreen = 'result';
-  }
+// Each screen change is a browser history entry, so the Back button moves between
+// albums and screens instead of leaving the site.
+function showSavedScreen(fromHistory = false) {
+  if (!fromHistory) history.pushState({ screen: 'saved' }, '');
   document.getElementById('main-screen').style.display = 'none';
   document.getElementById('result-screen').style.display = 'none';
   document.getElementById('saved-screen').style.display = 'block';
   renderSavedList();
 }
 
-function hideSavedScreen() {
+function showHomeScreen() {
   document.getElementById('saved-screen').style.display = 'none';
-  if (previousScreen === 'result' && currentAlbum) {
-    document.getElementById('result-screen').style.display = 'block';
-  } else {
-    document.getElementById('main-screen').style.display = 'block';
-  }
+  document.getElementById('result-screen').style.display = 'none';
+  document.getElementById('main-screen').style.display = 'block';
+  document.getElementById('loading-animation').style.display = 'none';
+  document.getElementById('explore-button').style.display = 'flex';
 }
 // --- end Saved albums ---
 
@@ -182,8 +177,19 @@ document.addEventListener("DOMContentLoaded", function () {
   initGenreFilter();
   updateSavedCounter();
 
-  document.getElementById('saved-counter').addEventListener('click', showSavedScreen);
-  document.getElementById('back-from-saved').addEventListener('click', hideSavedScreen);
+  document.getElementById('saved-counter').addEventListener('click', () => {
+    if (document.getElementById('saved-screen').style.display !== 'block') showSavedScreen();
+  });
+  document.getElementById('back-from-saved').addEventListener('click', () => history.back());
+
+  // Browser Back/Forward: show whatever screen that history entry holds
+  history.replaceState({ screen: 'home' }, '');
+  window.addEventListener('popstate', (event) => {
+    const state = event.state || { screen: 'home' };
+    if (state.screen === 'album' && state.album) updateUI(state.album, true);
+    else if (state.screen === 'saved') showSavedScreen(true);
+    else showHomeScreen();
+  });
   document.getElementById('save-button').addEventListener('click', () => {
     if (currentAlbum) toggleSave(currentAlbum);
   });
@@ -286,7 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return store ? store.replace(/_/g, ' ') : '';
   }
 
-  function updateUI(albumData) {
+  function updateUI(albumData, fromHistory = false) {
+    if (!fromHistory) history.pushState({ screen: 'album', album: albumData }, '');
     currentAlbum = albumData;
     markSeen(albumData);
 
@@ -345,5 +352,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('main-screen').style.display = 'none';
     document.getElementById('saved-screen').style.display = 'none';
     document.getElementById('result-screen').style.display = 'block';
+    window.scrollTo(0, 0);
   }
 });
