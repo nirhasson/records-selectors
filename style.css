@@ -345,6 +345,7 @@ h3 {
 }
 
 .result-card {
+    box-sizing: border-box; /* padding counts inside max-width, so the card never overflows a phone screen */
     max-width: 420px;
     margin: 32px auto 0;
     padding: 28px 24px;
@@ -395,49 +396,64 @@ h3 {
     max-width: 280px;
 }
 
-.spotify-link {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 8px 22px;
-    border: 2px solid #1DB954;
-    border-radius: 20px;
-    color: #1DB954;
-    background: transparent;
-    text-decoration: none;
-    font-family: "Jockey One", serif;
-    font-size: 0.95em;
-    transition: all 0.2s ease;
+.listen-on {
+    margin-top: 4px;
 }
 
-.spotify-link:hover {
-    background: #1DB954;
-    color: #1c1c1c;
+.listen-on-label {
+    margin: 0 0 10px;
+    color: #a8a8a8;
+    font-size: 0.75em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .listen-links {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 28px;
 }
 
-.apple-music-link {
-    display: inline-block;
-    margin-top: 6px;
-    padding: 8px 22px;
-    border: 2px solid #FA2D48;
-    border-radius: 20px;
-    color: #FA2D48;
-    background: transparent;
+.listen-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    min-width: 72px;
+    padding: 6px 4px;
+    border-radius: 12px;
+    color: #a8a8a8;
     text-decoration: none;
-    font-family: "Jockey One", serif;
-    font-size: 0.95em;
-    transition: all 0.2s ease;
+    transition: color 0.2s ease;
 }
 
-.apple-music-link:hover {
-    background: #FA2D48;
-    color: #1c1c1c;
+.listen-icon {
+    width: 44px;
+    height: 44px;
+    transition: transform 0.2s ease;
+}
+
+.listen-name {
+    font-size: 0.78em;
+    line-height: 1;
+}
+
+.listen-btn:hover,
+.listen-btn:focus-visible {
+    color: #fff;
+}
+
+.listen-btn:hover .listen-icon {
+    transform: translateY(-2px) scale(1.06);
+}
+
+.listen-btn:active .listen-icon {
+    transform: scale(0.95);
+}
+
+.listen-btn:focus-visible {
+    outline: 2px solid #8281FE;
+    outline-offset: 2px;
 }
 
 .error-message {

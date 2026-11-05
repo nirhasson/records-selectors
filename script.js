@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const spotifyUrl = new URL(albumData.spotifyLink);
         const pathParts = spotifyUrl.pathname.split('/');
         if (pathParts[1] === 'search') {
-          embedContainer.innerHTML = '<p style="color: #777;">No preview available. Click "Listen on Spotify" to search.</p>';
+          embedContainer.innerHTML = '<p style="color: #777;">No preview available. Tap Spotify below to search for it.</p>';
         } else {
           const contentType = pathParts[1];
           const contentId = pathParts[pathParts.length - 1];

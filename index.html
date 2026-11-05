@@ -93,9 +93,38 @@
                 </div>
                 <!-- מיכל לנגן המוטמע של ספוטיפיי -->
                 <div id="spotify-embed-container" class="spotify-embed"></div>
-                <div class="listen-links">
-                    <a id="spotify-link" href="#" target="_blank" rel="noopener" class="spotify-link">Listen on Spotify</a>
-                    <a id="apple-music-link" href="#" target="_blank" rel="noopener" class="apple-music-link">Apple Music</a>
+                <div class="listen-on">
+                    <p class="listen-on-label">Listen on</p>
+                    <div class="listen-links">
+                        <a id="spotify-link" href="#" target="_blank" rel="noopener" class="listen-btn" aria-label="Listen on Spotify">
+                            <svg class="listen-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="12" fill="#1DB954"/>
+                                <g fill="none" stroke="#121212" stroke-linecap="round">
+                                    <path d="M5.6 9.1c4-1.25 9-.95 12.6 1.2" stroke-width="2"/>
+                                    <path d="M6.3 12.7c3.4-1 7.5-.65 10.4 1.15" stroke-width="1.7"/>
+                                    <path d="M7 16.1c2.8-.75 5.8-.45 8.1.9" stroke-width="1.4"/>
+                                </g>
+                            </svg>
+                            <span class="listen-name">Spotify</span>
+                        </a>
+                        <a id="apple-music-link" href="#" target="_blank" rel="noopener" class="listen-btn" aria-label="Listen on Apple Music">
+                            <svg class="listen-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="apple-music-gradient" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#FB5C74"/>
+                                        <stop offset="1" stop-color="#FA233B"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="24" height="24" rx="5.5" fill="url(#apple-music-gradient)"/>
+                                <g fill="#fff" transform="translate(0.8 0)">
+                                    <path d="M9.2 7.7 17.6 5.6v9.6h-1.35V8.75L10.55 10.2v6.6H9.2Z"/>
+                                    <ellipse cx="8.1" cy="16.9" rx="2.25" ry="1.75" transform="rotate(-18 8.1 16.9)"/>
+                                    <ellipse cx="15.15" cy="15.3" rx="2.25" ry="1.75" transform="rotate(-18 15.15 15.3)"/>
+                                </g>
+                            </svg>
+                            <span class="listen-name">Apple Music</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="result-actions">

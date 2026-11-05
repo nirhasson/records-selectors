@@ -888,11 +888,56 @@ async function fetchRandomAlbum(selectedGenres = []) {
   }
 }
 
+// Compilations ("Various") have no real artist, so artist-based matching picks a random album.
+// Match them by title only, and only accept a clearly matching compilation.
+function isCompilationArtist(artist) {
+  return /^various( artists)?$/i.test(String(artist || "").trim())
+}
+
+async function matchCompilation(album) {
+  const output = {
+    title: album.title,
+    artist: album.artist,
+    year: album.year,
+    genre: album.genre,
+    image: album.image,
+    store: album.store,
+    discogsUrl: album.discogsUrl,
+    discogsId: album.discogsId,
+  }
+
+  const results = await spotifyApi.searchAlbums(`album:${cleanSearchTerm(album.title)}`, { limit: 20 })
+  const items = results.body?.albums?.items || []
+  let best = null
+  for (const item of items) {
+    const titleScore = similarityScore(album.title, item.name)
+    const byVarious = (item.artists || []).some((a) => isCompilationArtist(a.name))
+    if (titleScore < 80 || !(byVarious || item.album_type === "compilation")) continue
+    const year = String(item.release_date || "").slice(0, 4)
+    const score = titleScore + (year && String(album.year) === year ? 10 : 0)
+    if (!best || score > best.score) best = { score, item }
+  }
+
+  if (best) {
+    output.spotifyLink = best.item.external_urls.spotify
+    output.spotifyName = best.item.name
+    output.spotifyType = "album"
+    output.matchSource = "compilation-title"
+  } else {
+    output.spotifyLink = `https://open.spotify.com/search/${encodeURIComponent(album.title)}`
+    output.spotifyType = "search"
+    output.matchSource = "search-fallback"
+  }
+  return output
+}
+
 // Process album and find Spotify match
 async function processSpotifyMatch(album) {
   if (!album) return null
 
   console.log(`Processing album: "${album.title}" by ${album.artist} (${album.year})`)
+
+  if (isCompilationArtist(album.artist)) return matchCompilation(album)
 
   // Strategy 0: Try to find exact artist match first (new strategy)
   console.log("Strategy 0: Trying exact artist match first")

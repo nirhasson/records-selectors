@@ -263,6 +263,7 @@ async function main() {
         price: listing.price ? `${listing.price.value} ${listing.price.currency}` : undefined,
         spotifyLink: matched?.spotifyLink,
         spotifyType: matched?.spotifyType,
+        matchSource: matched?.matchSource, // how the Spotify match was found (lets us re-check weak matches later)
         addedAt: new Date().toISOString(),
       })
       known.add(album.discogsId)
