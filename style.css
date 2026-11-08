@@ -86,6 +86,31 @@ header {
     margin: 0;
 }
 #save-button:hover { border-color: #8281FE; color: #8281FE; }
+
+.share-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+#share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 2px solid #555;
+    color: #aaa;
+    font-family: "Jockey One", serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+}
+#share-button svg { width: 18px; height: 18px; }
+#share-button:hover { border-color: #8281FE; color: #8281FE; }
+#share-button.copied { border-color: #8281FE; color: #8281FE; background: rgba(130,129,254,0.12); }
 #save-button.saved { border-color: #8281FE; color: #8281FE; background: rgba(130,129,254,0.12); }
 
 /* Saved albums screen */
@@ -183,6 +208,20 @@ header {
     white-space: nowrap;
 }
 .saved-apple-btn:hover { background: #fb5368; }
+.saved-share-btn {
+    background: transparent;
+    border: 1px solid #8281FE;
+    color: #8281FE;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: inherit;
+    font-size: 0.75em;
+    cursor: pointer;
+    margin: 0;
+    white-space: nowrap;
+    transition: all 0.15s;
+}
+.saved-share-btn:hover { background: #8281FE; color: #fff; }
 .saved-remove-btn {
     background: transparent;
     border: 1px solid #555;
@@ -483,6 +522,8 @@ h3 {
 }
 
 #explore-again-button {
+    font-family: "Jockey One", serif; /* same font as Save and Share */
+    margin: 0;
     background-color: transparent; /* רקע שקוף */
     border: 2px solid #8281FE; /* מסגרת בצבע 8281FE */
     color: #8281FE; /* צבע טקסט */

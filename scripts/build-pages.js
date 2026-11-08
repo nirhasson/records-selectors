@@ -7,6 +7,7 @@
 // Output:
 //   data/site/albums/<first character of slug>.json  — one album per line, keyed by slug
 //   data/site/genres/<genre>.json                    — album list per genre, newest first
+//   data/site/slugs.json                             — album (artist|title) → page address, for share links
 //   sitemap.xml, sitemaps/*.xml, robots.txt
 
 const fs = require("fs")
@@ -175,6 +176,11 @@ function build() {
     shards[shard][a.slug] = { ...rest, inPool }
   }
   for (const [shard, records] of Object.entries(shards)) writeLines(path.join(ALBUMS_DIR, `${shard}.json`), records)
+
+  // Lets the album API attach each album's page address (used by the Share button)
+  const slugIndex = {}
+  for (const [key, a] of [...byKey.entries()].sort(([x], [y]) => x.localeCompare(y))) slugIndex[key] = a.slug
+  writeLines(path.join(SITE_DIR, "slugs.json"), slugIndex)
 
   // Genre lists: just what a grid card needs
   fs.rmSync(GENRES_DIR, { recursive: true, force: true })

@@ -66,6 +66,47 @@ function appleMusicLink(album) {
   return `https://music.apple.com/us/search?term=${encodeURIComponent(`${album.artist || ''} ${album.title || ''}`.trim())}`;
 }
 
+// --- Share ---
+// The album's own page when it has one (cover preview in WhatsApp etc.), otherwise its Spotify link
+function shareUrl(album) {
+  if (album.pageUrl) return new URL(album.pageUrl, location.origin).href;
+  return album.spotifyLink || location.origin;
+}
+
+// Phones open the system share sheet; computers copy the link.
+// Returns 'shared', 'copied' or 'failed'.
+async function shareAlbum(album) {
+  const url = shareUrl(album);
+  const isTouch = window.matchMedia('(pointer: coarse)').matches;
+  if (navigator.share && isTouch) {
+    try {
+      await navigator.share({ title: `${album.title} by ${album.artist}`, text: `${album.title} by ${album.artist}, found on WaxRiffle`, url });
+      return 'shared';
+    } catch (e) {
+      if (e.name === 'AbortError') return 'shared'; // closed the share sheet
+    }
+  }
+  try {
+    await navigator.clipboard.writeText(url);
+    return 'copied';
+  } catch (e) {
+    window.prompt('Copy this link:', url);
+    return 'failed';
+  }
+}
+
+// Briefly shows "Link copied" on the button that was pressed
+function flashCopied(button, labelEl, original) {
+  button.classList.add('copied');
+  labelEl.textContent = 'Link copied';
+  clearTimeout(button._copiedTimer);
+  button._copiedTimer = setTimeout(() => {
+    button.classList.remove('copied');
+    labelEl.textContent = original;
+  }, 2000);
+}
+// --- end Share ---
+
 // --- Saved albums ---
 function getAlbumId(album) {
   return album.discogsId ? String(album.discogsId) : `${album.artist}|${album.title}`;
@@ -135,10 +176,18 @@ function renderSavedList() {
       <div class="saved-card-actions">
         ${album.spotifyLink ? `<a class="saved-spotify-btn" href="${album.spotifyLink}" target="_blank" rel="noopener">▶ Spotify</a>` : ''}
         <a class="saved-apple-btn" href="${appleMusicLink(album)}" target="_blank" rel="noopener">▶ Apple Music</a>
+        <button class="saved-share-btn" data-id="${id}">Share</button>
         <button class="saved-remove-btn" data-id="${id}">Remove</button>
       </div>
     `;
     list.appendChild(card);
+  });
+
+  list.querySelectorAll('.saved-share-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const album = saved.find(a => getAlbumId(a) === btn.dataset.id);
+      if (album && (await shareAlbum(album)) === 'copied') flashCopied(btn, btn, 'Share');
+    });
   });
 
   list.querySelectorAll('.saved-remove-btn').forEach(btn => {
@@ -192,6 +241,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   document.getElementById('save-button').addEventListener('click', () => {
     if (currentAlbum) toggleSave(currentAlbum);
+  });
+  document.getElementById('share-button').addEventListener('click', async () => {
+    if (!currentAlbum) return;
+    const result = await shareAlbum(currentAlbum);
+    if (result === 'copied') flashCopied(document.getElementById('share-button'), document.getElementById('share-label'), 'Share');
   });
 
   loadingAnimation = lottie.loadAnimation({

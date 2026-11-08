@@ -1,4 +1,5 @@
 const { fetchRandomAlbum, fetchCustomAlbum, albumMatchesGenres } = require("../discogs.js")
+const { albumKey } = require("../lib/site.js")
 
 // Pre-collected albums (built nightly by scripts/collect-pool.js). Loaded once per server instance.
 let pool = []
@@ -6,6 +7,14 @@ try {
   pool = require("../data/pool.json")
 } catch {
   console.warn("⚠️ data/pool.json not found — falling back to live Discogs requests")
+}
+
+// Album → page address (built nightly by scripts/build-pages.js), for the Share button
+let slugs = {}
+try {
+  slugs = require("../data/site/slugs.json")
+} catch {
+  console.warn("⚠️ data/site/slugs.json not found — albums will be shared by their Spotify link")
 }
 
 // Roll a 0-100 float; CUSTOM_ALBUM_CHANCE_PERCENT is the real odds of picking a custom album
@@ -51,6 +60,10 @@ module.exports = async (req, res) => {
       const searchQuery = encodeURIComponent(`${album.artist} ${album.title}`)
       album = { ...album, spotifyLink: `https://open.spotify.com/search/${searchQuery}` }
     }
+
+    // Albums found by a live store scan have no page yet; the browser shares their Spotify link instead
+    const slug = slugs[albumKey(album.artist, album.title)]
+    if (slug) album = { ...album, pageUrl: `/album/${slug}` }
 
     return res.status(200).json(album)
   } catch (error) {
