@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -38,5 +38,18 @@ jobs:
           git config user.name "waxriffle-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/pool.json data/site sitemap.xml sitemaps robots.txt
-          git diff --cached --quiet || git commit -m "Update album pool"
-          git push
+          git diff --cached --quiet && exit 0
+          git commit -m "Update album pool"
+          # Someone may have pushed while this ran (the run takes ~30 minutes).
+          # Replay on top of it; if the generated files conflict, keep tonight's pool
+          # and rebuild the pages on the latest code instead.
+          if ! git pull --rebase origin main; then
+            git rebase --abort
+            cp data/pool.json "$RUNNER_TEMP/pool.json"
+            git reset --hard origin/main
+            cp "$RUNNER_TEMP/pool.json" data/pool.json
+            node scripts/build-pages.js
+            git add data/pool.json data/site sitemap.xml sitemaps robots.txt
+            git commit -m "Update album pool"
+          fi
+          git push origin HEAD:main

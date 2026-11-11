@@ -789,6 +789,9 @@ async function fetchCustomAlbum() {
       show: album.show,
       host: album.host,
       links: album.links,
+      editorsPick: album.editorsPick,
+      newsletterUrl: album.newsletterUrl,
+      newsletterIssue: album.newsletterIssue,
     }
 
     console.log("This is Custom album output:", output)

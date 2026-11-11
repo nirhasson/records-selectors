@@ -106,7 +106,7 @@ function fromCustom(a, today) {
         ...STYLE_TO_GENRES.filter(([re]) => re.test(genre)).flatMap(([, g]) => g),
       ]),
     ],
-    stylesRaw: genre ? [genre] : [],
+    stylesRaw: a.styles?.length ? a.styles : genre ? [genre] : [],
     image: a.image || "",
     spotifyLink,
     spotifyType: /\/album\//.test(spotifyLink) ? "album" : "",
@@ -114,7 +114,11 @@ function fromCustom(a, today) {
     show: a.show || "",
     host: a.host || "",
     broadcastDate: a.broadcastDate || "",
-    firstSeen: a.broadcastDate || today,
+    editorsPick: Boolean(a.editorsPick),
+    newsletterUrl: a.newsletterUrl || "",
+    newsletterIssue: a.newsletterIssue || "",
+    pickedDate: a.pickedDate || "",
+    firstSeen: a.broadcastDate || a.pickedDate || today,
   }
 }
 

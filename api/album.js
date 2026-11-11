@@ -18,7 +18,7 @@ try {
 }
 
 // Roll a 0-100 float; CUSTOM_ALBUM_CHANCE_PERCENT is the real odds of picking a custom album
-const CUSTOM_ALBUM_CHANCE_PERCENT = 5
+const CUSTOM_ALBUM_CHANCE_PERCENT = 8
 
 // excludeIds: albums this visitor already saw in this session (sent by the browser)
 function pickFromPool(selectedGenres, excludeIds) {

@@ -492,5 +492,1888 @@
         "show": "Worldwide FM",
         "host": "Pia Collada",
         "broadcastDate": "2026-10-28"
+    },
+    {
+        "title": "Chasing Shadows",
+        "artist": "Nubiyan Twist",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "styles": [
+            "Afrobeat",
+            "Jazz-Funk"
+        ],
+        "image": "https://f4.bcbits.com/img/a2078107808_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/3ehJxu0Y4xuXMJyaYCpv0a",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/chasing-shadows-single/1845079209",
+            "bandcamp": "https://nubiyantwist.bandcamp.com/album/chasing-shadows"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/006",
+        "newsletterIssue": "006",
+        "pickedDate": "2026-03-29"
+    },
+    {
+        "title": "Luke Una Presents É Soul Cultura Vol.3",
+        "artist": "Harris & Orr",
+        "year": 2026,
+        "genre": "Funk / Soul, Jazz",
+        "image": "https://f4.bcbits.com/img/a4189527972_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://mrbongo.bandcamp.com/album/luke-una-presents-soul-cultura-vol-3"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/006",
+        "newsletterIssue": "006",
+        "pickedDate": "2026-03-29"
+    },
+    {
+        "title": "California Space Craft",
+        "artist": "Rejoicer",
+        "year": 2026,
+        "genre": "Electronic, Jazz",
+        "styles": [
+            "Fusion"
+        ],
+        "image": "https://f4.bcbits.com/img/a3893568010_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/6wVCGitP9Y2WOmTN5MpmVq",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/california-space-craft/1880338857",
+            "bandcamp": "https://rejoicer.bandcamp.com/album/california-space-craft"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/006",
+        "newsletterIssue": "006",
+        "pickedDate": "2026-03-29"
+    },
+    {
+        "title": "Distracted",
+        "artist": "Thundercat",
+        "year": 2026,
+        "genre": "Electronic, Hip Hop, Jazz, Funk / Soul",
+        "styles": [
+            "Hip Hop",
+            "Neo Soul",
+            "Psychedelic",
+            "Jazz-Funk",
+            "Funk",
+            "Soul-Jazz"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2735d6505356d39c9ec421d489b",
+        "spotifyLink": "https://open.spotify.com/album/4DkVTJfU9qyNWKbjLoTENL",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/007",
+        "newsletterIssue": "007",
+        "pickedDate": "2026-04-05"
+    },
+    {
+        "title": "MISTER JOHNSON",
+        "artist": "Sly Johnson",
+        "year": 2026,
+        "genre": "Blues",
+        "styles": [
+            "Rhythm & Blues"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27316f02c2c5da0e9d6204c9c19",
+        "spotifyLink": "https://open.spotify.com/album/7JhwIep9F7uvmMnQbLNNPl",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/mister-johnson/1863986985"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/008",
+        "newsletterIssue": "008",
+        "pickedDate": "2026-04-13"
+    },
+    {
+        "title": "100 DAYS",
+        "artist": "Reb Fountain",
+        "year": 2026,
+        "genre": "Rock, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b27312f4021e7667e76de93e92ad",
+        "spotifyLink": "https://open.spotify.com/album/3ZdvlFj32F9EX7cMeOsQWm",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/100-days-ep/1877024339"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/008",
+        "newsletterIssue": "008",
+        "pickedDate": "2026-04-13"
+    },
+    {
+        "title": "A New Day",
+        "artist": "Medline",
+        "year": 2026,
+        "genre": "Reggae",
+        "image": "https://f4.bcbits.com/img/a4057038933_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/a-new-day-single/1892761210",
+            "bandcamp": "https://mybags.bandcamp.com/album/a-new-day"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/008",
+        "newsletterIssue": "008",
+        "pickedDate": "2026-04-13"
+    },
+    {
+        "title": "Cuban 45s (DJ Mix)",
+        "artist": "DJ KOCO aka SHIMOKITA",
+        "year": 2026,
+        "genre": "Latin, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736d21a59a1cf727fc41814ee0",
+        "spotifyLink": "https://open.spotify.com/album/1jMAt3KSjlvIgkvWovGGAC",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/cuban-45s-dj-mix/1889472505"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/009",
+        "newsletterIssue": "009",
+        "pickedDate": "2026-04-19"
+    },
+    {
+        "title": "Younge",
+        "artist": "Adrian Younge",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://f4.bcbits.com/img/a0946507349_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/37nNm3RVTz6KulC5r0O6ey",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/younge/1872089307",
+            "bandcamp": "https://linearlabs.bandcamp.com/album/younge"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/009",
+        "newsletterIssue": "009",
+        "pickedDate": "2026-04-19"
+    },
+    {
+        "title": "Always Cosmic",
+        "artist": "United Freedom Collective",
+        "year": 2026,
+        "genre": "Jazz",
+        "image": "https://f4.bcbits.com/img/a1687683640_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/6upoedkcamo2xXXcO1peQU",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/always-cosmic-ep/1883100553",
+            "bandcamp": "https://photay.bandcamp.com/album/always-cosmic"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/009",
+        "newsletterIssue": "009",
+        "pickedDate": "2026-04-19"
+    },
+    {
+        "title": "לצוף",
+        "artist": "רועי דורון",
+        "year": 2026,
+        "genre": "Hip Hop, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2737019ece2dca7d8a58b849a3d",
+        "spotifyLink": "https://open.spotify.com/album/1AU0vmR6cQ8jXHpFWYMk00",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/010",
+        "newsletterIssue": "010",
+        "pickedDate": "2026-04-26"
+    },
+    {
+        "title": "Nine Inch Noize",
+        "artist": "Nine Inch Nails, Boys Noize",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Electro House",
+            "Techno"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27358a78d2b246cfd738afb2e73",
+        "spotifyLink": "https://open.spotify.com/album/7lcpCG4RBy3njzxHXlhOnp",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/010",
+        "newsletterIssue": "010",
+        "pickedDate": "2026-04-26"
+    },
+    {
+        "title": "Paris In The Spring",
+        "artist": "Alexis Taylor",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Synth-pop"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2736d97438abc95cae5915d9c9e",
+        "spotifyLink": "https://open.spotify.com/album/0doGfyxVBHG9nPvQoq9LhT",
+        "links": {
+            "bandcamp": "https://alexistaylor.bandcamp.com/album/paris-in-the-spring"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/010",
+        "newsletterIssue": "010",
+        "pickedDate": "2026-04-26"
+    },
+    {
+        "title": "Good Intentions",
+        "artist": "Ego Ella May",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b273cfde51beff66bcc261827a3d",
+        "spotifyLink": "https://open.spotify.com/album/13t3teY6tq3AM0RHchDC9F",
+        "links": {
+            "bandcamp": "https://egoellamay.bandcamp.com/album/good-intentions"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/010",
+        "newsletterIssue": "010",
+        "pickedDate": "2026-04-26"
+    },
+    {
+        "title": "People of the Moon",
+        "artist": "Nu Genea",
+        "year": 2026,
+        "genre": "Electronic, Jazz, Funk / Soul",
+        "styles": [
+            "Boogie",
+            "Disco",
+            "Jazz-Funk",
+            "Latin"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27391181e8d36c3a9a6279b824c",
+        "spotifyLink": "https://open.spotify.com/album/7b2loBX3KU66zmHk4UI30K",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/people-of-the-moon/1893765826"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/011",
+        "newsletterIssue": "011",
+        "pickedDate": "2026-05-03"
+    },
+    {
+        "title": "M.I.7",
+        "artist": "M.I.A.",
+        "year": 2026,
+        "genre": "Electronic, Hip Hop",
+        "styles": [
+            "Experimental",
+            "Gospel",
+            "Downtempo"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2738fea03aaf71282337cdb4e35",
+        "spotifyLink": "https://open.spotify.com/album/6TGoIu9hPSLt2fYgdThVKD",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/m-i-7/1889898922"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/011",
+        "newsletterIssue": "011",
+        "pickedDate": "2026-05-03"
+    },
+    {
+        "title": "חתול גיהנום",
+        "artist": "Ori Shochat, Slimfim",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2737a9ed47b74e47ff136c1d2ed",
+        "spotifyLink": "https://open.spotify.com/album/1NSFBpVtXHyPSpPz2hA9xz",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/011",
+        "newsletterIssue": "011",
+        "pickedDate": "2026-05-03"
+    },
+    {
+        "title": "HOPE!!",
+        "artist": "Angelique Kidjo",
+        "year": 2026,
+        "genre": "Funk / Soul, Pop, Folk, World, & Country",
+        "styles": [
+            "African",
+            "Afrobeat"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27302160e13992e6fd06c3514a8",
+        "spotifyLink": "https://open.spotify.com/album/3x1Avu2Fct0HPWBpl0ob4b",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/012",
+        "newsletterIssue": "012",
+        "pickedDate": "2026-05-10"
+    },
+    {
+        "title": "POWERSCROFT",
+        "artist": "IZCO",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Grime",
+            "Broken Beat"
+        ],
+        "image": "https://f4.bcbits.com/img/a2803758146_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/powerscroft/1867282023",
+            "bandcamp": "https://izco.bandcamp.com/album/powerscroft"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/012",
+        "newsletterIssue": "012",
+        "pickedDate": "2026-05-10"
+    },
+    {
+        "title": "משהו בין אור לחושך",
+        "artist": "אופיר אברהם",
+        "year": 2026,
+        "genre": "Rock, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273e2c9b479a138b3ed1fcf753b",
+        "spotifyLink": "https://open.spotify.com/album/60f52RcU8Pf6HdzEeuJjoF",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%9E%D7%A9%D7%94%D7%95-%D7%91%D7%99%D7%9F-%D7%90%D7%95%D7%A8-%D7%9C%D7%97%D7%95%D7%A9%D7%9A/1873201377"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/012",
+        "newsletterIssue": "012",
+        "pickedDate": "2026-05-10"
+    },
+    {
+        "title": "דרך ארץ אחרת",
+        "artist": "Maor",
+        "year": 2026,
+        "genre": "Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273023d092e6cd6f45566a5cdff",
+        "spotifyLink": "https://open.spotify.com/album/54pM3OVNM4n5RmviMkfC2z",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/012",
+        "newsletterIssue": "012",
+        "pickedDate": "2026-05-10"
+    },
+    {
+        "title": "Syrr سِرّ",
+        "artist": "Maryam Saleh",
+        "year": 2026,
+        "genre": "Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a3531599327_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/syrr/1852486531",
+            "bandcamp": "https://maryamsaleh.bandcamp.com/album/syrr"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/013",
+        "newsletterIssue": "013",
+        "pickedDate": "2026-05-17"
+    },
+    {
+        "title": "Dala What We Must",
+        "artist": "Esa Williams",
+        "year": 2026,
+        "genre": "Electronic, Funk / Soul",
+        "styles": [
+            "Amapiano",
+            "Funk",
+            "Broken Beat"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2738ff769362314497f9c748c1b",
+        "spotifyLink": "https://open.spotify.com/album/20ZP6v7s2jysSdvThm433L",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/dala-what-we-must/1846649016"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/013",
+        "newsletterIssue": "013",
+        "pickedDate": "2026-05-17"
+    },
+    {
+        "title": "Lovari",
+        "artist": "Titi Robin",
+        "year": 2026,
+        "genre": "Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a0933326132_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://hotmule.bandcamp.com/album/lovari"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/013",
+        "newsletterIssue": "013",
+        "pickedDate": "2026-05-17"
+    },
+    {
+        "title": "Inferno",
+        "artist": "Boards of Canada",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Ambient",
+            "Downtempo",
+            "Experimental",
+            "IDM"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273c0588d9dcd8bd9e7a7845844",
+        "spotifyLink": "https://open.spotify.com/album/0mu3EvWYfNwBfISSg0q03p",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/inferno/1890015523"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/014",
+        "newsletterIssue": "014",
+        "pickedDate": "2026-05-31"
+    },
+    {
+        "title": "Di Hotel Malibu",
+        "artist": "Thee Marloes",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Soul"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273139d503213298a99fe02fe0f",
+        "spotifyLink": "https://open.spotify.com/album/6y0nT2F3SwFS2dRnvczAFP",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/di-hotel-malibu/1878399768"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/014",
+        "newsletterIssue": "014",
+        "pickedDate": "2026-05-31"
+    },
+    {
+        "title": "Hope",
+        "artist": "Kutiman and Dekel",
+        "year": 2026,
+        "genre": "Electronic, Funk / Soul",
+        "image": "https://f4.bcbits.com/img/a0142862986_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://kutiman.bandcamp.com/album/hope"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/015",
+        "newsletterIssue": "015",
+        "pickedDate": "2026-06-07"
+    },
+    {
+        "title": "as day breaks",
+        "artist": "Jerk",
+        "year": 2026,
+        "genre": "Jazz, Electronic",
+        "image": "https://f4.bcbits.com/img/a2767367102_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/2tw4RG62PMt6JFxmOecTh1",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/as-day-breaks/6786286436",
+            "bandcamp": "https://jerkmakesmusic.bandcamp.com/album/as-day-breaks"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/015",
+        "newsletterIssue": "015",
+        "pickedDate": "2026-06-07"
+    },
+    {
+        "title": "אהבה בימי כליון",
+        "artist": "בריל",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2738574bccf63b040dc40cf3885",
+        "spotifyLink": "https://open.spotify.com/album/79rwCOKDWU0Wpa1tCWVNFi",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/015",
+        "newsletterIssue": "015",
+        "pickedDate": "2026-06-07"
+    },
+    {
+        "title": "הזיות של מטייל בודד",
+        "artist": "IDIOT!",
+        "year": 2026,
+        "genre": "Electronic, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b27310202c8565273fea45eda2f1",
+        "spotifyLink": "https://open.spotify.com/album/4o92hoYNR8kwdJSXKaW2mm",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%94%D7%96%D7%99%D7%95%D7%AA-%D7%A9%D7%9C-%D7%9E%D7%98%D7%99%D7%99%D7%9C-%D7%91%D7%95%D7%93%D7%93/6772760120"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/016",
+        "newsletterIssue": "016",
+        "pickedDate": "2026-06-14"
+    },
+    {
+        "title": "Doctrine of Love",
+        "artist": "Jalen Ngonda",
+        "year": 2026,
+        "genre": "Reggae, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736cc735f0ee718f70c785b79f",
+        "spotifyLink": "https://open.spotify.com/album/1BrSn9sWO3Gi5trDQdc44a",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/doctrine-of-love/1871925666"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/016",
+        "newsletterIssue": "016",
+        "pickedDate": "2026-06-14"
+    },
+    {
+        "title": "Massa",
+        "artist": "Fatoumata Diawara",
+        "year": 2026,
+        "genre": "Pop, Folk, World, & Country",
+        "styles": [
+            "African"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2733183c448955f8ab3eed00a8a",
+        "spotifyLink": "https://open.spotify.com/album/1urmWzRhaHZgIgcvL91u2c",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/massa/1890241617"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/016",
+        "newsletterIssue": "016",
+        "pickedDate": "2026-06-14"
+    },
+    {
+        "title": "THE CRASH!",
+        "artist": "Steven Bamidele",
+        "year": 2025,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Rhythm & Blues",
+            "Soul"
+        ],
+        "image": "https://f4.bcbits.com/img/a1829409001_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://stevenbamidele.bandcamp.com/album/the-crash"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/016",
+        "newsletterIssue": "016",
+        "pickedDate": "2026-06-14"
+    },
+    {
+        "title": "השגחה פראית",
+        "artist": "Yonatan Kunda",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736a90605a81f6d1e12a9991a3",
+        "spotifyLink": "https://open.spotify.com/album/6ymzq4g27IvlAKgDLyZ1Us",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%94%D7%A9%D7%92%D7%97%D7%94-%D7%A4%D7%A8%D7%90%D7%99%D7%AA/6777315214"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/017",
+        "newsletterIssue": "017",
+        "pickedDate": "2026-06-21"
+    },
+    {
+        "title": "INTENT II SELL",
+        "artist": "immortal nightbody",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://f4.bcbits.com/img/a1822025230_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/6VkoHZfkmzElGAjxJriF7q",
+        "links": {
+            "bandcamp": "https://immortalnightbody.bandcamp.com/album/intent-ii-sell"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/017",
+        "newsletterIssue": "017",
+        "pickedDate": "2026-06-21"
+    },
+    {
+        "title": "Warm Summer Nights",
+        "artist": "Kreatev",
+        "year": 2026,
+        "genre": "Hip Hop, Electronic",
+        "image": "https://f4.bcbits.com/img/a1020489836_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/1WHZyAPRrBiTHIkE6VkDQN",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/warm-summer-nights-ep/6770917656",
+            "bandcamp": "https://radiojuicy.bandcamp.com/album/warm-summer-nights"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/017",
+        "newsletterIssue": "017",
+        "pickedDate": "2026-06-21"
+    },
+    {
+        "title": "Monkey Mind",
+        "artist": "Pearl & The Oysters",
+        "year": 2026,
+        "genre": "Rock, Funk / Soul",
+        "styles": [
+            "Indie Rock"
+        ],
+        "image": "https://f4.bcbits.com/img/a1769346950_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/0B00KO0iRAVuy7dUEOTSuU",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/monkey-mind/1888302966",
+            "bandcamp": "https://pearlandtheoysters.bandcamp.com/album/monkey-mind"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/018",
+        "newsletterIssue": "018",
+        "pickedDate": "2026-06-29"
+    },
+    {
+        "title": "Reasons to be Fearful",
+        "artist": "Yoav Brill",
+        "year": 2026,
+        "genre": "Electronic, Folk, World, & Country, Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b273a4c2329bab10bfbf8ecf8633",
+        "spotifyLink": "https://open.spotify.com/album/3B3oGrCNp6mk2ujGsm9rWD",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/reasons-to-be-fearful/6780563663"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/018",
+        "newsletterIssue": "018",
+        "pickedDate": "2026-06-29"
+    },
+    {
+        "title": "Maraviglia",
+        "artist": "Gabriele Poso",
+        "year": 2026,
+        "genre": "Electronic, Latin, Pop, Folk, World, & Country",
+        "styles": [
+            "House",
+            "Disco"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273aea37116d6afc375fa22f6f4",
+        "spotifyLink": "https://open.spotify.com/album/7JtVORVqSXpODq4Zvr7hxS",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/maraviglia/1886690972"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/018",
+        "newsletterIssue": "018",
+        "pickedDate": "2026-06-29"
+    },
+    {
+        "title": "Offering",
+        "artist": "Ibeyi",
+        "year": 2026,
+        "genre": "Electronic, Funk / Soul",
+        "styles": [
+            "Indie Pop"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2732789507c4178e0022a5811ee",
+        "spotifyLink": "https://open.spotify.com/album/2KrpEIIVUU7AMtTsCOzkAj",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/offering/1895972544"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/018",
+        "newsletterIssue": "018",
+        "pickedDate": "2026-06-29"
+    },
+    {
+        "title": "Spatial, No Problem.",
+        "artist": "Lee \"Scratch\" Perry, Mouse On Mars",
+        "year": 2026,
+        "genre": "Reggae, Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b273db7bf6b6361bc3940021568f",
+        "spotifyLink": "https://open.spotify.com/album/0SX7gjlXxpX1sTFXZYN12P",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/spatial-no-problem/1879844747"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/018",
+        "newsletterIssue": "018",
+        "pickedDate": "2026-06-29"
+    },
+    {
+        "title": "איפה שהאור אף פעם לא כבה",
+        "artist": "זוהר בנאי",
+        "year": 2026,
+        "genre": "Rock, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273150c0c1a72d52fd9b8fdc497",
+        "spotifyLink": "https://open.spotify.com/album/2O2aGCVduLYUXbUYIrLaB4",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%90%D7%99%D7%A4%D7%94-%D7%A9%D7%94%D7%90%D7%95%D7%A8-%D7%90%D7%A3-%D7%A4%D7%A2%D7%9D-%D7%9C%D7%90-%D7%9B%D7%91%D7%94/1873356143"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/019",
+        "newsletterIssue": "019",
+        "pickedDate": "2026-07-06"
+    },
+    {
+        "title": "Kaiso Power: Sound Revolution in Trinidad 1970-1980",
+        "artist": "Clive Zanda",
+        "year": 2026,
+        "genre": "Jazz, Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a2666409538_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://soundwayrecords.bandcamp.com/album/kaiso-power-sound-revolution-in-trinidad-1970-1980"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/019",
+        "newsletterIssue": "019",
+        "pickedDate": "2026-07-06"
+    },
+    {
+        "title": "Habibi Funk 034: Tirakat",
+        "artist": "Charif Megarbane, Ali",
+        "year": 2026,
+        "genre": "Funk / Soul, Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a0206727659_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/4FiEX8kdgko6dZkaYzqeqs",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/tirakat-habibi-funk-034/1871269838",
+            "bandcamp": "https://habibifunkrecords.bandcamp.com/album/habibi-funk-034-tirakat"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/019",
+        "newsletterIssue": "019",
+        "pickedDate": "2026-07-06"
+    },
+    {
+        "title": "Funny How?",
+        "artist": "Chassol",
+        "year": 2026,
+        "genre": "Electronic, Hip Hop, Jazz, Funk / Soul, Stage & Screen",
+        "styles": [
+            "Serial",
+            "Experimental",
+            "Gospel"
+        ],
+        "image": "https://f4.bcbits.com/img/a1143213106_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/7eGFF9yDqqXpqABRdhdtuL",
+        "links": {
+            "bandcamp": "https://chassol.bandcamp.com/album/funny-how"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/019",
+        "newsletterIssue": "019",
+        "pickedDate": "2026-07-06"
+    },
+    {
+        "title": "בחזרה לשבלול - צד נוסף",
+        "artist": "Rockfour",
+        "year": 2026,
+        "genre": "Rock, Folk, World, & Country",
+        "styles": [
+            "Psychedelic Rock",
+            "Folk Rock"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2739c84a84e4c8c7659d7708f90",
+        "spotifyLink": "https://open.spotify.com/album/5ArghaNMlcUd6Qlh64FfQE",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%91%D7%97%D7%96%D7%A8%D7%94-%D7%9C%D7%A9%D7%91%D7%9C%D7%95%D7%9C-%D7%A6%D7%93-%D7%A0%D7%95%D7%A1%D7%A3-ep/6784773851"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/020",
+        "newsletterIssue": "020",
+        "pickedDate": "2026-07-12"
+    },
+    {
+        "title": "FATHERS",
+        "artist": "Nate Smith, Kiefer, CARRTOONS, Kenny Beats",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2732c47a36acd008ee13c36117c",
+        "spotifyLink": "https://open.spotify.com/album/1EeNAliCb18UrU84kfqWmh",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/fathers/6779502137"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/020",
+        "newsletterIssue": "020",
+        "pickedDate": "2026-07-12"
+    },
+    {
+        "title": "YEARNALISM",
+        "artist": "Baby Rose",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Contemporary R&B",
+            "Soul",
+            "Rhythm & Blues"
+        ],
+        "image": "https://f4.bcbits.com/img/a1951786219_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/3WaxSapHGFrhvipg1wuLta",
+        "links": {
+            "bandcamp": "https://babyrose.bandcamp.com/album/yearnalism"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/020",
+        "newsletterIssue": "020",
+        "pickedDate": "2026-07-12"
+    },
+    {
+        "title": "Acid Jazz Revenge",
+        "artist": "Galliano",
+        "year": 2026,
+        "genre": "Electronic, Jazz, Funk / Soul",
+        "styles": [
+            "Jazz-Funk",
+            "Acid Jazz"
+        ],
+        "image": "https://f4.bcbits.com/img/a1278483397_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/4oUno0JWm4Etl38X8v78XF",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/acid-jazz-revenge/6784126214",
+            "bandcamp": "https://galliano.bandcamp.com/album/acid-jazz-revenge"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/020",
+        "newsletterIssue": "020",
+        "pickedDate": "2026-07-12"
+    },
+    {
+        "title": "Sem Fronteiras",
+        "artist": "Bruno Berle",
+        "year": 2026,
+        "genre": "Latin, Blues, Pop",
+        "styles": [
+            "Bossanova",
+            "Indie Pop",
+            "Rhythm & Blues"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2731ef43f5ffbb9f709d51c616a",
+        "spotifyLink": "https://open.spotify.com/album/6JXjV8CKdndWGknRTAZsR9",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/sem-fronteiras/1891650660"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/021",
+        "newsletterIssue": "021",
+        "pickedDate": "2026-07-19"
+    },
+    {
+        "title": "América!",
+        "artist": "Orquesta Akokán",
+        "year": 2026,
+        "genre": "Latin",
+        "styles": [
+            "Mambo",
+            "Boogaloo",
+            "Salsa"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273515e239648537ec6810e8a7e",
+        "spotifyLink": "https://open.spotify.com/album/0chPyqe4UGP3ty0e7jt1bE",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/am%C3%A9rica/1895688521"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/021",
+        "newsletterIssue": "021",
+        "pickedDate": "2026-07-19"
+    },
+    {
+        "title": "SANG",
+        "artist": "Dario Jacque",
+        "year": 2026,
+        "genre": "Jazz, Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b273cb96f3e12ea8be11db0dab19",
+        "spotifyLink": "https://open.spotify.com/album/0uu67DzeyjOUkXantXQSSH",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/sang/1868738281"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/021",
+        "newsletterIssue": "021",
+        "pickedDate": "2026-07-19"
+    },
+    {
+        "title": "תחזרי הביתה",
+        "artist": "טליה דנציג",
+        "year": 2026,
+        "genre": "Rock, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2734a812ba207e2fdbb640eec9c",
+        "spotifyLink": "https://open.spotify.com/album/2nZnxhCL7KgymMVQQIokiZ",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/022-2026",
+        "newsletterIssue": "022",
+        "pickedDate": "2026-07-26"
+    },
+    {
+        "title": "Curió Curió",
+        "artist": "Curió Curió",
+        "year": 2026,
+        "genre": "Latin, Funk / Soul",
+        "styles": [
+            "Funk",
+            "MPB",
+            "Soul"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27334f714af73ad2704ec025337",
+        "spotifyLink": "https://open.spotify.com/album/6h6tgc1Z4RGqMYeV4O7KT1",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/022-2026",
+        "newsletterIssue": "022",
+        "pickedDate": "2026-07-26"
+    },
+    {
+        "title": "Future Bubblers 9.0",
+        "artist": "Allexa Nava",
+        "year": 2026,
+        "genre": "Jazz, Electronic",
+        "image": "https://f4.bcbits.com/img/a3323433425_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://futurebubblers.bandcamp.com/album/future-bubblers-90"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/022-2026",
+        "newsletterIssue": "022",
+        "pickedDate": "2026-07-26"
+    },
+    {
+        "title": "Where Rivers Meet",
+        "artist": "Your Brother's Keeper & Gary Bartz",
+        "year": 2026,
+        "genre": "Jazz",
+        "styles": [
+            "Fusion"
+        ],
+        "image": "https://f4.bcbits.com/img/a2396054375_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/where-rivers-meet/1895234970",
+            "bandcamp": "https://yourbrotherskeepergarybartz.bandcamp.com/album/where-rivers-meet"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/022-2026",
+        "newsletterIssue": "022",
+        "pickedDate": "2026-07-26"
+    },
+    {
+        "title": "Glera",
+        "artist": "Marco Benevento",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2734f4a70717c8795494e03b0eb",
+        "spotifyLink": "https://open.spotify.com/album/762GJcbrM7RA0YbatwbCEe",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/glera/1887949801"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/022-2026",
+        "newsletterIssue": "022",
+        "pickedDate": "2026-07-26"
+    },
+    {
+        "title": "Whatchu Bringing?",
+        "artist": "Dinner Party, Terrace Martin, Robert Glasper",
+        "year": 2026,
+        "genre": "Hip Hop, Jazz, Funk / Soul",
+        "styles": [
+            "Contemporary Jazz",
+            "Contemporary R&B",
+            "Funk",
+            "Neo Soul"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2730dab761f35b538cf82074af2",
+        "spotifyLink": "https://open.spotify.com/album/6MbJ2c8J9rHWniycGG3AZT",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/whatchu-bringing/6786482410"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/023",
+        "newsletterIssue": "023",
+        "pickedDate": "2026-08-09"
+    },
+    {
+        "title": "TRUMPETS OF MICHEL-ANGE VOL. 2",
+        "artist": "Ibrahim Maalouf",
+        "year": 2026,
+        "genre": "Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b2737bfbe1a0cea980e94d138600",
+        "spotifyLink": "https://open.spotify.com/album/3LYJRunvZG2BjkbKJ8lOqL",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/trumpets-of-michel-ange/1762816657"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/023",
+        "newsletterIssue": "023",
+        "pickedDate": "2026-08-09"
+    },
+    {
+        "title": "The Other Side",
+        "artist": "Seu Jorge",
+        "year": 2026,
+        "genre": "Latin",
+        "styles": [
+            "MPB"
+        ],
+        "image": "https://f4.bcbits.com/img/a1066933430_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/22o8Fo8iJJ9gbBJQSUy5wY",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/the-other-side/1893184100",
+            "bandcamp": "https://seujorge.bandcamp.com/album/the-other-side"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/023",
+        "newsletterIssue": "023",
+        "pickedDate": "2026-08-09"
+    },
+    {
+        "title": "מינוס אחד",
+        "artist": "שגיא דקל-חן",
+        "year": 2026,
+        "genre": "Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273191cf788033ab215e702da4f",
+        "spotifyLink": "https://open.spotify.com/album/5qcGELUhTgi9pYP8CA3tpZ",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%9E%D7%99%D7%A0%D7%95%D7%A1-%D7%90%D7%97%D7%93/6795932124"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/024",
+        "newsletterIssue": "024",
+        "pickedDate": "2026-08-16"
+    },
+    {
+        "title": "Resonance Frequency",
+        "artist": "Homeboy Sandman, Jack Splash",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "styles": [
+            "Conscious",
+            "Boom Bap"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273d2211f1a3d99a4122e35e108",
+        "spotifyLink": "https://open.spotify.com/album/2BltnjcS26TTGd8CWxxNHo",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/024",
+        "newsletterIssue": "024",
+        "pickedDate": "2026-08-16"
+    },
+    {
+        "title": "מוזיקת קניונים",
+        "artist": "BAYOTIII, XOLONIII",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b2733dd8302c6fdd3ac851a2e49b",
+        "spotifyLink": "https://open.spotify.com/album/21FZfwJn6lxZLEad0QDJ0f",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/024",
+        "newsletterIssue": "024",
+        "pickedDate": "2026-08-16"
+    },
+    {
+        "title": "Gentlewoman",
+        "artist": "Cleo Sol",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Soul",
+            "Rhythm & Blues"
+        ],
+        "image": "https://f4.bcbits.com/img/a2285770469_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/3zjcu4Ejw43pByGix5kUSU",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/gentlewoman/6799813734",
+            "bandcamp": "https://cleosol.bandcamp.com/album/gentlewoman"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/025",
+        "newsletterIssue": "025",
+        "pickedDate": "2026-08-23"
+    },
+    {
+        "title": "עיניים פקוחות",
+        "artist": "David Maayan",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273e3a3a419b912cb56c04ce626",
+        "spotifyLink": "https://open.spotify.com/album/1TaQrfyHAAOO3GenLCYDV3",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%A2%D7%99%D7%A0%D7%99%D7%99%D7%9D-%D7%A4%D7%A7%D7%95%D7%97%D7%95%D7%AA/6795895807"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/025",
+        "newsletterIssue": "025",
+        "pickedDate": "2026-08-23"
+    },
+    {
+        "title": "Helado Tropical",
+        "artist": "Helado Tropical, Helado Negro, Reyna Tropical",
+        "year": 2026,
+        "genre": "Electronic, Latin",
+        "styles": [
+            "Ambient"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2737afec93c5a9d6a95fa001e20",
+        "spotifyLink": "https://open.spotify.com/album/4O96jPlSmIgEMIl84oTl4s",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/helado-tropical/1892412012"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/025",
+        "newsletterIssue": "025",
+        "pickedDate": "2026-08-23"
+    },
+    {
+        "title": "DILLAGENCE II",
+        "artist": "Busta Rhymes, J Dilla",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273d699626da6baf5964debd01f",
+        "spotifyLink": "https://open.spotify.com/album/2FO2Y8abEsCT10uLce2Thh",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/dillagence-ii/6803280885"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/026",
+        "newsletterIssue": "026",
+        "pickedDate": "2026-08-30"
+    },
+    {
+        "title": "Before The World Blows",
+        "artist": "Erykah Badu, The Alchemist",
+        "year": 2026,
+        "genre": "Hip Hop, Jazz, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b27309f94e5a4dce3beb3c27c4f1",
+        "spotifyLink": "https://open.spotify.com/album/6eKe5wqXAHA1LLnIwGuaSI",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/026",
+        "newsletterIssue": "026",
+        "pickedDate": "2026-08-30"
+    },
+    {
+        "title": "Q Theory - Quantum Leap, Vol. 2",
+        "artist": "Wyclef Jean",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273c6c47b4f17cafb6a55998401",
+        "spotifyLink": "https://open.spotify.com/album/16Pa2BiwPMuCOtLsilI5uv",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/q-theory-quantum-leap-vol-2/6803588101"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/026",
+        "newsletterIssue": "026",
+        "pickedDate": "2026-08-30"
+    },
+    {
+        "title": "מה רציתם",
+        "artist": "Teddy Neguse",
+        "year": 2026,
+        "genre": "Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b27331d7af19c4edfcea648650fd",
+        "spotifyLink": "https://open.spotify.com/album/0xekgqJvzIP665xfaMcmXi",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%9E%D7%94-%D7%A8%D7%A6%D7%99%D7%AA%D7%9D/6807400347"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/027",
+        "newsletterIssue": "027",
+        "pickedDate": "2026-09-06"
+    },
+    {
+        "title": "SOME SMALL FORTUNE",
+        "artist": "corto.alto",
+        "year": 2026,
+        "genre": "Electronic, Jazz",
+        "styles": [
+            "Leftfield"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273d3e44971cf627ba764147fd9",
+        "spotifyLink": "https://open.spotify.com/album/7ego2G7DvXCvUq7k4xg60F",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/027",
+        "newsletterIssue": "027",
+        "pickedDate": "2026-09-06"
+    },
+    {
+        "title": "NY's Famous Pizza Disco",
+        "artist": "Various Artists",
+        "year": 2026,
+        "genre": "Funk / Soul, Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b27366f922d6ec8956c024602582",
+        "spotifyLink": "https://open.spotify.com/album/0aH2nDvlv4R3IfxLMlYBRA",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/nys-famous-pizza-disco/6797933605"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/027",
+        "newsletterIssue": "027",
+        "pickedDate": "2026-09-06"
+    },
+    {
+        "title": "Mawonaj",
+        "artist": "As Valet",
+        "year": 2026,
+        "genre": "Hip Hop, Jazz, Folk, World, & Country",
+        "styles": [
+            "Contemporary Jazz"
+        ],
+        "image": "https://f4.bcbits.com/img/a3908929921_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/mawonaj/6804983415",
+            "bandcamp": "https://oiojirecords.bandcamp.com/album/mawonaj"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/027",
+        "newsletterIssue": "027",
+        "pickedDate": "2026-09-06"
+    },
+    {
+        "title": "Phoenix",
+        "artist": "Tiny Fingers",
+        "year": 2026,
+        "genre": "Rock",
+        "styles": [
+            "Psychedelic Rock",
+            "Post Rock",
+            "Space Rock"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2737faf298f7abc1763ead34b4e",
+        "spotifyLink": "https://open.spotify.com/album/2p2rvMMmp6Iy7waZkii9Wd",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/phoenix/6803957796"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/028",
+        "newsletterIssue": "028",
+        "pickedDate": "2026-09-15"
+    },
+    {
+        "title": "B-Sides, Singles & Forgotten Gems",
+        "artist": "Kelly Finnigan",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Soul"
+        ],
+        "image": "https://f4.bcbits.com/img/a2256466694_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/0AKwUh3Dno1DzAjhQC7AmK",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/b-sides-singles-forgotten-gems/1895643082",
+            "bandcamp": "https://kellyfinnigan.bandcamp.com/album/b-sides-singles-forgotten-gems"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/028",
+        "newsletterIssue": "028",
+        "pickedDate": "2026-09-15"
+    },
+    {
+        "title": "HUG",
+        "artist": "HUG, Gyan Riley, Devendra Banhart, Noah Georgeson",
+        "year": 2026,
+        "genre": "Electronic, Non-Music, Folk, World, & Country",
+        "styles": [
+            "Ambient",
+            "Folk",
+            "Field Recording",
+            "New Age"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27347ac3e732ee1343dbfcee280",
+        "spotifyLink": "https://open.spotify.com/album/0SrGatXlMlf7HSk3txlQuK",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/hug/6778157796"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/028",
+        "newsletterIssue": "028",
+        "pickedDate": "2026-09-15"
+    },
+    {
+        "title": "Oblivion",
+        "artist": "Romare",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Downtempo",
+            "Future Jazz"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273c3523b161817dde507b3a1fd",
+        "spotifyLink": "https://open.spotify.com/album/5E5PELg1wLvwPtd8VORw4l",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/oblivion/1893607461"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/029-100",
+        "newsletterIssue": "029",
+        "pickedDate": "2026-09-27"
+    },
+    {
+        "title": "Frozen Flashes",
+        "artist": "Okvsho",
+        "year": 2026,
+        "genre": "Jazz, Electronic",
+        "image": "https://i.scdn.co/image/ab67616d0000b273c9802e9d0faf7801e4fb6f61",
+        "spotifyLink": "https://open.spotify.com/album/21GPT25bZsfbb5qYXDvgL8",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/frozen-flashes/6768680300"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/029-100",
+        "newsletterIssue": "029",
+        "pickedDate": "2026-09-27"
+    },
+    {
+        "title": "Hogar",
+        "artist": "El Búho",
+        "year": 2026,
+        "genre": "Electronic, Latin, Folk, World, & Country",
+        "styles": [
+            "Cumbia",
+            "Balearic",
+            "Downtempo"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273a5cd59314bcef42f02e8dc25",
+        "spotifyLink": "https://open.spotify.com/album/0uhBfRQZkUFxEI6W9urTsO",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/hogar/6771454797"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/029-100",
+        "newsletterIssue": "029",
+        "pickedDate": "2026-09-27"
+    },
+    {
+        "title": "Out Into",
+        "artist": "Son Lux",
+        "year": 2026,
+        "genre": "Electronic, Pop",
+        "styles": [
+            "Indie Pop"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27339e829b65125941f668a2f5e",
+        "spotifyLink": "https://open.spotify.com/album/6gr1IdpcsuyET1Lf7zB2vg",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/out-into/1895855185"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/029-100",
+        "newsletterIssue": "029",
+        "pickedDate": "2026-09-27"
+    },
+    {
+        "title": "Have a few days off",
+        "artist": "K-Lone",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Future Bass"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b27309fc7ac56f1c8617800545c7",
+        "spotifyLink": "https://open.spotify.com/album/11PubMyNVBm1RYpNwfWjbo",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/have-a-few-days-off/6791242611"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/029-100",
+        "newsletterIssue": "029",
+        "pickedDate": "2026-09-27"
+    },
+    {
+        "title": "Songs In The Key Of Life - The EP",
+        "artist": "Stevie Wonder",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b273abafa26472cccacb2676a918",
+        "spotifyLink": "https://open.spotify.com/album/7gzJYO9TskFpD4NnnVOWAj",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/songs-in-the-key-of-life-the-ep-ep/6816198227"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/030",
+        "newsletterIssue": "030",
+        "pickedDate": "2026-10-04"
+    },
+    {
+        "title": "Love Stories",
+        "artist": "Thee Sinseers, Joey Quiñones",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Soul"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273cea5e810a36bf0e912d4bcab",
+        "spotifyLink": "https://open.spotify.com/album/7wgEDIcC12BGSX862ADaDn",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/love-stories/1895849881"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/030",
+        "newsletterIssue": "030",
+        "pickedDate": "2026-10-04"
+    },
+    {
+        "title": "Coco Okayo",
+        "artist": "Thandii x Regalado",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://f4.bcbits.com/img/a3311065376_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/2pfbyqs0zC1XMf4QZEzc26",
+        "links": {
+            "bandcamp": "https://thandii.bandcamp.com/album/coco-okayo"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/030",
+        "newsletterIssue": "030",
+        "pickedDate": "2026-10-04"
+    },
+    {
+        "title": "אחים",
+        "artist": "Tuval Haim",
+        "year": 2025,
+        "genre": "Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b2731dfe831ecb61867394bed445",
+        "spotifyLink": "https://open.spotify.com/album/1Vit2dxDUkm7ZcR0fgNReI",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%90%D7%97%D7%99%D7%9D/1813852599"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/031",
+        "newsletterIssue": "031",
+        "pickedDate": "2026-10-11"
+    },
+    {
+        "title": "Synonym",
+        "artist": "Meshell Ndegeocello",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2736cd4a28c470b59f3d07cba39",
+        "spotifyLink": "https://open.spotify.com/album/6ssRIhqoOblT5x1xdJDkJQ",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/synonym/6789433556"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/031",
+        "newsletterIssue": "031",
+        "pickedDate": "2026-10-11"
+    },
+    {
+        "title": "Memory Bomb",
+        "artist": "Kiefer",
+        "year": 2026,
+        "genre": "Hip Hop, Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b27310b1746a530e044b1dcd7bae",
+        "spotifyLink": "https://open.spotify.com/album/4LyevrLzvyquVTex1GSjuB",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/031",
+        "newsletterIssue": "031",
+        "pickedDate": "2026-10-11"
+    },
+    {
+        "title": "Tiga Trombone",
+        "artist": "Alfonso Soliano",
+        "year": 2026,
+        "genre": "Jazz, Folk, World, & Country",
+        "styles": [
+            "Latin Jazz",
+            "Big Band",
+            "Modal",
+            "Jazz-Funk"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273162dae6d999f1a9cec77846e",
+        "spotifyLink": "https://open.spotify.com/album/2SUdQHhlJHaVEV2A1OGIDO",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/tiga-trombone/6778067825"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/031",
+        "newsletterIssue": "031",
+        "pickedDate": "2026-10-11"
+    },
+    {
+        "title": "Jazz Dari Angkasapuri",
+        "artist": "Johari Salleh",
+        "year": 2026,
+        "genre": "Jazz, Folk, World, & Country",
+        "styles": [
+            "Modal",
+            "Jazz-Funk",
+            "Spiritual Jazz"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273ba0520fa6d44ad335bf4b21a",
+        "spotifyLink": "https://open.spotify.com/album/6Z194q84HGf4ET4HcU408i",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/jazz-dari-angkasapuri/6778452411"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/031",
+        "newsletterIssue": "031",
+        "pickedDate": "2026-10-11"
+    },
+    {
+        "title": "הלילה",
+        "artist": "Erez Halevi",
+        "year": 1984,
+        "genre": "Rock",
+        "image": "https://i.scdn.co/image/ab67616d0000b273defe27c7ac4dace0120f1f56",
+        "spotifyLink": "https://open.spotify.com/album/2rGBvMHUsx8QwZsvEjJwHs",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%94%D7%9C%D7%99%D7%9C%D7%94/1571289284"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/032",
+        "newsletterIssue": "032",
+        "pickedDate": "2026-10-18"
+    },
+    {
+        "title": "עתה",
+        "artist": "אברהם לגסה",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b27353e35d692c08b89d5a692fd6",
+        "spotifyLink": "https://open.spotify.com/album/48m0wGbSuK8B4CzjjMKR9s",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%A2%D7%AA%D7%94/6807399066"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/032",
+        "newsletterIssue": "032",
+        "pickedDate": "2026-10-18"
+    },
+    {
+        "title": "No Bad Memories",
+        "artist": "The Avalanches",
+        "year": 2026,
+        "genre": "Electronic",
+        "styles": [
+            "Chillwave",
+            "Nu-Disco",
+            "Dance-pop",
+            "Sound Collage",
+            "Plunderphonics",
+            "House",
+            "Footwork",
+            "Vaporwave"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2734d100df0be7285a2f1176c7a",
+        "spotifyLink": "https://open.spotify.com/album/3De7Ues320SIjGCaz5b6fX",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/032",
+        "newsletterIssue": "032",
+        "pickedDate": "2026-10-18"
+    },
+    {
+        "title": "Purdy",
+        "artist": "The Koreatown Oddity",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://f4.bcbits.com/img/a0109527184_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/2mHem4aGQe4GewQIPVMcAi",
+        "links": {
+            "bandcamp": "https://thekoreatownoddity.bandcamp.com/album/purdy"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/032",
+        "newsletterIssue": "032",
+        "pickedDate": "2026-10-18"
+    },
+    {
+        "title": "Luso",
+        "artist": "Marla Kether",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul",
+        "image": "https://f4.bcbits.com/img/a1512396140_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/214sHCmITqZqhAr6lzSSda",
+        "links": {
+            "bandcamp": "https://marlakether.bandcamp.com/album/luso"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/032",
+        "newsletterIssue": "032",
+        "pickedDate": "2026-10-18"
+    },
+    {
+        "title": "Frogs In A Pond",
+        "artist": "Surprise Chef",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Funk",
+            "Psychedelic"
+        ],
+        "image": "https://f4.bcbits.com/img/a0097190952_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/2eRC4iLJJHPgq7y5QdcV5E",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/frogs-in-a-pond/6789769614",
+            "bandcamp": "https://surprisechef.bandcamp.com/album/frogs-in-a-pond"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/033",
+        "newsletterIssue": "033",
+        "pickedDate": "2026-10-25"
+    },
+    {
+        "title": "FUDGE",
+        "artist": "Michael Kiwanuka",
+        "year": 2026,
+        "genre": "Rock, Funk / Soul, Blues",
+        "image": "https://i.scdn.co/image/ab67616d0000b273477e1c8155bcd3394113fc05",
+        "spotifyLink": "https://open.spotify.com/album/4Qy4QeE6QL941JsIyEVqF2",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/fudge/1828246469"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/033",
+        "newsletterIssue": "033",
+        "pickedDate": "2026-10-25"
+    },
+    {
+        "title": "Habibi Funk 035: Beirut City Pop",
+        "artist": "Stephanie Stephanou",
+        "year": 2026,
+        "genre": "Pop, Funk / Soul, Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a2303949159_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://habibifunkrecords.bandcamp.com/album/habibi-funk-035-beirut-city-pop"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/033",
+        "newsletterIssue": "033",
+        "pickedDate": "2026-10-25"
+    },
+    {
+        "title": "Heavy Is The Crown",
+        "artist": "Anderson .Paak, Cordae",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "styles": [
+            "Pop Rap",
+            "Jazzy Hip-Hop",
+            "Boom Bap",
+            "Conscious",
+            "Neo Soul"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273e9c1b191c7e4b2f85e6431e8",
+        "spotifyLink": "https://open.spotify.com/album/1pbMoqpMgCyjPefcJ9PKdq",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/heavy-is-the-crown/6812869309"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/033",
+        "newsletterIssue": "033",
+        "pickedDate": "2026-10-25"
+    },
+    {
+        "title": "T'som",
+        "artist": "Dexter Story",
+        "year": 2026,
+        "genre": "Jazz, Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a1364920188_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/tsom/6801359859",
+            "bandcamp": "https://dexterstory.bandcamp.com/album/tsom"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/034",
+        "newsletterIssue": "034",
+        "pickedDate": "2026-11-01"
+    },
+    {
+        "title": "Nu Zamrock",
+        "artist": "Sampa The Great",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://f4.bcbits.com/img/a2824096746_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/3XRKBEcQMSiMzGcGQJ2qDz",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/nu-zamrock/6800037021",
+            "bandcamp": "https://sampathegreat.bandcamp.com/album/nu-zamrock"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/034",
+        "newsletterIssue": "034",
+        "pickedDate": "2026-11-01"
+    },
+    {
+        "title": "Amaimono (Japanese Exclusives and Rarities)",
+        "artist": "Mocky",
+        "year": 2026,
+        "genre": "Funk / Soul, Jazz",
+        "image": "https://f4.bcbits.com/img/a2873093934_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/6EGTpVNTTneMje79YDQm6Z",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/amaimono-japanese-exclusives-and-rarities/6823196721",
+            "bandcamp": "https://mocky.bandcamp.com/album/amaimono-japanese-exclusives-and-rarities"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/034",
+        "newsletterIssue": "034",
+        "pickedDate": "2026-11-01"
+    },
+    {
+        "title": "הלל",
+        "artist": "Shai Tsabari, Patrick Sebag",
+        "year": 2026,
+        "genre": "Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b2738c46f710d6c7a9509926eac9",
+        "spotifyLink": "https://open.spotify.com/album/6vHp8FyGMXM7c0T6psXise",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%94%D7%9C%D7%9C/6793553111"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/034",
+        "newsletterIssue": "034",
+        "pickedDate": "2026-11-01"
+    },
+    {
+        "title": "Teodros Makonnen With His Organ (ቴዎድሮስ መኮንን ከኦርጋኑ ጋር)",
+        "artist": "Teodros Makonnen",
+        "year": 2026,
+        "genre": "Electronic, Jazz, Folk, World, & Country",
+        "styles": [
+            "African"
+        ],
+        "image": "https://f4.bcbits.com/img/a3129428675_5.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://teodrosmakonnen.bandcamp.com/album/teodros-makonnen-with-his-organ"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/035",
+        "newsletterIssue": "035",
+        "pickedDate": "2026-11-08"
+    },
+    {
+        "title": "BILTEEZ",
+        "artist": "BILTEEZ, Ester Rada, Daniel Zamir, Michael Meital",
+        "year": 2026,
+        "genre": "Electronic, Jazz, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273ce2c2210908bc1dda524391e",
+        "spotifyLink": "https://open.spotify.com/album/3Y9d20G9NpzYThfVpYVXRn",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/035",
+        "newsletterIssue": "035",
+        "pickedDate": "2026-11-08"
+    },
+    {
+        "title": ".שקר הפייסט, והבל הקופי",
+        "artist": "Shiroto",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://f4.bcbits.com/img/a3235471516_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/36PcQrzXgTlRJXVbGemUvv",
+        "links": {
+            "bandcamp": "https://shiroto.bandcamp.com/album/--11"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/035",
+        "newsletterIssue": "035",
+        "pickedDate": "2026-11-08"
+    },
+    {
+        "title": "Someone Else",
+        "artist": "Raphael Meleteas",
+        "year": 2026,
+        "genre": "Funk / Soul, Pop, Folk, World, & Country",
+        "image": "https://f4.bcbits.com/img/a0980097402_2.jpg",
+        "spotifyLink": "https://open.spotify.com/album/66ZIaI1rbANL94GDFDzt7d",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/someone-else/6784262695",
+            "bandcamp": "https://raphaelmeleteas.bandcamp.com/album/someone-else"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/035",
+        "newsletterIssue": "035",
+        "pickedDate": "2026-11-08"
+    },
+    {
+        "title": "The Business",
+        "artist": "Mike James Kirkland & Monophonics",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "styles": [
+            "Soul"
+        ],
+        "image": "https://f4.bcbits.com/img/a0495769882_2.jpg",
+        "spotifyLink": "",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/the-business/6799990401",
+            "bandcamp": "https://mikejameskirkland.bandcamp.com/album/the-business"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/035",
+        "newsletterIssue": "035",
+        "pickedDate": "2026-11-08"
+    },
+    {
+        "title": "Atlanta",
+        "artist": "Gnarls Barkley, CeeLo Green, Danger Mouse",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b273b867e7d73b546ab78b987195",
+        "spotifyLink": "https://open.spotify.com/album/0D5Js6PSJm4xsy872qRBgf",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/338",
+        "pickedDate": "2026-03-15"
+    },
+    {
+        "title": "Trying Times",
+        "artist": "James Blake",
+        "year": 2026,
+        "genre": "Electronic, Pop",
+        "styles": [
+            "Ambient"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b273884dd01508605dca727d8993",
+        "spotifyLink": "https://open.spotify.com/album/16tV8wTfqPyA6Cu5dwJJPc",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/trying-times/1880811313"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/338",
+        "pickedDate": "2026-03-15"
+    },
+    {
+        "title": "To Whom This May Concern",
+        "artist": "Jill Scott",
+        "year": 2026,
+        "genre": "Hip Hop, Funk / Soul",
+        "styles": [
+            "Neo Soul",
+            "Soul",
+            "Contemporary R&B"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2737096302e941475f3e2649fc2",
+        "spotifyLink": "https://open.spotify.com/album/7mwyiTViOEtAtOeoilQ3QG",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/to-whom-this-may-concern/1876937000"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/338",
+        "pickedDate": "2026-03-15"
+    },
+    {
+        "title": "ארץ טרופית יפה",
+        "artist": "Various Artists",
+        "year": 1978,
+        "genre": "Latin, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b2738dd19478e77c85c63cd84051",
+        "spotifyLink": "https://open.spotify.com/album/0MbE6EQWVtswJGlIEayQ17",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%90%D7%A8%D7%A5-%D7%98%D7%A8%D7%95%D7%A4%D7%99%D7%AA-%D7%99%D7%A4%D7%94/1608412335"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/5b6",
+        "pickedDate": "2026-02-12"
+    },
+    {
+        "title": "C'mon Tigre",
+        "artist": "C'mon Tigre",
+        "year": 2014,
+        "genre": "Rock",
+        "styles": [
+            "Jazz-Rock",
+            "Psychedelic Rock"
+        ],
+        "image": "https://i.scdn.co/image/ab67616d0000b2739c53cc6ddbdd6fc466be7215",
+        "spotifyLink": "https://open.spotify.com/album/07gIvtRsTFa6QW47u1Jhr1",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/cmon-tigre/917362387"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/73e",
+        "pickedDate": "2026-02-08"
     }
 ]

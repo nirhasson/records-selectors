@@ -527,7 +527,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('result-meta').textContent =
       [albumData.year, albumData.genre].filter(Boolean).join(' · ') || 'N/A';
     const sourceEl = document.getElementById('album-source');
-    if (albumData.show) {
+    sourceEl.textContent = '';
+    if (albumData.editorsPick && !albumData.show) {
+      sourceEl.textContent = "Editor's Pick";
+    } else if (albumData.show) {
       const hostIsInShowName = albumData.host && albumData.show.toLowerCase().includes(albumData.host.toLowerCase());
       sourceEl.textContent = albumData.host && !hostIsInShowName
         ? `Heard on ${albumData.show} with ${albumData.host}`
