@@ -12,10 +12,11 @@
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#8281FE">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="WaxRiffle">
-    <link rel="apple-touch-icon" href="/icons/favicon-96x96.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 
     <title>WaxRiffle: Random Album Discovery from Real Record Stores</title>
     <meta name="description" content="Find your next favorite album at random. WaxRiffle digs through real record-store crates and radio shows, not an algorithm. Listen on Spotify or Apple Music.">
@@ -38,8 +39,6 @@
     <link rel="icon" type="image/png" href="/my-favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/my-favicon/favicon.svg" />
   <link rel="shortcut icon" href="/my-favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/my-favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/my-favicon/site.webmanifest" />
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -165,6 +164,29 @@
             <button id="back-from-saved">← Back</button>
         </div>
     </div>
+    <!-- Add-to-home-screen sheet (phones only, after the third album; see script.js) -->
+    <div id="install-sheet" class="install-sheet" role="dialog" aria-labelledby="install-title" aria-describedby="install-body" hidden>
+        <img class="install-icon" src="/icons/icon-192.png" alt="" width="52" height="52">
+        <div class="install-text">
+            <p id="install-title" class="install-title">Keep WaxRiffle one tap away</p>
+            <p id="install-body" class="install-body">Add it to your home screen and dig for your next record anytime. No app store needed.</p>
+            <p id="install-steps-ios" class="install-steps" hidden>
+                Tap
+                <svg class="install-glyph" viewBox="0 0 24 24" aria-label="Share" role="img" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+                in Safari, then <strong>Add to Home Screen</strong>.
+            </p>
+            <p id="install-steps-android" class="install-steps" hidden>
+                Tap
+                <svg class="install-glyph" viewBox="0 0 24 24" aria-label="Menu" role="img" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                in your browser, then <strong>Add to Home screen</strong>.
+            </p>
+        </div>
+        <div class="install-actions">
+            <button id="install-accept" class="install-accept">Add to Home Screen</button>
+            <button id="install-dismiss" class="install-dismiss">Not now</button>
+        </div>
+    </div>
+
     <footer>
         <p id="contact-info">Want to collaborate or have questions? Let's connect!</p>
         <a href="mailto:waxriffle@gmail.com">waxriffle@gmail.com</a>

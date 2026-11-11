@@ -758,3 +758,98 @@ footer a:hover {
         transform: none;
     }
 }
+
+/* ===== Add to home screen sheet ===== */
+.install-sheet {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 300;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 14px 14px;
+    align-items: start;
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 18px 18px 16px;
+    background: #2b2b2b;
+    border: 1px solid #4a4a4a;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transform: translateY(calc(100% + 40px));
+    opacity: 0;
+    transition: transform 460ms var(--ease-out), opacity 260ms var(--ease-out);
+}
+.install-sheet[hidden] { display: none; }
+.install-sheet.is-open {
+    transform: none;
+    opacity: 1;
+}
+.install-sheet.is-closing {
+    transition-duration: 220ms, 180ms;
+    transition-timing-function: var(--ease-in), ease-in;
+}
+.install-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+}
+.install-title {
+    margin: 2px 0 4px;
+    color: #fff;
+    font-family: "Jockey One", serif;
+    font-size: 1.2em;
+    line-height: 1.15;
+}
+.install-body,
+.install-steps {
+    margin: 0;
+    color: #cfcfcf;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.5;
+}
+.install-steps { margin-top: 8px; color: #fff; }
+.install-steps[hidden] { display: none; }
+.install-glyph {
+    width: 1.15em;
+    height: 1.15em;
+    vertical-align: -0.2em;
+    color: #8281FE;
+}
+.install-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+}
+.install-accept,
+.install-dismiss {
+    flex: 1;
+    margin: 0;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-family: "Jockey One", serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 140ms var(--ease-out);
+}
+.install-accept {
+    background: #8281FE;
+    border: 2px solid #8281FE;
+    color: #fff;
+}
+.install-accept:hover { background: #6d6cf0; border-color: #6d6cf0; }
+.install-dismiss {
+    background: transparent;
+    border: 2px solid #555;
+    color: #bdbdbd;
+}
+.install-dismiss:hover { border-color: #888; color: #fff; }
+.install-accept:active,
+.install-dismiss:active { transform: scale(0.96); }
+
+@media (prefers-reduced-motion: reduce) {
+    .install-sheet { transform: none; transition: opacity 200ms ease; }
+}

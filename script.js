@@ -137,6 +137,102 @@ function flashCopied(button, labelEl, original) {
 }
 // --- end Share ---
 
+// --- Add to home screen ---
+// Phones only: after the visitor's third album, a sheet offers to put WaxRiffle on the home screen.
+// Android/Chrome gets the browser's own install dialog; iPhone gets the two Safari steps.
+const INSTALL_AFTER_FINDS = 3;
+const INSTALL_SNOOZE_DAYS = 14;
+let deferredInstallPrompt = null;
+let installShownThisVisit = false;
+
+const storage = {
+  get(key) { try { return localStorage.getItem(key); } catch (e) { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch (e) {} },
+};
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault(); // we show our own sheet at the right moment instead of the browser's banner
+  deferredInstallPrompt = event;
+});
+window.addEventListener('appinstalled', () => {
+  storage.set('waxriffle_installed', '1');
+  hideInstallSheet();
+});
+
+function installPlatform() {
+  const ua = navigator.userAgent;
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  const isInAppBrowser = /FBAN|FBAV|Instagram|Line\/|WhatsApp|TikTok|Snapchat|Twitter/i.test(ua);
+  const isPhone = window.matchMedia('(pointer: coarse)').matches && Math.min(screen.width, screen.height) < 820;
+  if (isStandalone || isInAppBrowser || !isPhone) return null;
+  const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isIOS) return 'ios';
+  if (/Android/i.test(ua)) return 'android';
+  return null;
+}
+
+// Called each time a new album is shown
+function noteAlbumFound() {
+  const finds = Number(storage.get('waxriffle_finds') || 0) + 1;
+  storage.set('waxriffle_finds', String(finds));
+  if (finds < INSTALL_AFTER_FINDS || installShownThisVisit || storage.get('waxriffle_installed')) return;
+  const snoozedAt = Number(storage.get('waxriffle_install_snoozed') || 0);
+  if (Date.now() - snoozedAt < INSTALL_SNOOZE_DAYS * 86400000) return;
+  const platform = installPlatform();
+  if (!platform) return;
+  installShownThisVisit = true;
+  setTimeout(() => showInstallSheet(platform), 1400); // after the album has settled in
+}
+
+function showInstallSheet(platform) {
+  const sheet = document.getElementById('install-sheet');
+  if (!sheet) return;
+  const nativePrompt = platform === 'android' && deferredInstallPrompt;
+  document.getElementById('install-steps-ios').hidden = platform !== 'ios';
+  document.getElementById('install-steps-android').hidden = !(platform === 'android' && !nativePrompt);
+  document.getElementById('install-accept').textContent = nativePrompt ? 'Add to Home Screen' : 'Got it';
+  sheet.dataset.mode = nativePrompt ? 'prompt' : 'steps';
+  sheet.classList.remove('is-closing', 'is-open');
+  sheet.hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => sheet.classList.add('is-open')));
+}
+
+function hideInstallSheet() {
+  const sheet = document.getElementById('install-sheet');
+  if (!sheet || sheet.hidden) return;
+  sheet.classList.add('is-closing');
+  sheet.classList.remove('is-open');
+  setTimeout(() => { sheet.hidden = true; sheet.classList.remove('is-closing'); }, 260);
+}
+
+function initInstallSheet() {
+  document.getElementById('install-dismiss').addEventListener('click', () => {
+    storage.set('waxriffle_install_snoozed', String(Date.now()));
+    hideInstallSheet();
+  });
+  document.getElementById('install-accept').addEventListener('click', async () => {
+    const sheet = document.getElementById('install-sheet');
+    if (sheet.dataset.mode === 'prompt' && deferredInstallPrompt) {
+      const promptEvent = deferredInstallPrompt;
+      deferredInstallPrompt = null;
+      hideInstallSheet();
+      promptEvent.prompt();
+      const choice = await promptEvent.userChoice;
+      storage.set(choice.outcome === 'accepted' ? 'waxriffle_installed' : 'waxriffle_install_snoozed',
+        choice.outcome === 'accepted' ? '1' : String(Date.now()));
+    } else {
+      // They have the steps; don't ask again for a while
+      storage.set('waxriffle_install_snoozed', String(Date.now()));
+      hideInstallSheet();
+    }
+  });
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}
+// --- end Add to home screen ---
+
 // --- Saved albums ---
 function getAlbumId(album) {
   return album.discogsId ? String(album.discogsId) : `${album.artist}|${album.title}`;
@@ -276,6 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initGenreFilter();
   updateSavedCounter();
+  initInstallSheet();
 
   document.getElementById('saved-counter').addEventListener('click', () => {
     if (document.getElementById('saved-screen').style.display !== 'block') showSavedScreen();
@@ -418,7 +515,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function updateUI(albumData, fromHistory = false) {
-    if (!fromHistory) history.pushState({ screen: 'album', album: albumData }, '');
+    if (!fromHistory) {
+      history.pushState({ screen: 'album', album: albumData }, '');
+      noteAlbumFound();
+    }
     currentAlbum = albumData;
     markSeen(albumData);
 
