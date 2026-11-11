@@ -598,3 +598,163 @@ footer a:hover {
         height: 150px;
     }
 }
+
+/* ===== Motion =====
+   The one authored moment: a new album is pulled up out of the crate (cover rises and settles),
+   and while the next one loads the current cover lifts and riffles, like flipping through records.
+   Everything else is quick feedback. */
+:root {
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+@keyframes crate-pull {
+    from { opacity: 0; transform: translateY(36px) rotate(-5deg) scale(0.92); filter: blur(3px); }
+    60% { filter: blur(0); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes crate-lift {
+    to { opacity: 0.45; transform: translateY(-14px) rotate(3deg) scale(0.96); }
+}
+@keyframes riffle {
+    0%, 100% { transform: translateY(-14px) rotate(3deg) scale(0.96); }
+    50% { transform: translateY(-18px) rotate(-2deg) scale(0.96); }
+}
+@keyframes pop {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Screen changes */
+.screen-enter {
+    animation: fade-in 260ms var(--ease-out) both;
+}
+
+/* Album arrives */
+#result-screen.card-enter .result-cover {
+    animation: crate-pull 680ms var(--ease-out) both;
+}
+#result-screen.card-enter .result-title,
+#result-screen.card-enter .result-artist,
+#result-screen.card-enter .result-meta,
+#result-screen.card-enter .result-source,
+#result-screen.card-enter .spotify-embed,
+#result-screen.card-enter .listen-on,
+#result-screen.card-enter .result-actions,
+#result-screen.card-enter .share-row {
+    animation: rise-in 460ms var(--ease-out) both;
+}
+#result-screen.card-enter .result-title { animation-delay: 150ms; }
+#result-screen.card-enter .result-artist { animation-delay: 190ms; }
+#result-screen.card-enter .result-meta { animation-delay: 230ms; }
+#result-screen.card-enter .result-source { animation-delay: 260ms; }
+#result-screen.card-enter .spotify-embed { animation-delay: 300ms; }
+#result-screen.card-enter .listen-on { animation-delay: 340ms; }
+#result-screen.card-enter .result-actions { animation-delay: 380ms; }
+#result-screen.card-enter .share-row { animation-delay: 410ms; }
+
+/* Next album is loading: the current record lifts and riffles, the details step back */
+.result-info,
+.spotify-embed,
+.listen-on {
+    transition: opacity 200ms var(--ease-out);
+}
+#result-screen.card-leaving .result-cover {
+    animation:
+        crate-lift 220ms var(--ease-in) forwards,
+        riffle 900ms ease-in-out 220ms infinite;
+}
+#result-screen.card-leaving .result-info,
+#result-screen.card-leaving .spotify-embed,
+#result-screen.card-leaving .listen-on {
+    opacity: 0.3;
+}
+#explore-again-button.loading {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+/* Spotify player fades in once it has loaded, instead of popping */
+#spotify-embed-container iframe {
+    opacity: 0;
+    transition: opacity 300ms var(--ease-out);
+}
+#spotify-embed-container iframe.is-loaded {
+    opacity: 1;
+}
+
+/* Press feedback */
+#save-button,
+#share-button,
+#explore-again-button,
+#back-from-saved {
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 140ms var(--ease-out);
+}
+#save-button:active,
+#share-button:active,
+#explore-again-button:active,
+#back-from-saved:active,
+.genre-pill:active {
+    transform: scale(0.95);
+}
+#save-button.pop,
+#share-button.pop {
+    animation: pop 320ms var(--ease-out);
+}
+#saved-counter.bump {
+    animation: pop 360ms var(--ease-out);
+}
+#genre-pills.ready .genre-pill.active {
+    animation: pop 260ms var(--ease-out);
+}
+
+/* Saved list */
+.saved-card.stagger-in {
+    animation: rise-in 380ms var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 40ms);
+}
+
+.error-message:not([style*="none"]) {
+    animation: fade-in 200ms var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #result-screen.card-enter .result-cover,
+    #result-screen.card-enter .result-title,
+    #result-screen.card-enter .result-artist,
+    #result-screen.card-enter .result-meta,
+    #result-screen.card-enter .result-source,
+    #result-screen.card-enter .spotify-embed,
+    #result-screen.card-enter .listen-on,
+    #result-screen.card-enter .result-actions,
+    #result-screen.card-enter .share-row,
+    .saved-card.stagger-in {
+        animation: fade-in 200ms ease both;
+    }
+    #result-screen.card-leaving .result-cover {
+        animation: none;
+        opacity: 0.45;
+    }
+    #save-button.pop,
+    #share-button.pop,
+    #saved-counter.bump,
+    #genre-pills.ready .genre-pill.active {
+        animation: none;
+    }
+    #save-button:active,
+    #share-button:active,
+    #explore-again-button:active,
+    #back-from-saved:active,
+    .genre-pill:active {
+        transform: none;
+    }
+}

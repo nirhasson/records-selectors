@@ -4,6 +4,33 @@ let currentAlbum = null;
 // Self-contained fallback cover art (no network dependency) for albums with a missing/broken image.
 const NO_COVER_IMAGE = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23444'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23666' stroke-width='2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23666'/%3E%3C/svg%3E";
 
+// --- Motion helpers ---
+const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const EASE_OUT = 'cubic-bezier(0.16, 1, 0.3, 1)';
+const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+// Restart a CSS animation class (works when the same class is added twice in a row)
+function replayClass(el, className) {
+  if (!el) return;
+  el.classList.remove(className);
+  void el.offsetWidth;
+  el.classList.add(className);
+}
+
+// Resolve once the cover has downloaded, so it arrives with its animation instead of popping in late
+function preloadImage(src, timeoutMs = 2500) {
+  return new Promise(resolve => {
+    if (!src) return resolve();
+    const img = new Image();
+    const done = () => resolve();
+    img.onload = done;
+    img.onerror = done;
+    img.src = src;
+    setTimeout(done, timeoutMs);
+  });
+}
+// --- end Motion helpers ---
+
 // --- Genre filter ---
 let selectedGenres = new Set();
 
@@ -13,6 +40,8 @@ function initGenreFilter() {
     try { JSON.parse(saved).forEach(g => selectedGenres.add(g)); } catch (e) {}
   }
   renderGenrePills();
+  // Pop animation only for pills the visitor taps, not on page load
+  requestAnimationFrame(() => document.getElementById('genre-pills').classList.add('ready'));
 
   document.querySelectorAll('.genre-pill').forEach(pill => {
     pill.addEventListener('click', () => {
@@ -97,6 +126,7 @@ async function shareAlbum(album) {
 
 // Briefly shows "Link copied" on the button that was pressed
 function flashCopied(button, labelEl, original) {
+  replayClass(button, 'pop');
   button.classList.add('copied');
   labelEl.textContent = 'Link copied';
   clearTimeout(button._copiedTimer);
@@ -132,6 +162,7 @@ function toggleSave(album) {
   localStorage.setItem('waxriffle_saved', JSON.stringify(saved));
   updateSaveButton(album);
   updateSavedCounter();
+  if (isAlbumSaved(album)) replayClass(document.getElementById('save-button'), 'pop');
 }
 
 function updateSaveButton(album) {
@@ -142,8 +173,11 @@ function updateSaveButton(album) {
   btn.classList.toggle('saved', saved);
 }
 
+let lastSavedCount = null;
 function updateSavedCounter() {
   const count = getSaved().length;
+  if (lastSavedCount !== null && count > lastSavedCount) replayClass(document.getElementById('saved-counter'), 'bump');
+  lastSavedCount = count;
   const counter = document.getElementById('saved-counter');
   const num = document.getElementById('saved-num');
   const label = document.getElementById('saved-count');
@@ -152,7 +186,7 @@ function updateSavedCounter() {
   if (counter) counter.classList.toggle('has-saves', count > 0);
 }
 
-function renderSavedList() {
+function renderSavedList(animate = false) {
   const list = document.getElementById('saved-list');
   const empty = document.getElementById('saved-empty');
   const saved = getSaved();
@@ -162,10 +196,11 @@ function renderSavedList() {
     return;
   }
   empty.style.display = 'none';
-  saved.forEach(album => {
+  saved.forEach((album, i) => {
     const id = getAlbumId(album);
     const card = document.createElement('div');
-    card.className = 'saved-card';
+    card.className = animate ? 'saved-card stagger-in' : 'saved-card';
+    card.style.setProperty('--i', Math.min(i, 8));
     card.innerHTML = `
       <img class="saved-card-img" src="${album.image || NO_COVER_IMAGE}" alt="${album.title}" onerror="this.onerror=null;this.src='${NO_COVER_IMAGE}'">
       <div class="saved-card-info">
@@ -191,7 +226,16 @@ function renderSavedList() {
   });
 
   list.querySelectorAll('.saved-remove-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
+      // Slide the card out and close the gap before the list redraws
+      const card = btn.closest('.saved-card');
+      if (card && !reducedMotion()) {
+        await card.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateX(16px)' }],
+          { duration: 160, easing: 'ease-in', fill: 'forwards' }).finished;
+        await card.animate([{ height: `${card.offsetHeight}px`, marginBottom: '0px', paddingTop: getComputedStyle(card).paddingTop, paddingBottom: getComputedStyle(card).paddingBottom },
+          { height: '0px', marginBottom: '-14px', paddingTop: '0px', paddingBottom: '0px' }],
+          { duration: 200, easing: EASE_OUT, fill: 'forwards' }).finished;
+      }
       let saved = getSaved().filter(a => getAlbumId(a) !== btn.dataset.id);
       localStorage.setItem('waxriffle_saved', JSON.stringify(saved));
       updateSavedCounter();
@@ -203,18 +247,25 @@ function renderSavedList() {
 
 // Each screen change is a browser history entry, so the Back button moves between
 // albums and screens instead of leaving the site.
+// Shows one screen and fades it in
+function showScreen(id) {
+  ['main-screen', 'result-screen', 'saved-screen'].forEach(screenId => {
+    const el = document.getElementById(screenId);
+    const isTarget = screenId === id;
+    const wasHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
+    el.style.display = isTarget ? 'block' : 'none';
+    if (isTarget && wasHidden) replayClass(el, 'screen-enter');
+  });
+}
+
 function showSavedScreen(fromHistory = false) {
   if (!fromHistory) history.pushState({ screen: 'saved' }, '');
-  document.getElementById('main-screen').style.display = 'none';
-  document.getElementById('result-screen').style.display = 'none';
-  document.getElementById('saved-screen').style.display = 'block';
-  renderSavedList();
+  showScreen('saved-screen');
+  renderSavedList(true);
 }
 
 function showHomeScreen() {
-  document.getElementById('saved-screen').style.display = 'none';
-  document.getElementById('result-screen').style.display = 'none';
-  document.getElementById('main-screen').style.display = 'block';
+  showScreen('main-screen');
   document.getElementById('loading-animation').style.display = 'none';
   document.getElementById('explore-button').style.display = 'flex';
 }
@@ -266,14 +317,25 @@ document.addEventListener("DOMContentLoaded", function () {
   async function fetchAlbumData() {
     try {
       showExploreError('');
-      document.getElementById('explore-button').style.display = 'none';
-      document.getElementById('loading-animation').style.display = 'block';
+      const button = document.getElementById('explore-button');
+      const loader = document.getElementById('loading-animation');
+      const request = fetch(`/api/album${albumQueryParams()}`);
+
+      // The button shrinks away and the record animation fades in where it was
+      if (!reducedMotion()) {
+        await button.animate([{ opacity: 1, transform: 'scale(1)' }, { opacity: 0, transform: 'scale(0.85)' }],
+          { duration: 160, easing: 'ease-in' }).finished;
+      }
+      button.style.display = 'none';
+      loader.style.display = 'block';
+      loader.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: EASE_OUT, fill: 'backwards' });
       loadingAnimation.play();
 
-      const response = await fetch(`/api/album${albumQueryParams()}`);
+      const response = await request;
       if (!response.ok) throw new Error('Failed to fetch album data');
       const albumData = await response.json();
       console.log("✅ Received album data:", albumData);
+      await preloadImage(albumData.image);
 
       document.getElementById('loading-animation').style.display = 'none';
       loadingAnimation.stop();
@@ -320,19 +382,28 @@ document.addEventListener("DOMContentLoaded", function () {
   if (exploreAgainButton) {
     exploreAgainButton.addEventListener('click', async () => {
       const originalText = exploreAgainButton.textContent;
+      const resultScreen = document.getElementById('result-screen');
       showResultError('');
       exploreAgainButton.textContent = "Loading...";
       exploreAgainButton.classList.add("loading");
       exploreAgainButton.disabled = true;
+
+      // The current record lifts and riffles while the next one is found
+      resultScreen.classList.remove('card-enter');
+      resultScreen.classList.add('card-leaving');
+      if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: reducedMotion() ? 'auto' : 'smooth' });
+      const minimumLift = wait(reducedMotion() ? 0 : 260);
 
       try {
         const response = await fetch(`/api/album${albumQueryParams()}`);
         if (!response.ok) throw new Error('Failed to fetch album data');
         const albumData = await response.json();
         console.log("✅ Received new album data:", albumData);
+        await Promise.all([preloadImage(albumData.image), minimumLift]);
         updateUI(albumData);
       } catch (error) {
         console.error('❌ Error fetching album data:', error);
+        resultScreen.classList.remove('card-leaving');
         showResultError('Could not load another album right now. Please try again.');
       } finally {
         exploreAgainButton.textContent = originalText;
@@ -394,6 +465,10 @@ document.addEventListener("DOMContentLoaded", function () {
             iframe.frameBorder = '0';
             iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
             iframe.loading = 'lazy';
+            // Fade the player in when it loads; show it anyway if Spotify is slow to report that
+            const reveal = () => iframe.classList.add('is-loaded');
+            iframe.addEventListener('load', reveal);
+            setTimeout(reveal, 3000);
             embedContainer.appendChild(iframe);
           }
         }
@@ -403,9 +478,12 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    document.getElementById('main-screen').style.display = 'none';
-    document.getElementById('saved-screen').style.display = 'none';
-    document.getElementById('result-screen').style.display = 'block';
-    window.scrollTo(0, 0);
+    const resultScreen = document.getElementById('result-screen');
+    const comingFromAnotherScreen = resultScreen.style.display === 'none';
+    showScreen('result-screen');
+    if (comingFromAnotherScreen) window.scrollTo(0, 0);
+    // The new record is pulled up out of the crate
+    resultScreen.classList.remove('card-leaving');
+    replayClass(resultScreen, 'card-enter');
   }
 });
