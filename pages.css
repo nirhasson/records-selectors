@@ -675,3 +675,10 @@ body.light-page {
 .light-page .album-row legend em { font-weight: 400; }
 .light-page .form-hint,
 .light-page .form-note { color: #55555f; font-size: 0.92rem; }
+.form-status {
+    margin: 14px 0 0;
+    color: #b42318;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+}
+.submit-form button[disabled] { opacity: 0.6; cursor: wait; }
