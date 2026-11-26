@@ -385,20 +385,8 @@ body {
     color: #fff;
 }
 
-/* Phones: one row you swipe sideways, instead of a block of wrapped pills */
 @media (max-width: 768px) {
-    #genre-filter { width: calc(100% + 32px); margin-left: -16px; margin-right: -16px; }
-    #genre-pills {
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding: 2px 16px 6px;
-        scrollbar-width: none;
-        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 28px), transparent 100%);
-        mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 28px), transparent 100%);
-    }
-    #genre-pills::-webkit-scrollbar { display: none; }
-    .genre-pill { flex: none; font-size: 0.74em; padding: 5px 12px; }
+    .genre-pill { font-size: 0.68em; padding: 4px 10px; }
 }
 
 h1 {
