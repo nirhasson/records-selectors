@@ -2375,5 +2375,246 @@
         "editorsPick": true,
         "newsletterUrl": "https://nirhasson.substack.com/p/73e",
         "pickedDate": "2026-02-08"
+    },
+    {
+        "title": "Azizi In Space",
+        "artist": "Sadeedo",
+        "year": 2026,
+        "genre": "Electronic, Funk / Soul, Jazz, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b27334770851bdf90eb6bfa7e35a",
+        "spotifyLink": "https://open.spotify.com/album/4F0IljfwcDa5X2CLvtz8hU",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/azizi-in-space/6808538431"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/036",
+        "newsletterIssue": "036",
+        "pickedDate": "2026-11-15"
+    },
+    {
+        "title": "Toc-Toc",
+        "artist": "Ed Motta",
+        "year": 2026,
+        "genre": "Jazz, Funk / Soul, Latin",
+        "image": "https://i.scdn.co/image/ab67616d0000b273b45f09f361be967accae025f",
+        "spotifyLink": "https://open.spotify.com/album/3qRmCNZrpAITEZuNV8I5zn",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/toc-toc/6790408281"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/036",
+        "newsletterIssue": "036",
+        "pickedDate": "2026-11-15"
+    },
+    {
+        "title": "Los Bitchos & Friends Vol 1",
+        "artist": "Los Bitchos",
+        "year": 2026,
+        "genre": "Rock, Latin",
+        "image": "https://i.scdn.co/image/ab67616d0000b27328cbc4f36ceed27dfbf90dac",
+        "spotifyLink": "https://open.spotify.com/album/6YhVCSXDS2XejuQUg1OJxQ",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/los-bitchos-friends-vol-1/6793961661",
+            "bandcamp": "https://losbitchos.bandcamp.com/album/los-bitchos-friends-vol-1"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/036",
+        "newsletterIssue": "036",
+        "pickedDate": "2026-11-15"
+    },
+    {
+        "title": "Nude per l'assassino",
+        "artist": "Elsio Mancuso, Berto Pisano",
+        "year": 2025,
+        "genre": "Stage & Screen, Jazz, Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b2738bc4ee6c5e1a40c943633cd2",
+        "spotifyLink": "https://open.spotify.com/album/1gTS2Izw5XsHXW3x1cOS26",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/nude-per-lassassino/1835907155",
+            "bandcamp": "https://fourfliesrecords.bandcamp.com/album/nude-per-lassassino"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/036",
+        "newsletterIssue": "036",
+        "pickedDate": "2026-11-15"
+    },
+    {
+        "title": "יחי הבשר החדש",
+        "artist": "אלפרבר",
+        "year": 2026,
+        "genre": "Hip Hop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273784c9e92d2e842b28ebe137b",
+        "spotifyLink": "https://open.spotify.com/album/4KFvyoInFT2h6vUxo5u5Hz",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/037",
+        "newsletterIssue": "037",
+        "pickedDate": "2026-11-22"
+    },
+    {
+        "title": "Access All Areas",
+        "artist": "Karate Boogaloo",
+        "year": 2026,
+        "genre": "Funk / Soul",
+        "image": "https://i.scdn.co/image/ab67616d0000b273b0e0e9e7d8eabdc14eccd6f7",
+        "spotifyLink": "https://open.spotify.com/album/0HNi8Z5KSG7p08wfckbM4Y",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/access-all-areas/6776373156"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/037",
+        "newsletterIssue": "037",
+        "pickedDate": "2026-11-22"
+    },
+    {
+        "title": "Find Your Way",
+        "artist": "Michael Millions, DJ Harrison",
+        "year": 2026,
+        "genre": "Hip Hop, Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b273a6ac362ea43ad53587c93b4f",
+        "spotifyLink": "https://open.spotify.com/album/5ay9U9zEqzHnQ5ylVESbh6",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/037",
+        "newsletterIssue": "037",
+        "pickedDate": "2026-11-22"
+    },
+    {
+        "title": "יו! ני רכטר",
+        "artist": "Ido Maimon Ben Yehoshua",
+        "year": 2026,
+        "genre": "Funk / Soul, Pop",
+        "image": "https://i.scdn.co/image/ab67616d0000b273cadd017181a558c69598504a",
+        "spotifyLink": "https://open.spotify.com/album/4ptwbVGcdo4zqHf560WJ29",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/%D7%99%D7%95-%D7%A0%D7%99-%D7%A8%D7%9B%D7%98%D7%A8/6826786825"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/037",
+        "newsletterIssue": "037",
+        "pickedDate": "2026-11-22"
+    },
+    {
+        "title": "Happy Today",
+        "artist": "Jeff Parker, ETA IVtet",
+        "year": 2026,
+        "genre": "Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b27386823611df896e2f08642e8f",
+        "spotifyLink": "https://open.spotify.com/album/1kHIfy3OzO6LiVmilaxre1",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/happy-today-feat-anna-butterss-jay-bellerose-josh-johnson/1885022834",
+            "bandcamp": "https://intlanthem.bandcamp.com/album/happy-today"
+        },
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/014",
+        "newsletterIssue": "014",
+        "pickedDate": "2026-05-31"
+    },
+    {
+        "title": "Crimson Buffalo",
+        "artist": "Asagaya",
+        "year": 2026,
+        "genre": "Hip Hop, Rock, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273a384abbf8df12ad779b211cf",
+        "spotifyLink": "https://open.spotify.com/album/0HLN1Yl6elIMkPipf3mmYn",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/009",
+        "newsletterIssue": "009",
+        "pickedDate": "2026-04-19"
+    },
+    {
+        "title": "Honora",
+        "artist": "Flea",
+        "year": 2026,
+        "genre": "Jazz",
+        "image": "https://i.scdn.co/image/ab67616d0000b273017eb062be58097ec134eeb6",
+        "spotifyLink": "https://open.spotify.com/album/4RsSlnwkUAvEtg0Tk86HnM",
+        "links": {},
+        "editorsPick": true,
+        "newsletterUrl": "https://nirhasson.substack.com/p/006",
+        "newsletterIssue": "006",
+        "pickedDate": "2026-03-29"
+    },
+    {
+        "title": "Mulatu Of Ethiopia",
+        "artist": "Mulatu Astatke",
+        "year": 1972,
+        "genre": "Jazz, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273d202735cd07913a73df69ab2",
+        "spotifyLink": "https://open.spotify.com/album/2FBK03r5TaxQmWMqLuOdF7",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/mulatu-of-ethiopia/1225952989"
+        },
+        "editorsPick": true,
+        "styles": [
+            "Ethio-Jazz",
+            "African"
+        ]
+    },
+    {
+        "title": "Erè Mèla Mèla",
+        "artist": "Mahmoud Ahmed",
+        "year": 1975,
+        "genre": "Funk / Soul, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273c5eadb395c30f82fdd1db0ca",
+        "spotifyLink": "https://open.spotify.com/album/2tTEgmMCugeH5xr5VTjzvX",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/er%C3%A9-m%C3%A9la-m%C3%AAla/6781338350"
+        },
+        "editorsPick": true,
+        "styles": [
+            "African",
+            "Soul"
+        ]
+    },
+    {
+        "title": "Tche Belew",
+        "artist": "Hailu Mergia, The Walias",
+        "year": 1977,
+        "genre": "Funk / Soul, Jazz, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b273bc20b497149b64df2cba65be",
+        "spotifyLink": "https://open.spotify.com/album/67ZrxrYM4ZErIrGYpA13Q0",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/tche-belew/918253044",
+            "bandcamp": "https://hailumergia.bandcamp.com/album/tche-belew"
+        },
+        "editorsPick": true,
+        "styles": [
+            "African",
+            "Funk"
+        ]
+    },
+    {
+        "title": "Gétatchèw Mékuria and His Saxophone",
+        "artist": "Getatchew Mekurya",
+        "year": 1972,
+        "genre": "Jazz, Folk, World, & Country",
+        "image": "https://i.scdn.co/image/ab67616d0000b2734f8117792ed69d3fbeb36b5e",
+        "spotifyLink": "https://open.spotify.com/album/5G4iEzL5EnRsHsExyfeHpi",
+        "links": {
+            "appleMusic": "https://music.apple.com/us/album/g%C3%A9tatch%C3%A8w-m%C3%A9kuria-and-his-saxophone/1584321344"
+        },
+        "editorsPick": true,
+        "styles": [
+            "African",
+            "Ethio-Jazz"
+        ]
+    },
+    {
+        "title": "Spielt Eigene Kompositionen",
+        "artist": "Emahoy Tsege Mariam Gebru",
+        "year": 1963,
+        "genre": "Classical, Folk, World, & Country",
+        "styles": [
+            "African",
+            "Piano"
+        ],
+        "image": "https://f4.bcbits.com/img/a0196988306_10.jpg",
+        "spotifyLink": "",
+        "links": {
+            "bandcamp": "https://emahoytsegemariamgebru.bandcamp.com/album/spielt-eigen-kompositionen"
+        },
+        "editorsPick": true
     }
 ]

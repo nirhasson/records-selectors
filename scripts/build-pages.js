@@ -199,6 +199,25 @@ function build() {
 
   // Sitemaps
   const pages = [{ loc: "/" }]
+
+  // Magazine
+  const picksDir = path.join(ROOT, "data/magazine/picks")
+  const issues = fs.existsSync(picksDir)
+    ? fs.readdirSync(picksDir).filter((f) => f.endsWith(".json")).map((f) => readJson(path.join(picksDir, f), null)).filter(Boolean)
+    : []
+  if (issues.length) {
+    const latest = issues.map((i) => i.date).sort().pop()
+    pages.push({ loc: "/picks", lastmod: latest })
+    for (const issue of issues) pages.push({ loc: `/picks/${issue.slug}`, lastmod: issue.date })
+  }
+  const articlesDir = path.join(ROOT, "data/magazine/articles")
+  const articles = fs.existsSync(articlesDir)
+    ? fs.readdirSync(articlesDir).filter((f) => f.endsWith(".json")).map((f) => readJson(path.join(articlesDir, f), null)).filter(Boolean)
+    : []
+  if (articles.length) {
+    pages.push({ loc: "/magazine", lastmod: articles.map((a) => a.date).sort().pop() })
+    for (const a of articles) pages.push({ loc: `/magazine/${a.slug}`, lastmod: a.date })
+  }
   for (const [genre, count] of Object.entries(genreCounts)) {
     if (!count) continue
     pages.push({ loc: `/genre/${genre}` })

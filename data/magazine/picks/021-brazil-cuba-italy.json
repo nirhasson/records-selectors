@@ -1,0 +1,40 @@
+{
+  "issue": "021",
+  "slug": "021-brazil-cuba-italy",
+  "date": "2026-07-19",
+  "title": "Grooves from Brazil, Cuba and Italy: Bruno Berle, Orquesta Akokán and Dario Jacque",
+  "description": "Bruno Berle's third album Sem Fronteiras, Orquesta Akokán's big-band celebration América!, and Italian producer Dario Jacque's spaghetti-western-flavored SANG.",
+  "author": "Nir Hasson",
+  "intro": [
+    "A summer week with a passport: a gentle new voice from Brazil, a big band with deep Cuban roots, and an Italian producer who clearly grew up on spaghetti westerns."
+  ],
+  "albums": [
+    {
+      "slug": "bruno-berle-sem-fronteiras",
+      "spotify": "6JXjV8CKdndWGknRTAZsR9",
+      "label": "Far Out Recordings",
+      "text": [
+        "Bruno Berle, from Maceió in Brazil, is considered one of the standout voices in contemporary Brazilian music. His third album, Sem Fronteiras (Without Borders), was recorded between London, São Paulo and Germany, and blends bossa nova, indie pop and soul.",
+        "His music is marked by delicate guitar playing, captivating singing and a warm production. Ten songs, from \"Você Já Sabe Que Eu Te Amo\" to the title track. Released on Far Out Recordings."
+      ]
+    },
+    {
+      "slug": "orquesta-akokan-america",
+      "spotify": "0chPyqe4UGP3ty0e7jt1bE",
+      "label": "Daptone Records",
+      "text": [
+        "América! is the fourth studio album from the big band Orquesta Akokán. Their music is full of horns, groove and joy, combining Latin soul, boogaloo and salsa while keeping hold of their deep Cuban roots.",
+        "On this album the band works with singers Miriam Elhajli and Carolina Oliveros, as well as Kiko Ruiz, across eight songs that end with the irresistible \"Cha Cha Cha Ooh La La\". Released on Daptone."
+      ]
+    },
+    {
+      "slug": "dario-jacque-sang",
+      "spotify": "0uu67DzeyjOUkXantXQSSH",
+      "text": [
+        "Italian artist and producer Dario Jacque recently released SANG, a very varied album that combines funk, jazz, trip-hop and soul with live instruments and electronics.",
+        "You can hear the influence of spaghetti western soundtracks throughout, with more energetic tracks alongside some more avant-garde ones. Twelve tracks, with guests Lauryyn and Danny Bronzini."
+      ]
+    }
+  ],
+  "more": []
+}

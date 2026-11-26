@@ -1,0 +1,49 @@
+{
+  "issue": "030",
+  "slug": "030-unheard-stevie-wonder",
+  "date": "2026-10-04",
+  "title": "Unheard Stevie Wonder, Thee Sinseers, Tokyo's Cho Co Pa Co and a Manila-meets-Margate collaboration",
+  "description": "Four unreleased songs from Stevie Wonder's Songs in the Key of Life sessions, Thee Sinseers' Love Stories, Cho Co Pa Co Cho Co Quin Quin's Synthetic Kaigan and Thandii x Regalado's Coco Okayo.",
+  "author": "Nir Hasson",
+  "intro": [
+    "A treat from the vaults to start: four Stevie Wonder songs that waited fifty years to be heard. After that, sweet '60s-style soul from Los Angeles, a Tokyo band that's hard to describe and easy to love, and a collaboration that connects Manila with a small English seaside town."
+  ],
+  "albums": [
+    {
+      "slug": "stevie-wonder-songs-in-the-key-of-life-the-ep",
+      "spotify": "7gzJYO9TskFpD4NnnVOWAj",
+      "label": "Motown",
+      "text": [
+        "To celebrate fifty years of his masterpiece Songs in the Key of Life, Stevie Wonder has released four songs that never saw the light of day, taken from the archive of the original recordings.",
+        "The four are \"It's Easier\", \"My Life Story Of Love\", \"I Can See The Sun In Late December\" and \"I'm Into Livin'\". Hearing new material from the sessions behind one of the greatest albums ever made is a gift, and a good excuse to go back and play the original from start to finish."
+      ]
+    },
+    {
+      "slug": "thee-sinseers-joey-quinones-love-stories",
+      "spotify": "7wgEDIcC12BGSX862ADaDn",
+      "label": "Colemine Records",
+      "text": [
+        "A new album from Thee Sinseers, a soul and R&B band from Los Angeles led by singer, songwriter and producer Joey Quiñones. Joey produced the album and Kelly Finnigan mixed it.",
+        "It has a warm, '60s-style sound, gentle guitars and rich string arrangements, perfect for slow evenings. Eleven love songs, from \"Oh Love\" and \"Let's Fall In Love (Again)\" to \"While You Were Sleeping\". Released on Colemine Records."
+      ]
+    },
+    {
+      "slug": "cho-co-pa-co-cho-co-quin-quin-synthetic",
+      "spotify": "1korXzyIsbsutjtb1k7xeF",
+      "text": [
+        "A new album from CHO CO PA CO CHO CO QUIN QUIN, a band from Tokyo that mixes jazz and traditional Japanese rhythms with Latin music, a little electronics and more. It sounds a bit strange on paper, but it's beautiful music.",
+        "Ten tracks, with titles that hint at the journey, from \"Prompted Clave\" and \"Aloha Retreat\" to \"Caminho de Kuroshio\", named after the ocean current that runs along Japan's coast."
+      ]
+    },
+    {
+      "slug": "thandii-x-regalado-coco-okayo",
+      "spotify": "2pfbyqs0zC1XMf4QZEzc26",
+      "label": "Sama Sama Records",
+      "text": [
+        "Coco Okayo is a collaboration between Thandii, a pop duo whose music draws on soul, hip-hop and disco-funk, and the Filipino drummer Jun Regalado. The album was born from the duo's trip to Manila, and they describe its style as \"MAR-NILA\".",
+        "The name says it all: a Filipino style that pays tribute to the sound of 1970s Manila, combined with modern post-punk disco from the small seaside town of Margate in England. Seven tracks, from the title track to \"Love From Another Time\". Released on Sama Sama Records."
+      ]
+    }
+  ],
+  "more": []
+}

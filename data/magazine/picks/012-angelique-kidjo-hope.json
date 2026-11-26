@@ -1,0 +1,50 @@
+{
+  "issue": "012",
+  "slug": "012-angelique-kidjo-hope",
+  "date": "2026-05-10",
+  "title": "Angelique Kidjo and Pharrell's HOPE!!, IZCO's debut, Ofir Avraham and Maor",
+  "description": "Angelique Kidjo's 19th album HOPE!!, made with Pharrell Williams, London producer IZCO's debut album POWERSCROFT, and two Israeli albums from Ofir Avraham and rapper Maor.",
+  "author": "Nir Hasson",
+  "intro": [
+    "New albums: an African legend teaming up with a pop superstar, a London producer's first full album, and two Israeli records, one of the most beautiful Hebrew albums of recent months and a sharp new rap album."
+  ],
+  "albums": [
+    {
+      "slug": "angelique-kidjo-hope",
+      "spotify": "3x1Avu2Fct0HPWBpl0ob4b",
+      "label": "Parlophone",
+      "text": [
+        "Last month Angelique Kidjo released her nineteenth album. HOPE!! is a collaboration with Pharrell Williams that began in 2025, after Pharrell invited her to perform at his concert at the Vatican.",
+        "The album also features Nile Rodgers and IZA on \"Oyaya\", PJ Morton on \"Fall On Me\", Ayra Starr on \"Aye Kan (Are You Coming Back?)\", Quavo on the opener \"Bando\", and more. Sixteen tracks, highly recommended!"
+      ]
+    },
+    {
+      "slug": "izco-powerscroft",
+      "bandcamp": "3508387961",
+      "label": "Brownswood Recordings",
+      "text": [
+        "POWERSCROFT is the first studio album from the London producer and DJ IZCO, released on Brownswood.",
+        "The album gathers a wide range of influences from the British scene, among them jungle, broken beat, grime, soul and dub."
+      ]
+    },
+    {
+      "slug": "אופיר-אברהם-משהו-בין-אור-לחושך",
+      "spotify": "60f52RcU8Pf6HdzEeuJjoF",
+      "label": "NaNa Disc",
+      "text": [
+        "To me, one of the most beautiful albums released in Hebrew recently is Ofir Avraham's Mashehu Bein Or LeChoshech (Something Between Light and Darkness). The album came out two days before the war with Iran began. I got to listen to it for the first time last week and loved it so much.",
+        "Twelve songs, from \"Lechi Lach\" to \"Sde Narkisim\" (Field of Daffodils), with Noam Zinder joining on \"Chatzi Kadur Tzfoni\" (Northern Hemisphere). Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "maor-דרך-ארץ-אחרת",
+      "spotify": "54pM3OVNM4n5RmviMkfC2z",
+      "label": "NaNa Disc",
+      "text": [
+        "The rapper Maor has released his second album, Derech Eretz Acheret. Smart rap, the voice of a generation, wrapped in beautiful productions.",
+        "Thirteen tracks with guests including Shae on \"State of Mind\" and \"Shiga'on\", Slimfim on \"Degel Adom\" (Red Flag) and Michael Swissa on \"Nechashim\" (Snakes). Released on NaNa Disc."
+      ]
+    }
+  ],
+  "more": []
+}

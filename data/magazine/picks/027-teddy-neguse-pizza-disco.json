@@ -1,0 +1,49 @@
+{
+  "issue": "027",
+  "slug": "027-teddy-neguse-pizza-disco",
+  "date": "2026-09-06",
+  "title": "Teddy Neguse, corto.alto's Some Small Fortune, pizza-parlor disco and Caribbean beats from As Valet",
+  "description": "Teddy Neguse's fifth album Ma Ritzitem, corto.alto's Ninja Tune album Some Small Fortune, Numero Group's NY's Famous Pizza Disco, and As Valet's Caribbean album Mawonaj.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Four records for the holiday week: one of Israel's sharpest rappers, a Glasgow jazz voice moving into the big leagues, a disco compilation with the best name and cover of the year, and a producer mapping the rhythms of Guadeloupe and Haiti."
+  ],
+  "albums": [
+    {
+      "slug": "teddy-neguse-מה-רציתם",
+      "spotify": "0xekgqJvzIP665xfaMcmXi",
+      "label": "NaNa Disc",
+      "text": [
+        "With his fifth album, Ma Ritzitem (What Did You Want), Teddy Neguse holds on to and strengthens his place as one of the best rappers working in Israel today, in my opinion. Ten songs produced by Avri G, Itamar Ziegler, Mayor and Duda, on which Neguse delivers sharp, precise rap and punchlines in a way only he can.",
+        "Alongside the fun songs there are more personal lyrics, and pointed criticism of racism in Israel and of the state of things, as on the excellent \"Gechalim Lochashot\" (Whispering Embers) and \"Nig'al Me'atzmi\" (Disgusted With Myself). Bril joins him on \"Lama Li Lipol\". Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "corto-alto-some-small-fortune",
+      "spotify": "7ego2G7DvXCvUq7k4xg60F",
+      "label": "Ninja Tune",
+      "text": [
+        "corto.alto's previous album established him as one of the most interesting new voices in jazz and even earned him a Mercury Prize nomination. His new and long-awaited album, SOME SMALL FORTUNE, comes out on Ninja Tune and keeps to his musical path: a mix of jazz, electronics and hip-hop.",
+        "Fifteen tracks with a strong guest list: Mick Jenkins on \"WHODIS\", anaiis on \"APRIL\", Oscar Jerome on \"PRAYED WE WOULD\", BINA. on \"SOMETHING\", plus Terra Kin, Vector, Eriff and Jacob Alon."
+      ]
+    },
+    {
+      "slug": "various-artists-nys-famous-pizza-disco",
+      "spotify": "0aH2nDvlv4R3IfxLMlYBRA",
+      "label": "Numero Group",
+      "text": [
+        "NY's Famous Pizza Disco is a compilation on Numero Group that gathers eight tracks from underground disco acts of the late '70s. Beyond the music, which is good, fun and joyful, I think the album's name and cover are simply brilliant.",
+        "Song titles like \"Making Love Will Keep You Fit\", \"Bionic Lover\" and \"Super Diana\" tell you exactly what kind of party this is. Another great dig from a label that has made rediscovery an art."
+      ]
+    },
+    {
+      "slug": "as-valet-mawonaj",
+      "bandcamp": "986694351",
+      "text": [
+        "The new album from producer As Valet is a blend of traditional Caribbean rhythms from Guadeloupe and Haiti. He worked with a lineup of leading musicians from across the Caribbean, alongside rap verses from Mano D'iShango and the Mauritian musician Reginald Omas Mamode IV.",
+        "The album closes with a remix of \"Problèm An Nou\" by Dusty of the respected jazz-hip-hop group Jazz Liberatorz, which gives the song a different, slightly more electronic color than the rest of the record."
+      ]
+    }
+  ],
+  "more": []
+}

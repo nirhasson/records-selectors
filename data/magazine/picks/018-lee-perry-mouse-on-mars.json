@@ -1,0 +1,58 @@
+{
+  "issue": "018",
+  "slug": "018-lee-perry-mouse-on-mars",
+  "date": "2026-06-29",
+  "title": "Lee \"Scratch\" Perry's last album with Mouse On Mars, Ibeyi's Offering, Pearl & The Oysters and more",
+  "description": "New albums I loved: Pearl & The Oysters' Monkey Mind, Yoav Brill's Reasons to be Fearful, Gabriele Poso's Maraviglia, Ibeyi's independent Offering, and Lee \"Scratch\" Perry's final album with Mouse On Mars.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Turntables, samples and stories. Five new albums I loved this week, from a groovy Los Angeles band to an Israeli animator's songs, an Italian percussionist, twin sisters going independent, and the final album from one of the great pioneers of dub."
+  ],
+  "albums": [
+    {
+      "slug": "pearl-and-the-oysters-monkey-mind",
+      "spotify": "0B00KO0iRAVuy7dUEOTSuU",
+      "label": "Stones Throw Records",
+      "text": [
+        "Pearl & The Oysters are an indie-pop and soul band from Los Angeles who have just released their new album on Stones Throw.",
+        "A fun, clever album full of easy groove. Twelve songs that start \"Sound Asleep\", move through \"Wide Awake\", \"Mandarin Moon\" and \"Shinkansen\", and end with a reprise of the opener."
+      ]
+    },
+    {
+      "slug": "yoav-brill-reasons-to-be-fearful",
+      "spotify": "3B3oGrCNp6mk2ujGsm9rWD",
+      "label": "Lev Group Media",
+      "text": [
+        "Reasons to be Fearful is the new album from musician and animator Yoav Brill, an excellent blend of electronics, folk and rock.",
+        "The album has a long list of guests: Rotem Bar Or on \"Be'eri\", Noa Babayof on \"Ghost Feelings\", Roy Rieck on \"The Buzz\" and \"Mediocrity Blues\", Sapir Rosenblatt, Chanan Ben Simon, Eyal Richter and The Secret Sea. Highly recommended."
+      ]
+    },
+    {
+      "slug": "gabriele-poso-maraviglia",
+      "spotify": "7JtVORVqSXpODq4Zvr7hxS",
+      "label": "AG Records",
+      "text": [
+        "Gabriele Poso is an Italian percussion virtuoso, multi-instrumentalist and producer. He released his debut album in 2008 and has built an impressive catalog since, and now he's back with Maraviglia, his sixth album.",
+        "The music combines Afro-Caribbean percussion with jazz elements and draws a lot of inspiration from the Italian disco of the late '70s. Seven tracks, from \"Contigo Mi Vida\" to \"Be Water My Friend\" and \"Drum Flow\"."
+      ]
+    },
+    {
+      "slug": "ibeyi-offering",
+      "spotify": "2KrpEIIVUU7AMtTsCOzkAj",
+      "text": [
+        "Offering is the fourth album from the twin sisters Ibeyi, and the first they've released independently, on their own label, after leaving XL. The sisters largely went back to their \"first principles\" and wrote most of the songs themselves.",
+        "There's less of the Cuban influence we're used to hearing from them, fewer drums and percussion, and more vocal harmonies. Twelve songs, including \"La tendresse d'un mot\" with pianist Sofiane Pamart."
+      ]
+    },
+    {
+      "slug": "lee-scratch-perry-mouse-on-mars-spatial-no-problem",
+      "spotify": "0SX7gjlXxpX1sTFXZYN12P",
+      "label": "Domino",
+      "text": [
+        "The collaboration between Lee \"Scratch\" Perry, the legendary Jamaican pioneer of dub and reggae, and the German electronic duo Mouse On Mars produced the unique album Spatial, No Problem. It was recorded over three days in 2019, and according to Mouse On Mars it came together naturally: they didn't talk much about working together or plan anything, they just met, started working, laughed, and ate a lot of fish soup and papaya.",
+        "It mattered to Perry that this wouldn't be just another reggae album, and together with Mouse On Mars, known for their innovation in electronic music, he made a record that breaks boundaries, mixing krautrock, ambient, dub, jazz and even New Orleans-style horns. It is Lee \"Scratch\" Perry's last official album, one he worked on before his death."
+      ]
+    }
+  ],
+  "more": []
+}

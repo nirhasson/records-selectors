@@ -1,0 +1,31 @@
+{
+  "issue": "008",
+  "slug": "008-sly-johnson-reb-fountain",
+  "date": "2026-04-13",
+  "title": "Sly Johnson's Mister Johnson and Reb Fountain's 100 Days",
+  "description": "French soul singer Sly Johnson's fun new album Mister Johnson, with flashes of French rap and dancehall, and folk and indie-rock songwriter Reb Fountain's EP 100 Days.",
+  "author": "Nir Hasson",
+  "intro": [
+    "The first days of routine, which we need to make the most of, because time is short until we're back in the shelters. Meanwhile, a couple of new records worth hearing: a French soul album with a rapper's swagger, and a short, strong EP from New Zealand."
+  ],
+  "albums": [
+    {
+      "slug": "sly-johnson-mister-johnson",
+      "spotify": "7JhwIep9F7uvmMnQbLNNPl",
+      "label": "French Paradox",
+      "text": [
+        "MISTER JOHNSON is a fun soul album from Sly Johnson, with occasional flashes of French rap in the style of Saïan Supa Crew, and of dancehall.",
+        "Ten songs, from the title track and \"NA LINGI YO\" to \"BUN DEM\" and \"ONE WAVE\", with SSC4EVER on \"PLI FÓ\" and Pumpkin on \"INTO MY LIFE\". Released on French Paradox."
+      ]
+    },
+    {
+      "slug": "reb-fountain-100-days",
+      "spotify": "3ZdvlFj32F9EX7cMeOsQWm",
+      "text": [
+        "Reb Fountain is a folk and indie-rock songwriter, and this week she released a new EP, 100 DAYS: four songs, \"100 DAYS\", \"SAND DUNES\", \"SUNDAY SCHOOL\" and \"SMOKE SIGNALS\".",
+        "If you like it, go back to her last album, How Love Bends, which came out last year."
+      ]
+    }
+  ],
+  "more": []
+}

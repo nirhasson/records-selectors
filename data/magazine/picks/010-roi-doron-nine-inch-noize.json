@@ -1,0 +1,48 @@
+{
+  "issue": "010",
+  "slug": "010-roi-doron-nine-inch-noize",
+  "date": "2026-04-26",
+  "title": "Roi Doron's Litzof, Nine Inch Noize, Alexis Taylor and Ego Ella May",
+  "description": "Producer and bassist Roi Doron's second album Litzof, Nine Inch Nails and Boys Noize's joint album, Hot Chip singer Alexis Taylor's Paris In The Spring and Ego Ella May's soul album Good Intentions.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Wow, what a week. A few new and good albums that came out recently: short, sharp Israeli pop-rock, an industrial legend gone electronic, a solo record from the voice of Hot Chip, and a London soul singer with jazz in her blood."
+  ],
+  "albums": [
+    {
+      "slug": "רועי-דורון-לצוף",
+      "spotify": "1AU0vmR6cQ8jXHpFWYMk00",
+      "label": "Universal Music Israel",
+      "text": [
+        "Litzof (To Float) is the second album from Roi Doron, a talented producer and the bassist who has worked with Jimbo J, Shaanan Streett and Ilan Peled.",
+        "It has nine relatively short songs, none of them longer than three minutes, moving between pop and rock, with surprising guest appearances from Berry Sakharof on \"Ma SheKore Achshav\", Yermi Kaplan on \"Sof Atzuv\" and Jimbo J on \"Pompei\"."
+      ]
+    },
+    {
+      "slug": "nine-inch-nails-boys-noize-nine-inch-noize",
+      "spotify": "7lcpCG4RBy3njzxHXlhOnp",
+      "text": [
+        "After the successful show Nine Inch Nails played at Coachella with electronic producer Boys Noize under the name Nine Inch Noize, they released their joint album last week.",
+        "The album is mostly made up of new arrangements of Nine Inch Nails songs, alongside a Soft Cell cover and a version of a song by How to Destroy Angels, Trent Reznor's other band. Twelve tracks, from \"Vessel\" and \"Heresy\" to \"Parasite\"."
+      ]
+    },
+    {
+      "slug": "alexis-taylor-paris-in-the-spring",
+      "spotify": "0doGfyxVBHG9nPvQoq9LhT",
+      "label": "Night Time Stories",
+      "text": [
+        "Alexis Taylor, the singer of Hot Chip, released Paris In The Spring last month, his seventh solo album.",
+        "The album moves across a range of styles, combining synth-pop, nu-disco, house and even a little country. Taylor recruited an impressive list of partners for the project, among them Nicolas Godin of Air and The Avalanches, with Lola Kirke on \"Out Of Phase\" and Green Gartside on \"On A Whim\". Ten songs, released on Night Time Stories."
+      ]
+    },
+    {
+      "slug": "ego-ella-may-good-intentions",
+      "spotify": "13t3teY6tq3AM0RHchDC9F",
+      "text": [
+        "Ego Ella May is a London singer, born to Nigerian parents and named after Ella Fitzgerald, so soul runs in her blood. In 2020 she released her debut album, Honey for Wounds, which brought her recognition and won her the MOBO award for Best Jazz Act.",
+        "Last month she released her second album, Good Intentions, produced in collaboration with artists like Alfa Mist. The result is an excellent soul album: twelve songs, from \"Hold On\" and the title track with J Warner to \"Back To Sea\"."
+      ]
+    }
+  ],
+  "more": []
+}

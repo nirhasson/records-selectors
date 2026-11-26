@@ -24,6 +24,10 @@ const page = (route) => (req, res) => {
 app.get("/album/:slug", page((p) => ({ type: "album", slug: p.slug })))
 app.get("/genre/:genre", page((p) => ({ type: "genre", genre: p.genre })))
 app.get("/genre/:genre/page/:page", page((p) => ({ type: "genre", genre: p.genre, page: p.page })))
+app.get("/magazine", page(() => ({ type: "magazine" })))
+app.get("/magazine/:slug", page((p) => ({ type: "magazine", slug: p.slug })))
+app.get("/picks", page(() => ({ type: "picks" })))
+app.get("/picks/:slug", page((p) => ({ type: "picks", slug: p.slug })))
 
 app.listen(PORT, () => {
   console.log(`Running on http://localhost:${PORT}`)

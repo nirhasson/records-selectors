@@ -1,0 +1,50 @@
+{
+  "issue": "009",
+  "slug": "009-dj-koco-adrian-younge",
+  "date": "2026-04-19",
+  "title": "DJ Koco's Cuban 45s, Adrian Younge's orchestral Younge, Asagaya and Photay",
+  "description": "DJ Koco's hour-long mix of rare Cuban records for Mr Bongo, Adrian Younge's orchestral album Younge, Asagaya's genre-bending Crimson Buffalo and four new tracks from Photay.",
+  "author": "Nir Hasson",
+  "intro": [
+    "New music that's worth hearing: a Japanese turntable wizard spinning rare Cuban records, a producer conducting his own orchestra, a French project that mixes opera with hip-hop, and four short pieces of dub and dance."
+  ],
+  "albums": [
+    {
+      "slug": "dj-koco-aka-shimokita-cuban-45s-dj-mix",
+      "spotify": "1jMAt3KSjlvIgkvWovGGAC",
+      "label": "Mr Bongo",
+      "text": [
+        "Highly recommended. DJ Koco, the Japanese turntable wizard and record collector, has teamed up with the British label Mr Bongo on a sixty-minute mixtape devoted entirely to rare Cuban music from the '70s and '80s.",
+        "Twenty-eight tracks, from \"Galaxia\" and \"Sí, Llegó la Primavera\" to \"Yayabo\"."
+      ]
+    },
+    {
+      "slug": "adrian-younge-younge",
+      "spotify": "37nNm3RVTz6KulC5r0O6ey",
+      "label": "Linear Labs",
+      "text": [
+        "Also highly recommended: a new album from Adrian Younge, one of the most versatile and active producers around. The whole album is played with an orchestra and influenced by '70s soundtrack composers like Ennio Morricone, and by the producers who laid the foundations for hip-hop, like Galt MacDermot and David Axelrod.",
+        "On the album Younge combines classical music and cinematic soul with hip-hop production. Nine tracks, from \"Portschute\" and \"Moon Traveling\" to \"Il Mattino\". Released on his own Linear Labs."
+      ]
+    },
+    {
+      "slug": "asagaya-crimson-buffalo",
+      "spotify": "0HLN1Yl6elIMkPipf3mmYn",
+      "label": "Jakarta Records",
+      "text": [
+        "Asagaya, from France, has released Crimson Buffalo, an album that combines different experimental styles, like hip-hop, world music and psychedelic rock, and mixes them together rather well.",
+        "Among the interesting tracks is \"Inside My Chest\" featuring Odile de Mainville, a kind of fusion of opera singing over a hip-hop beat. Other guests include Gaye Su Akyol on \"The Revolution\", Moonlight Benjamin on the title track and Hannah Williams."
+      ]
+    },
+    {
+      "slug": "united-freedom-collective-always-cosmic",
+      "spotify": "6upoedkcamo2xXXcO1peQU",
+      "label": "Multi Culti",
+      "text": [
+        "Four new and beautiful tracks from producer Photay: a little African music, dub and dance.",
+        "Always Cosmic includes Photay's remix and instrumental edit of \"Always Open (Falle's Roots)\", the title track and \"pH Dub\". Released on Multi Culti."
+      ]
+    }
+  ],
+  "more": []
+}

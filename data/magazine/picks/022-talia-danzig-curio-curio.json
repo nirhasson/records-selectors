@@ -1,0 +1,58 @@
+{
+  "issue": "022",
+  "slug": "022-talia-danzig-curio-curio",
+  "date": "2026-07-26",
+  "title": "Talia Danzig's debut, Curió Curió, Future Bubblers, Gary Bartz and Marco Benevento's Glera",
+  "description": "Five new albums: Talia Danzig's debut Tachzeri HaBayta, Curió Curió's Brazilian psychedelic disco, the Future Bubblers 9.0 compilation, Gary Bartz with Your Brother's Keeper, and Marco Benevento's Glera.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Five new albums I want you to hear: a brave Israeli debut, one of the records I've waited for most this year, a snapshot of the next generation of British jazz, a meeting between a jazz legend and a young London band, and an album that sounds like an old Italian movie."
+  ],
+  "albums": [
+    {
+      "slug": "טליה-דנציג-תחזרי-הביתה",
+      "spotify": "2nZnxhCL7KgymMVQQIokiZ",
+      "label": "Universal Music Israel",
+      "text": [
+        "Talia Danzig has released her debut album, Tachzeri HaBayta (Come Back Home). It's an album of exposed, charged lyrics, some of which tell the story of what she has been living through: her grandfather, Alex Danzig, was kidnapped on 7 October and murdered in captivity.",
+        "The songs are wrapped in plenty of groove and blend folk, reggae and African music. Eleven songs, from \"HaLevai SheYacholti\" to \"Shir BiSfat HaShemesh\". Released on Universal Music Israel."
+      ]
+    },
+    {
+      "slug": "curio-curio-curio-curio",
+      "spotify": "6h6tgc1Z4RGqMYeV4O7KT1",
+      "label": "Mr Bongo",
+      "text": [
+        "This is one of the albums I've been waiting for most since the single \"Vem pra Casa\" came out. Curió Curió are the duo of Luiza Monteiro, an actress and singer from Rio de Janeiro who lives in Austria, and the German producer Dustin Brown.",
+        "The meeting between the two has produced a project that is a celebration of Brazilian music, groove, psychedelic disco and a lot of other happy, fun things. Eleven songs, from \"Tô Chegando\" to \"A Cor do Meu Sonho\". Released on Mr Bongo."
+      ]
+    },
+    {
+      "slug": "allexa-nava-future-bubblers-9-0",
+      "bandcamp": "4182057170",
+      "label": "Brownswood Recordings",
+      "text": [
+        "Future Bubblers is a kind of incubator in the UK for discovering and developing talent, aiming to nurture promising artists and young people starting out in the music industry at the same time. Its compilation series, which began in 2017 and comes out every so often, showcases the talents and rising stars of the British jazz, electronic and hip-hop scenes.",
+        "If you want to discover unusual sounds and the artists who are probably going to be the next big thing in the British scene and beyond, listen to this one."
+      ]
+    },
+    {
+      "slug": "your-brothers-keeper-and-gary-bartz-where-rivers-meet",
+      "bandcamp": "3809113961",
+      "text": [
+        "Where Rivers Meet is a collaboration between jazz legend Gary Bartz and the young London group Your Brother's Keeper. The album grew out of an improvised meeting between them, and the music moves between meditative pieces and sweeping improvisations.",
+        "It's the kind of album you need to put on headphones and simply sink into."
+      ]
+    },
+    {
+      "slug": "marco-benevento-glera",
+      "spotify": "762GJcbrM7RA0YbatwbCEe",
+      "label": "Big Crown Records",
+      "text": [
+        "Marco Benevento is a busy pianist and producer, and Glera is his first album for the label Big Crown. It sounds like the soundtrack to an old Italian film, with plenty of soul and psychedelic pop influences. One of the best albums you'll hear.",
+        "Fourteen tracks with Italian titles and lovely guests: whistler Molly Lewis on \"Zio Tony\", trumpeter Dave Guy on \"Sorgini\", Chiara Civello on \"Quattro Passi\" and Marianne Mirage on \"Turandot\"."
+      ]
+    }
+  ],
+  "more": []
+}

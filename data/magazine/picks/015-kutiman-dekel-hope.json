@@ -1,0 +1,40 @@
+{
+  "issue": "015",
+  "slug": "015-kutiman-dekel-hope",
+  "date": "2026-06-07",
+  "title": "Kutiman and Dekel's Hope, Jerk's As Day Breaks and Bril's Love in Times of Annihilation",
+  "description": "Kutiman and Elran Dekel's new album Hope, Brooklyn multi-instrumentalist Jerk's EP As Day Breaks, and rapper Bril's Ahava BeYemei Kilayon.",
+  "author": "Nir Hasson",
+  "intro": [
+    "A comeback and a farewell, and three new records in between: two old friends who always make it work, a one-man band from Brooklyn, and an Israeli rapper who likes to push himself."
+  ],
+  "albums": [
+    {
+      "slug": "kutiman-and-dekel-hope",
+      "bandcamp": "783812354",
+      "text": [
+        "Hope is a new and beautiful album from Kutiman and Elran Dekel. The combination of the two always works, and it works on this album too.",
+        "Seven tracks. Highly recommended."
+      ]
+    },
+    {
+      "slug": "jerk-as-day-breaks",
+      "spotify": "2tw4RG62PMt6JFxmOecTh1",
+      "label": "DeepMatter Records",
+      "text": [
+        "Johnny Kinney, known as Jerk, is a composer, producer and multi-instrumentalist from Brooklyn. On his new EP he plays saxophone, flute, guitars, bass, Rhodes piano and synthesizer. The music blends jazz and funk with touches of jazz fusion and a little electronics.",
+        "\"as day breaks\" is the second part of a series, and the counterpart to his previous EP, \"as night falls\", released in November 2025. A fun album that can be perfect in the background, and even better when you really listen. Eight tracks, from \"still dreaming\" to \"as long as i breathe\"."
+      ]
+    },
+    {
+      "slug": "בריל-אהבה-בימי-כליון",
+      "spotify": "79rwCOKDWU0Wpa1tCWVNFi",
+      "label": "Netzach",
+      "text": [
+        "Ahava BeYemei Kilayon (Love in Times of Annihilation) is a new album from the rapper Bril. A member of the group Pele Ozen, Bril is known for his sharp writing and his willingness to take on experimental projects and challenge himself.",
+        "Twelve tracks with guest appearances from Shir Gabay on \"Bonanza\" and Alona Haber on \"Parpar Lavan\" (White Butterfly), closing with \"Akedat Ne'urim\"."
+      ]
+    }
+  ],
+  "more": []
+}

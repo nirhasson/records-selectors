@@ -1,0 +1,49 @@
+{
+  "issue": "020",
+  "slug": "020-rockfour-fathers",
+  "date": "2026-07-12",
+  "title": "Rockfour revisit a classic, the FATHERS supergroup, Baby Rose and Galliano's Acid Jazz Revenge",
+  "description": "Rockfour mark 30 years of Bachazara LaShablul with a covers EP, Nate Smith, Kiefer, CARRTOONS and Kenny Beats record FATHERS in 48 hours, Baby Rose's Yearnalism and acid jazz pioneers Galliano return.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Everywhere in the world festival season has started, and only here it's quiet. Until it isn't, here are four new records: an Israeli band celebrating thirty years of a classic, a jazz supergroup that made an album by accident, a soul-jazz singer on her third album, and a London band from the '80s that's back for revenge."
+  ],
+  "albums": [
+    {
+      "slug": "rockfour-בחזרה-לשבלול-צד-נוסף",
+      "spotify": "5ArghaNMlcUd6Qlh64FfQE",
+      "label": "NaNa Disc",
+      "text": [
+        "To mark thirty years since Rockfour released their album Bachazara LaShablul (Back to the Shell), the band is putting out a new EP, Bachazara LaShablul - Tzad Nosaf (Another Side).",
+        "It features covers of songs by Shalom Hanoch, Arik Einstein, Shem Tov Levy and Miki Gavrielov, with guest appearances from Berry Sakharof, Maor Cohen, Ninet Tayeb and Ilanit, plus a live recording from the Barby club in Tel Aviv. Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "nate-smith-kiefer-carrtoons-kenny-beats-fathers",
+      "spotify": "1EeNAliCb18UrU84kfqWmh",
+      "label": "Blue Note Records",
+      "text": [
+        "The next album belongs to a supergroup of some of the most interesting players in jazz, the kind who take the genre a few steps forward, combine it with electronics and hip-hop, and keep reinventing it. The members are Kenny Beats, a producer who has worked with artists like Vince Staples, Denzel Curry and Freddie Gibbs; Kiefer, a pianist and keyboardist who blends jazz with hip-hop and electronics; CARRTOONS, a New York bassist and producer; and drummer Nate Smith, who brought the original trio together in 2023.",
+        "They recorded the album in just 48 hours, during what was supposed to be a day of testing new equipment at Kenny Beats' studio. Eight tracks, from \"EYE LEVEL\" to \"FIGURE 8\". Released on Blue Note."
+      ]
+    },
+    {
+      "slug": "baby-rose-yearnalism",
+      "spotify": "3WaxSapHGFrhvipg1wuLta",
+      "label": "Secretly Canadian",
+      "text": [
+        "YEARNALISM is the new, third album from Baby Rose, a soul-jazz record.",
+        "Twelve songs with guest appearances from Leon Thomas on \"Friends Again\" and Elmiene on \"Is This Love\", from the opener \"When I'm Gone\" to the closing \"Jasmine's Sonnet\". Released on Secretly Canadian."
+      ]
+    },
+    {
+      "slug": "galliano-acid-jazz-revenge",
+      "spotify": "4oUno0JWm4Etl38X8v78XF",
+      "text": [
+        "Galliano are a London band who were a central part of the city's music culture in the late '80s. The band reunited about two years ago and has been playing festivals and releasing new music ever since. Last week they put out their new album, Acid Jazz Revenge.",
+        "It's a fun mix of acid jazz, funk, jazz, rap and soul, with gloriously long song titles like \"Do Your Own Tax and Dental Work\" and \"Unreliable Memories of Contested Conversations\". Eleven tracks."
+      ]
+    }
+  ],
+  "more": []
+}

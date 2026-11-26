@@ -1,0 +1,58 @@
+{
+  "issue": "035",
+  "slug": "035-ethiopian-organ-grooves",
+  "date": "2026-11-08",
+  "title": "Ethiopian organ grooves, BILTEEZ, Shiroto and a new Philly soul gem",
+  "description": "Teodros Makonnen's synth-powered Ethiopian classic, the BILTEEZ project with Ester Rada and Daniel Zamir, Shiroto's sharp new rap album, Raphael Meleteas and Mike James Kirkland with Monophonics.",
+  "author": "Nir Hasson",
+  "intro": [
+    "This week Ethiopian Jews in Israel celebrate the Sigd, and by coincidence this issue has an Ethiopian thread running through it: the story of the pianist who brought synthesizers into Ethiopian music, and a new project featuring Ester Rada. Alongside them, a veteran Israeli rapper, a one-man orchestra from Athens and a soul singer who sounds like Philadelphia in its prime."
+  ],
+  "albums": [
+    {
+      "slug": "teodros-makonnen-teodros-makonnen-with-his-organ",
+      "bandcamp": "2429931799",
+      "text": [
+        "Bandcamp recently told the story of Teodros Makonnen, the musician who brought the organ and the synthesizer into Ethiopian music and created a sound that influenced generations of Ethiopian players. Teddy was a young pianist whose father, a pilot, exposed him as a child to jazz and soul records from America. He developed a unique improvising style that led him to play and arrange for the leading bands in the hotels of Addis Ababa.",
+        "In the 1970s, under the censorship of the Derg regime, which monitored song lyrics, bands switched to instrumental music and recorded in secret at night. The change came in the 1980s, when Teddy was invited to try a Yamaha double-deck synthesizer with a drum machine, brought over by an employee of the Saudi embassy. That same night the two of them recorded Teodros Makonnen With His Organ, an album that set traditional Ethiopian songs to new electronic rhythms and sounds. It widened the sound of Ethio-jazz and established Makonnen as a pioneer."
+      ]
+    },
+    {
+      "slug": "bilteez-ester-rada-daniel-zamir-michael-meital-bilteez",
+      "spotify": "3Y9d20G9NpzYThfVpYVXRn",
+      "label": "Universal Music Israel",
+      "text": [
+        "BILTEEZ is a new and very special project from saxophonist Daniel Zamir, Michael Meital and singer Ester Rada. The album connects electronic music, Jewish music, jazz, Balkan music and Middle Eastern music, and somehow makes them sound like they always belonged together.",
+        "Eleven tracks, from \"Vanity\" and \"Like A Deer\" to \"Dance Now\" and \"No More Words\", with Rada's voice at the center and Zamir's saxophone weaving around it. Released on Universal Music Israel."
+      ]
+    },
+    {
+      "slug": "shiroto-שקר-הפייסט-והבל-הקופי",
+      "spotify": "36PcQrzXgTlRJXVbGemUvv",
+      "label": "Kame'a",
+      "text": [
+        "Shiroto is a very seasoned producer and rapper. He was already appearing on the albums of his father, Sagol 59, as a child, and he has worked with many of the biggest names in Israeli rap. His new album takes its title from a twist on a famous line from Proverbs, \"charm is deceitful and beauty is vain\".",
+        "Nine songs that he produced himself, with sharp writing full of punchlines. The guests include Guy Mar, Galgul, Roni Chaver and, on \"Uncut / HaDor HaKodem\" (The Previous Generation), his father Sagol 59. Released on Kame'a."
+      ]
+    },
+    {
+      "slug": "raphael-meleteas-someone-else",
+      "spotify": "66ZIaI1rbANL94GDFDzt7d",
+      "label": "Veego Records",
+      "text": [
+        "Raphael Meleteas is a producer, pianist and drummer based in Athens, and Someone Else is his debut album. It grew out of a home experiment: he wanted to make an album entirely on his own that would sound like a whole orchestra.",
+        "The result is a beautiful record with a warm sound that blends jazz, folk and rock, drawing inspiration from classic film scores. Nine pieces with titles like diary entries, \"January 3rd\", \"Three Afternoons\", \"May 19th\", \"Quincy's Spring\". Released on Veego Records."
+      ]
+    },
+    {
+      "slug": "mike-james-kirkland-and-monophonics-the-business",
+      "bandcamp": "2768112498",
+      "label": "Ubiquity Records",
+      "text": [
+        "The Business is a collaboration between veteran soul singer Mike James Kirkland and the band Monophonics, led by Kelly Finnigan, who handled the arrangements and production. The production draws on the Philly Soul sound, with rich orchestral arrangements and horns.",
+        "The album was recorded between 2021 and 2022 and finally came out on Ubiquity Records. Ten songs, from \"We Deserve This\" and \"Can't Fake Romance\" to the title track and \"Glowin'\"."
+      ]
+    }
+  ],
+  "more": []
+}

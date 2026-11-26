@@ -1,0 +1,82 @@
+{
+  "issue": "029",
+  "slug": "029-coltrane-at-100",
+  "date": "2026-09-27",
+  "title": "Coltrane at 100, plus new Romare, Son Lux, Okvsho and El Búho",
+  "description": "John Coltrane turns 100 and decades of secret club recordings finally come out. Plus five new records: Romare's Oblivion, Son Lux's Out Into, Okvsho, El Búho and K-Lone.",
+  "author": "Nir Hasson",
+  "intro": [
+    "A holiday week, which means a little more time to listen. This week belongs to John Coltrane, who would have turned 100, and to a story about a fan with a hidden tape recorder that sounds too good to be true. Below it you'll find five new records I couldn't stop playing, from Romare's warm machine music to the cumbia-tinged electronics of El Búho."
+  ],
+  "albums": [
+    {
+      "slug": "romare-oblivion",
+      "spotify": "5E5PELg1wLvwPtd8VORw4l",
+      "text": [
+        "Romare is back with his fifth album, Oblivion, and this time he is looking hard at the world around him. Across twelve tracks he takes on the things that keep us up at night: our dependence on technology, social justice, the climate crisis. Song titles like \"Computer Love\", \"Machines\" and \"Deeds, Not Words\" spell out the themes, but the record never turns preachy. For every anxious moment there's a message of optimism, and the album closes, fittingly, on \"The Last Lullaby\".",
+        "Musically, Romare keeps working the edges of electronic music. There's downtempo, broken beat and a little techno, all built on warm analogue synths, with sci-fi voices and samples from old documentaries about computers drifting through the mix. Released on All You See."
+      ],
+      "label": "All You See"
+    },
+    {
+      "slug": "okvsho-frozen-flashes",
+      "spotify": "21GPT25bZsfbb5qYXDvgL8",
+      "text": [
+        "Okvsho are two brothers, and Frozen Flashes started as a series of live sessions in Zurich and London. They recorded spontaneous improvisations and grooves together, then went back to the tapes and cut, looped and rearranged them into nine tight tracks. The result sits right where jazz, hip-hop and soul meet: loose enough to feel played, precise enough to feel produced.",
+        "The guest list says a lot about the scene they come from. Azekel sings on \"Pluto\", FloFilz and Melodiesinfonie join on \"sl.wm.ed.\", Hadēl appears on \"La Joconde\", and saxophonist and flautist Tenderlonious brings his tone to \"Roottree\". If you like the beat-tape side of contemporary jazz, start here. Out on Current Moves."
+      ],
+      "label": "Current Moves"
+    },
+    {
+      "slug": "el-buho-hogar",
+      "spotify": "0uhBfRQZkUFxEI6W9urTsO",
+      "text": [
+        "El Búho makes music that sits between Latin American rhythms like cumbia and electronic production. His new album is built entirely around one idea: Hogar, Spanish for \"home\". It grew out of his own experience of putting down roots with his family for the first time, alongside reflections on migration, the search for identity, and people forced to leave their homes because of climate change or war.",
+        "It's a generous record, full of collaborators: Pita Amor on \"Cumbia De Polvo\", Humazapas and La Mafiandina on \"Adiós\", Chuskupura and Eat My Butterfly on \"Canto al Sol\", Ana María Vahos on \"Nuevos Horizontes\". Released on Shika Shika."
+      ],
+      "label": "Shika Shika"
+    },
+    {
+      "slug": "son-lux-out-into",
+      "spotify": "6gr1IdpcsuyET1Lf7zB2vg",
+      "text": [
+        "It's always a pleasure to hear new Son Lux. The trio of Ryan Lott, Rafiq Bhatia and Ian Chang spent the last few years mostly making film scores, including the Oscar-nominated score for Everything Everywhere All at Once. Now they're back with their ninth studio album, recorded over two years in the gaps between film projects.",
+        "Lott explains the title as the idea that \"every moment is at once a leaving of one thing and an entering into another\". Nine songs, from the opener \"Want You To Love\" to the closing \"No God Like A King\". Out on City Slang."
+      ],
+      "label": "City Slang"
+    },
+    {
+      "slug": "k-lone-have-a-few-days-off",
+      "spotify": "11PubMyNVBm1RYpNwfWjbo",
+      "text": [
+        "K-Lone is an English producer I've been following for a while, and new music from him is always good news. Have a few days off is a six-track EP that mixes house, drum and bass and techno, all wrapped in melody and emotional, glowing sound design. It's club music that doesn't forget to be beautiful.",
+        "Highlights include the title track, the live mix of \"Self care\", and \"eerhT owT enO\", whose title is \"One Two Three\" spelled backwards. Released on Wisdom Teeth."
+      ],
+      "label": "Wisdom Teeth"
+    }
+  ],
+  "more": [
+    {
+      "title": "John Coltrane at 100",
+      "text": [
+        "Last Wednesday, 23 September, John Coltrane, born in 1926, would have turned 100. In just forty years he became one of the most admired and influential saxophonists who ever lived, released 25 albums as a leader, and shaped generations of musicians in jazz, hip-hop, electronic music and beyond.",
+        "To mark the centenary, there's a story worth knowing. In the 1960s, saxophonist Frank Tiberi bought a portable tape recorder and simply started following Coltrane to his shows. Sitting in the audience with a reel-to-reel recorder hidden in a cloth bag on his lap and a small microphone under his coat, he recorded more than 80 reels over the years: hours of club performances in New York and Philadelphia. For decades these tapes were a legend in the jazz world. They're coming out as an album on 6 November. As a first taste, here's \"Giant Steps\" at a slower-than-usual 226 BPM, from those recordings."
+      ],
+      "youtube": "JVZqJqr_nfI"
+    },
+    {
+      "title": "Bonobo in a kimono dye workshop",
+      "text": [
+        "YouTube channels that film DJ sets in unusual places have become routine. We've had rooftops, basements, snowy mountains, train stations and bicycles. But there are still surprises, like this Bonobo set filmed in Shinjuku, Tokyo, inside a historic workshop that dyes fabric for traditional kimonos."
+      ],
+      "youtube": "QqUBoYmFyKI"
+    },
+    {
+      "title": "A playlist of Brazilian grooves",
+      "text": [
+        "A playlist I put together of groovy, joyful Brazilian music. It keeps growing, so save it and come back every so often to see what's new."
+      ],
+      "spotifyPlaylist": "6PPB7q4OtHXDVWwgytcaEn"
+    }
+  ]
+}

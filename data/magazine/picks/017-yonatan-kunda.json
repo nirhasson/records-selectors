@@ -1,0 +1,40 @@
+{
+  "issue": "017",
+  "slug": "017-yonatan-kunda",
+  "date": "2026-06-21",
+  "title": "Yonatan Kunda's debut, immortal nightbody's Intent II Sell and Kreatev's Warm Summer Nights",
+  "description": "Spoken-word poet and rapper Yonatan Kunda's debut album, immortal nightbody's genre-bending hip-hop record Intent II Sell, and Kreatev's laid-back Warm Summer Nights.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Short and fun for the start of the week: a poet's debut packed with wordplay, a restless hip-hop record that refuses to stay in one genre, and five easy pieces for warm evenings."
+  ],
+  "albums": [
+    {
+      "slug": "yonatan-kunda-השגחה-פראית",
+      "spotify": "6ymzq4g27IvlAKgDLyZ1Us",
+      "label": "NaNa Disc",
+      "text": [
+        "Yonatan Kunda is a rapper, poet and spoken-word artist who was once a member of the group System Ali. He's now released his debut album, HaShgacha Pra'it, a play on the Hebrew phrase for divine providence that turns it into \"wild providence\".",
+        "Nine songs, each carrying some kind of statement, social criticism or reflection on the state of things. He does it in his own unique way and with lots of wordplay, so that every time you listen you'll discover something new and clever. One standout is \"Mash'allah\", whose title is written in both Hebrew and Arabic, with Nur Razak. Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "immortal-nightbody-intent-ii-sell",
+      "spotify": "6VkoHZfkmzElGAjxJriF7q",
+      "text": [
+        "A very intriguing hip-hop album with extremely varied productions: a bit of electronics, a bit of rock, a bit reminiscent of Death Grips, a trip back to the '80s with drum machines, some gothic touches. In short, varied and interesting.",
+        "Nine tracks, from \"el area\" to \"good luck 2 u\", including \"venus in scorpio\" and a track named \"paid in full\"."
+      ]
+    },
+    {
+      "slug": "kreatev-warm-summer-nights",
+      "spotify": "1WHZyAPRrBiTHIkE6VkDQN",
+      "label": "Radio Juicy",
+      "text": [
+        "If you're in the mood for something calmer, listen to the new album from producer Kreatev, Warm Summer Nights, released on the German label Radio Juicy.",
+        "Five fun, pleasant tracks of groove, jazz and electronics, with titles that set the scene: \"Light Pollution\", \"City Lights\", \"Blue Hour\", \"180sx\" and \"After Hours\"."
+      ]
+    }
+  ],
+  "more": []
+}

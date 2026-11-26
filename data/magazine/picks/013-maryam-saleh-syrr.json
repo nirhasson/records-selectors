@@ -1,0 +1,39 @@
+{
+  "issue": "013",
+  "slug": "013-maryam-saleh-syrr",
+  "date": "2026-05-17",
+  "title": "Maryam Saleh's Syrr, Esa Williams' Dala What We Must and Titi Robin's Lovari",
+  "description": "Egyptian singer Maryam Saleh's album Syrr, South African producer Esa Williams' Dala What We Must, and Titi Robin's Lovari, a collection of recordings from 1993 to 2011.",
+  "author": "Nir Hasson",
+  "intro": [
+    "A few new and interesting albums that came out recently: a boundary-breaking voice from Cairo, a Cape Town producer working out of London, and a French musician who has spent forty years traveling between Gypsy musical traditions."
+  ],
+  "albums": [
+    {
+      "slug": "maryam-saleh-syrr",
+      "bandcamp": "2230826250",
+      "text": [
+        "Maryam Saleh is a well-known and influential singer in Egypt's alternative music scene. She's known for breaking boundaries in Arabic music, combining traditional and modern music.",
+        "She recently released her new album, Syrr (Arabic for \"secret\"), which she worked on for three years."
+      ]
+    },
+    {
+      "slug": "esa-williams-dala-what-we-must",
+      "spotify": "20ZP6v7s2jysSdvThm433L",
+      "label": "BBE Music",
+      "text": [
+        "Esa Williams is a South African producer, DJ and sound engineer based in London. His music draws on his roots in Cape Town and on the global influences he has gathered throughout his career. The title of his new album, Dala What We Must, is a South African expression that calls on you to \"do what must be done\", even in uncertain conditions.",
+        "It was produced in collaboration with musician Robin G. Breeze and combines field recordings with layers of live instruments, electronics and African music. The guests include Nonku Phiri on \"Nakupenda\", LOS PREAM on \"Yanga\", Chisara Agor on \"Summerskin\" and Kujenga on the title track. Released on BBE."
+      ]
+    },
+    {
+      "slug": "titi-robin-lovari",
+      "bandcamp": "456014213",
+      "text": [
+        "Titi Robin is a musician, composer and poet who has been active since the early '80s. Over the years he has traveled the world and explored the music of places like Catalonia, India and Morocco, combining the culture he grew up in, the Anjou region of France, with Gypsy cultures from different parts of the world.",
+        "Lovari is a collection of songs produced between 1993 and 2011, newly remastered and gathered on one album for the first time. The music combines Catalan rumba rhythms, strings that wrap around the melody of the bouzouki, and wind instruments like the clarinet and the kaval, the Balkan flute."
+      ]
+    }
+  ],
+  "more": []
+}

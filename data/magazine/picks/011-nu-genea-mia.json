@@ -1,0 +1,40 @@
+{
+  "issue": "011",
+  "slug": "011-nu-genea-mia",
+  "date": "2026-05-03",
+  "title": "Nu Genea's People of the Moon, M.I.A.'s M.I.7 and Slimfim with Ori Shochat",
+  "description": "Nu Genea's multilingual People of the Moon with Tom Misch, M.I.A.'s gospel-inspired seventh album M.I.7, and Hell Cat, the 16-song collaboration between rapper Slimfim and producer Ori Shochat.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Cinco de Mayo week, and three albums that couldn't be more different: a Neapolitan duo that sings in five languages, a pop provocateur who found God, and an Israeli rapper and producer who made sixteen songs about everyday life."
+  ],
+  "albums": [
+    {
+      "slug": "nu-genea-people-of-the-moon",
+      "spotify": "7b2loBX3KU66zmHk4UI30K",
+      "label": "NG Records",
+      "text": [
+        "The Italian producer duo Nu Genea have released People of the Moon. The new album mixes a range of styles, influences and languages, among them Italian, Arabic, English, Spanish and Portuguese.",
+        "Musically they move between Afro-Cuban influences, highlife guitars, the zurna and the mandolins that have become their trademark. The guests include British musician Tom Misch on \"Onenon\", Spanish singer María José Llergo on \"Acelera\" and \"Celavì\", Fabiana Martone, Celinatique and Gabriel Prado. Ten tracks, released on their own NG Records."
+      ]
+    },
+    {
+      "slug": "m-i-a-m-i-7",
+      "spotify": "6TGoIu9hPSLt2fYgdThVKD",
+      "text": [
+        "Last month M.I.A. released M.I.7, her seventh album, which she has described as gospel and Christian pop after declaring that she had become a \"born-again Christian\" following a vision of Jesus. The album is built around the seven trumpets and the seven seals of the Book of Revelation in the New Testament.",
+        "It includes seven songs written in seven different countries, Ethiopia, Egypt, India, Britain, Greece, Australia and the United States, each written over seven days in its location, linked by seven \"Trumpet\" interludes. The Sunday Service Choir appears on \"JESUS\" and \"CALLING\". An album that can be a little challenging and knowing, but to my ears the songs are worth hearing."
+      ]
+    },
+    {
+      "slug": "ori-shochat-slimfim-חתול-גיהנום",
+      "spotify": "1NSFBpVtXHyPSpPz2hA9xz",
+      "label": "Helicon",
+      "text": [
+        "Slimfim, one of the most interesting rappers in Israel, has teamed up with Ori Shochat, a veteran and very active hip-hop producer, and together they've released Chatul Gehinom (Hell Cat), which includes sixteen songs!",
+        "Song titles like \"Kafe U'Ma'afe\" (Coffee and a Pastry), \"Kelim BaKiyor\" (Dishes in the Sink) and \"Bissli Boys\" give a sense of its everyday, funny world, with guests Gozal and Cohen along the way. Released on Helicon."
+      ]
+    }
+  ],
+  "more": []
+}

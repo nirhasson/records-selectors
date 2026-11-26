@@ -1,66 +1,100 @@
+:root {
+    --bg: #232326;
+    --ink: #ececec;
+    --muted: #9c9ca4;
+    --line: #3a3a40;
+    --accent: #8281FE;
+    --accent-soft: rgba(130, 129, 254, 0.16);
+}
+::selection { background: var(--accent); color: #fff; }
+
 body {
     font-family: "Jockey One", serif;
     text-align: center;
     margin: 0;
-    background-color: #373737;
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-header {
-    position: absolute;
-    top: 30px;
-    left: 60px;
+/* ===== Site header: logo on the left, menu on the right (same on every page) ===== */
+.site-header {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 28px;
+    position: relative;
+    z-index: 100;
 }
-
-/* עיצוב הלוגו בדסקטופ */
+.logo-link { display: block; line-height: 0; flex-shrink: 0; }
 #logo {
-    position: absolute;
-    top: 20px; /* שמירת מרווח מהחלק העליון */
-    left: 20px; /* הצמדת הלוגו לשמאל */
-    width: 150px; /* גודל סטנדרטי */
-    z-index: 100; /* ווידוא שהלוגו מעל כל האלמנטים */
+    display: block;
+    width: 150px;
+    height: auto;
 }
 
-/* התאמות למובייל */
-@media (max-width: 768px) {
-    #logo {
-        width: 100px;
-        top: 10px;
-        left: 10px;
-        display: block;
-        position: fixed;
-    }
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
-
-/* Saved counter — top right */
-#saved-counter {
-    position: fixed;
-    top: 24px;
-    right: 30px;
-    background: transparent;
-    border: 1px solid rgba(130,129,254,0.35);
-    color: rgba(130,129,254,0.6);
+.site-nav a {
+    color: var(--muted);
     font-family: "Jockey One", serif;
-    font-size: 0.82em;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+.site-nav a:hover { color: #fff; }
+.site-nav a[aria-current="page"] {
+    color: #fff;
+    background: var(--accent-soft);
+}
+.site-nav a:focus-visible,
+#saved-counter:focus-visible {
+    outline: 2px solid #8281FE;
+    outline-offset: 2px;
+}
+
+#saved-counter {
+    margin: 0 0 0 6px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    font-family: "Jockey One", serif;
+    font-size: 14px;
     padding: 5px 14px;
     border-radius: 20px;
     cursor: pointer;
-    z-index: 200;
     display: flex;
     align-items: center;
     gap: 5px;
+    white-space: nowrap;
     transition: all 0.18s ease;
-    margin: 0;
 }
-#saved-counter:hover { border-color: #8281FE; color: #8281FE; }
-#saved-counter.has-saves { border-color: rgba(130,129,254,0.5); color: rgba(130,129,254,0.75); }
+#saved-counter:hover { border-color: var(--muted); color: #fff; }
+#saved-counter.has-saves { border-color: rgba(130,129,254,0.5); color: #c9c8ff; }
 #saved-heart { font-size: 1.1em; }
 
 @media (max-width: 768px) {
-    #saved-counter { top: 12px; right: 32px; font-size: 0.75em; padding: 4px 10px; }
+    .site-header { padding: 14px 14px; gap: 8px; }
+    #logo { width: 96px; }
+    .site-nav { gap: 0; }
+    .site-nav a { font-size: 14px; padding: 6px 8px; }
+    #saved-counter { font-size: 13px; padding: 4px 10px; margin-left: 4px; }
+}
+@media (max-width: 370px) {
+    #logo { width: 84px; }
+    .site-nav a { font-size: 13px; padding: 6px 6px; }
+    #saved-count-label { display: none; } /* the heart and count are enough on very narrow phones */
 }
 
 /* Save button on result screen */
@@ -116,7 +150,7 @@ header {
 /* Saved albums screen */
 #saved-screen {
     text-align: center;
-    padding: 50px 20px;
+    padding: 12px 20px 40px;
 }
 #saved-screen .saved-heading {
     font-family: "Jockey One", serif;
@@ -250,41 +284,72 @@ header {
 #back-from-saved:hover { border-color: #8281FE; color: #8281FE; }
 
 #main-screen {
-    display: block;
     text-align: center;
-    padding: 50px;
+    padding: 0 16px;
 }
 
-#main-screen h1,
-#main-screen h2,
-#main-screen h3 {
-    margin-bottom: 20px;
+/* One centered column that fills the screen: intro, then the button at the optical center, then the filter */
+.home-stage {
+    min-height: calc(100svh - 190px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0 24px;
+}
+
+#main-text {
+    max-width: 640px;
+}
+#main-text h1 {
+    color: #fff;
+    font-size: clamp(32px, 4.4vw, 48px);
+    line-height: 1.05;
+    margin: 0 0 10px;
+    text-wrap: balance;
+}
+#main-text h2 {
+    font-size: clamp(19px, 2.2vw, 25px);
+    line-height: 1.2;
+    margin: 0 0 6px;
+}
+#main-text h3 {
+    color: #d6d6d6;
+    font-size: clamp(15px, 1.6vw, 18px);
+    line-height: 1.35;
+    margin: 0;
+}
+#main-text .hero-sub {
+    max-width: 44ch;
+    margin: 12px auto 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.5;
+    opacity: 1;
+    color: var(--muted);
+    text-wrap: balance;
 }
 
 .button-wrap {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     width: 200px;
     height: 200px;
+    margin: clamp(32px, 6.5vh, 64px) auto 0;
+    flex-shrink: 0;
 }
 
 #genre-filter {
-    position: absolute;
-    top: calc(55% + 125px);
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(90%, 620px);
+    width: min(100%, 620px);
+    margin-top: clamp(28px, 5.5vh, 52px);
 }
 
 .filter-label {
-    color: #a8a8a8;
-    font-size: 0.72em;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin: 0 0 8px;
-    text-align: center;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
 }
 
 #genre-pills {
@@ -296,8 +361,8 @@ header {
 
 .genre-pill {
     background: transparent;
-    border: 1px solid #555;
-    color: #a8a8a8;
+    border: 1px solid var(--line);
+    color: var(--muted);
     font-family: "Jockey One", serif;
     font-size: 0.72em;
     padding: 5px 13px;
@@ -309,20 +374,31 @@ header {
 }
 
 .genre-pill:hover {
-    border-color: #8281FE;
-    color: #8281FE;
+    border-color: var(--muted);
+    color: #fff;
     background-color: transparent;
 }
 
 .genre-pill.active {
-    background-color: #8281FE;
-    border-color: #8281FE;
-    color: white;
+    background-color: var(--accent-soft);
+    border-color: var(--accent);
+    color: #fff;
 }
 
+/* Phones: one row you swipe sideways, instead of a block of wrapped pills */
 @media (max-width: 768px) {
-    #genre-filter { top: calc(55% + 115px); width: 95%; }
-    .genre-pill { font-size: 0.68em; padding: 4px 10px; }
+    #genre-filter { width: calc(100% + 32px); margin-left: -16px; margin-right: -16px; }
+    #genre-pills {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 2px 16px 6px;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 28px), transparent 100%);
+        mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 28px), transparent 100%);
+    }
+    #genre-pills::-webkit-scrollbar { display: none; }
+    .genre-pill { flex: none; font-size: 0.74em; padding: 5px 12px; }
 }
 
 h1 {
@@ -349,12 +425,13 @@ h3 {
 }
 
 #explore-button {
-    background: url("images/riffle-btn.svg") no-repeat center center;
-    background-size: contain;
+    background: var(--accent);
     border: none;
-    width: 200px;
-    height: 200px;
-    margin: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 11px var(--bg), 0 0 0 12px rgba(130, 129, 254, 0.45), 0 18px 40px rgba(0, 0, 0, 0.35);
+    width: 176px;
+    height: 176px;
+    margin: 12px;
     padding: 15px 25px;
     display: flex;
     justify-content: center;
@@ -365,7 +442,7 @@ h3 {
 
 /* עיצוב הטקסט */
 #explore-button span {
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
     color: white;
     font-family: 'Jockey One', sans-serif;
@@ -385,13 +462,13 @@ h3 {
 #result-screen {
     color: white;
     text-align: center;
-    padding: 60px 20px 40px;
+    padding: 0 16px 40px;
 }
 
 .result-card {
     box-sizing: border-box; /* padding counts inside max-width, so the card never overflows a phone screen */
     max-width: 420px;
-    margin: 32px auto 0;
+    margin: 12px auto 0;
     padding: 28px 24px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #444;
@@ -509,11 +586,8 @@ h3 {
 }
 
 #explore-error {
-    position: absolute;
-    top: calc(55% + 90px);
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(90%, 420px);
+    width: min(100%, 420px);
+    margin: 16px auto 0;
 }
 
 .empty-message {
@@ -541,10 +615,6 @@ h3 {
 }
 
 @media screen and (max-width: 768px) {
-    #logo {
-        max-width: 60%; /* לוגו קטן יותר במובייל */
-    }
-
     #explore-button {
         font-size: 18px;
         padding: 12px 20px;
@@ -554,9 +624,10 @@ h3 {
         font-size: 16px; /* הקטנת כותרות כך שלא יצאו מהמסך */
     }
 
-    #main-screen {
-        padding: 50px 10px;
-    }
+    .home-stage { min-height: calc(100svh - 170px); }
+    .button-wrap { width: 176px; height: 176px; }
+    #explore-button { width: 152px; height: 152px; }
+    #explore-button span { font-size: 21px; }
 }
 
 .content-wrap {
@@ -564,14 +635,14 @@ h3 {
 }
 
 footer {
-    color: #FFFFFF;
+    color: var(--muted);
     padding: 20px;
     font-size: 12px;
     text-align: center;
 }
 
 footer a {
-    color: #FFFFFF; /* ירוק של ספוטיפיי */
+    color: var(--ink);
     text-decoration: none;
     font-weight: bold;
 }
@@ -853,3 +924,6 @@ footer a:hover {
 @media (prefers-reduced-motion: reduce) {
     .install-sheet { transform: none; transition: opacity 200ms ease; }
 }
+
+#explore-button:focus-visible { outline: 2px solid #fff; outline-offset: 16px; }
+.genre-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

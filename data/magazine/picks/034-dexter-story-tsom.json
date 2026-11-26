@@ -1,0 +1,49 @@
+{
+  "issue": "034",
+  "slug": "034-dexter-story-tsom",
+  "date": "2026-11-01",
+  "title": "Dexter Story's T'som, Sampa The Great's Nu Zamrock, Mocky's rarities and Hallel in the desert",
+  "description": "Dexter Story's Ethiopian-inspired T'som, Sampa The Great's Zamrock-meets-hip-hop Nu Zamrock, Mocky's Japanese rarities, and Shai Tsabari and Patrick Sebag's Hallel, recorded on a bus in the desert.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Four records with deep roots this week: a Los Angeles composer drawing on Ethiopian music and the spiritual practice of fasting, a rapper reconnecting with the Zambian rock of the '70s, a treasure chest of hard-to-find tracks, and ancient liturgy set to electronics in the middle of the desert."
+  ],
+  "albums": [
+    {
+      "slug": "dexter-story-tsom",
+      "bandcamp": "3847831791",
+      "text": [
+        "Dexter Story is a producer, composer, arranger and music researcher, and one of the central figures of the Los Angeles music scene. He has worked with artists like Madlib, Kamasi Washington, Mulatu Astatke and Carlos Niño. His new album, T'som, means \"fast\" in Amharic (just as it does in Hebrew), and it's his sixth solo album.",
+        "It draws directly on the spiritual essence of fasting, prayer and introspection as practiced in different religions. The music combines traditional Ethiopian music with Middle Eastern influences, Ethio-jazz and soul, and the guest list is superb: Sudan Archives, Kamasi Washington, Georgia Anne Muldrow, Jimetta Rose and more."
+      ]
+    },
+    {
+      "slug": "sampa-the-great-nu-zamrock",
+      "spotify": "3XRKBEcQMSiMzGcGQJ2qDz",
+      "label": "Loma Vista Recordings",
+      "text": [
+        "Rapper and poet Sampa The Great released Nu Zamrock last weekend. The album closes an artistic circle, combining the Zambian psychedelic rock of the 1970s, known as Zamrock, with the sharp hip-hop only she can make.",
+        "Across sixteen tracks she collaborates with artists like Sia on \"Supernova\", Mwanjé on \"Can't Hold Us\" and KAMAUU on \"Star\", delivering a powerful, complete work that expresses her connection to her African heritage. Released on Loma Vista Recordings."
+      ]
+    },
+    {
+      "slug": "mocky-amaimono-japanese-exclusives-and-rarities",
+      "spotify": "6EGTpVNTTneMje79YDQm6Z",
+      "label": "Heavy Sheet",
+      "text": [
+        "Producer and multi-instrumentalist Mocky has released ten solo albums over his career and worked with Feist, Jamie Lidell, Chilly Gonzales, GZA, Kelela, Moses Sumney and many more. Now he's releasing a new compilation of 28 tracks: bonus tracks that only came out on Japanese editions, B-sides from vinyl records, jams from SoundCloud and remixes that were never released before.",
+        "The title means \"sweet things\" in Japanese, and the collection gives a great overview of his eclectic music. It includes special remixes featuring Chilly Gonzales and Miguel Atwood-Ferguson, plus appearances from Joey Dosik, Nia Andrews and Mark de Clive-Lowe. Released on Heavy Sheet."
+      ]
+    },
+    {
+      "slug": "shai-tsabari-patrick-sebag-הלל",
+      "spotify": "6vHp8FyGMXM7c0T6psXise",
+      "label": "NaNa Disc",
+      "text": [
+        "Earlier this month Shai Tsabari and Patrick Sebag released Hallel, their joint album. It was recorded over seven days in a mobile studio that Sebag set up inside a bus in the desert, with the aim of turning the place into a creative space. The first artist to arrive was Tsabari, who brought with him the Hallel prayer book, the psalms and liturgical poems sung on Jewish holidays, and the project began from there, without any advance planning.",
+        "The result is seven pieces that set piyyutim, sung in Tsabari's powerful voice, over Patrick Sebag's electronic production. Elyasaf Bashari joins on \"Hallel 3\" and Einat Harel on \"Hallel 4\". Released on NaNa Disc."
+      ]
+    }
+  ],
+  "more": []
+}

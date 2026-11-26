@@ -1,0 +1,50 @@
+{
+  "issue": "028",
+  "slug": "028-ezra-collective-hope",
+  "date": "2026-09-15",
+  "title": "Ezra Collective's Here Because of Hope, Tiny Fingers return, Kelly Finnigan's rarities and HUG",
+  "description": "Ezra Collective's concept album Here Because of Hope, Tiny Fingers' first album in a decade, Kelly Finnigan's B-sides and forgotten gems, and HUG, the ambient guitar trio of Devendra Banhart, Gyan Riley and Noah Georgeson.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Good things for the holidays. This week there's a jazz band telling the story of Black music across three continents, an Israeli band back after ten years, fifteen years of soul from one of the genre's busiest figures, and three friends with guitars making the gentlest record of the season."
+  ],
+  "albums": [
+    {
+      "slug": "ezra-collective-here-because-of-hope",
+      "spotify": "4BKNpqrUgWxpA1d8u5e95j",
+      "label": "Partisan Records",
+      "text": [
+        "Ezra Collective, the much-loved and hugely popular jazz band, are releasing their fourth and long-awaited studio album, Here Because of Hope. The album is divided into three parts, separated by spoken-word pieces performed by the actress Letitia Wright. It's a kind of concept album that follows the geographical and spiritual migration of Black music across continents and eras, from its origins in West Africa, through the Caribbean and America, to the streets of London.",
+        "The idea grew out of band leader Femi Koleoso's question: how do genres of Black music like Afrobeat or calypso, born out of suffering, war and poverty, manage to sound so celebratory and full of life on the dancefloor? Their answer is Hope, the belief that redemption is possible. The album mixes in Latin music, rap and reggae, with surprising guests like Lila Iké, Leona Lewis and Libianca, and Pa Salieu on \"Only Love\", one of my favorite songs of recent months."
+      ]
+    },
+    {
+      "slug": "tiny-fingers-phoenix",
+      "spotify": "2p2rvMMmp6Iy7waZkii9Wd",
+      "label": "NaNa Disc",
+      "text": [
+        "A decade after their last album, the Israeli band Tiny Fingers are back with a new one. Phoenix is a fun musical journey of the kind only they know how to deliver.",
+        "Eight instrumental tracks, from \"Future Kick\" and \"Movements\" through \"Helicon\" and \"Spector\", bookended by the title track and its sequel, \"Phoenix II\". A welcome return. Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "kelly-finnigan-b-sides-singles-and-forgotten-gems",
+      "spotify": "0AKwUh3Dno1DzAjhQC7AmK",
+      "label": "Colemine Records",
+      "text": [
+        "Kelly Finnigan is a soul singer, producer and musician from San Francisco, considered a leading and highly respected figure in today's soul scene. He has been part of several bands and has worked closely with groups like Monophonics.",
+        "This compilation sums up fifteen years of work with the label Colemine Records, collecting rare tracks, B-sides and singles in one place. Ten songs, from \"Freedom\" and \"She Won't Be Gone Long\" to \"The Hurting Truth\", that make a perfect introduction if you've only heard his name in the credits."
+      ]
+    },
+    {
+      "slug": "hug-gyan-riley-devendra-banhart-noah-georgeson-hug",
+      "spotify": "0SrGatXlMlf7HSk3txlQuK",
+      "label": "Luaka Bop",
+      "text": [
+        "HUG is a new musical project and band made up of three guitarists, songwriters and close friends: Devendra Banhart, Gyan Riley and Noah Georgeson. Together they've made a minimalist, gentle and lovely ambient album, built mostly from the three of them playing guitar.",
+        "Eleven pieces with titles like \"Cow With Half Moon Parasol\", \"Arunachala\" and \"Bathypelagic\", ideal for slowing down. Released on Luaka Bop."
+      ]
+    }
+  ],
+  "more": []
+}

@@ -1,0 +1,41 @@
+{
+  "issue": "014",
+  "slug": "014-boards-of-canada-inferno",
+  "date": "2026-05-31",
+  "title": "Boards of Canada's Inferno, Jeff Parker live and Thee Marloes' Di Hotel Malibu",
+  "description": "Boards of Canada return after thirteen years with the live-sounding Inferno, Jeff Parker and the ETA IVtet's live album Happy Today, and Thee Marloes' second album Di Hotel Malibu.",
+  "author": "Nir Hasson",
+  "intro": [
+    "After the quiet of last week's holiday, here are a few good things that came out over the last two weeks: the long-awaited return of an electronic duo, a jazz guitarist stretching out on stage, and a soul trio with a retro heart."
+  ],
+  "albums": [
+    {
+      "slug": "boards-of-canada-inferno",
+      "spotify": "0mu3EvWYfNwBfISSg0q03p",
+      "label": "Warp Records",
+      "text": [
+        "A new studio album from the electronic duo Boards of Canada, released on Warp Records thirteen years after their last one. Unlike their earlier albums, Inferno is a more live-sounding record, using guitars, live drums and synthesizers.",
+        "Eighteen tracks with titles as cosmic as ever, from \"Introit\" and \"Prophecy At 1420 MHz\" to \"Hydrogen Helium Lithium Leviathan\" and \"Deep Time\". The album came out two days ago and has already earned glowing reviews across music sites."
+      ]
+    },
+    {
+      "slug": "jeff-parker-eta-ivtet-happy-today",
+      "bandcamp": "4248337811",
+      "label": "International Anthem",
+      "text": [
+        "A new album from jazz guitarist Jeff Parker together with the ETA IVtet: a few long, improvisation-based pieces that are a joy to listen to.",
+        "The album was recorded live at the Lodge Room club in Los Angeles on 20 August 2025. Released on International Anthem."
+      ]
+    },
+    {
+      "slug": "thee-marloes-di-hotel-malibu",
+      "spotify": "6y0nT2F3SwFS2dRnvczAFP",
+      "label": "Big Crown Records",
+      "text": [
+        "The second album from the soul trio Thee Marloes, released on Big Crown, with influences of retro soul, psychedelia and pop.",
+        "Fourteen songs, some in English and some in Indonesian, from \"Under the Silver Moon\" and \"Harap Dan Ragu\" to the title track and \"Rahasia\". Recommended."
+      ]
+    }
+  ],
+  "more": []
+}

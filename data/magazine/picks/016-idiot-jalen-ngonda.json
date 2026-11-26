@@ -1,0 +1,49 @@
+{
+  "issue": "016",
+  "slug": "016-idiot-jalen-ngonda",
+  "date": "2026-06-14",
+  "title": "IDIOT!'s second album, Jalen Ngonda's Doctrine of Love, Fatoumata Diawara and Steven Bamidele",
+  "description": "IDIOT! (Noga Erez, Ori Rousso and Itamar Levshtein) release their second album, plus Jalen Ngonda's Daptone album Doctrine of Love, Fatoumata Diawara's Massa and Steven Bamidele's The Crash!",
+  "author": "Nir Hasson",
+  "intro": [
+    "More days of war and routine. Music helps. This week: an Israeli trio that refuses to behave, a soul singer writing about compassion, one of the most important voices in African music, and an album from last year that I only just discovered."
+  ],
+  "albums": [
+    {
+      "slug": "idiot-הזיות-של-מטייל-בודד",
+      "spotify": "4o92hoYNR8kwdJSXKaW2mm",
+      "label": "NaNa Disc",
+      "text": [
+        "Between shows at the world's biggest festivals and their success with Noga Erez, Ori Rousso and Itamar Levshtein, who together are IDIOT!, released their second album a few days ago, Hazayot Shel Metayel Boded (Hallucinations of a Lonely Traveler).",
+        "Here too they keep the special sound that defined their first album, say whatever they want without trying to keep their language clean or win the listener over, and hold on to their self-irony and cynicism. Standouts for me are \"Elohim\" (God), which opens the album, \"Shar La\", \"Kadurim\" and \"Manyakim\", which features the rapper Peled. But honestly, this whole album is good!"
+      ]
+    },
+    {
+      "slug": "jalen-ngonda-doctrine-of-love",
+      "spotify": "1BrSn9sWO3Gi5trDQdc44a",
+      "label": "Daptone Records",
+      "text": [
+        "Doctrine of Love, the new album from Jalen Ngonda, is the album you need for the hot days that aren't leaving us any time soon. Ngonda is an American soul singer now based in the UK, and maybe the hottest name on the respected label Daptone Records.",
+        "The songs were born out of the belief that every thought and action should be guided first and foremost by compassion for others, and the idea that love is the highest measure of a person's worth. Ten songs that combine soul and pop melodies with rough groove and rich orchestral arrangements. Ngonda says he wrote between 25 and 30 songs within a few months, recorded 17 of them, and only the ten best made the album."
+      ]
+    },
+    {
+      "slug": "fatoumata-diawara-massa",
+      "spotify": "1urmWzRhaHZgIgcvL91u2c",
+      "label": "No Format!",
+      "text": [
+        "Fatoumata Diawara is a Malian artist, Grammy nominee, actress and virtuoso guitarist, considered one of the most significant voices in African music today.",
+        "On her new album, Massa, made with the French producer -M- (Matthieu Chedid), she combines Mali's musical traditions with textures of pop, folk and Afro-pop. Twelve songs, released on No Format!."
+      ]
+    },
+    {
+      "slug": "steven-bamidele-the-crash",
+      "bandcamp": "2246682788",
+      "text": [
+        "Not a new album, it came out last year, but I heard it for the first time this week and loved it. THE CRASH! is Steven Bamidele's second album, blending groove, soul, rock and subtle electronics, all wrapped in his special voice.",
+        "The album carries a critique of the age of \"performance\" and the mental cost of life on social media. On the song \"Truman\", a reference to the film The Truman Show, he explores the feeling that we're all under constant surveillance and have to \"perform\" for our audience."
+      ]
+    }
+  ],
+  "more": []
+}

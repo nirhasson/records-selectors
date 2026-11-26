@@ -11,7 +11,7 @@
 
     <!-- PWA Meta Tags -->
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#8281FE">
+    <meta name="theme-color" content="#232326">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -50,24 +50,27 @@
     <meta name="google-site-verification" content="_drwjUWlREi9clvOCPU6ekIQH2SztS_nqGfu7MZQoeo" />
 </head>
 <body class="main-page">
-    <header>
-        <a href="index.html">
-            <img src="images/WaxRiffle-logo-white.svg" alt="WaxRiffle Logo" id="logo">
+    <header class="site-header">
+        <a href="/" class="logo-link">
+            <img src="/images/WaxRiffle-logo-white.svg" alt="WaxRiffle home" id="logo">
         </a>
+        <nav class="site-nav" aria-label="Main">
+            <a href="/picks">Editor's Picks</a>
+            <a href="/magazine">Magazine</a>
+            <button id="saved-counter" aria-label="Saved albums">
+                <span id="saved-heart">♡</span>
+                <span id="saved-count-label">Saved</span>
+                <span id="saved-count" style="display:none">(<span id="saved-num">0</span>)</span>
+            </button>
+        </nav>
     </header>
-    <button id="saved-counter" aria-label="Saved albums">
-        <span id="saved-heart">♡</span>
-        <span id="saved-count-label">Saved</span>
-        <span id="saved-count" style="display:none">(<span id="saved-num">0</span>)</span>
-    </button>
     <div class="content-wrap">
         <!-- מסך ראשי -->
         <div id="main-screen">
+          <div class="home-stage">
             <div id="main-text">
-                <h1>Welcome to WaxRiffle</h1>
-                <h2>Explore Beyond What You Know</h2>
-                <h3>Discover Thousands of Unique Albums—Handpicked by Music Lovers!</h3>
-                <p class="hero-sub">Each click takes you to a different album, curated by DJs and record collectors from around the world.</p>
+                <h1>Dig for your next favorite record.</h1>
+                <p class="hero-sub">Hit the button for a random album from record-store crates, radio shows and our editors. No algorithm.</p>
             </div>
             <div class="button-wrap">
                 <button id="explore-button">
@@ -93,6 +96,7 @@
                     <button class="genre-pill" data-genre="classical">Classical</button>
                 </div>
             </div>
+          </div>
         </div>
 
 

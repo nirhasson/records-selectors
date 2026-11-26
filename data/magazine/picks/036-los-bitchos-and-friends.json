@@ -1,0 +1,50 @@
+{
+  "issue": "036",
+  "slug": "036-los-bitchos-and-friends",
+  "date": "2026-11-15",
+  "title": "Los Bitchos & Friends, Ed Motta's Toc-Toc, Sadeedo and a lost giallo soundtrack",
+  "description": "Los Bitchos invite friends to sing, Ed Motta records alone in his apartment, Sadeedo sends a postcard to space, and a 1975 giallo soundtrack long thought lost is found in a basement.",
+  "author": "Nir Hasson",
+  "intro": [
+    "New albums, and not only new ones. This week there's a debut that crosses continents, a Brazilian legend stripped back to a trio, a surf-rock band that finally lets the vocals in, and a soundtrack that spent decades missing."
+  ],
+  "albums": [
+    {
+      "slug": "sadeedo-azizi-in-space",
+      "spotify": "4F0IljfwcDa5X2CLvtz8hU",
+      "label": "DSPPR Recordings",
+      "text": [
+        "Azizi In Space is the debut album from Sadeedo, a musician and DJ based in Ibiza, who describes it as \"a musical postcard from planet Earth to a friend in space I haven't met yet\". It lives up to that description, taking the listener on a cultural journey across continents.",
+        "The album is wonderfully varied, mixing funk, jazz, atmospheric beats and Middle Eastern music, with some tracks carrying lyrics in Arabic, French, Spanish and English. Track titles like \"Shakshuka Redemption\", \"Interstellar Resistance\" and \"Preguntas Cosmicas\" tell you how playful it is, and guests Dusan Vranic and Dani Moham appear on \"Elle Bouge\" and \"Rmoosh Arabiya\"."
+      ]
+    },
+    {
+      "slug": "ed-motta-toc-toc",
+      "spotify": "3qRmCNZrpAITEZuNV8I5zn",
+      "label": "MS1",
+      "text": [
+        "Ed Motta, one of the legends of Brazilian music, is back with his fifteenth album. On Toc-Toc he returns to singing in Portuguese, after writing and singing in English on his previous three records.",
+        "The album blends jazz, soft rock, pop and electronic touches with plenty of the funk and boogie of the late '70s and early '80s. But unlike his earlier albums, recorded in studios full of horn and string players, he made Toc-Toc entirely alone in his apartment, aiming for a minimal, exposed sound that recalls a classic jazz trio of piano, bass and drums. Eleven songs, from \"Eu Quero Ser Feliz\" to \"Voltei Pra Mim\"."
+      ]
+    },
+    {
+      "slug": "los-bitchos-los-bitchos-and-friends-vol-1",
+      "bandcamp": "2263062222",
+      "label": "GREAT Records",
+      "text": [
+        "Los Bitchos play instrumental surf rock spiked with Turkish psychedelia, cumbia and other Latin rhythms. After two instrumental albums, the band decided to work with other musicians and bring vocals in for the first time, treating the human voice as just another instrument.",
+        "The guests are a dream lineup: Kit Sebastian on \"El Pençe\", Adrian Quesada of Black Pumas together with Sinkane on \"Hang Up (Pt 2)\", Ambrose Kenny-Smith of King Gizzard & the Lizard Wizard on \"Holding Cell\", and Chicha Libre on \"Conexiones\". It's still unmistakably Los Bitchos, just with more people at the party."
+      ]
+    },
+    {
+      "slug": "elsio-mancuso-berto-pisano-nude-per-lassassino",
+      "bandcamp": "415651372",
+      "label": "Four Flies Records",
+      "text": [
+        "Nude per l'assassino, also known as Strip Nude for Your Killer, is the soundtrack to a 1975 Italian giallo film. The music, composed by Berto Pisano and Elsio Mancuso, was considered lost for decades, until the label Four Flies Records tracked down the original 8-track reels in a basement and reissued them in a restored edition.",
+        "The sound blends jazz, funk, lounge music and suspense cues, all played by a rich orchestra of strings and horns. The reissue runs to 22 tracks, with several versions of the haunting \"Occhi Senza Sguardo\", including a sung one, and a handful of digital-only extras. A treasure for anyone who loves Italian film music."
+      ]
+    }
+  ],
+  "more": []
+}

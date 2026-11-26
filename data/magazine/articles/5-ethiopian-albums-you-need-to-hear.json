@@ -1,0 +1,65 @@
+{
+  "slug": "5-ethiopian-albums-you-need-to-hear",
+  "title": "5 Ethiopian albums you need to hear",
+  "description": "Where to start with Ethiopian music: Mulatu Astatke, Mahmoud Ahmed, Getatchew Mekurya, Hailu Mergia and the piano music of Emahoy Tsege Mariam Gebru.",
+  "date": "2026-11-26",
+  "author": "Nir Hasson",
+  "intro": [
+    "Between the late 1960s and the mid-1970s, Addis Ababa had one of the most exciting music scenes in the world. Big bands played the hotels and nightclubs, small labels pressed singles and LPs, and musicians mixed Ethiopian scales with soul, funk and jazz. The era became known as Swinging Addis, and it largely ended after the 1974 revolution, when the military regime imposed a curfew that shut down the city's nightlife.",
+    "Most of the world only heard this music decades later, much of it through Éthiopiques, the series of reissues the French producer Francis Falceto started in the late 1990s. Here are five albums to start with, from the father of Ethio-jazz to a nun whose piano music sounds like nothing else."
+  ],
+  "albums": [
+    {
+      "slug": "mulatu-astatke-mulatu-of-ethiopia",
+      "spotify": "2FBK03r5TaxQmWMqLuOdF7",
+      "text": [
+        "Mulatu Astatke is the father of Ethio-jazz. He studied music in London, Boston and New York, becoming the first African student at Berklee College of Music, and spent the 1960s working out how to blend Ethiopian scales with jazz, Latin rhythms and funk.",
+        "Mulatu of Ethiopia was recorded in New York in 1972, and it's the purest statement of his sound: vibraphone, organ, horns and congas moving over hypnotic, minor-key grooves. If it feels familiar, it may be thanks to Jim Jarmusch's 2005 film Broken Flowers, whose soundtrack introduced Mulatu to a new generation of listeners."
+      ]
+    },
+    {
+      "slug": "mahmoud-ahmed-ere-mela-mela",
+      "spotify": "2tTEgmMCugeH5xr5VTjzvX",
+      "text": [
+        "Mahmoud Ahmed is one of the great voices of Ethiopian music, a singer with an enormous range and a way of bending a note that can stop you in your tracks. Erè Mèla Mèla came out in 1975, recorded with the Ibex Band, one of the sharpest backing bands in Addis at the time.",
+        "It's also the album that opened the door for the rest of the world. Francis Falceto heard it in the 1980s, fell for it, and reissued it in Europe in 1986, the first step on the road that led to Éthiopiques. Start with the title track and \"Tezeta\", a classic Ethiopian song of longing and memory."
+      ]
+    },
+    {
+      "slug": "getatchew-mekurya-getatchew-mekuria-and-his-saxophone",
+      "spotify": "5G4iEzL5EnRsHsExyfeHpi",
+      "text": [
+        "Getatchew Mekurya took shellela, a traditional war chant performed before battle, and played it on the tenor saxophone. The result is wild and raw: long, rough-edged phrases full of vibrato that sound closer to free jazz than to anything else coming out of Addis at the time.",
+        "This 1972 album catches that sound in full flight. Decades later he found an unlikely new audience when he teamed up with the Dutch punk band The Ex for the 2006 album Moa Anbessa and toured with them around the world. He died in 2016."
+      ]
+    },
+    {
+      "slug": "hailu-mergia-the-walias-tche-belew",
+      "spotify": "67ZrxrYM4ZErIrGYpA13Q0",
+      "text": [
+        "The Walias Band were one of the top bands in Addis in the 1970s, the house band at the Hilton hotel, and keyboardist Hailu Mergia was at the heart of it. Tche Belew, recorded in 1977, is a funky, organ-led record that moves between soulful instrumentals and vocal tracks over tight horns and deep grooves.",
+        "Hailu later moved to Washington, D.C., where he worked for years as a taxi driver. When the label Awesome Tapes From Africa reissued Tche Belew in 2014, the renewed interest brought him back to the stage and to recording new music in his seventies."
+      ]
+    },
+    {
+      "slug": "emahoy-tsege-mariam-gebru-spielt-eigene-kompositionen",
+      "bandcamp": "1646049526",
+      "text": [
+        "Emahoy Tsege Mariam Gebru was born in Addis Ababa in 1923 to an aristocratic family and studied classical music in Europe as a young woman. In the late 1940s she turned to religious life and later became a nun, but she never stopped composing for the piano.",
+        "This album, her first, was released in Germany in the 1960s as a small private-press record. Its pieces drift between Western classical music and Ethiopian modes, and they sound like no one else: gentle, hypnotic and deeply spiritual. She spent her last decades at the Ethiopian Orthodox monastery in Jerusalem, where she died in 2023 at the age of 99."
+      ]
+    }
+  ],
+  "related": [
+    {
+      "path": "/picks/035-ethiopian-organ-grooves",
+      "title": "Editor's Picks #035: Ethiopian organ grooves",
+      "text": "The story of Teodros Makonnen, the musician who brought the organ and the synthesizer into Ethiopian music."
+    },
+    {
+      "path": "/album/emahoy-tsegue-maryam-guebrou-emahoy-tsege-mariam-gebru-played-by-maya-dunietz-an",
+      "title": "Emahoy Tsege-Mariam Gebru Played By Maya Dunietz & String Ensemble",
+      "text": "The Israeli pianist Maya Dunietz plays Emahoy's music with a string ensemble, live in Paris."
+    }
+  ]
+}

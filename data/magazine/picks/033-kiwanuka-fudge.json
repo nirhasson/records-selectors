@@ -1,0 +1,50 @@
+{
+  "issue": "033",
+  "slug": "033-kiwanuka-fudge",
+  "date": "2026-10-25",
+  "title": "Michael Kiwanuka's Fudge, Surprise Chef, Beirut city pop and Anderson .Paak with Cordae",
+  "description": "Michael Kiwanuka produces himself on Fudge, Surprise Chef score an imaginary giallo film, Habibi Funk digs up Lebanese cassette pop, and Anderson .Paak teams up with Cordae.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Four very different records this week: a soul singer who took back control of his sound, an Australian band scoring a film that doesn't exist, Lebanese cassettes that passed from hand to hand in the '80s, and two rappers who clearly enjoy each other's company."
+  ],
+  "albums": [
+    {
+      "slug": "surprise-chef-frogs-in-a-pond",
+      "spotify": "2eRC4iLJJHPgq7y5QdcV5E",
+      "label": "Concord Jazz",
+      "text": [
+        "Frogs In A Pond is the fifth album from the Australian instrumental band Surprise Chef. As on their previous records, they continue their cinematic soul sound, with soul, hip-hop and jazz alongside the influence of classic film soundtracks and composers like David Axelrod.",
+        "The band described the album as \"a soundtrack to an imaginary film\". It takes its inspiration from Italian giallo cinema of the '60s and '70s, the thriller genre known for its mysterious, dark and avant-garde aesthetic and its unique soundtracks. Thirteen tracks, from \"Inside Voice\" and \"Outside Voice\" to the title track. Released on Concord Jazz."
+      ]
+    },
+    {
+      "slug": "michael-kiwanuka-fudge",
+      "spotify": "4Qy4QeE6QL941JsIyEVqF2",
+      "label": "Polydor Records",
+      "text": [
+        "After the success of his last few albums, Michael Kiwanuka chose not to work with his regular producers on Fudge. Instead he produced the album himself, together with producer Dom Monks, something he hadn't done since his debut album came out in 2012.",
+        "That choice connects to the opening song, which begins with a recording of jazz pianist Chick Corea talking about the importance of making music the artist himself finds beautiful, rather than what others expect to hear. The album has rich string arrangements and psychedelic touches wrapped around Kiwanuka's hypnotic voice. Twelve songs, released on Polydor."
+      ]
+    },
+    {
+      "slug": "stephanie-stephanou-habibi-funk-035-beirut-city-pop",
+      "bandcamp": "2845612542",
+      "label": "Habibi Funk Records",
+      "text": [
+        "A new compilation from Habibi Funk collects ten tracks that were released independently on cassette in Lebanon in the late '70s and the '80s, in a scene where music spread mostly by word of mouth and tapes were passed from one person to the next.",
+        "Many of the musicians on the album came from the circle around Ziad Rahbani, worked with him and recorded in his studio. Others recorded elsewhere, like the band Andromeda, whose album, the story goes, was pressed in only 20 copies. It's a varied collection of disco, funk, rock and bossa nova, and some of the songs were never officially released until now."
+      ]
+    },
+    {
+      "slug": "anderson-paak-cordae-heavy-is-the-crown",
+      "spotify": "1pbMoqpMgCyjPefcJ9PKdq",
+      "label": "APESHIT / EMPIRE / Hi Level / Mass Appeal",
+      "text": [
+        "Anderson .Paak loves a collaboration. After Silk Sonic with Bruno Mars and NxWorries with producer Knxwledge, he's made a full album with rapper Cordae. The two had already released a few successful songs together, and that led to a whole record.",
+        "Alongside the humor and fun the two of them radiate, there are personal songs about their childhoods and about the challenges of adult life: marriage, divorce, children and everything that comes with it. Eleven tracks, from \"58th Floor\" to \"Godfather II\"."
+      ]
+    }
+  ],
+  "more": []
+}

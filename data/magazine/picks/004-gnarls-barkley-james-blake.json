@@ -1,0 +1,38 @@
+{
+  "issue": "004",
+  "slug": "004-gnarls-barkley-james-blake",
+  "date": "2026-03-15",
+  "title": "Gnarls Barkley's Atlanta, James Blake goes independent and Jill Scott returns",
+  "description": "Gnarls Barkley reunite after eighteen years with the personal album Atlanta, James Blake releases Trying Times on his own label, and neo-soul queen Jill Scott returns with To Whom This May Concern.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Good things for a time of war. Three big returns this week: a duo back after eighteen years, a producer who walked away from the industry, and the queen of neo-soul ending a decade of silence."
+  ],
+  "albums": [
+    {
+      "slug": "gnarls-barkley-ceelo-green-danger-mouse-atlanta",
+      "spotify": "0D5Js6PSJm4xsy872qRBgf",
+      "text": [
+        "After an eighteen-year break, the duo Gnarls Barkley, CeeLo Green and Danger Mouse, have officially reunited to release Atlanta, named after the city where they grew up and got their musical education. It's a more personal album, with fewer hits than their earlier records. You won't find another \"Crazy\" here.",
+        "CeeLo takes us into his childhood in Atlanta. On songs like \"Boy Genius\" and \"Cyberbully (Yayo)\" he reveals painful childhood traumas, including abuse by a babysitter and social and academic struggles. Danger Mouse chose a traditional production approach that pays tribute to analogue sound, with plenty of gospel and synth-funk influence. It's a little harder to digest than their previous albums, but definitely worth a listen!"
+      ]
+    },
+    {
+      "slug": "james-blake-trying-times",
+      "spotify": "16tV8wTfqPyA6Cu5dwJJPc",
+      "text": [
+        "James Blake has just released his seventh album, and the first he has put out independently. After releasing all his previous albums on major labels, he decided to cut ties and release this one on his own label, after feeling betrayed by the industry and wanting to free himself from the \"gods of the algorithm\" that hold art back.",
+        "The album is called Trying Times and describes the turbulent period he's in: he left Los Angeles and moved back to London, split from his managers and his label, and started managing himself, all while trying to keep creating. To me Blake is the producer who brings out the best in rappers, and one of the most beautiful songs here is \"Doesn't Just Happen\" with British rapper Dave, who adds a layer of personal confession about street violence and the struggle to reach \"paradise\". Monica Martin joins on \"Didn't Come To Argue\"."
+      ]
+    },
+    {
+      "slug": "jill-scott-to-whom-this-may-concern",
+      "spotify": "7mwyiTViOEtAtOeoilQ3QG",
+      "text": [
+        "After a decade of silence on the album front, the queen of neo-soul, Jill Scott, is back with a new album. Scott, who broke through in 2000 with her classic debut Who Is Jill Scott?, has established herself over the years as a singer, poet and actress.",
+        "On her sixth album, To Whom This May Concern, she once again blends soul, hip-hop, R&B, jazz and gospel perfectly and effortlessly. Nineteen songs and an impressive guest list: Tierra Whack on \"Norf Side\", Trombone Shorty on \"Be Great\", Too $hort, JID and Ab-Soul, with production from DJ Premier among others. The album has already earned glowing reviews, and the opening alone tells you why."
+      ]
+    }
+  ],
+  "more": []
+}

@@ -1,0 +1,50 @@
+{
+  "issue": "037",
+  "slug": "037-elparvar-goes-solo",
+  "date": "2026-11-22",
+  "title": "Elparvar goes solo, plus Karate Boogaloo, Michael Millions and a funky Yoni Rechter tribute",
+  "description": "Four new records: Elparvar's solo debut Long Live the New Flesh, Karate Boogaloo's tape-recorded instrumentals, Michael Millions and DJ Harrison's Find Your Way, and Ido Maimon's Yoni Rechter tribute.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Four records this week, and they cover a lot of ground: a sharp-tongued Hebrew rap debut, an Australian instrumental band that recorded straight to tape, a family album from a hip-hop veteran, and a groove-heavy birthday present for one of Israel's most beloved songwriters."
+  ],
+  "albums": [
+    {
+      "slug": "אלפרבר-יחי-הבשר-החדש",
+      "spotify": "4KFvyoInFT2h6vUxo5u5Hz",
+      "label": "Pele Rekordz",
+      "text": [
+        "Elparvar is a veteran of the Israeli rap scene and a member of the P.R. Troopers crew, and Long Live the New Flesh (Yechi HaBasar HeChadash) is his first solo album. It was produced by David Maayan, himself a rapper and producer who has worked with some of the most interesting voices in local hip-hop.",
+        "To my ears he's one of the best rappers working here. He isn't afraid to say whatever he wants, and his writing has always been brilliant, funny and packed with metaphors and wordplay. On this album he takes all of that a few steps further, across ten tracks."
+      ]
+    },
+    {
+      "slug": "karate-boogaloo-access-all-areas",
+      "spotify": "0HNi8Z5KSG7p08wfckbM4Y",
+      "label": "Colemine Records",
+      "text": [
+        "Karate Boogaloo are an Australian band, and Access All Areas is eleven instrumental tracks built on catchy, hypnotic melodies. The whole album was recorded to tape, which gives it a warm, analogue sound that suits the band's deep-funk grooves perfectly.",
+        "It's the kind of record that works as a soundtrack to an ordinary day and rewards you when you turn it up, from \"Butterfly\" and \"Tremendous Fantastic\" to \"Booger's Bounce of Joy\" and the closing \"We've Lost Something We Can't Replace\". Released on Colemine Records, home to some of the best modern soul and funk around."
+      ]
+    },
+    {
+      "slug": "michael-millions-dj-harrison-find-your-way",
+      "spotify": "5ay9U9zEqzHnQ5ylVESbh6",
+      "label": "EastHaus Recordings / Jellowstone",
+      "text": [
+        "Michael Millions is a respected rapper who returns with his first album in nine years. Find Your Way is a full collaboration with producer DJ Harrison, who gives the record a smoky, jazzy atmosphere, and it arrived in an unusual way: in four parts, released over four consecutive days.",
+        "The songs deal with family memories, life experiences and short personal stories, and the guest list is just as personal. Alongside respected rappers like Fly Anakin on the title track, Mad Skillz on \"Everybodynose\" and Nickelus F on \"Kim Jones\", and guitarist Charlie Hunter on \"Only Life\", his parents and grandparents appear on the album too."
+      ]
+    },
+    {
+      "slug": "ido-maimon-ben-yehoshua-יו-ני-רכטר",
+      "spotify": "4ptwbVGcdo4zqHf560WJ29",
+      "label": "Helicon",
+      "text": [
+        "To mark Yoni Rechter's 75th birthday, producer Ido Maimon released a tribute album to the celebrated Israeli songwriter, with a title that's a pun on his name: Yo! Ni Rechter.",
+        "He took some of Rechter's classics, songs like \"Atur Mitzchech\", \"Shir Nevui Kosmi Aliz\" and \"Rechov Sumsum\", and gave them funky, groove-heavy arrangements in a way only he can. Fourteen tracks, bookended by an intro and outro, with guests Dor3, LUS and Jazz on \"Davka\". A loving, playful way to hear songs everyone here grew up on."
+      ]
+    }
+  ],
+  "more": []
+}

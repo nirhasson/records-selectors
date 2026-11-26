@@ -1,0 +1,59 @@
+{
+  "issue": "031",
+  "slug": "031-achim-and-malaysian-jazz",
+  "date": "2026-10-11",
+  "title": "Tuval Haim's Achim, Meshell Ndegeocello's Synonym, Kiefer and the untold story of Malaysian jazz",
+  "description": "Tuval Haim's moving album Achim, Meshell Ndegeocello's star-studded covers album Synonym, Kiefer's Memory Bomb, and two Malaysian jazz rediscoveries from the new label Audible Beauty.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Songs that stay when everything else is gone. This week starts with an album about two brothers that I think everyone should hear in full, continues with two new Blue Note records, and ends in Kuala Lumpur, with a new label digging up the forgotten history of Malaysian jazz."
+  ],
+  "albums": [
+    {
+      "slug": "tuval-haim-אחים",
+      "spotify": "1Vit2dxDUkm7ZcR0fgNReI",
+      "label": "NaNa Disc",
+      "text": [
+        "A new film, Achim (Brothers), tells the story behind Tuval Haim's album of the same name. Tuval's brother Yotam was taken captive by Hamas from Kibbutz Kfar Aza, and while trying to escape together with Yonatan Shamriz and Samer Al-Talalqa, he was mistakenly killed by Israeli army forces. Through the songs Tuval created, the film shows the special bond between the brothers, how music connected them, and how Tuval has found ways to carry on.",
+        "If you haven't heard this beautiful, moving album, which came out last year, it's well worth listening to in full. It includes lyrics written by Yotam, and his voice and playing are woven into the songs. The album was produced by Beno Hendler, and the guests include Berry Sakharof, Ester Rada, Elyasaf Bashari and Pulkes, the band Tuval plays in. The cover was illustrated by Noya Haim, Tuval and Yotam's younger sister."
+      ]
+    },
+    {
+      "slug": "meshell-ndegeocello-synonym",
+      "spotify": "6ssRIhqoOblT5x1xdJDkJQ",
+      "label": "Blue Note Records",
+      "text": [
+        "Meshell Ndegeocello is a highly respected American musician, singer, producer and bassist with a career of more than 30 years. She has won Grammy awards for her work on Blue Note and is known for breaking down genre boundaries, blending alternative R&B, jazz, soul and rock.",
+        "Her new album, also on Blue Note, is made up entirely of covers and new interpretations of classic songs from different genres and eras, with a different guest on every track: Cynthia Erivo, Cat Power, Chaka Khan on \"Islands In The Stream\", Robert Glasper and Nick Hakim on \"Don't Stop The Music\", Brandi Carlile, Bill Callahan, ANOHNI, WILLOW, Lianne La Havas and Moses Sumney among them."
+      ]
+    },
+    {
+      "slug": "kiefer-memory-bomb",
+      "spotify": "4LyevrLzvyquVTex1GSjuB",
+      "label": "Blue Note Records",
+      "text": [
+        "Another new Blue Note album, this one from one of the most interesting producers and pianists working today. The music on Memory Bomb moves along the seam between jazz improvisation and hip-hop production, a technique Kiefer calls \"Over The Breaks\": he samples and records drum loops, then improvises over them on piano.",
+        "The guest list reads like a who's who of the scene, with drummer Nate Smith on \"Overture\", Erick the Architect on \"NewLevels NewDevils\", Amber Navran on \"Get to the Moon\", Rae Khalil, and frequent collaborator CARRTOONS."
+      ]
+    },
+    {
+      "slug": "alfonso-soliano-tiga-trombone",
+      "spotify": "2SUdQHhlJHaVEV2A1OGIDO",
+      "label": "Audible Beauty Records",
+      "text": [
+        "Two albums have come out on Audible Beauty, a new label from the people behind Habibi Funk. The label was born after its team played DJ sets in Malaysia and Indonesia, discovered the local music and fell in love with it. This time the goal is to uncover forgotten musical gems from around the world, and the first two releases focus on the untold story of Malaysian jazz.",
+        "The first belongs to Alfonso Soliano, a composer, arranger and pianist considered one of the founding and most important figures in Malaysian music and jazz. The album gathers eleven original compositions recorded in the past, blending jazz, Latin influences and traditional Malaysian music, with pieces like \"Surya Pagi\" and \"Petaling Jaya\"."
+      ]
+    },
+    {
+      "slug": "johari-salleh-jazz-dari-angkasapuri",
+      "spotify": "6Z194q84HGf4ET4HcU408i",
+      "label": "Audible Beauty Records",
+      "text": [
+        "The second Audible Beauty release belongs to Johari Salleh, a legendary composer, arranger and trumpeter who shaped the sound of modern Malaysian music on radio, television and film. The title refers to Angkasapuri, the home of Malaysia's national broadcaster.",
+        "Here too Malaysian music sits alongside jazz-funk and spiritual jazz, across nine tracks from \"Johana\" to \"Mengapa Berduka\". Together with the Soliano album, it's a wonderful first glimpse into a scene most of us never knew existed."
+      ]
+    }
+  ],
+  "more": []
+}

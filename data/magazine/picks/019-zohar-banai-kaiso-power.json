@@ -1,0 +1,50 @@
+{
+  "issue": "019",
+  "slug": "019-zohar-banai-kaiso-power",
+  "date": "2026-07-06",
+  "title": "Zohar Banai's debut, Trinidad's Kaiso Power, Habibi Funk in Jakarta and Chassol's stand-up album",
+  "description": "Zohar Banai's folk-pop debut, Soundway's Kaiso Power compilation from 1970s Trinidad, Habibi Funk's Tirakat pairing Charif Megarbane with Jakarta trio Ali, and Chassol's comedy-inspired Funny How?",
+  "author": "Nir Hasson",
+  "intro": [
+    "Music to refresh yourself with on summer days: a gentle Israeli debut, the sound of Trinidad and Tobago in the '70s, a meeting between Beirut and Jakarta, and a French composer who turned American stand-up comedy into music."
+  ],
+  "albums": [
+    {
+      "slug": "זוהר-בנאי-איפה-שהאור-אף-פעם-לא-כבה",
+      "spotify": "2O2aGCVduLYUXbUYIrLaB4",
+      "label": "NaNa Disc",
+      "text": [
+        "In February, Zohar Banai released her debut album, Eifo SheHaOr Af Paam Lo Kava (Where the Light Never Goes Out), a pleasant and fun folk-pop record.",
+        "Nine songs, from \"Hine Achshav\" (Here and Now) to \"Ima\" (Mother) and \"Mesibat Pijamot Im Achoti\" (A Pajama Party With My Sister), closing with \"BaChalomi\" (In My Dream). Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "clive-zanda-kaiso-power-sound-revolution-in-trinidad-1970-1980",
+      "bandcamp": "1378066117",
+      "label": "Soundway Records",
+      "text": [
+        "A new compilation from the label Soundway gathers the sounds and grooves of Trinidad and Tobago in the 1970s.",
+        "It's a carefully chosen selection of jazz, calypso and hypnotic drum rhythms. Perfect for summer."
+      ]
+    },
+    {
+      "slug": "charif-megarbane-ali-habibi-funk-034-tirakat",
+      "spotify": "4FiEX8kdgko6dZkaYzqeqs",
+      "label": "Habibi Funk Records",
+      "text": [
+        "Tirakat brings together the trio Ali from Jakarta, Indonesia, and the Lebanese composer and multi-instrumentalist Charif Megarbane.",
+        "The album combines psychedelic funk with influences from 1970s Indonesian music, disco and Arabic scales, across thirteen tracks with titles like \"Kuda Arab\", \"Bandar Batavia\" and \"Pekojan Funk\". One of the most interesting releases on the Habibi Funk label."
+      ]
+    },
+    {
+      "slug": "chassol-funny-how",
+      "spotify": "7eGFF9yDqqXpqABRdhdtuL",
+      "label": "Créature",
+      "text": [
+        "Chassol is a French pianist, composer and musical director who has worked with huge names like Frank Ocean, Solange and Phoenix.",
+        "Funny How? is his fifth album, and on it he draws inspiration from the world of American stand-up comedy. Throughout the tracks he weaves in the voices of well-known comedians like Dave Chappelle, alongside young comics from clubs in New York and Chicago. ALA.NI and Vic Mensa, on \"Stand-Up Like Richard\", join him too. Sixteen tracks with titles like \"Punchlines\" and \"How Do You Write A Joke?\"."
+      ]
+    }
+  ],
+  "more": []
+}

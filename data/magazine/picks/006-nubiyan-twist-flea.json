@@ -1,0 +1,50 @@
+{
+  "issue": "006",
+  "slug": "006-nubiyan-twist-flea",
+  "date": "2026-03-29",
+  "title": "Nubiyan Twist's Chasing Shadows, Rejoicer, Luke Una's É Soul Cultura and Flea's jazz album",
+  "description": "Nubiyan Twist's human answer to AI, Chasing Shadows, Rejoicer's California Space Craft, the third É Soul Cultura compilation from Luke Una and Mr Bongo, and Flea's jazz album Honora.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Recommended albums from the last few days: a nine-piece band making the case for musicians playing together in a room, an Israeli producer recording in Los Angeles, a feel-good compilation, and a rock bassist who made a jazz record."
+  ],
+  "albums": [
+    {
+      "slug": "nubiyan-twist-chasing-shadows",
+      "spotify": "3ehJxu0Y4xuXMJyaYCpv0a",
+      "label": "Strut",
+      "text": [
+        "One of the most beautiful albums out right now belongs to Nubiyan Twist, a nine-piece band led by musician Tom Excell, who has described Chasing Shadows as a \"human and defiant\" response to the threat artificial intelligence poses to creativity. The aim of the album is to celebrate the chemistry and chaos that happen when real musicians play together in one room, something AI can't reproduce.",
+        "The guests are excellent: Fatoumata Diawara on the title track, Patrice Rushen on \"Threads\", Bootie Brown on \"Red Herring\", M.anifest on \"How Far\" and The Zawose Queens on \"Mlonje: Voices Joined\". Eleven tracks, released on Strut."
+      ]
+    },
+    {
+      "slug": "harris-and-orr-luke-una-presents-e-soul-cultura-vol-3",
+      "bandcamp": "856207429",
+      "label": "Mr Bongo",
+      "text": [
+        "The label Mr Bongo has released the third compilation in its series curated by DJ Luke Una.",
+        "Seventeen groovy tracks that will make you happy and put you in a good mood."
+      ]
+    },
+    {
+      "slug": "rejoicer-california-space-craft",
+      "spotify": "6wVCGitP9Y2WOmTN5MpmVq",
+      "label": "Circus Company",
+      "text": [
+        "A new album from Rejoicer, made together with drummer Tamir Barzilay and bass player Sam Wilkes. The recordings took place over three days in Los Angeles, and out of them came ten tracks that move between psychedelic jazz, beats and dub influences.",
+        "Avishai Cohen joins on \"Lion Water\" and pianist Nitai Hershkovits on \"Further (with you)\", with titles like \"Ritual in G#\", \"Southern Cross\" and \"Oceanic Friends\" along the way."
+      ]
+    },
+    {
+      "slug": "flea-honora",
+      "spotify": "4RsSlnwkUAvEtg0Tk86HnM",
+      "label": "Nonesuch",
+      "text": [
+        "Flea, the bassist of the Red Hot Chili Peppers, has released Honora, a new jazz album. To promote it he appeared on Jimmy Fallon and gave a mesmerizing performance of Frank Ocean's \"Thinkin Bout You\", which is also on the album.",
+        "The album also has a beautiful version of Funkadelic's \"Maggot Brain\", plus Thom Yorke on \"Traffic Lights\" and Nick Cave on \"Wichita Lineman\". An album well worth listening to. Released on Nonesuch."
+      ]
+    }
+  ],
+  "more": []
+}

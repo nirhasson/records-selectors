@@ -1,0 +1,59 @@
+{
+  "issue": "032",
+  "slug": "032-remembering-erez-halevi",
+  "date": "2026-10-18",
+  "title": "Remembering Erez Halevi, plus Avraham Legesse, The Avalanches, The Koreatown Oddity and Marla Kether",
+  "description": "A tribute to Erez Halevi and his groundbreaking 1984 album HaLayla, plus Avraham Legesse's double album Ata, The Avalanches' No Bad Memories, The Koreatown Oddity's Purdy and Marla Kether's Luso EP.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Last Saturday, 17 October, we learned of the death of Erez Halevi, one of the greatest and most modest musicians this country has had. This issue opens with his landmark album. After it come four new records I've been living with: one of the most special Israeli rap albums in years, a long-awaited return from The Avalanches, and two very personal projects from Los Angeles and London."
+  ],
+  "albums": [
+    {
+      "slug": "erez-halevi-הלילה",
+      "spotify": "2rGBvMHUsx8QwZsvEjJwHs",
+      "label": "NMC",
+      "text": [
+        "Erez Halevi's album HaLayla (The Night), released in 1984 and produced by Matti Caspi, is considered by many to be groundbreaking and one of the best albums ever made in Israel. Thanks to Halevi's soft, warm voice and Caspi's intricate, special productions, with Caspi playing all the instruments himself (alongside Gerry Eckstein on a few songs), Halevi brought something that hadn't really existed in Israeli music until then: a blend of rock and soul with the voice of a Mizrahi singer.",
+        "Caspi first met Halevi at a competition he held to choose musicians to perform at his club, Shamayim. Halevi won first place, and later recalled Caspi telling him: \"I'm giving you first place because there's no one to help you. I'm giving second place to Meir, because he comes from a family that has someone to help him.\" After a period of working together, the album came out, and at first radio stations wouldn't accept it and gave it almost no airplay. Today it stands as a classic. Start with the title track and \"HaYareach Shar Lach\"."
+      ]
+    },
+    {
+      "slug": "אברהם-לגסה-עתה",
+      "spotify": "48m0wGbSuK8B4CzjjMKR9s",
+      "label": "NaNa Disc",
+      "text": [
+        "Avraham Legesse has released Ata (Now), one of the most special rap albums to come out in Israel. It's a double album in which Legesse brings us into his world and, in a mesmerizing way, reveals his personal story and his family's.",
+        "Thirty-two tracks, structured like a life told in chapters, from childhood and school to growing up and service, held together by short transitions. Precise, moving productions carry Legesse's unique rap. Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "the-avalanches-no-bad-memories",
+      "spotify": "3De7Ues320SIjGCaz5b6fX",
+      "label": "EMI Australia",
+      "text": [
+        "The Avalanches, masters of the sample and one of my favorite groups, are back with a new album six years after their last. Across 31 tracks the duo dives into the world of jingles, commercials, marketing culture and the video games of the '90s and 2000s. Even the cover fits the theme, featuring characters shaped like an iPod and a floppy disk.",
+        "True to the group's tradition, the album is full of extraordinary collaborations. Among the guests you'll hear Jamie xx on \"Every Single Weekend\", Karen O on \"Blue Shadows\", Panda Bear, Mike Patton, Rivers Cuomo of Weezer, the legendary Carly Simon, Japanese musician Haruomi Hosono, and even Ryoji Ikeda on a track named after a Xerox printer."
+      ]
+    },
+    {
+      "slug": "the-koreatown-oddity-purdy",
+      "spotify": "2mHem4aGQe4GewQIPVMcAi",
+      "label": "Stones Throw Records",
+      "text": [
+        "A new album from The Koreatown Oddity, a rapper, producer and avant-garde hip-hop artist from Los Angeles. Purdy, named after the surname of Dominique Purdy, the rapper behind the project, is his fourth album.",
+        "On it he brings together his life as an artist and his life as a family man and father, dealing with parenting, relationships and lawn care alongside humorous musings on life. Fifteen tracks with titles like \"Ragu & Prego\", \"Halloumi & Watermelon\" and \"Astro Turf\", opening with Gary Wilson on \"Dancing with the Trees\". Released on Stones Throw."
+      ]
+    },
+    {
+      "slug": "marla-kether-luso",
+      "spotify": "214sHCmITqZqhAr6lzSSda",
+      "label": "Strut",
+      "text": [
+        "A new EP from Marla Kether, an electronic producer, DJ and also Little Simz's bassist. Luso is five songs written on tour between Lisbon and Brasília, and you can hear that journey in their musical richness.",
+        "Marla put live studio recordings with musicians at the heart of the project, aiming for a human, warm and organic sound. The guests are Sofia Grant on \"Reverse\", Reek0 on \"Run The Track\", Mez on \"Blessing\" and Margaridas on \"Libera\". Released on Strut."
+      ]
+    }
+  ],
+  "more": []
+}

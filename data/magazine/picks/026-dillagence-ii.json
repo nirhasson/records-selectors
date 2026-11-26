@@ -1,0 +1,48 @@
+{
+  "issue": "026",
+  "slug": "026-dillagence-ii",
+  "date": "2026-08-30",
+  "title": "Busta Rhymes and J Dilla's Dillagence II, Mike D, Erykah Badu with The Alchemist, and Wyclef goes jazz",
+  "description": "Veterans return with surprising new albums: Busta Rhymes' J Dilla tribute Dillagence II, Mike D's first solo album Thank You, Erykah Badu and The Alchemist's Before The World Blows, and Wyclef Jean's jazz project Q Theory Vol. 2.",
+  "author": "Nir Hasson",
+  "intro": [
+    "This time, a few veteran musicians are back with new and surprising albums: a rapper finishing a conversation with a late friend, a Beastie Boy stepping out on his own, a soul icon teaming up with hip-hop's most in-demand producer, and a hip-hop star who went and made a jazz record."
+  ],
+  "albums": [
+    {
+      "slug": "busta-rhymes-j-dilla-dillagence-ii",
+      "spotify": "2FO2Y8abEsCT10uLce2Thh",
+      "label": "The Conglomerate",
+      "text": [
+        "The connection between Busta Rhymes and J Dilla goes back a long way. Busta's first album, The Coming, released in 1996, already had two tracks produced by Dilla, and since then almost every Busta Rhymes album has included Dilla productions. There was always great mutual admiration between them, and in interviews they made a point of praising each other's work.",
+        "Now, twenty years after Dilla's death, Busta Rhymes is releasing Dillagence II: nineteen songs with Dilla's precise, sensitive productions and Busta's wild rapping. A moving and special song for me is \"This Woman\", a collaboration with D'Angelo, who died last October after a long battle with cancer. It grew out of a collaboration between Dilla and D'Angelo that began more than twenty years ago."
+      ]
+    },
+    {
+      "slug": "mike-d-thank-you",
+      "spotify": "4f2eRJXelRGjIu5i7Ow7Hz",
+      "label": "Capitol Records",
+      "text": [
+        "Mike D of the Beastie Boys is releasing Thank You, his first album since the Beastie Boys split after the death of Adam \"MCA\" Yauch. His return to making music began with a guest appearance with the band of his two grown sons, Skyler and Davis Diamond. Since then he has been performing and recording with a backing band called 5D, which includes his sons alongside other musicians, and his sons were involved in producing the album too.",
+        "On the album Mike D keeps the vibes and spirit of the Beastie Boys. There's the punk-rap energy the group is known for, alongside lyrics that are more personal and revealing than anything he's shared before. Thirteen songs, released on Capitol."
+      ]
+    },
+    {
+      "slug": "erykah-badu-the-alchemist-before-the-world-blows",
+      "spotify": "6eKe5wqXAHA1LLnIwGuaSI",
+      "text": [
+        "Eleven years after her last full-length project, Erykah Badu returns with a joint album with The Alchemist, the most sought-after producer in hip-hop. Before The World Blows is dark and full of freedom.",
+        "The guest list is very distinguished: Thundercat, Westside Gunn, DRAM on \"Valentine\", Steve Lacy, Kamasi Washington, DJ Quik and Earl Sweatshirt. Sixteen tracks that reward listening from start to finish."
+      ]
+    },
+    {
+      "slug": "wyclef-jean-q-theory-quantum-leap-vol-2",
+      "spotify": "16Pa2BiwPMuCOtLsilI5uv",
+      "text": [
+        "One of the most surprising albums of the moment is Q Theory - Quantum Leap Vol. 2, the new album from none other than Wyclef Jean. The first part, released in June, focused on his hip-hop roots. The second part, out last week, is a jazz project that connects his Haitian musical roots, his love of improvisation and the influence of one of his most important mentors, Quincy Jones.",
+        "Among the many great guests are Robert Glasper on \"Rocinha\", Yussef Dayes and Theo Croker on \"Lady Havana\", and saxophonist Godwin Louis. Nine tracks."
+      ]
+    }
+  ],
+  "more": []
+}

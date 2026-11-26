@@ -1,0 +1,41 @@
+{
+  "issue": "023",
+  "slug": "023-dinner-party-maalouf",
+  "date": "2026-08-09",
+  "title": "Dinner Party's Whatchu Bringing?, Ibrahim Maalouf's quarter-tone trumpets and Seu Jorge's 16-year album",
+  "description": "The supergroup Dinner Party returns with Whatchu Bringing?, Ibrahim Maalouf continues Trumpets of Michel-Ange, and Seu Jorge releases The Other Side, an album sixteen years in the making.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Three albums this week, each one the work of serious musicians at full strength: a jazz and hip-hop supergroup, a trumpeter building a whole ensemble around his father's invention, and a Brazilian star who took sixteen years to finish a record."
+  ],
+  "albums": [
+    {
+      "slug": "dinner-party-terrace-martin-robert-glasper-whatchu-bringing",
+      "spotify": "6MbJ2c8J9rHWniycGG3AZT",
+      "label": "Sounds of Crenshaw / EMPIRE",
+      "text": [
+        "Dinner Party, the supergroup whose members are Kamasi Washington, Robert Glasper, 9th Wonder and Terrace Martin, has released a new album. What could possibly go wrong when you combine all these talented players and producers?",
+        "Hip-hop, soul and jazz blend wonderfully across nine tracks, with J. Ivy on \"Stop Being Late\" and singer Phoelix on \"If It Ain't Broke (Love Wins)\" and \"Stargazing\". Released on Sounds of Crenshaw and EMPIRE."
+      ]
+    },
+    {
+      "slug": "ibrahim-maalouf-trumpets-of-michel-ange-vol-2",
+      "spotify": "3LYJRunvZG2BjkbKJ8lOqL",
+      "label": "Mister Ibé",
+      "text": [
+        "Super-trumpeter Ibrahim Maalouf returns with a new album that is a direct continuation of his ambitious project Trumpets of Michel-Ange, which was a huge success and was followed by a tour of more than 140 shows around the world. The whole album revolves around the quarter-tone trumpet that his father invented in the 1960s, and Maalouf is working to make the instrument accessible to musicians everywhere.",
+        "Here he brings together an ensemble of professional trumpeters trained under his vision, and together they create an album that combines Arabic music and jazz with Gypsy influences and even a little rap. The guests are spectacular: Jon Batiste, Trombone Shorty, MonoNeon and Pedrito Martinez on \"Bring the Light\", pianist Gonzalo Rubalcaba, Nai Barghouti with Hamilton de Holanda, and Las Migas with Richard Galliano."
+      ]
+    },
+    {
+      "slug": "seu-jorge-the-other-side",
+      "spotify": "22o8Fo8iJJ9gbBJQSUy5wY",
+      "label": "Phonomotor",
+      "text": [
+        "Seu Jorge has released a new album that he worked on for sixteen years. On The Other Side he combines bossa nova with jazz, with orchestral arrangements by Miguel Atwood-Ferguson.",
+        "The album includes surprising guest appearances from Marisa Monte, Maria Rita, Beck and Zap Mama, a beautiful cover of Arthur Verocai's \"Caboclo\", and a version of Nick Drake's \"River Man\" sung with Beck. Eleven songs, released on Phonomotor."
+      ]
+    }
+  ],
+  "more": []
+}

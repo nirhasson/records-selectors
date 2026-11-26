@@ -1,0 +1,41 @@
+{
+  "issue": "025",
+  "slug": "025-cleo-sol-gentlewoman",
+  "date": "2026-08-23",
+  "title": "Cleo Sol's Gentlewoman, David Maayan's Open Eyes and Helado Tropical for the end of summer",
+  "description": "Cleo Sol's fifth album Gentlewoman with producer Inflo, Israeli rapper David Maayan's best album yet, and Helado Negro and Reyna Tropical's joint project Helado Tropical.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Three records for the last days of summer: a soul singer at the top of her game, an Israeli rapper making his best album yet, and a gentle Latin-folk collaboration for evenings when the first cool breeze arrives."
+  ],
+  "albums": [
+    {
+      "slug": "cleo-sol-gentlewoman",
+      "spotify": "3zjcu4Ejw43pByGix5kUSU",
+      "label": "Forever Living Originals",
+      "text": [
+        "Gentlewoman is the fifth studio album from soul singer Cleo Sol, and it's excellent. Once again she continues her collaboration with the acclaimed producer Inflo, the producer who also stands behind SAULT.",
+        "Fifteen songs, from \"I Only Look to You\" and the title track to \"Family Ties\" and \"Little Things\", closing with an acknowledgement that brings the album full circle. Released on Forever Living Originals."
+      ]
+    },
+    {
+      "slug": "david-maayan-עיניים-פקוחות",
+      "spotify": "1TaQrfyHAAOO3GenLCYDV3",
+      "label": "NaNa Disc",
+      "text": [
+        "David Maayan has been active in the local scene for quite a few years, both as a rapper and as a producer, working with rappers like Avraham Legesse, Ravid Plotnik and others.",
+        "His latest album, Einayim Pkuchot (Open Eyes), is in my view also his best so far: sharp, spicy rap from Maayan over productions by none other than Z.K (Zohar Caspi), who also appears as a guest on \"Tov LaDaat\". Shekel joins on \"Hafsaka\". Twelve tracks that open with \"Tavas\" and close, fittingly, with \"Einayim Atzumot\" (Closed Eyes). Released on NaNa Disc."
+      ]
+    },
+    {
+      "slug": "helado-tropical-helado-negro-reyna-tropical-helado-tropical",
+      "spotify": "4O96jPlSmIgEMIl84oTl4s",
+      "label": "Psychic Hotline",
+      "text": [
+        "Helado Negro and Reyna Tropical released their joint project, Helado Tropical, last month. The album combines a little folk with touches of electronics and ambient, a bit like a Latin version of Beach House.",
+        "Nine songs with titles like \"Sensación\", \"El Tiempo\", \"Luna\" and \"Déjate Caer\". The perfect album for the last days of summer, when you start to feel a slightly cooler breeze. Released on Psychic Hotline."
+      ]
+    }
+  ],
+  "more": []
+}

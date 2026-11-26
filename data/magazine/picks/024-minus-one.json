@@ -1,0 +1,50 @@
+{
+  "issue": "024",
+  "slug": "024-minus-one",
+  "date": "2026-08-16",
+  "title": "Sagui Dekel-Chen's Minus One, Dana and Alden, Homeboy Sandman and Israeli mall rap",
+  "description": "Songs written in captivity on Sagui Dekel-Chen's Minus One, Dana and Alden's Papa's Boat, Homeboy Sandman and Jack Splash's Resonance Frequency, and BAYOTIII and XOLONIII's Mall Music.",
+  "author": "Nir Hasson",
+  "intro": [
+    "Good things for hot days. This week opens with an album written entirely in the head of a man held in a tunnel. After it, a jazz duo with a Brazilian heart, a New York rapper with a hit-making producer, and an Israeli rap album built around mall culture."
+  ],
+  "albums": [
+    {
+      "slug": "שגיא-דקל-חן-מינוס-אחד",
+      "spotify": "5qcGELUhTgi9pYP8CA3tpZ",
+      "label": "D-Music",
+      "text": [
+        "Minus One, the new album from Sagui Dekel-Chen, who survived Hamas captivity, is named after the tunnel in which he was held. It's a collection of songs he wrote in his head while he was in captivity, and the songs on the album are dedicated to his wife and three daughters.",
+        "He launched the album last week as part of the Israel Festival, on the lawn of Kibbutz Nir Oz, the kibbutz from which he was kidnapped. Some songs appear twice, once as a hospital recording and once in a full studio version, and Shira Ben Simhon joins him on \"HaPina Sheli\". Twelve tracks."
+      ]
+    },
+    {
+      "slug": "dana-and-alden-papas-boat",
+      "spotify": "5l41oiUXGnECXTC2vHvlPt",
+      "label": "Concord Jazz",
+      "text": [
+        "Alden is a drummer and Dana is a saxophonist, and together they are the duo Dana and Alden, who have just released their new and beautiful album, Papa's Boat. With a group of talented players they make music that blends jazzy melodies with indie, soul and Brazilian music.",
+        "The guests make the Brazilian connection explicit: the great Marcos Valle appears on \"Friendship is a Boat\", alongside Mei Semones on \"Lee's Greenhouse\", Melanie Charles on \"Milk and Honey\" and EBBA on the opener, \"Lighthouse\". Fifteen tracks, released on Concord Jazz."
+      ]
+    },
+    {
+      "slug": "homeboy-sandman-jack-splash-resonance-frequency",
+      "spotify": "2BltnjcS26TTGd8CWxxNHo",
+      "label": "Soulspazm",
+      "text": [
+        "Resonance Frequency is a joint album from Homeboy Sandman, one of the most versatile, sharp and innovative rappers around, and the acclaimed producer Jack Splash, who has worked with Kendrick Lamar, Missy Elliott, Alicia Keys and many more.",
+        "Thirteen tracks with Masta Ace on \"Signal\" and CeeLo Green on \"World on Fire\", plus Sandman's wry observations on songs like \"Weed Stores Everywhere\". Released on Soulspazm."
+      ]
+    },
+    {
+      "slug": "bayotiii-xoloniii-מוזיקת-קניונים",
+      "spotify": "21FZfwJn6lxZLEad0QDJ0f",
+      "label": "Helicon",
+      "text": [
+        "Muzikat Kanyonim (Mall Music) is an Israeli rap album for lovers of cleverer, more avant-garde music, from BAYOTIII and XOLONIII.",
+        "Sixteen tracks full of interesting collaborations with rappers like Slimfim and Peled, and productions from Nadav Azoulay and Gil Nemet, with song titles drawn straight from Israeli mall culture, like \"Duchanim Shel Cellcom\" (Cellcom Kiosks) and \"iPhone\". Released on Helicon."
+      ]
+    }
+  ],
+  "more": []
+}
