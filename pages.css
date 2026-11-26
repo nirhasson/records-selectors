@@ -527,13 +527,28 @@
 .issue-cover.is-photo { border-radius: 50%; }
 .artist-photo {
     display: block;
-    width: 112px;
-    height: 112px;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    margin: 8px 0 20px;
     background: #333;
 }
+.artist-link {
+    font-family: "Jockey One", serif;
+    font-size: 15px;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.artist-link:hover { border-color: var(--accent); color: #fff; }
+.artist-head .artist-links { margin: 0 0 22px; }
+.pick.is-coverless .pick-head { margin-bottom: 10px; }
 .artist-links {
     display: flex;
     flex-wrap: wrap;
