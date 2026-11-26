@@ -522,3 +522,21 @@
 @media (max-width: 768px) {
     .article-list { grid-template-columns: 1fr; }
 }
+
+/* Artist Picks */
+.issue-cover.is-photo { border-radius: 50%; }
+.artist-photo {
+    display: block;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    background: #333;
+}
+.artist-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}

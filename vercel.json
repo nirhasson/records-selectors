@@ -1,15 +1,59 @@
 {
   "trailingSlash": false,
   "functions": {
-    "api/page.js": { "includeFiles": "data/**" }
+    "api/page.js": {
+      "includeFiles": "data/**"
+    }
   },
   "rewrites": [
-    { "source": "/album/:slug", "destination": "/api/page?type=album&slug=:slug" },
-    { "source": "/genre/:genre", "destination": "/api/page?type=genre&genre=:genre" },
-    { "source": "/genre/:genre/page/:page", "destination": "/api/page?type=genre&genre=:genre&page=:page" },
-    { "source": "/picks", "destination": "/api/page?type=picks" },
-    { "source": "/picks/:slug", "destination": "/api/page?type=picks&slug=:slug" },
-    { "source": "/magazine", "destination": "/api/page?type=magazine" },
-    { "source": "/magazine/:slug", "destination": "/api/page?type=magazine&slug=:slug" }
+    {
+      "source": "/album/:slug",
+      "destination": "/api/page?type=album&slug=:slug"
+    },
+    {
+      "source": "/genre/:genre",
+      "destination": "/api/page?type=genre&genre=:genre"
+    },
+    {
+      "source": "/genre/:genre/page/:page",
+      "destination": "/api/page?type=genre&genre=:genre&page=:page"
+    },
+    {
+      "source": "/picks",
+      "destination": "/api/page?type=picks"
+    },
+    {
+      "source": "/picks/:slug",
+      "destination": "/api/page?type=picks&slug=:slug"
+    },
+    {
+      "source": "/magazine",
+      "destination": "/api/page?type=magazine"
+    },
+    {
+      "source": "/artists",
+      "destination": "/api/page?type=artists"
+    },
+    {
+      "source": "/artists/:slug",
+      "destination": "/api/page?type=artists&slug=:slug"
+    },
+    {
+      "source": "/magazine/:slug",
+      "destination": "/api/page?type=magazine&slug=:slug"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "wax-riffle.vercel.app"
+        }
+      ],
+      "destination": "https://www.wax-riffle.com/:path*",
+      "permanent": true
+    }
   ]
 }

@@ -528,7 +528,9 @@ document.addEventListener("DOMContentLoaded", function () {
       [albumData.year, albumData.genre].filter(Boolean).join(' · ') || 'N/A';
     const sourceEl = document.getElementById('album-source');
     sourceEl.textContent = '';
-    if (albumData.editorsPick && !albumData.show) {
+    if (albumData.pickedBy && !albumData.show) {
+      sourceEl.textContent = `Picked by ${albumData.pickedBy}`;
+    } else if (albumData.editorsPick && !albumData.show) {
       sourceEl.textContent = "Editor's Pick";
     } else if (albumData.show) {
       const hostIsInShowName = albumData.host && albumData.show.toLowerCase().includes(albumData.host.toLowerCase());

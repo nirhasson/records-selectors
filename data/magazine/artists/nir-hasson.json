@@ -1,0 +1,42 @@
+{
+  "slug": "nir-hasson",
+  "hidden": true,
+  "name": "Nir Hasson",
+  "role": "Founder of WaxRiffle",
+  "date": "2026-11-26",
+  "bio": [
+    "Nir started WaxRiffle to share records worth digging for. Every week he writes Editor's Picks, the new albums he couldn't stop playing. Here are six records he keeps coming back to."
+  ],
+  "albums": [
+    {
+      "slug": "cleo-sol-gentlewoman",
+      "spotify": "3zjcu4Ejw43pByGix5kUSU",
+      "text": ["Soul that never needs to shout. Cleo Sol and Inflo at their best, and a record I keep coming back to."]
+    },
+    {
+      "slug": "ezra-collective-here-because-of-hope",
+      "spotify": "4BKNpqrUgWxpA1d8u5e95j",
+      "text": ["The band that made jazz feel like a party again. This one is a whole journey, told in three parts."]
+    },
+    {
+      "slug": "teodros-makonnen-teodros-makonnen-with-his-organ",
+      "bandcamp": "2429931799",
+      "text": ["The man who brought the organ and the synthesizer into Ethiopian music. Pure groove, and a story I love."]
+    },
+    {
+      "slug": "bilteez-ester-rada-daniel-zamir-michael-meital-bilteez",
+      "spotify": "3Y9d20G9NpzYThfVpYVXRn",
+      "text": ["Electronics, Jewish music, jazz and the Balkans, and somehow it all sounds like it always belonged together."]
+    },
+    {
+      "slug": "nu-genea-people-of-the-moon",
+      "spotify": "7b2loBX3KU66zmHk4UI30K",
+      "text": ["Afro-Cuban rhythms, highlife guitars and Neapolitan mandolins in one record. Summer, in album form."]
+    },
+    {
+      "slug": "david-maayan-עיניים-פקוחות",
+      "spotify": "1TaQrfyHAAOO3GenLCYDV3",
+      "text": ["Sharp, spicy Hebrew rap over great production. To me, his best album so far."]
+    }
+  ]
+}

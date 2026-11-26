@@ -118,6 +118,8 @@ function fromCustom(a, today) {
     newsletterUrl: a.newsletterUrl || "",
     newsletterIssue: a.newsletterIssue || "",
     pickedDate: a.pickedDate || "",
+    pickedBy: a.pickedBy || "",
+    pickedBySlug: a.pickedBySlug || "",
     firstSeen: a.broadcastDate || a.pickedDate || today,
   }
 }
@@ -209,6 +211,14 @@ function build() {
     const latest = issues.map((i) => i.date).sort().pop()
     pages.push({ loc: "/picks", lastmod: latest })
     for (const issue of issues) pages.push({ loc: `/picks/${issue.slug}`, lastmod: issue.date })
+  }
+  const artistsDir = path.join(ROOT, "data/magazine/artists")
+  const artists = fs.existsSync(artistsDir)
+    ? fs.readdirSync(artistsDir).filter((f) => f.endsWith(".json")).map((f) => readJson(path.join(artistsDir, f), null)).filter((a) => a && !a.hidden)
+    : []
+  if (artists.length) {
+    pages.push({ loc: "/artists", lastmod: artists.map((a) => a.date).sort().pop() })
+    for (const a of artists) pages.push({ loc: `/artists/${a.slug}`, lastmod: a.date })
   }
   const articlesDir = path.join(ROOT, "data/magazine/articles")
   const articles = fs.existsSync(articlesDir)

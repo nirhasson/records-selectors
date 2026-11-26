@@ -915,3 +915,11 @@ footer a:hover {
 
 #explore-button:focus-visible { outline: 2px solid #fff; outline-offset: 16px; }
 .genre-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Phones: the logo already leads home, and short labels keep the menu on one line */
+.nav-short { display: none; }
+@media (max-width: 480px) {
+    .site-nav .nav-discover { display: none; }
+    .nav-full { display: none; }
+    .nav-short { display: inline; }
+}
