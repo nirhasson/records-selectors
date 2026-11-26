@@ -564,7 +564,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (contentId) {
             const iframe = document.createElement('iframe');
             iframe.style.borderRadius = '12px';
-            iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&theme=0&compact=1&tracks=3`;
+            iframe.src = `https://open.spotify.com/embed/${contentType}/${contentId}?utm_source=generator&compact=1&tracks=3`;
             iframe.width = '100%';
             iframe.height = '152';
             iframe.frameBorder = '0';

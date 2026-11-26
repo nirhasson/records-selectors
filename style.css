@@ -1,12 +1,49 @@
+/* Colors. Light by default (easier for reading); dark for devices set to dark mode. */
 :root {
-    --bg: #232326;
-    --ink: #ececec;
-    --muted: #9c9ca4;
-    --line: #3a3a40;
-    --accent: #8281FE;
-    --accent-soft: rgba(130, 129, 254, 0.16);
+    color-scheme: light dark;
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --surface-solid: #FFFFFF;
+    --surface-2: #EDEDF0;
+    --ink: #1C1B1F;
+    --ink-strong: #141317;
+    --text: #2F2E35;
+    --muted: #5E5C66;
+    --faint: #75737C;
+    --line: #E4E4E7;
+    --line-strong: #D2D2D8;
+    --accent: #8281FE;          /* the Find Album button and fills */
+    --accent-ink: #5150E0;      /* purple text and links: deeper so it reads on light */
+    --accent-soft: rgba(130, 129, 254, 0.14);
+    --accent-line: rgba(81, 80, 224, 0.35);
+    --danger: #B42318;
+    --shadow: rgba(20, 20, 30, 0.14);
+    --logo-filter: invert(1);
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
-::selection { background: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #232326;
+        --surface: rgba(255, 255, 255, 0.05);
+        --surface-solid: #2b2b2b;
+        --surface-2: #3a3a40;
+        --ink: #ececec;
+        --ink-strong: #ffffff;
+        --text: #d6d6d6;
+        --muted: #a3a3ab;
+        --faint: #7c7c84;
+        --line: #3a3a40;
+        --line-strong: #555559;
+        --accent-ink: #9d9cff;
+        --accent-soft: rgba(130, 129, 254, 0.16);
+        --accent-line: rgba(201, 200, 255, 0.4);
+        --danger: #f09a9a;
+        --shadow: rgba(0, 0, 0, 0.4);
+        --logo-filter: none;
+    }
+}
+::selection { background: var(--accent-soft); color: var(--ink-strong); }
 
 body {
     font-family: "Jockey One", serif;
@@ -33,6 +70,7 @@ body {
 }
 .logo-link { display: block; line-height: 0; flex-shrink: 0; }
 #logo {
+    filter: var(--logo-filter);
     display: block;
     width: 150px;
     height: auto;
@@ -53,9 +91,9 @@ body {
     white-space: nowrap;
     transition: color 0.2s ease, background-color 0.2s ease;
 }
-.site-nav a:hover { color: #fff; }
+.site-nav a:hover { color: var(--ink-strong); }
 .site-nav a[aria-current="page"] {
-    color: #fff;
+    color: var(--ink-strong);
     background: var(--accent-soft);
 }
 .site-nav a:focus-visible,
@@ -80,8 +118,8 @@ body {
     white-space: nowrap;
     transition: all 0.18s ease;
 }
-#saved-counter:hover { border-color: var(--muted); color: #fff; }
-#saved-counter.has-saves { border-color: rgba(130,129,254,0.5); color: #c9c8ff; }
+#saved-counter:hover { border-color: var(--muted); color: var(--ink-strong); }
+#saved-counter.has-saves { border-color: rgba(130,129,254,0.5); color: var(--accent-ink); }
 #saved-heart { font-size: 1.1em; }
 
 @media (max-width: 768px) {
@@ -109,8 +147,8 @@ body {
 
 #save-button {
     background: transparent;
-    border: 2px solid #555;
-    color: #aaa;
+    border: 2px solid var(--line-strong);
+    color: var(--muted);
     font-family: "Jockey One", serif;
     font-size: 18px;
     padding: 10px 20px;
@@ -119,7 +157,7 @@ body {
     transition: all 0.2s ease;
     margin: 0;
 }
-#save-button:hover { border-color: #8281FE; color: #8281FE; }
+#save-button:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
 
 .share-row {
     display: flex;
@@ -132,8 +170,8 @@ body {
     align-items: center;
     gap: 8px;
     background: transparent;
-    border: 2px solid #555;
-    color: #aaa;
+    border: 2px solid var(--line-strong);
+    color: var(--muted);
     font-family: "Jockey One", serif;
     font-size: 18px;
     padding: 10px 20px;
@@ -143,9 +181,9 @@ body {
     margin: 0;
 }
 #share-button svg { width: 18px; height: 18px; }
-#share-button:hover { border-color: #8281FE; color: #8281FE; }
-#share-button.copied { border-color: #8281FE; color: #8281FE; background: rgba(130,129,254,0.12); }
-#save-button.saved { border-color: #8281FE; color: #8281FE; background: rgba(130,129,254,0.12); }
+#share-button:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
+#share-button.copied { border-color: var(--accent-ink); color: var(--accent-ink); background: rgba(130,129,254,0.12); }
+#save-button.saved { border-color: var(--accent-ink); color: var(--accent-ink); background: rgba(130,129,254,0.12); }
 
 /* Saved albums screen */
 #saved-screen {
@@ -155,7 +193,7 @@ body {
 #saved-screen .saved-heading {
     font-family: "Jockey One", serif;
     font-size: 2em;
-    color: #8281FE;
+    color: var(--accent-ink);
     margin-bottom: 30px;
 }
 
@@ -172,13 +210,13 @@ body {
     display: flex;
     align-items: center;
     gap: 14px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid #444;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 10px;
     padding: 12px 14px;
     transition: border-color 0.15s;
 }
-.saved-card:hover { border-color: #666; }
+.saved-card:hover { border-color: var(--line-strong); }
 
 .saved-card-img {
     width: 64px;
@@ -186,7 +224,7 @@ body {
     object-fit: cover;
     border-radius: 6px;
     flex-shrink: 0;
-    background: #444;
+    background: var(--surface-2);
 }
 
 .saved-card-info {
@@ -194,14 +232,14 @@ body {
     min-width: 0;
 }
 .saved-card-title {
-    color: #fff;
+    color: var(--ink-strong);
     font-size: 0.95em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .saved-card-artist {
-    color: #8281FE;
+    color: var(--accent-ink);
     font-size: 0.82em;
     margin-top: 2px;
     white-space: nowrap;
@@ -209,7 +247,7 @@ body {
     text-overflow: ellipsis;
 }
 .saved-card-meta {
-    color: #777;
+    color: var(--faint);
     font-size: 0.72em;
     margin-top: 3px;
 }
@@ -245,7 +283,7 @@ body {
 .saved-share-btn {
     background: transparent;
     border: 1px solid #8281FE;
-    color: #8281FE;
+    color: var(--accent-ink);
     border-radius: 6px;
     padding: 4px 10px;
     font-family: inherit;
@@ -258,8 +296,8 @@ body {
 .saved-share-btn:hover { background: #8281FE; color: #fff; }
 .saved-remove-btn {
     background: transparent;
-    border: 1px solid #555;
-    color: #777;
+    border: 1px solid var(--line-strong);
+    color: var(--faint);
     border-radius: 6px;
     padding: 4px 10px;
     font-size: 0.75em;
@@ -267,12 +305,12 @@ body {
     margin: 0;
     transition: all 0.15s;
 }
-.saved-remove-btn:hover { border-color: #e55; color: #e55; }
+.saved-remove-btn:hover { border-color: var(--danger); color: var(--danger); }
 
 #back-from-saved {
     background: transparent;
-    border: 2px solid #555;
-    color: #aaa;
+    border: 2px solid var(--line-strong);
+    color: var(--muted);
     font-family: "Jockey One", serif;
     font-size: 16px;
     padding: 10px 24px;
@@ -281,7 +319,7 @@ body {
     margin: 20px 0;
     transition: all 0.2s;
 }
-#back-from-saved:hover { border-color: #8281FE; color: #8281FE; }
+#back-from-saved:hover { border-color: var(--accent-ink); color: var(--accent-ink); }
 
 #main-screen {
     text-align: center;
@@ -302,7 +340,7 @@ body {
     max-width: 640px;
 }
 #main-text h1 {
-    color: #fff;
+    color: var(--ink-strong);
     font-size: clamp(32px, 4.4vw, 48px);
     line-height: 1.05;
     margin: 0 0 10px;
@@ -314,7 +352,7 @@ body {
     margin: 0 0 6px;
 }
 #main-text h3 {
-    color: #d6d6d6;
+    color: var(--text);
     font-size: clamp(15px, 1.6vw, 18px);
     line-height: 1.35;
     margin: 0;
@@ -375,14 +413,14 @@ body {
 
 .genre-pill:hover {
     border-color: var(--muted);
-    color: #fff;
+    color: var(--ink-strong);
     background-color: transparent;
 }
 
 .genre-pill.active {
     background-color: var(--accent-soft);
     border-color: var(--accent);
-    color: #fff;
+    color: var(--ink-strong);
 }
 
 @media (max-width: 768px) {
@@ -392,15 +430,15 @@ body {
 h1 {
     font-family: "Jockey One", serif;
     font-size: 2em;
-    color: #8281FE;
+    color: var(--accent-ink);
 }
 
 h2 {
-    color: #FFFFFF;
+    color: var(--ink-strong);
 }
 
 h3 {
-    color: #FFFFFF;
+    color: var(--ink-strong);
     font-weight: normal;
 }
 
@@ -408,7 +446,7 @@ h3 {
   margin-top: 10px;
   font-size: 0.95em;
   opacity: 0.75;
-  color: #bdbdbd;
+  color: var(--muted);
 
 }
 
@@ -416,7 +454,7 @@ h3 {
     background: var(--accent);
     border: none;
     border-radius: 50%;
-    box-shadow: 0 0 0 11px var(--bg), 0 0 0 12px rgba(130, 129, 254, 0.45), 0 18px 40px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0 11px var(--bg), 0 0 0 12px rgba(130, 129, 254, 0.45), 0 18px 40px var(--shadow);
     width: 176px;
     height: 176px;
     margin: 12px;
@@ -448,7 +486,7 @@ h3 {
 
 
 #result-screen {
-    color: white;
+    color: var(--ink);
     text-align: center;
     padding: 0 16px 40px;
 }
@@ -458,8 +496,8 @@ h3 {
     max-width: 420px;
     margin: 12px auto 0;
     padding: 28px 24px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #444;
+    background: var(--surface);
+    border: 1px solid var(--line);
     border-radius: 16px;
     text-align: center;
 }
@@ -472,31 +510,31 @@ h3 {
     object-fit: cover;
     border-radius: 10px;
     margin: 0 auto 20px;
-    background: #444;
+    background: var(--surface-2);
 }
 
 .result-title {
     font-family: "Jockey One", serif;
-    color: #fff;
+    color: var(--ink-strong);
     font-size: 1.5em;
     line-height: 1.25;
     margin: 0 0 6px;
 }
 
 .result-artist {
-    color: #8281FE;
+    color: var(--accent-ink);
     font-size: 1.05em;
     margin: 0 0 10px;
 }
 
 .result-meta {
-    color: #a8a8a8;
+    color: var(--muted);
     font-size: 0.85em;
     margin: 0 0 4px;
 }
 
 .result-source {
-    color: #a8a8a8;
+    color: var(--muted);
     font-size: 0.78em;
     margin: 0 0 20px;
 }
@@ -512,7 +550,7 @@ h3 {
 
 .listen-on-label {
     margin: 0 0 10px;
-    color: #a8a8a8;
+    color: var(--muted);
     font-size: 0.75em;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -532,7 +570,7 @@ h3 {
     min-width: 72px;
     padding: 6px 4px;
     border-radius: 12px;
-    color: #a8a8a8;
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.2s ease;
 }
@@ -550,7 +588,7 @@ h3 {
 
 .listen-btn:hover,
 .listen-btn:focus-visible {
-    color: #fff;
+    color: var(--ink-strong);
 }
 
 .listen-btn:hover .listen-icon {
@@ -567,7 +605,7 @@ h3 {
 }
 
 .error-message {
-    color: #e88;
+    color: var(--danger);
     font-size: 0.85em;
     max-width: 420px;
     margin: 14px auto 0;
@@ -579,7 +617,7 @@ h3 {
 }
 
 .empty-message {
-    color: #a8a8a8;
+    color: var(--muted);
     margin-top: 40px;
 }
 
@@ -588,7 +626,7 @@ h3 {
     margin: 0;
     background-color: transparent; /* רקע שקוף */
     border: 2px solid #8281FE; /* מסגרת בצבע 8281FE */
-    color: #8281FE; /* צבע טקסט */
+    color: var(--accent-ink); /* צבע טקסט */
     font-size: 18px; /* גודל טקסט */
     padding: 10px 20px; /* ריווח פנימי */
     border-radius: 8px; /* קצוות מעוגלים */
@@ -832,8 +870,8 @@ footer a:hover {
     max-width: 440px;
     margin: 0 auto;
     padding: 18px 18px 16px;
-    background: #2b2b2b;
-    border: 1px solid #4a4a4a;
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
     border-radius: 18px;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
     text-align: left;
@@ -857,7 +895,7 @@ footer a:hover {
 }
 .install-title {
     margin: 2px 0 4px;
-    color: #fff;
+    color: var(--ink-strong);
     font-family: "Jockey One", serif;
     font-size: 1.2em;
     line-height: 1.15;
@@ -870,13 +908,13 @@ footer a:hover {
     font-size: 0.88rem;
     line-height: 1.5;
 }
-.install-steps { margin-top: 8px; color: #fff; }
+.install-steps { margin-top: 8px; color: var(--ink-strong); }
 .install-steps[hidden] { display: none; }
 .install-glyph {
     width: 1.15em;
     height: 1.15em;
     vertical-align: -0.2em;
-    color: #8281FE;
+    color: var(--accent-ink);
 }
 .install-actions {
     grid-column: 1 / -1;
@@ -902,10 +940,10 @@ footer a:hover {
 .install-accept:hover { background: #6d6cf0; border-color: #6d6cf0; }
 .install-dismiss {
     background: transparent;
-    border: 2px solid #555;
-    color: #bdbdbd;
+    border: 2px solid var(--line-strong);
+    color: var(--muted);
 }
-.install-dismiss:hover { border-color: #888; color: #fff; }
+.install-dismiss:hover { border-color: var(--muted); color: var(--ink-strong); }
 .install-accept:active,
 .install-dismiss:active { transform: scale(0.96); }
 
@@ -913,7 +951,7 @@ footer a:hover {
     .install-sheet { transform: none; transition: opacity 200ms ease; }
 }
 
-#explore-button:focus-visible { outline: 2px solid #fff; outline-offset: 16px; }
+#explore-button:focus-visible { outline: 2px solid var(--ink-strong); outline-offset: 16px; }
 .genre-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Phones: the logo already leads home, and short labels keep the menu on one line */
@@ -922,4 +960,9 @@ footer a:hover {
     .site-nav .nav-discover { display: none; }
     .nav-full { display: none; }
     .nav-short { display: inline; }
+}
+
+/* Small details in the app (year, genre, source) in a plain font that stays readable at small sizes */
+.result-meta, .result-source, .listen-on-label, .listen-name, #main-text .hero-sub {
+    font-family: var(--sans);
 }
