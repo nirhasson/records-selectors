@@ -622,3 +622,56 @@
 @media (max-width: 480px) {
     .album-row { grid-template-columns: 1fr; }
 }
+
+/* Light page (the artists' form): black on white for easy reading and typing */
+body.light-page {
+    --bg: #ffffff;
+    --ink: #1b1b1f;
+    --muted: #5c5c66;
+    --line: #dcdce2;
+    background: #fff;
+    color: var(--ink);
+}
+.light-page #logo { filter: invert(1); }
+.light-page .site-nav a { color: #5c5c66; }
+.light-page .site-nav a:hover { color: #1b1b1f; }
+.light-page .crumbs, .light-page .crumbs a { color: #6b6b75; }
+.light-page .site-footer, .light-page footer { color: #5c5c66; }
+.light-page .site-footer a, .light-page footer a { color: #1b1b1f; }
+.light-page .mag-head h1,
+.light-page .page-intro h1,
+.light-page .submit-form h2 { color: #1b1b1f; }
+.light-page .mag-lede p,
+.light-page .page-intro p { color: #2e2e35; }
+.light-page .submit-page { max-width: 640px; }
+.light-page .form-label,
+.light-page .album-row legend { color: #1b1b1f; font-size: 1.1em; }
+.light-page .form-label em,
+.light-page .album-row legend em { color: #6b6b75; }
+.light-page .submit-form input[type="text"],
+.light-page .submit-form input[type="email"],
+.light-page .submit-form input[type="url"],
+.light-page .submit-form textarea {
+    background: #fff;
+    border: 1.5px solid #c9c9d1;
+    color: #1b1b1f;
+    font-size: 1.05rem;
+    padding: 13px 14px;
+}
+.light-page .submit-form input::placeholder,
+.light-page .submit-form textarea::placeholder { color: #8a8a94; }
+.light-page .submit-form input:focus,
+.light-page .submit-form textarea:focus { border-color: #5b5af0; box-shadow: 0 0 0 3px rgba(130, 129, 254, 0.25); }
+.light-page .form-check { color: #1b1b1f; }
+.light-page .seo-page .cta-primary, .light-page .cta-primary { background: #5b5af0; border-color: #5b5af0; color: #fff; }
+.light-page .cta-primary:hover { background: #4847d8; border-color: #4847d8; }
+.light-page .form-label,
+.light-page .album-row legend {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.light-page .form-label em,
+.light-page .album-row legend em { font-weight: 400; }
+.light-page .form-hint,
+.light-page .form-note { color: #55555f; font-size: 0.92rem; }
