@@ -555,3 +555,70 @@
     gap: 10px;
     margin-top: 4px;
 }
+
+/* Share your picks form */
+.submit-form { margin-top: 8px; }
+.submit-form h2 {
+    font-family: "Jockey One", serif;
+    font-weight: normal;
+    color: #fff;
+    font-size: 1.4em;
+    margin: 40px 0 6px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+}
+.form-note, .form-hint {
+    color: var(--muted);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.9rem;
+    margin: 6px 0 14px;
+}
+.form-hint { margin: 0 0 6px; font-size: 0.84rem; }
+.form-field { display: flex; flex-direction: column; gap: 4px; margin: 16px 0; }
+.form-label { color: var(--ink); font-size: 1.02em; }
+.form-label em, .album-row legend em { color: #7c7c84; font-style: normal; font-size: 0.85em; }
+.submit-form input[type="text"],
+.submit-form input[type="email"],
+.submit-form input[type="url"],
+.submit-form textarea {
+    box-sizing: border-box;
+    width: 100%;
+    background: #2c2c30;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: #fff;
+    font: 1rem/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 11px 12px;
+    transition: border-color 0.2s ease;
+}
+.submit-form textarea { resize: vertical; }
+.submit-form input::placeholder, .submit-form textarea::placeholder { color: #75757d; }
+.submit-form input:focus, .submit-form textarea:focus { outline: none; border-color: var(--accent); }
+.album-row {
+    border: 0;
+    margin: 0;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.album-row legend { color: var(--ink); font-size: 1.02em; padding: 0; margin-bottom: 8px; float: left; grid-column: 1 / -1; }
+.album-row textarea { grid-column: 1 / -1; }
+.form-check {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 28px 0 24px;
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    cursor: pointer;
+}
+.form-check input { margin-top: 4px; accent-color: var(--accent); width: 18px; height: 18px; flex: none; }
+.submit-form button.cta-primary { cursor: pointer; font-size: 19px; padding: 12px 28px; }
+.form-honey { position: absolute; left: -9999px; }
+@media (max-width: 480px) {
+    .album-row { grid-template-columns: 1fr; }
+}

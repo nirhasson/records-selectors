@@ -18,13 +18,14 @@ app.get("/api/album", albumHandler)
 
 // Same public pages that vercel.json routes to api/page.js
 const page = (route) => (req, res) => {
-  const { status, html } = renderRoute(route(req.params))
+  const { status, html } = renderRoute(route(req.params, req.query))
   res.status(status).type("html").send(html)
 }
 app.get("/album/:slug", page((p) => ({ type: "album", slug: p.slug })))
 app.get("/genre/:genre", page((p) => ({ type: "genre", genre: p.genre })))
 app.get("/genre/:genre/page/:page", page((p) => ({ type: "genre", genre: p.genre, page: p.page })))
 app.get("/magazine", page(() => ({ type: "magazine" })))
+app.get("/share-your-picks", page((p, q) => ({ type: "submit", sent: q.sent })))
 app.get("/artists", page(() => ({ type: "artists" })))
 app.get("/artists/:slug", page((p) => ({ type: "artists", slug: p.slug })))
 app.get("/magazine/:slug", page((p) => ({ type: "magazine", slug: p.slug })))

@@ -31,6 +31,10 @@
       "destination": "/api/page?type=magazine"
     },
     {
+      "source": "/share-your-picks",
+      "destination": "/api/page?type=submit"
+    },
+    {
       "source": "/artists",
       "destination": "/api/page?type=artists"
     },
